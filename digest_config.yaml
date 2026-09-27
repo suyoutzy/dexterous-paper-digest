@@ -1,0 +1,58 @@
+# Non-secret settings. Credentials live ONLY in GitHub Actions Secrets.
+timezone: Asia/Shanghai
+target_count: 5
+recent_days: 7
+fallback_days: 30
+shortlist_limit: 30
+minimum_score: 65
+arxiv_max_results: 80
+keywords:
+  - dexterous hand
+  - dexterous manipulation
+  - in-hand manipulation
+  - multi-finger
+  - multifinger
+  - robotic hand
+  - anthropomorphic hand
+  - tendon-driven hand
+  - tactile grasping
+  - fingertip sensing
+  - underactuated gripper
+llm:
+  base_url: https://api.deepseek.com
+  api_style: chat_completions
+  ranking_model: deepseek-flash
+  summary_model: deepseek-flash
+  reasoning_effort: low
+  timeout_seconds: 180
+  max_input_chars: 24000
+  ranking_batch_size: 5
+  summary_batch_size: 5
+journals:
+  enabled: true
+  overlap_days: 7
+  backfill_days: 90
+  request_timeout: 25
+  max_pages: 10
+  page_size: 100
+  abstract_enrichment_limit: 10
+  fresh_publication_supplement: true
+  shortlist_slots: 10
+  watchlist:
+    - name: IEEE Transactions on Robotics
+      issns: ["1552-3098"]
+    - name: IEEE Robotics and Automation Letters
+      issns: ["2377-3766"]
+    - name: The International Journal of Robotics Research
+      issns: ["0278-3649", "1741-3176"]
+    - name: Science Robotics
+      issns: ["2470-9476"]
+    - name: Soft Robotics
+      issns: ["2169-5172", "2169-5180"]
+profile: >-
+  检测技术与自动化装置专业的直博新生，研究灵巧末端设计与控制。
+  具备单片机和嵌入式基础，已经组装开源 Aero Hand。
+  重点学习多指手机构和腱绳传动、驱动与传感、标定、位置/力/阻抗控制、
+  触觉反馈、抓取与手内操作、真实硬件实验和仿真到实物迁移。
+  优先选择能够形成基础知识、具体实验步骤和可复现技能的研究。
+  大型 VLA、通用机械臂和遥操作论文仅在直接贡献于灵巧手控制时考虑。

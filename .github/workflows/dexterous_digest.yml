@@ -1,0 +1,192 @@
+name: Dexterous Hand Daily Digest
+
+on:
+  # 00:00 UTC = 08:00 Asia/Shanghai. GitHub may queue scheduled runs.
+  # Enable after verifying this repository and stopping the old workflow:
+  # schedule:
+  #   - cron: '0 0 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "preview仅生成预览；send实际推送飞书"
+        type: choice
+        options: [preview, send]
+        default: preview
+      retry_uncertain:
+        description: "已检查群聊，确认重发未确认卡片（可能重复）"
+        type: boolean
+        default: false
+
+permissions: {}
+concurrency:
+  group: paper-digest-main
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    if: >-
+      github.repository == 'suyoutzy/dexterous-paper-digest' &&
+      github.event.repository.fork == false &&
+      github.ref == 'refs/heads/main' &&
+      (github.event_name == 'schedule' ||
+       (github.event_name == 'workflow_dispatch' &&
+        github.actor == github.repository_owner && github.triggering_actor == github.repository_owner))
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+    outputs:
+      should_send: ${{ steps.prepare.outputs.should_send }}
+      prepared: ${{ steps.prepare.outputs.prepared }}
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12"
+      - name: Read the latest delivery state, including after a re-run
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: main
+          path: source-data
+          persist-credentials: false
+      - name: Install pinned dependencies
+        run: python -m pip install -r requirements-digest.txt
+      - name: Generate the personal digest
+        id: prepare
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          DIGEST_MODE: ${{ inputs.mode || 'send' }}
+          RETRY_UNCERTAIN: ${{ inputs.retry_uncertain }}
+        run: |
+          args=()
+          if [ "$GITHUB_EVENT_NAME" != schedule ] && [ "$DIGEST_MODE" = preview ]; then
+            args+=(--preview)
+          fi
+          if [ "$RETRY_UNCERTAIN" = true ]; then
+            args+=(--retry-uncertain)
+          fi
+          python -m daily_digest prepare --root source-data --output .run "${args[@]}"
+      - name: Save data and preview (contains no credentials or full PDFs)
+        if: steps.prepare.outputs.prepared == 'true'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: digest-plan-${{ github.run_attempt }}
+          path: |
+            .run/state.json
+            .run/pending.json
+            .run/papers_db.json
+            .run/preview.md
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 3
+
+  publish_pending:
+    needs: prepare
+    if: needs.prepare.outputs.should_send == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ github.sha }}
+          path: tools
+          persist-credentials: false
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: main
+          path: repository
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: digest-plan-${{ github.run_attempt }}
+          path: data
+      - name: Persist the delivery intent before sending
+        env:
+          PYTHONPATH: tools
+        run: python -m daily_digest.state --source data --root repository --phase plan --run-id "$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+      - name: Commit allowlisted public data
+        working-directory: repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- docs/papers_db.json .daily/state.json .daily/pending.json
+          git diff --cached --quiet || git commit -m "Save daily digest delivery intent"
+          git push origin HEAD:main
+
+  deliver:
+    needs: [prepare, publish_pending]
+    if: needs.publish_pending.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r requirements-digest.txt
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: digest-plan-${{ github.run_attempt }}
+          path: .run/plan
+      - name: Send Feishu cards once and checkpoint acknowledgements
+        env:
+          FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+          FEISHU_SIGN_SECRET: ${{ secrets.FEISHU_SIGN_SECRET }}
+        run: python -m daily_digest deliver --source .run/plan --output .run/result
+      - name: Save acknowledged or uncertain delivery results
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: digest-result-${{ github.run_attempt }}
+          path: |
+            .run/result/state.json
+            .run/result/pending.json
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 3
+
+  publish_result:
+    needs: [prepare, publish_pending, deliver]
+    if: >-
+      always() && needs.publish_pending.result == 'success' &&
+      needs.deliver.result != 'skipped'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ github.sha }}
+          path: tools
+          persist-credentials: false
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: main
+          path: repository
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: digest-result-${{ github.run_attempt }}
+          path: data
+      - name: Publish only the validated result and daily archive
+        env:
+          PYTHONPATH: tools
+        run: python -m daily_digest.state --source data --root repository --phase result --run-id "$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+      - name: Commit delivery records
+        working-directory: repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- .daily/state.json .daily/pending.json
+          if [ -d docs/digests ]; then git add -- docs/digests; fi
+          git diff --cached --quiet || git commit -m "Record Feishu delivery result"
+          git push origin HEAD:main
