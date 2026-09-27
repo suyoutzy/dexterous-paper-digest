@@ -1,0 +1,13 @@
+{
+  "verified_at_utc": "2026-09-27T13:15:23.973746+00:00",
+  "repository": "suyoutzy/dexterous-paper-digest",
+  "run_id": "36321628979",
+  "preserved_confirmed_papers": 5,
+  "production_last_sent_date": "2026-09-27",
+  "preview_papers": 5,
+  "successful_model_requests": 7,
+  "required_secrets_present": true,
+  "webhook_format_valid": true,
+  "messages_sent": false,
+  "delivery_endpoint_tested": false
+}
