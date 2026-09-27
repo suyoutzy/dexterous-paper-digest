@@ -2,7 +2,7 @@
 
 面向灵巧末端设计与控制学习，每天检索 arXiv 和五本期刊的公开元数据，用 DeepSeek 根据标题、摘要和日期筛选最多五篇，推送到飞书群。
 
-**迁移状态：本地工程已整理，新仓库尚未部署，定时触发暂未开启。**
+**已迁移并启用**：2026-09-27 完成[真实云端预览与写回验证](https://github.com/suyoutzy/dexterous-paper-digest/actions/runs/36321628979)，131 项测试通过，DeepSeek 完成 7 次成功调用。定时为每天北京时间 **08:00**。旧 Fork 的推送已停用，已有发送记录已迁入；本次验证没有向飞书重发日报。
 
 [配置与维护说明](docs/daily_setup.zh.md) · [筛选设置](digest_config.yaml) · [日报归档](docs/digests)
 
@@ -18,7 +18,7 @@
 
 来源为 arXiv API（官方 RSS 和近期缓存备用），以及 Crossref 按 ISSN 监测的 T-RO、RA-L、IJRR、Science Robotics、Soft Robotics；缺摘要时有限尝试 OpenAlex 补充。期刊元数据可能延迟或缺失，不能保证全量覆盖。
 
-摘要评分与总结沿用 `digest_config.yaml` 中的官方 DeepSeek 配置。目标运行时间为北京时间每天 08:00，GitHub 云端执行，无需电脑开机。调度可能延迟；定时模型调用保留闲时检查。
+摘要评分与总结使用 `digest_config.yaml` 中的官方 DeepSeek 配置。运行时间为北京时间每天 08:00，GitHub 云端执行，无需电脑开机。调度可能延迟；定时模型调用保留闲时检查。
 
 三个凭据仅存放在 GitHub Repository Secrets：`LLM_API_KEY`、`FEISHU_WEBHOOK`、`FEISHU_SIGN_SECRET`。手动入口默认 `preview`，不发送；`send` 才实际投递。
 

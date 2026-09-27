@@ -2,9 +2,9 @@ name: Dexterous Hand Daily Digest
 
 on:
   # 00:00 UTC = 08:00 Asia/Shanghai. GitHub may queue scheduled runs.
-  # Enable after verifying this repository and stopping the old workflow:
-  # schedule:
-  #   - cron: '0 0 * * *'
+  # Enabled after cloud preview succeeded and the old workflow was retired.
+  schedule:
+    - cron: '0 0 * * *'
   workflow_dispatch:
     inputs:
       mode:
