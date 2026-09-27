@@ -223,6 +223,28 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
         self.assertEqual(requests["journal_windows"], [30, 90])
         self.assertEqual(len(requests["rank"]), 1)
 
+    def test_fallback_does_not_rescore_journal_version_of_an_evaluated_but_unselected_preprint(self):
+        duplicate = self.journal_record("10.0000/mock-paper-6", "2026-07-15")
+        fresh_work = self.journal_record("10.1109/quota.4", "2026-07-16")
+        ranking = {f"arxiv:2609.{i:05d}": 96 - i for i in range(1, 7)}
+        ranking.update({duplicate["paper_id"]: 100, fresh_work["paper_id"]: 86})
+        result, requests = self.run_prepare(ranking, extended_sources={
+            duplicate["paper_id"]: duplicate, fresh_work["paper_id"]: fresh_work})
+        self.assertEqual(result["paper_ids"][-1], fresh_work["paper_id"])
+        ranked_ids = [p["paper_id"] for request in requests["rank"] for p in request["candidates"]]
+        self.assertNotIn(duplicate["paper_id"], ranked_ids)
+
+    def test_month_precision_is_not_reported_as_definitely_older_than_seven_days(self):
+        journal = self.journal_record("10.1109/quota.5", "2026-09")
+        sources = dict(source_papers(), **{journal["paper_id"]: journal})
+        ranking = {f"arxiv:2609.{i:05d}": 96 - i for i in range(1, 6)}
+        ranking[journal["paper_id"]] = 80
+        result, _requests = self.run_prepare(ranking, sources=sources)
+        self.assertEqual(result["paper_ids"][-1], journal["paper_id"])
+        footer = result["cards"][-1]["card"]["elements"][-1]["elements"][0]["content"]
+        self.assertIn("未能确认为最近7天", footer)
+        self.assertNotIn("超过7天", footer)
+
     def test_below_threshold_items_from_every_ranking_batch_do_not_fill_five_slots(self):
         ranking = {"arxiv:2609.00001": 80, "arxiv:2609.00011": 90}
         result, requests = self.run_prepare(ranking)

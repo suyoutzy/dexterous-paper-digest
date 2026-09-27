@@ -476,9 +476,10 @@ def prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_un
                 db = {key: p for key, p in db.items() if key in before_extended or relevance(p) > 0}
                 journal_count += extra_count
                 source_note += f"额外期刊名额不足，补查最近{journal_window}天期刊。" + extra_note
+                journal_note += extra_note
                 # A temporary exclusion set prevents re-scoring and prevents a
-                # journal version of a selected preprint from filling the extra slot.
-                extra_state = dict(state, sent_ids=list(set(state["sent_ids"]) | {p["paper_id"] for p in ranked}))
+                # journal version of an evaluated preprint from filling the extra slot.
+                extra_state = dict(state, sent_ids=list(set(state["sent_ids"]) | {p["paper_id"] for p in shortlist}))
                 extra_config = dict(config, journals=dict(journal_settings, shortlist_slots=config["shortlist_limit"]))
                 extra_candidates = [p for p in candidates(db, extra_state, today, extra_config,
                     journal_days=journal_window, exclude_ids={p["paper_id"] for p in shortlist}) if is_journal(p)]
@@ -486,10 +487,10 @@ def prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_un
                 extra_candidates = extra_candidates[:extra_limit]
                 evaluated_count += len(extra_candidates)
                 extra_ranked = rank_metadata(client, extra_candidates, config)
+                shortlist.extend(extra_candidates)
                 if extra_ranked:
                     ranked.append(extra_ranked[0])
                     journal_extra = True
-                    shortlist.extend(extra_candidates)
             if ranked:
                 selected_sources = [dict(p, reading_depth="abstract_only" if p.get("abstract") else "title_only",
                     enrichment_note=("采用同 DOI 的 arXiv 预印本摘要；期刊正文未读取。" if p.get("abstract_source") == "arxiv_same_doi" else "仅依据标题、摘要、日期及来源元数据；未读取正文。") if p.get("abstract") else "暂无摘要，仅依据标题与来源元数据；未读取正文。") for p in ranked]
@@ -528,7 +529,7 @@ def prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_un
             note += f"另有{len(extras)}篇相关期刊候选，标题与链接见当天归档。"
         card_note = "来源：arXiv 与五本期刊的公开元数据。仅依据标题/摘要筛选，未读取正文；作者背景未独立核实。"
         if older:
-            card_note += f"有{older}篇为超过7天的补充论文。"
+            card_note += f"有{older}篇未能确认为最近7天发表的补充论文。"
         if extended_selected:
             card_note += f"其中{extended_selected}篇为近{journal_window}天的期刊补充，发表日期超过30天。"
         if not journal_extra:
