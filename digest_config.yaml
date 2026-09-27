@@ -30,6 +30,9 @@ llm:
   summary_batch_size: 5
 journals:
   enabled: true
+  # Only widen publication lookup when the extra journal slot cannot be filled.
+  fallback_days: 90
+  fallback_candidate_limit: 10
   overlap_days: 7
   backfill_days: 90
   request_timeout: 25

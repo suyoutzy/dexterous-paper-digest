@@ -24,6 +24,7 @@ SECRET = "test-sign-secret-not-real"
 
 def sample_paper(number=1):
     return {
+        "source": "arxiv",
         "title": f"Dexterous manipulation {number}",
         "title_zh": f"灵巧手触觉控制方法 {number}",
         "summary": "以触觉估计物体接触状态，并闭环调节抓取力。",
@@ -54,8 +55,49 @@ class BuildCardsTests(unittest.TestCase):
         self.assertIn("标题摘要筛选", rendered)
         self.assertNotIn("Detailed source diagnostics", rendered)
         self.assertIn(archive, rendered)
+        elements = card["card"]["elements"]
+        self.assertEqual(elements[0]["text"]["content"], "今日精选 1 篇。")
+        self.assertEqual(elements[-1]["tag"], "note")
+        self.assertIn("标题摘要筛选", elements[-1]["elements"][0]["content"])
         unsafe = build_cards({"papers": [], "archive_url": "http://127.0.0.1/private"})[0]
         self.assertNotIn("127.0.0.1", json.dumps(unsafe))
+
+    def test_every_paper_has_its_recorded_arxiv_or_full_journal_source(self):
+        journals = (
+            ("IEEE Transactions on Robotics", "T-RO"),
+            ("IEEE Robotics and Automation Letters", "RA-L"),
+            ("The International Journal of Robotics Research", "IJRR"),
+            ("Science Robotics", "Sci. Robot."),
+            ("Soft Robotics", "Soft Robot."),
+        )
+        arxiv_paper = sample_paper()
+        # A self-reported journal reference does not turn an arXiv record into
+        # an independently retrieved journal record.
+        arxiv_paper["journal_ref"] = "Science Robotics 2026"
+        papers = [arxiv_paper]
+        for index, (journal, _abbreviation) in enumerate(journals, start=2):
+            paper = sample_paper(index)
+            paper.update(source="crossref", journal_name=journal, journal_ref=journal)
+            papers.append(paper)
+        cards = build_cards({"papers": papers})
+        source_elements = [element for card in cards for element in card["card"]["elements"]
+                           if element.get("text", {}).get("content", "").startswith("来源：")]
+        self.assertEqual([element["text"]["content"] for element in source_elements],
+                         ["来源：arXiv"] + [f"来源：{name}（{abbr}）" for name, abbr in journals])
+        self.assertTrue(all(element["text"]["tag"] == "plain_text" for element in source_elements))
+
+    def test_unknown_journal_is_not_mislabelled_as_arxiv_or_given_an_invented_abbreviation(self):
+        for journal, expected in (
+            ("Example Research Journal", "来源：Example Research Journal"),
+            ("", "来源：期刊（Crossref 登记，未提供刊名）"),
+        ):
+            with self.subTest(journal=journal):
+                paper = sample_paper()
+                paper.update(source="crossref", journal_name=journal)
+                card = build_cards({"papers": [paper]})[0]
+                source = next(element for element in card["card"]["elements"]
+                              if element.get("text", {}).get("content", "").startswith("来源："))
+                self.assertEqual(source["text"]["content"], expected)
 
     def test_five_normal_papers_fit_one_card_with_expected_links_and_details(self):
         papers = [sample_paper(number) for number in range(1, 6)]
@@ -87,6 +129,30 @@ class BuildCardsTests(unittest.TestCase):
                     all_titles.append(element["text"]["content"].split("\n")[0])
         self.assertEqual(len(all_titles), 5)
         self.assertEqual([title.split(".")[0] for title in all_titles], ["1", "2", "3", "4", "5"])
+
+    def test_split_digest_has_source_notes_and_archive_only_at_the_very_end(self):
+        papers = []
+        for number in range(1, 6):
+            paper = sample_paper(number)
+            for field in ("summary", "why_for_you", "learning_action", "evidence", "reading_depth"):
+                paper[field] = "灵" * 1_500
+            papers.append(paper)
+        note = "来源：arXiv 与五本期刊。未读取正文。" + "来源说明" * 130
+        archive = "https://github.com/example/dexterous-paper-digest/blob/main/docs/digests/2026-09-27.md"
+        cards = build_cards({"papers": papers, "card_note": note, "archive_url": archive})
+        self.assertGreater(len(cards), 1)
+        for card in cards:
+            self.assertLessEqual(byte_count(card), MAX_CARD_BYTES)
+        for card in cards[:-1]:
+            rendered = json.dumps(card, ensure_ascii=False)
+            self.assertNotIn("未读取正文", rendered)
+            self.assertNotIn("按课题关联", rendered)
+            self.assertNotIn(archive, rendered)
+        final_elements = cards[-1]["card"]["elements"]
+        self.assertEqual(final_elements[-1]["tag"], "note")
+        self.assertEqual(final_elements[-1]["elements"][0]["tag"], "plain_text")
+        self.assertIn("未读取正文", final_elements[-1]["elements"][0]["content"])
+        self.assertIn(archive, json.dumps(final_elements[-2]))
 
     def test_unsafe_links_are_not_buttons_and_text_cannot_generate_links_or_mentions(self):
         paper = sample_paper()

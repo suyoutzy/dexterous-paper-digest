@@ -1,0 +1,159 @@
+name: Digest content preview verification
+
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/verify_digest_content.yml]
+
+permissions: {}
+concurrency:
+  group: digest-content-validation
+  cancel-in-progress: false
+
+jobs:
+  preview:
+    if: >-
+      github.repository == 'suyoutzy/dexterous-paper-digest' &&
+      github.event.repository.fork == false &&
+      github.actor == github.repository_owner
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12"
+      - name: Verify required credential names and local webhook format
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+          FEISHU_SIGN_SECRET: ${{ secrets.FEISHU_SIGN_SECRET }}
+        run: |
+          python - <<'PY'
+          import os, re
+          from urllib.parse import urlsplit
+          for name in ("LLM_API_KEY", "FEISHU_WEBHOOK", "FEISHU_SIGN_SECRET"):
+              if not os.environ.get(name, "").strip():
+                  raise SystemExit("Missing repository Secret: " + name)
+          target = urlsplit(os.environ["FEISHU_WEBHOOK"])
+          if not (target.scheme == "https" and target.hostname in {"open.feishu.cn", "open.larksuite.com"}
+              and target.port in {None, 443} and target.username is None and target.password is None
+              and not target.query and not target.fragment
+              and re.fullmatch(r"/open-apis/bot/v2/hook/[A-Za-z0-9-]{1,128}", target.path)):
+              raise SystemExit("FEISHU_WEBHOOK format is invalid; value is not logged.")
+          print("All three required Secrets are present; webhook format is valid. No message sent.")
+          PY
+      - name: Install pinned dependencies
+        run: python -m pip install -r requirements-digest.txt
+      - name: Verify code with mocked remote services
+        run: python -m unittest discover -s tests -q
+      - name: Prepare temporary preview state while keeping all confirmed paper IDs
+        run: |
+          python - <<'PY'
+          import json, os, shutil
+          from pathlib import Path
+          temporary = Path(os.environ["RUNNER_TEMP"]) / "digest-preview-source"
+          temporary.mkdir()
+          for directory in (".daily", "docs"):
+              shutil.copytree(directory, temporary / directory)
+          state_path = temporary / ".daily/state.json"
+          state = json.loads(state_path.read_text())
+          pending = json.loads((temporary / ".daily/pending.json").read_text())
+          if pending["status"] != "complete":
+              raise SystemExit("Preview requires reconciled delivery state.")
+          state["last_sent_date"] = ""
+          state_path.write_text(json.dumps(state))
+          print("Only the temporary preview date marker was cleared; confirmed IDs and production state are preserved.")
+          PY
+      - name: Run live metadata and model preview without sending
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+        run: python -m daily_digest prepare --root "$RUNNER_TEMP/digest-preview-source" --output .run --preview
+      - name: Validate preview and create a public verification receipt
+        run: |
+          python - <<'PY'
+          import json, os
+          from datetime import datetime, timezone
+          from pathlib import Path
+          original = json.loads(Path(".daily/state.json").read_text())
+          pending = json.loads(Path(".run/pending.json").read_text())
+          if set(original["sent_ids"]) & set(pending["paper_ids"]):
+              raise SystemExit("Preview incorrectly repeats previously confirmed paper IDs.")
+          from daily_digest.pipeline import is_journal
+          database = json.loads(Path(".run/papers_db.json").read_text())
+          selected = [database[key] for key in pending["paper_ids"]]
+          if len(selected) != 5 or not is_journal(selected[-1]):
+              raise SystemExit("Preview must contain five papers with a separate journal paper in the fifth slot.")
+          if len(set(pending["paper_ids"])) != 5:
+              raise SystemExit("Preview contains a duplicate paper.")
+          cards = pending["cards"]
+          source_labels = [element["text"]["content"] for card in cards for element in card["card"]["elements"]
+              if element.get("tag") == "div" and element.get("text", {}).get("content", "").startswith("来源：")]
+          if len(source_labels) != 5 or cards[0]["card"]["elements"][0]["text"]["content"] != "今日精选 5 篇。":
+              raise SystemExit("Paper provenance or concise card introduction is missing.")
+          if cards[-1]["card"]["elements"][-1].get("tag") != "note":
+              raise SystemExit("Overall source notes must be at the end of the final card.")
+          if any(element.get("tag") == "note" for card in cards[:-1] for element in card["card"]["elements"]):
+              raise SystemExit("Overall notes must only appear in the final card.")
+          print("Verified real preview sources: " + json.dumps(source_labels, ensure_ascii=False))
+          requests = pending.get("usage", {}).get("requests", 0)
+          if not pending["paper_ids"] or not requests:
+              raise SystemExit("Preview must demonstrate a real successful model call.")
+          receipt = {"verified_at_utc": datetime.now(timezone.utc).isoformat(),
+              "repository": os.environ["GITHUB_REPOSITORY"], "run_id": os.environ["GITHUB_RUN_ID"],
+              "preserved_confirmed_papers": len(original["sent_ids"]),
+              "production_last_sent_date": original["last_sent_date"],
+              "preview_papers": len(pending["paper_ids"]), "successful_model_requests": requests,
+              "selection_rule": "best_four_plus_extra_journal", "journal_papers": sum(is_journal(p) for p in selected),
+              "extra_journal_id": selected[-1]["paper_id"], "overall_notes_at_end": True,
+              "required_secrets_present": True, "webhook_format_valid": True,
+              "messages_sent": False, "delivery_endpoint_tested": False}
+          Path(".run/validation.json").write_text(json.dumps(receipt, indent=2) + "\n")
+          print(json.dumps(receipt))
+          PY
+      - name: Save metadata preview and validation receipt
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: digest-content-preview
+          path: |
+            .run/preview.md
+            .run/pending.json
+            .run/papers_db.json
+            .run/validation.json
+          retention-days: 3
+          if-no-files-found: error
+
+  persist_verification:
+    needs: preview
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: main
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: digest-content-preview
+          path: verification-data
+      - name: Persist only the checked verification receipt
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          source = Path("verification-data/validation.json")
+          receipt = json.loads(source.read_text())
+          if receipt["run_id"] != os.environ["GITHUB_RUN_ID"] or receipt["messages_sent"] is not False:
+              raise SystemExit("Invalid content verification receipt.")
+          Path(".daily/validation.json").write_text(json.dumps(receipt, indent=2) + "\n")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- .daily/validation.json
+          git diff --cached --quiet || git commit -m "Record verified journal quota and card format"
+          git push origin HEAD:main

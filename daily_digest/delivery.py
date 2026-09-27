@@ -24,6 +24,13 @@ SIGNATURE_RESERVE_BYTES = 2_000
 MAX_CARD_BYTES = MAX_MESSAGE_BYTES - SIGNATURE_RESERVE_BYTES
 _WEBHOOK_HOSTS = {"open.feishu.cn", "open.larksuite.com"}
 _WEBHOOK_PATH = re.compile(r"/open-apis/bot/v2/hook/[A-Za-z0-9-]{1,128}\Z")
+_JOURNAL_ABBREVIATIONS = {
+    "IEEE Transactions on Robotics": "T-RO",
+    "IEEE Robotics and Automation Letters": "RA-L",
+    "The International Journal of Robotics Research": "IJRR",
+    "Science Robotics": "Sci. Robot.",
+    "Soft Robotics": "Soft Robot.",
+}
 
 
 class DeliveryError(RuntimeError):
@@ -95,6 +102,19 @@ def _plain(content: str) -> dict:
     return {"tag": "div", "text": {"tag": "plain_text", "content": content}}
 
 
+def _source_label(paper: dict) -> str:
+    """Display recorded provenance without guessing a journal or its abbreviation."""
+    if paper.get("source") == "arxiv":
+        return "arXiv"
+    journal = _text(paper.get("journal_name"), 220)
+    if paper.get("source") == "crossref":
+        if not journal:
+            return "期刊（Crossref 登记，未提供刊名）"
+        abbreviation = _JOURNAL_ABBREVIATIONS.get(journal)
+        return f"{journal}（{abbreviation}）" if abbreviation else journal
+    return f"{journal}（来源未核实）" if journal else "来源未提供"
+
+
 def _paper_elements(paper: dict, number: int) -> list[dict]:
     title = _text(paper.get("title"), 220, "未提供标题")
     title_zh = _text(paper.get("title_zh"), 220)
@@ -103,6 +123,7 @@ def _paper_elements(paper: dict, number: int) -> list[dict]:
         heading += f"\n{title}"
     blocks = [
         _plain(heading),
+        _plain("来源：" + _source_label(paper)),
         _plain(("公告日期：" if paper.get("date_basis") == "rss_announcement" else ("登记发表日期：" if paper.get("source") == "crossref" else "首次发布日期："))
             + _text(paper.get("publish_date"), 32, "来源未提供")
             + ("（仅精确到月）" if paper.get("date_precision") == "month" else "")
@@ -113,9 +134,12 @@ def _paper_elements(paper: dict, number: int) -> list[dict]:
         _plain("依据：" + _text(paper.get("evidence"), 360, "当前保存的摘要信息。")),
         _plain("阅读深度：" + _text(paper.get("reading_depth"), 160, "摘要初筛")),
     ]
-    if paper.get("journal_ref"):
+    if paper.get("journal_ref") and not (
+        paper.get("source") == "crossref"
+        and paper["journal_ref"] == paper.get("journal_name")
+    ):
         label = "期刊登记（Crossref）：" if paper.get("source") == "crossref" else "发表登记（来源自报，未独立核实）："
-        blocks.insert(2, _plain(label + _text(paper["journal_ref"], 220)))
+        blocks.insert(3, _plain(label + _text(paper["journal_ref"], 220)))
     links = []
     seen = set()
     for label, fields in (
@@ -135,7 +159,7 @@ def _paper_elements(paper: dict, number: int) -> list[dict]:
     return blocks
 
 
-def _card(date: str, paper_blocks: list[list[dict]], intro: str, part: str = "", model: str = "未登记", archive_url: str | None = None) -> dict:
+def _card(date: str, paper_blocks: list[list[dict]], intro: str, part: str = "", footer: str = "", archive_url: str | None = None) -> dict:
     elements = [_plain(intro)]
     for index, blocks in enumerate(paper_blocks):
         if index:
@@ -144,10 +168,10 @@ def _card(date: str, paper_blocks: list[list[dict]], intro: str, part: str = "",
     if archive_url:
         elements.append({"tag": "action", "actions": [{"tag": "button", "type": "default", "url": archive_url,
             "text": {"tag": "plain_text", "content": "日报归档 / 其他期刊候选"}}]})
-    elements.append({
-        "tag": "note", "elements": [{"tag": "plain_text", "content":
-            "模型：" + model + " · 研究方向：灵巧末端设计与控制"}],
-    })
+    if footer:
+        elements.append({
+            "tag": "note", "elements": [{"tag": "plain_text", "content": footer}],
+        })
     return {
         "msg_type": "interactive",
         "card": {
@@ -175,27 +199,30 @@ def build_cards(digest: dict) -> list[dict]:
     date = _text(digest.get("date"), 40, "日期未提供")
     model = _text(digest.get("model"), 80, "未登记")
     archive_url = _safe_link(digest.get("archive_url"))
-    intro = f"今日精选 {len(papers)} 篇，按课题关联、摘要方法与学习价值推荐。"
+    intro = f"今日精选 {len(papers)} 篇。"
     note = _text(digest.get("card_note", digest.get("note")), 600)
+    footer = "按课题关联、摘要方法与学习价值推荐。"
     if note:
-        intro += "\n" + note
+        footer += "\n" + note
+    footer += "\n模型：" + model + " · 研究方向：灵巧末端设计与控制"
     if not papers:
         intro += "\n今天没有适合的新论文，后续继续检索。"
-        return [_card(date, [], intro, model=model, archive_url=archive_url)]
+        return [_card(date, [], intro, footer=footer, archive_url=archive_url)]
 
     groups: list[list[list[dict]]] = []
     current: list[list[dict]] = []
-    # Reserve room for the eventual split-card index before packing.
+    # Reserve the complete final footer and split-card index while packing so
+    # adding source notes to the final card can never exceed its byte limit.
     placeholder = " · 第 999/999 条"
     for index, paper in enumerate(papers, start=1):
         blocks = _paper_elements(paper, index)
-        candidate = _card(date, current + [blocks], intro, placeholder, model, archive_url)
+        candidate = _card(date, current + [blocks], intro, placeholder, footer, archive_url)
         if len(_json_bytes(candidate)) > MAX_CARD_BYTES:
             if not current:
                 raise DeliveryError("A paper card exceeds the configured message size limit.")
             groups.append(current)
             current = [blocks]
-            if len(_json_bytes(_card(date, current, intro, placeholder, model, archive_url))) > MAX_CARD_BYTES:
+            if len(_json_bytes(_card(date, current, intro, placeholder, footer, archive_url))) > MAX_CARD_BYTES:
                 raise DeliveryError("A paper card exceeds the configured message size limit.")
         else:
             current.append(blocks)
@@ -203,7 +230,8 @@ def build_cards(digest: dict) -> list[dict]:
         groups.append(current)
     count = len(groups)
     result = [
-        _card(date, blocks, intro, f" · 第 {index}/{count} 条" if count > 1 else "", model, archive_url)
+        _card(date, blocks, intro, f" · 第 {index}/{count} 条" if count > 1 else "",
+              footer if index == count else "", archive_url if index == count else None)
         for index, blocks in enumerate(groups, start=1)
     ]
     if any(len(_json_bytes(card)) > MAX_CARD_BYTES for card in result):

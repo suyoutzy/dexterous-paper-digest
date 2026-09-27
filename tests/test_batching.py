@@ -73,7 +73,7 @@ def source_papers():
 
 
 class PrepareBatchIntegrationTests(unittest.TestCase):
-    def run_prepare(self, ranking_scores, summary_transform=None):
+    def run_prepare(self, ranking_scores, summary_transform=None, sources=None, extended_sources=None):
         config = {
             "timezone": "Asia/Shanghai", "target_count": 5, "recent_days": 7,
             "fallback_days": 30, "shortlist_limit": 30,
@@ -86,8 +86,16 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
                 "max_input_chars": 24_000, "ranking_batch_size": 5, "summary_batch_size": 5,
             },
         }
-        requests = {"rank": [], "summary": []}
-        db = source_papers()
+        requests = {"rank": [], "summary": [], "journal_windows": []}
+        db = copy.deepcopy(source_papers() if sources is None else sources)
+        source_lookup = dict(db, **(extended_sources or {}))
+        config["journals"] = {"enabled": extended_sources is not None or any(p.get("source") == "crossref" for p in db.values()),
+            "fallback_days": 90, "fallback_candidate_limit": 10}
+
+        def collect_journal_metadata(current, _today, settings):
+            requests["journal_windows"].append(settings["fallback_days"])
+            extra = extended_sources or {} if settings["fallback_days"] == 90 else {}
+            return dict(current, **extra), len(extra), "模拟期刊检索。"
         client = Mock()
         client.usage = {"input_tokens": 0, "output_tokens": 0}
 
@@ -132,6 +140,7 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
                 patch("daily_digest.pipeline.datetime") as clock,
                 patch("daily_digest.pipeline.ZoneInfo", return_value=timezone(timedelta(hours=8))),
                 patch("daily_digest.pipeline.collect", return_value=(db, len(db))),
+                patch("daily_digest.pipeline.collect_journals", side_effect=collect_journal_metadata),
                 patch("daily_digest.pipeline.LLMClient", return_value=client),
                 patch("daily_digest.pipeline.requests.get", side_effect=AssertionError(
                     "The abstract-only pipeline must not request PDFs or Hugging Face metadata."
@@ -142,26 +151,77 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
                 external_get.assert_not_called()
             result = load_json(output / "pending.json")
         rank_ids = [p["paper_id"] for request in requests["rank"] for p in request["candidates"]]
-        self.assertEqual(rank_ids, list(db))
-        self.assertEqual([len(request["candidates"]) for request in requests["rank"]], [5, 5, 1])
+        self.assertEqual(len(rank_ids), len(set(rank_ids)), "No candidate may be scored twice during journal fallback.")
+        if sources is None and extended_sources is None:
+            self.assertEqual(rank_ids, list(db))
+            self.assertEqual([len(request["candidates"]) for request in requests["rank"]], [5, 5, 1])
         for stage in ("rank", "summary"):
             for request in requests[stage]:
                 for item in request["candidates"]:
-                    source = db[item["paper_id"]]
+                    source = source_lookup[item["paper_id"]]
                     for field in ("abstract", "authors", "affiliations", "journal_ref", "doi", "publish_date"):
                         self.assertEqual(item[field], source[field])
         self.assertIn("仅依据标题/摘要与元数据，未读取正文", result["report"])
         return result, requests
 
-    def test_all_batch_scores_choose_top_five_before_only_those_abstracts_are_summarized(self):
+    def test_without_a_journal_only_best_four_are_summarized_and_slot_is_not_filled_by_preprint(self):
         ranking = {f"arxiv:2609.{index:05d}": score for index, score in enumerate((70, 95, 80, 99, 65, 90), start=1)}
         result, requests = self.run_prepare(ranking)
-        self.assertEqual(result["paper_ids"], [f"arxiv:2609.{index:05d}" for index in (4, 2, 6, 3, 1)])
+        self.assertEqual(result["paper_ids"], [f"arxiv:2609.{index:05d}" for index in (4, 2, 6, 3)])
         self.assertEqual(len(requests["summary"]), 1)
         summary_ids = [p["paper_id"] for request in requests["summary"] for p in request["candidates"]]
         self.assertEqual(summary_ids, result["paper_ids"])
         self.assertNotIn("arxiv:2609.00005", summary_ids)
         self.assertEqual(len(summary_ids), len(set(summary_ids)))
+        self.assertIn("期刊保留名额暂缺", result["report"])
+
+    def journal_record(self, doi, published="2026-09-25"):
+        source = source_papers()["arxiv:2609.00001"]
+        return dict(source, paper_id="doi:" + doi, doi=doi, arxiv_id="", source="crossref",
+            title="Dexterous hand tactile calibration study " + doi,
+            authors="Journal Author " + doi, journal_name="IEEE Robotics and Automation Letters",
+            journal_ref="IEEE Robotics and Automation Letters", publish_date=published)
+
+    def test_best_four_are_preserved_and_a_separate_journal_is_always_fifth(self):
+        journal = self.journal_record("10.1109/quota.1")
+        sources = dict(source_papers(), **{journal["paper_id"]: journal})
+        ranking = {f"arxiv:2609.{i:05d}": score for i, score in enumerate((70, 95, 80, 99, 65, 90), 1)}
+        ranking[journal["paper_id"]] = 72
+        result, requests = self.run_prepare(ranking, sources=sources)
+        self.assertEqual(result["paper_ids"], ["arxiv:2609.00004", "arxiv:2609.00002", "arxiv:2609.00006",
+            "arxiv:2609.00003", journal["paper_id"]])
+        self.assertEqual(requests["journal_windows"], [30])
+
+    def test_missing_extra_journal_queries_ninety_days_then_scores_only_new_journal_candidates(self):
+        first = self.journal_record("10.1109/quota.1")
+        older = self.journal_record("10.1109/quota.2", "2026-07-15")
+        sources = dict(source_papers(), **{first["paper_id"]: first})
+        ranking = {"arxiv:2609.00001": 99, first["paper_id"]: 98, "arxiv:2609.00002": 97,
+            "arxiv:2609.00003": 96, older["paper_id"]: 100}
+        result, requests = self.run_prepare(ranking, sources=sources, extended_sources={older["paper_id"]: older})
+        self.assertEqual(result["paper_ids"], ["arxiv:2609.00001", first["paper_id"], "arxiv:2609.00002",
+            "arxiv:2609.00003", older["paper_id"]])
+        self.assertEqual(requests["journal_windows"], [30, 90])
+        self.assertEqual([p["paper_id"] for p in requests["rank"][-1]["candidates"]], [older["paper_id"]])
+        self.assertIn("最近90天", result["report"])
+        self.assertEqual([p["paper_id"] for p in requests["summary"][0]["candidates"]], result["paper_ids"])
+
+    def test_fallback_cannot_add_journal_version_of_an_already_selected_preprint(self):
+        duplicate = self.journal_record("10.0000/mock-paper-1", "2026-07-15")
+        ranking = {f"arxiv:2609.{i:05d}": 95 - i for i in range(1, 7)}
+        ranking[duplicate["paper_id"]] = 100
+        result, requests = self.run_prepare(ranking, extended_sources={duplicate["paper_id"]: duplicate})
+        self.assertEqual(len(result["paper_ids"]), 4)
+        self.assertNotIn(duplicate["paper_id"], result["paper_ids"])
+        self.assertEqual(requests["journal_windows"], [30, 90])
+
+    def test_when_thirty_days_have_no_candidates_an_older_journal_can_still_be_recommended(self):
+        older = self.journal_record("10.1109/quota.3", "2026-07-15")
+        result, requests = self.run_prepare({older["paper_id"]: 86}, sources={},
+            extended_sources={older["paper_id"]: older})
+        self.assertEqual(result["paper_ids"], [older["paper_id"]])
+        self.assertEqual(requests["journal_windows"], [30, 90])
+        self.assertEqual(len(requests["rank"]), 1)
 
     def test_below_threshold_items_from_every_ranking_batch_do_not_fill_five_slots(self):
         ranking = {"arxiv:2609.00001": 80, "arxiv:2609.00011": 90}

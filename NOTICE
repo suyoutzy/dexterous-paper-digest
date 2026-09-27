@@ -1,15 +1,14 @@
 Dexterous Hand Paper Digest
 
-This standalone project was prepared from suyoutzy/robotics_paper_daily,
-which is a fork of cold-young/robotics_paper_daily:
-https://github.com/cold-young/robotics_paper_daily
+Project: https://github.com/suyoutzy/dexterous-paper-digest
 
-The upstream Apache License, Version 2.0 is retained in LICENSE.
-The standalone daily_digest implementation, Feishu delivery workflow,
-metadata-only journal collection, and migration changes were added for
-this project's dexterous end-effector research digest.
+This project provides a daily research digest for dexterous end-effector
+design and control. It collects public scholarly metadata, scores titles
+and abstracts with DeepSeek, and delivers selected papers to Feishu.
 
-The migration preserves the user's confirmed digest and deduplication
-metadata. It excludes the upstream's legacy scripts and historical
-paper-index website. The upstream's subsequent daily results are not
-synchronized or consumed by this workflow.
+The daily selection consists of up to four highest-ranked qualifying
+papers and one additional qualifying journal paper. It stores metadata
+and delivery records without downloading PDFs or full-text content.
+
+Runtime entry point: python -m daily_digest
+License: Apache License, Version 2.0. See LICENSE.

@@ -1,4 +1,4 @@
-"""Archive links must follow deployment and never expose a stale fork link."""
+"""Archive links must follow the current deployment repository."""
 import os
 import unittest
 from datetime import date

@@ -54,9 +54,12 @@ def relevance(paper: dict) -> int:
     return 20 * min(identity, 3) + 20 * direct_title + 5 * min(technical, 4) + 5 * bool(paper.get("code_url"))
 
 
-def candidates(db: dict, state: dict, today: date, config: dict) -> list[dict]:
+def candidates(db: dict, state: dict, today: date, config: dict, *, journal_days: int | None = None,
+               exclude_ids: set[str] | None = None) -> list[dict]:
     sent = set(state["sent_ids"])
+    excluded = exclude_ids or set()
     earliest = today - timedelta(days=config["fallback_days"])
+    journal_earliest = today - timedelta(days=journal_days or config["fallback_days"])
     recent = today - timedelta(days=config["recent_days"])
     eligible = []
     sent_dois = {normalize_doi(db[key].get("doi", "")) for key in sent if key in db}
@@ -66,14 +69,14 @@ def candidates(db: dict, state: dict, today: date, config: dict) -> list[dict]:
         doi = normalize_doi(paper.get("doi", ""))
         journal = paper.get("source") == "crossref" and doi and identifier == f"doi:{doi}"
         arxiv = isinstance(arxiv_id, str) and ARXIV_ID.fullmatch(arxiv_id) and identifier == f"arxiv:{arxiv_id}"
-        if identifier in sent or not (journal or arxiv) or (doi and doi in sent_dois) or _identity(paper) in sent_titles:
+        if identifier in sent or identifier in excluded or not (journal or arxiv) or (doi and doi in sent_dois) or _identity(paper) in sent_titles:
             continue
         try:
             published, latest = date_span(paper.get("publish_date", ""))
         except (ValueError, TypeError):
             continue
         score = relevance(paper)
-        if latest < earliest or published > today or score == 0:
+        if latest < (journal_earliest if journal else earliest) or published > today or score == 0:
             continue
         item = dict(paper, paper_id=identifier, rule_score=score, is_recent=published >= recent)
         # Canonical links come from validated IDs, never model prose.
@@ -223,6 +226,22 @@ def ranked_papers(result: dict, papers: list[dict], minimum: int) -> list[dict]:
     return sorted(output, key=lambda p: p["ranking_score"], reverse=True)
 
 
+def is_journal(paper: dict) -> bool:
+    doi = normalize_doi(paper.get("doi", ""))
+    return bool(paper.get("source") == "crossref" and doi and paper.get("paper_id") == f"doi:{doi}")
+
+
+def select_recommendations(ranked: list[dict], target_count: int) -> tuple[list[dict], bool]:
+    """Keep the best general papers, then append one different journal paper."""
+    general = ranked[:max(0, target_count - 1)]
+    ids = {p["paper_id"] for p in general}
+    dois = {normalize_doi(p.get("doi", "")) for p in general} - {None, ""}
+    titles = {_identity(p) for p in general} - {""}
+    extra = next((p for p in ranked if is_journal(p) and p["paper_id"] not in ids
+        and normalize_doi(p.get("doi", "")) not in dois and _identity(p) not in titles), None)
+    return general + ([extra] if extra else []), extra is not None
+
+
 def final_papers(result: dict, evidence: list[dict], config: dict) -> list[dict]:
     lookup = {p["paper_id"]: p for p in evidence}
     rows = result.get("papers")
@@ -314,6 +333,28 @@ def input_groups(items: list[dict], context: dict, max_chars: int, max_items: in
     return groups
 
 
+METADATA_FIELDS = ("paper_id", "title", "abstract", "abstract_source", "authors", "affiliations", "journal_ref",
+    "journal_name", "source", "publication_status", "doi", "publish_date", "date_basis", "date_precision", "code_url", "is_recent")
+
+
+def rank_metadata(client: LLMClient, papers: list[dict], config: dict) -> list[dict]:
+    if not papers:
+        return []
+    settings = config["llm"]
+    briefs = [{k: p.get(k, "") for k in METADATA_FIELDS} for p in papers]
+    context = {"profile": config["profile"], "required_count": settings["ranking_batch_size"]}
+    groups = input_groups(briefs, context, settings["max_input_chars"], settings["ranking_batch_size"])
+    print(f"Ranking metadata with {settings['ranking_model']} in {len(groups)} bounded batches.", flush=True)
+    all_rankings = []
+    for index, group in enumerate(groups, 1):
+        print(f"Ranking batch {index}/{len(groups)}: {len(group)} papers.", flush=True)
+        result = client.generate_json(RANK_PROMPT,
+            json.dumps(dict(context, required_count=len(group), candidates=group), ensure_ascii=False), max_output_tokens=6144)
+        ranked_papers(result, group, config["minimum_score"])
+        all_rankings.extend(result["rankings"])
+    return ranked_papers({"rankings": all_rankings}, papers, config["minimum_score"])
+
+
 def report(digest: dict) -> str:
     lines = [f"# 灵巧手论文日报 · {digest['date']}", "", digest.get("note", ""), "",
         f"模型：{digest.get('model', '未登记')}；分数是针对个人学习价值的推荐依据，非学术质量认证。", ""]
@@ -356,7 +397,7 @@ def attempt_id() -> str:
 
 
 def archive_link(today: date) -> str:
-    """Use the deploying repository, never the original fork's address."""
+    """Link the digest archive in the currently deploying repository."""
     repository = os.environ.get("GITHUB_REPOSITORY", "")
     if not repository:
         return ""  # Local previews have no published archive to link to.
@@ -404,36 +445,51 @@ def prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_un
                 source_note = "arXiv API/RSS 本次刷新失败；arXiv 部分使用已保存的最近30天缓存，未确认今日 arXiv 更新。"
         before_journals = set(db)
         db, journal_count, journal_note = collect_journals(db, today, config)
-        # Keep the inherited database and all newly discovered relevant papers;
+        # Keep existing metadata and all newly discovered relevant papers;
         # unrelated journal metadata does not accumulate in the public digest.
         db = {key: p for key, p in db.items() if key in before_journals or relevance(p) > 0}
         source_note += journal_note
         shortlist = candidates(db, state, today, config)
-        if sources_unavailable and not shortlist and not journal_count:
-            raise PipelineError("Paper sources unavailable and no recent unsent cache exists; no empty digest will be sent.")
         print(f"Source refresh: arXiv {fetched}, journal metadata {journal_count}; {len(shortlist)} relevant, unsent candidates.", flush=True)
         selected, usage = [], {}
-        if shortlist:
+        journal_settings = config.get("journals", {})
+        journal_extra, expanded = False, False
+        evaluated_count = len(shortlist)
+        journal_window = min(365, max(config["fallback_days"], int(journal_settings.get("fallback_days", 90))))
+        if shortlist or journal_settings.get("enabled", False):
             api_key = os.environ.get("LLM_API_KEY", "")
             if not api_key:
                 raise PipelineError("LLM_API_KEY is not configured in repository Secrets.")
             client = LLMClient(llm_config["base_url"], llm_config["ranking_model"], api_key,
                 reasoning_effort=llm_config["reasoning_effort"], timeout=llm_config["timeout_seconds"], api_style=llm_config["api_style"],
                 off_peak_only=os.environ.get("GITHUB_EVENT_NAME") == "schedule")
-            metadata_fields = ("paper_id", "title", "abstract", "abstract_source", "authors", "affiliations", "journal_ref", "journal_name", "source", "publication_status", "doi", "publish_date", "date_basis", "date_precision", "code_url", "is_recent")
-            briefs = [{k: p.get(k, "") for k in metadata_fields} for p in shortlist]
+            metadata_fields = METADATA_FIELDS
             context = {"profile": config["profile"]}
-            rank_context = dict(context, required_count=llm_config["ranking_batch_size"])
-            groups = input_groups(briefs, rank_context, llm_config["max_input_chars"], llm_config["ranking_batch_size"])
-            print(f"Ranking metadata with {llm_config['ranking_model']} in {len(groups)} bounded batches.", flush=True)
-            all_rankings = []
-            for index, group in enumerate(groups, 1):
-                print(f"Ranking batch {index}/{len(groups)}: {len(group)} papers.", flush=True)
-                first = client.generate_json(RANK_PROMPT, json.dumps(dict(rank_context, required_count=len(group), candidates=group), ensure_ascii=False), max_output_tokens=6144)
-                # Validate every batch before accepting any of its recommendations.
-                ranked_papers(first, group, config["minimum_score"])
-                all_rankings.extend(first["rankings"])
-            ranked = ranked_papers({"rankings": all_rankings}, shortlist, config["minimum_score"])[:config["target_count"]]
+            ranked_all = rank_metadata(client, shortlist, config)
+            ranked, journal_extra = select_recommendations(ranked_all, config["target_count"])
+            if not journal_extra and journal_settings.get("enabled", False):
+                expanded = True
+                extended_config = dict(config, fallback_days=journal_window,
+                    journals=dict(journal_settings, fresh_publication_supplement=True))
+                before_extended = set(db)
+                db, extra_count, extra_note = collect_journals(db, today, extended_config)
+                db = {key: p for key, p in db.items() if key in before_extended or relevance(p) > 0}
+                journal_count += extra_count
+                source_note += f"额外期刊名额不足，补查最近{journal_window}天期刊。" + extra_note
+                # A temporary exclusion set prevents re-scoring and prevents a
+                # journal version of a selected preprint from filling the extra slot.
+                extra_state = dict(state, sent_ids=list(set(state["sent_ids"]) | {p["paper_id"] for p in ranked}))
+                extra_config = dict(config, journals=dict(journal_settings, shortlist_slots=config["shortlist_limit"]))
+                extra_candidates = [p for p in candidates(db, extra_state, today, extra_config,
+                    journal_days=journal_window, exclude_ids={p["paper_id"] for p in shortlist}) if is_journal(p)]
+                extra_limit = min(30, max(1, int(journal_settings.get("fallback_candidate_limit", 10))))
+                extra_candidates = extra_candidates[:extra_limit]
+                evaluated_count += len(extra_candidates)
+                extra_ranked = rank_metadata(client, extra_candidates, config)
+                if extra_ranked:
+                    ranked.append(extra_ranked[0])
+                    journal_extra = True
+                    shortlist.extend(extra_candidates)
             if ranked:
                 selected_sources = [dict(p, reading_depth="abstract_only" if p.get("abstract") else "title_only",
                     enrichment_note=("采用同 DOI 的 arXiv 预印本摘要；期刊正文未读取。" if p.get("abstract_source") == "arxiv_same_doi" else "仅依据标题、摘要、日期及来源元数据；未读取正文。") if p.get("abstract") else "暂无摘要，仅依据标题与来源元数据；未读取正文。") for p in ranked]
@@ -448,10 +504,19 @@ def prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_un
                         client.model = llm_config["summary_model"]
                     final = client.generate_json(SUMMARY_PROMPT, json.dumps(dict(summary_context, required_count=len(group), candidates=group), ensure_ascii=False), max_output_tokens=8192)
                     selected.extend(final_papers(final, [source_by_id[p["paper_id"]] for p in group], config))
-                selected.sort(key=lambda p: p["priority_score"], reverse=True)
+                summary_by_id = {p["paper_id"]: p for p in selected}
+                selected = [summary_by_id[p["paper_id"]] for p in ranked]
             usage = client.usage
+        if sources_unavailable and not evaluated_count and not journal_count:
+            raise PipelineError("Paper sources unavailable and no recent unsent cache exists; no empty digest will be sent.")
         older = sum(not p["is_recent"] for p in selected)
+        extended_selected = sum(is_journal(p) and date_span(p["publish_date"])[1] < today - timedelta(days=config["fallback_days"]) for p in selected)
         note = source_note + "优先最近7天；必要时从最近30天未发送论文补充。"
+        note += "前四篇按统一评分选取，另加一篇不同的期刊论文。"
+        if expanded:
+            note += f"额外期刊名额已扩大到最近{journal_window}天检索。"
+        if not journal_extra:
+            note += "本次没有找到额外合格且未发送的期刊论文，期刊保留名额暂缺，不用预印本替代。"
         note += "仅依据标题/摘要与元数据，未读取正文；作者背景未独立核实。"
         if older:
             note += f"本次有{older}篇近期补充，请结合发表日期阅读。"
@@ -463,7 +528,11 @@ def prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_un
             note += f"另有{len(extras)}篇相关期刊候选，标题与链接见当天归档。"
         card_note = "来源：arXiv 与五本期刊的公开元数据。仅依据标题/摘要筛选，未读取正文；作者背景未独立核实。"
         if older:
-            card_note += f"有{older}篇来自近30天的补充论文。"
+            card_note += f"有{older}篇为超过7天的补充论文。"
+        if extended_selected:
+            card_note += f"其中{extended_selected}篇为近{journal_window}天的期刊补充，发表日期超过30天。"
+        if not journal_extra:
+            card_note += "额外期刊名额暂缺，未用预印本替代。"
         if sources_unavailable or "来源失败" in journal_note or "分页受限" in journal_note:
             card_note += "部分检索覆盖受限，详细情况见归档。"
         if extras:
