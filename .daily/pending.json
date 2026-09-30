@@ -1,19 +1,17 @@
 {
   "version": 1,
-  "batch_id": "7933e36f5dc0d2cf42ff4747",
-  "date": "2026-09-27",
-  "status": "complete",
-  "attempt_run_id": "36309364511-1",
+  "batch_id": "a5d06d931e0e8b4abe917407",
+  "date": "2026-09-30",
+  "status": "inflight",
+  "attempt_run_id": "36674407707-1",
   "paper_ids": [
-    "arxiv:2609.27240",
-    "arxiv:2609.25696",
-    "arxiv:2609.30082",
-    "arxiv:2609.24093",
-    "arxiv:2609.25619"
+    "arxiv:2609.36241",
+    "arxiv:2609.31323",
+    "arxiv:2609.28660",
+    "arxiv:2609.36596",
+    "doi:10.1177/21695172261485887"
   ],
-  "acknowledged_cards": [
-    0
-  ],
+  "acknowledged_cards": [],
   "cards": [
     {
       "msg_type": "interactive",
@@ -25,7 +23,7 @@
           "template": "blue",
           "title": {
             "tag": "plain_text",
-            "content": "灵巧手论文日报 · 2026-09-27"
+            "content": "灵巧手论文日报 · 2026-09-30"
           }
         },
         "elements": [
@@ -33,49 +31,56 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "今日精选 5 篇，按课题关联、摘要方法与学习价值推荐。\n来源：arXiv API 与近期数据库。期刊：Crossref 5/5 个来源刷新成功，回查最近 90 天元数据索引，获得 4411 条期刊记录；索引更新日期不作为发表日期。 最近 30 天发表日期补查 5/5 个来源成功，取得 145 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Transactions on Robotics、IEEE Robotics and Automation Letters、The International Journal of Robotics Research。 OpenAlex 补齐 2 篇摘要，8 篇未获得摘要。优先最近7天；必要时从最近30天未发送论文补充。仅依据标题/摘要与元数据，未读取正文；作者背景未独立核实。另有6篇相关期刊候选，标题与链接见当天归档。"
+              "content": "今日精选 5 篇。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "1. 面向灵巧高效抓取与操作的准直驱欠驱动非对称手\nA Quasi-Direct-Drive Underactuated Asymmetric Hand for Dexterous and Efficient Grasping and Manipulation"
+              "content": "1. 一种具有双向操作的拮抗腱驱动灵巧机械手的设计与验证\nDesign and Validation of an Antagonistic Tendon-Driven Dexterous Robotic Hand with Bidirectional Operation"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "首次发布日期：2026-09-23；作者：Benjamin Davis, Chase Kidder, Hannah S. Stuart"
+              "content": "来源：arXiv"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "核心方法：提出Berkeley QUAD四指仿人手，11自由度、8驱动。指基采用准直驱（QDD）实现力透明，但低扭矩密度带来尺寸、重量与热限制；用非对称设计化解：桡侧手指各自QDD驱动以保留灵巧性，尺侧手指由更大QDD电机经预载连杆欠驱动柔顺耦合，保持类人工作空间。轻载时中指直驱、环指镜像；重载时中指柔顺，电机驱动环指向下向内以增强闭合。硬件评估实现33种Feix抓取中的29种，背驱力低至50g，持续负载产热最多降低96倍。"
+              "content": "首次发布日期：2026-09-28；作者：Chunghyeon Lee, Hyukjun Kwon, Sungeon Kim, Saehyun Moon, Seokhwan Jeong"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "为什么适合你：你已组装Aero Hand，可对照其QDD+欠驱动耦合与非对称布局，理解腱绳/连杆传动、驱动分配和热约束如何共同影响抓取与操作，为你的末端设计建立机构—驱动—控制关联。"
+              "content": "核心方法：该工作提出拟人、人手尺度（200 mm长）、轻量（220 g）、3D打印、17自由度的机械手，基于双向拮抗腱绳路由机构，屈伸（除耦合关节）和外展/内收均由主动驱动，无被动回程弹簧。路由机制允许各自由度越过中性位，在掌侧或背侧形成抓握闭合。实验显示电机到关节平均传动误差3.0%，平均关节传动带宽13.2 Hz，最大指尖力29 N，定位重复性达0.15 mm；还实现Kapandji评分8、完成全部33种GRASP分类抓握类型，并执行掌侧和背侧抓取任务。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "可以学什么：在仿真中搭建其指基QDD与尺侧欠驱动连杆映射，测试轻/重载下中指顺从与环指闭合路径；需核对Aero Hand是否有背驱力/关节力矩与温度测量条件，额外依赖负载施加与温度采集平台。"
+              "content": "为什么适合你：你有Aero Hand装配经验，该文的拮抗腱路由与双向操作设计能直接帮助你理解腱绳传动、关节主动驱动、无弹簧回程的机构设计，以及传动误差、带宽、指尖力、重复性等基础标定指标。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "依据：摘要称其四指手有11自由度8驱动，硬件评估实现33种Feix抓取中的29种，背驱力低至50g，持续负载产热最多降低96倍。"
+              "content": "可以学什么：在Aero Hand上核对当前腱绳路由是否支持双向越中位；若无，可先做单关节腱绳传动误差标定：用电机编码器与关节角度传感器（需额外关节角度传感器）测量传动误差，并记录带宽与重复性。需核对硬件是否支持角度测量，不假设已有扭矩/触觉。"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "依据：摘要报告电机到关节平均传动误差3.0%、关节带宽13.2 Hz、指尖力29 N、定位重复性0.15 mm，并完成33种GRASP抓握。"
             }
           },
           {
@@ -91,7 +96,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2609.27240",
+                "url": "https://arxiv.org/abs/2609.36241",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
@@ -100,7 +105,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/pdf/2609.27240",
+                "url": "https://arxiv.org/pdf/2609.36241",
                 "text": {
                   "tag": "plain_text",
                   "content": "PDF"
@@ -115,42 +120,49 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "2. 笛卡尔手：全直线手指的手内操作\nThe Cartesian Hand: In-Hand Manipulation with All-Linear Fingers"
+              "content": "2. 看见以到达，触摸以抓取：为拟人机械手学习盲抓取反射\nSee to Reach, Feel to Grasp: Learning A Blind Grasp Reflex for Anthropomorphic Robotic Hands"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "首次发布日期：2026-09-22；作者：Boxi Xia, Bokuan Li, Ryan Shin, Zijiang Yang, Jiaxun Liu, Boyuan Chen"
+              "content": "来源：arXiv"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "核心方法：提出Cartesian Hand，一种7自由度末端执行器，仅用直线运动融合独立抓取与相对操作。两个独立驱动的平行夹持器分别夹持物体不同部位，四个平移指尖产生被抓部分间的相对运动；指尖运动学与构型无关，操作可由简单直线基元组合。适合螺纹、枢轴、直线导轨、柱塞、扳机等常见机构。在35个实验室、制造和家庭物体上演示开合瓶盖、移液、泵送、双手柄操作、拧螺丝、扳机驱动和抓取内重定向；同一流程从固定基座机械臂迁移到人形机器人并做双手实验。作者称将开源软硬件。"
+              "content": "首次发布日期：2026-09-25；作者：Alexander Alexiev, Tzu-Yuan Lin, Sang Min Kim, Ho Jae Lee, Yonghyeon Lee, Sangbae Kim"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "为什么适合你：它用全直线传动和双夹持相对运动实现手内操作，与腱绳多指手形成鲜明对比，有助于你理解机构解耦、直线驱动和操作基元设计，为Aero Hand的抓取后操作提供设计参照。"
+              "content": "核心方法：研究仅用本体感觉、无视觉时机械手能否抓取多样物体。提出模块化灵巧抓取架构，将全局手臂运动与局部接触控制分离：独立控制的手臂引导手靠近物体，强化学习策略仅凭手部本体感觉反馈抓取并稳定物体，称为“盲抓取反射”，不依赖图像、物体位姿或几何观测。学习到的稳定抓取分数判断物体是否被牢固握住，从而让手臂开始抓后操作。该分离使抓取成为可复用手级技能，可与不同手臂控制器组合。仿真与硬件实验表明对多样物体稳健盲抓取，且学习抓取分数与独立物理稳定性度量接近。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "可以学什么：用URDF/SDF搭建双夹持器加四直线指尖模型，仿真复现开瓶盖或移液动作；需确认Aero Hand是否具备必要的位姿或力反馈以做实物迁移，额外依赖螺纹/导轨测试件与运动捕捉或标定平台。"
+              "content": "为什么适合你：对你理解仅靠本体感觉的抓取策略、稳定抓取判定与手级技能复用有帮助；模块化思路可启发你把Aero Hand的抓取控制从手臂/视觉解耦，并设计无视觉反馈下的抓取实验。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "依据：摘要称该7自由度末端仅用直线运动，在35个物体上演示开盖、移液、泵送、拧螺丝等，并将同一流程迁移到固定臂与人形平台。"
+              "content": "可以学什么：在Aero Hand上复现盲抓取反射的最小实验：固定物体，仅用关节角度/电流等本体感觉闭环，尝试抓取并抬升，记录稳定判定；需额外电流/位置传感器与可编程电机控制器，不能假设已有触觉或力控，需核对硬件。"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "依据：摘要称仅用本体感觉反馈、无需图像或物体位姿即可抓取，学习抓取分数与独立物理稳定性度量接近，并在仿真与硬件验证。"
             }
           },
           {
@@ -166,7 +178,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2609.25696",
+                "url": "https://arxiv.org/abs/2609.31323",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
@@ -175,7 +187,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/pdf/2609.25696",
+                "url": "https://arxiv.org/pdf/2609.31323",
                 "text": {
                   "tag": "plain_text",
                   "content": "PDF"
@@ -190,42 +202,49 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "3. 全手灵巧抓取的实时力调节\nReal-Time Force Regulation for Whole-Hand Dexterous Grasping"
+              "content": "3. 形态计量模仿：从形态与接触感知的手部重定向到仿真到真实的视觉运动策略\nMorphometric Imitation: From Morphology and Contact Aware Hand Retargeting to Sim-to-Real Visuomotor Policy"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "首次发布日期：2026-09-24；作者：Sang Min Kim, Alexander Alexiev, Tzu-Yuan Lin, Sangbae Kim, Young Min Kim, Yonghyeon Lee"
+              "content": "来源：arXiv"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "核心方法：针对全手动态接触下抓取稳定性问题，提出实时力调节框架。方法利用被跟踪物体模型与本体感知，几何估计所有手部连杆上的接触，无需在这些接触点使用触觉传感；反复重算满足摩擦约束、执行器限制和受经典全肢力分析启发的驱动一致性约束的期望接触力分布。该力调节控制器与反应式伸手集成，使手能获取抓取、在扰动下保持并在丢失物体后重新抓取。无重力仿真中，相比固定分配和仅指尖执行，在受控扰动下抓取保持更好；27自由度臂手系统实物实验展示接触演化时人类施加扰动下的抓取维持与恢复。"
+              "content": "首次发布日期：2026-09-23；作者：Tara Sadjadpour, Siming He, C. K. Wolfe, Haozhi Qi, Lea Wilken, S. Shankar Sastry, Claire Tomlin, Jitendra Malik"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "为什么适合你：直接对应位置/力/阻抗控制与抓取稳定，你可学习无触觉时用本体感知和几何接触估计做实时力分配，这对多指手控制基础和真实硬件实验很关键。"
+              "content": "核心方法：针对人手-物体交互演示到机器人灵巧操作学习中的形态差异、动力学可行性和仿真到真实部署难题，提出三阶段框架：1）形态计量优化（MMO）在保持演示接触的同时将人手运动运动学重定向到不同机械手形态；2）残差强化学习利用物体位姿和接触信息细化运动学参考，生成动力学可行的机器人演示；3）将演示蒸馏为视觉运动策略。在三种机械手和十种人手-物体交互上，MMO在接触F1上优于五个基线8–28点，下游动态重定向成功率提升最多35点；在Sharpa手上策略实现300次真实世界试验、30个物体10类别的89.3%零样本成功率。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "可以学什么：在MuJoCo/PyBullet中实现几何接触估计与摩擦锥QP力分配，测试扰动下的抓取保持与恢复；需核对Aero Hand是否有关节力矩/电流反馈及触觉传感器，额外依赖物体位姿跟踪或外部运动捕捉。"
+              "content": "为什么适合你：帮助你理解跨形态重定向、接触保持、残差RL与仿真到真实迁移的完整链路，对你在Aero Hand上从人手演示学习抓取、以及系统化sim-to-real有框架性参考。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "依据：摘要称方法仅用被跟踪物体模型和本体感知几何估计全手接触，无需触觉传感，在27自由度臂手系统上展示扰动下抓取维持与恢复。"
+              "content": "可以学什么：选一个简单抓取，按三阶段拆解：先做Aero Hand与人手的运动学重定向（需额外手部运动捕捉或人手关节角度数据），再检查接触约束与关节限位；不假设已有力/触觉反馈，需核对硬件。"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "依据：摘要称MMO在三种手、十种交互上接触F1提高8–28点，动态重定向成功率提升最多35点，Sharpa手上零样本成功率89.3%。"
             }
           },
           {
@@ -241,7 +260,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2609.30082",
+                "url": "https://arxiv.org/abs/2609.28660",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
@@ -250,7 +269,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/pdf/2609.30082",
+                "url": "https://arxiv.org/pdf/2609.28660",
                 "text": {
                   "tag": "plain_text",
                   "content": "PDF"
@@ -265,42 +284,49 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "4. 基于接触锚定重定向与残差策略学习的人类示教灵巧操作\nDexterous Robot Manipulation from Human Demonstrations via Contact-Anchored Retargeting and Residual Policy Learning"
+              "content": "4. HACo：为力感知灵巧操作学习触觉主动柔顺\nHACo: Learning Haptic Active Compliance for Force-Aware Dexterous Manipulation"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "首次发布日期：2026-09-21；作者：Zihao Yang, Chengyuan Liu, Yu Zhou, Runze Lv, Tianyu Cui, Sheng Yi, Haohua Zhu, Irvine Lu, JieQ Sun"
+              "content": "来源：arXiv"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "核心方法：从人类示教学习灵巧操作受限于接触力缺失。方法基于两点观察：跨手型保留的是接触结构（哪些手指区域接触物体何处及顺序），而非关节运动；物理一致性可由一个在多样示教上训练的残差强化学习策略统一修复。三阶段流程：用仿真MANO手做物理细化恢复接触与力；通过手型无关的接触锚定目标做重定向；再用残差策略适应机器人驱动。重建25,454条单手轨迹（成功率7.3%→59.3%）和25个双手任务（16.0%→62.4%），每设定共享一个策略；将一个人手数据集迁移到四种形态不同机械手（+62.4个百分点），并在实物执行四个接触丰富双手任务，零真机训练数据。代码链接：https://github.com/DexGEM-Lab/real2sim2real。"
+              "content": "首次发布日期：2026-09-29；作者：Naisheng Ye, Yinzhe Zhou, Junkai Zhao, Yuhang Lu, Checheng Yu, Zhenjie Yang, Pengwei Wang, Hongyang Li"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "为什么适合你：如果你未来想将人手动作迁移到多指手，可重点学习接触锚定重定向和残差策略修复动态可行性的思路，把示教数据用于灵巧手控制而非仅复制关节角。"
+              "content": "核心方法：针对接触丰富灵巧操作中需将物理反馈转化为运动指令并调节多接触交互载荷，提出HACo触觉主动柔顺策略，直接从触觉反馈学习力调节动作。柔顺调节遥操作将操作者输入转化为控制器可执行的柔顺动作，保留运动意图同时调节载荷；HACo直接学习这些动作，用指令-状态差异作为辅助柔顺意图监督。它结合局部指尖触觉响应与关节力矩反馈（捕捉多关节手的载荷传递，包括触觉覆盖外的接触）。柔顺接地模块用门控触觉交叉注意力将动作生成接地到演变的触觉状态，实现无显式在线接触建模的闭环力调节。在真实世界基准覆盖多接触摩擦、切向交互、脆弱曲面接触、旋转力矩和可变形物体操作；每任务20次试验，平均成功率83%，最强基线35%。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "可以学什么：用公开代码在仿真中先跑MANO轨迹物理细化，再将接触锚定重定向到你的手模型并训练小残差策略；需核对Aero Hand驱动接口与关节位置/电流反馈，额外依赖动作捕捉或人手视频数据。"
+              "content": "为什么适合你：直接关系触觉反馈与力/柔顺控制，适合你学习如何融合指尖触觉与关节力矩实现力调节；但注意它依赖触觉与关节力矩传感，Aero Hand是否具备需核对硬件。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "依据：摘要称三阶段流程用仿真MANO物理细化、接触锚定重定向与残差策略学习，单手轨迹成功率从7.3%升至59.3%，并迁移到四种机械手。"
+              "content": "可以学什么：若Aero Hand装有指尖触觉和关节力矩/电流传感器，可先做单指触觉-力映射标定，再复现最小柔顺策略；若缺少力矩传感，可用电机电流近似并核对硬件，不假设已有力控或触觉。"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "依据：摘要称结合指尖触觉与关节力矩反馈，经门控触觉交叉注意力实现闭环力调节，真实任务平均成功率83%，最强基线35%。"
             }
           },
           {
@@ -316,7 +342,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2609.24093",
+                "url": "https://arxiv.org/abs/2609.36596",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
@@ -325,19 +351,10 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/pdf/2609.24093",
+                "url": "https://arxiv.org/pdf/2609.36596",
                 "text": {
                   "tag": "plain_text",
                   "content": "PDF"
-                }
-              },
-              {
-                "tag": "button",
-                "type": "default",
-                "url": "https://github.com/DexGEM-Lab/real2sim2real",
-                "text": {
-                  "tag": "plain_text",
-                  "content": "代码"
                 }
               }
             ]
@@ -349,42 +366,49 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "5. 基于相对接触速度控制的手-物机构用于灵巧工具操作\nRelative Contact Velocity-Controlled Hand-Object Mechanism for Dexterous Tool Manipulation"
+              "content": "5. 基于分层结构的多模态、多接触、可扩展软体机器人皮肤\nA Multimodal, Multicontact, and Scalable Soft Robot Skin Enabled by Layered Structures"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "首次发布日期：2026-09-22；作者：Sunyu Wang, Jean Oh, Nancy S. Pollard"
+              "content": "来源：Soft Robotics（Soft Robot.）"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "核心方法：研究多指手完成工具操作全过程：拾取工具、装入合适位姿并挥动使用。受人类工具操作与机械设计原理启发，将手与工具建模为统一的手-物机构（HOM），由子装配组成。HOM由手、物体和广义接触坐标系定义，使运动可用同一组笛卡尔空间相对接触速度表达，与手运动学和几何无关；子装配则定义为手指间的相对接触速度与接触力约束。基于此，用最小二乘和互补滤波器构建轻量、物理可解释的运动规划与接触估计框架。仿真中遥操作五种不同机械手，全部能从相同简单参考轨迹执行完整工具操作，并展示对手、工具、任务的适应性。"
+              "content": "登记发表日期：2026-09-11；作者：Sudong Lee, Josie Hughes"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "为什么适合你：提供与手型无关的相对接触速度框架，适合你理解工具操作中如何从简单参考轨迹生成多指协调，补充腱绳传动和抓取之外的手内操作控制思路。"
+              "content": "核心方法：受人类触觉系统启发，提出分层机器人皮肤，结合两种传感机制：霍尔效应传感器和力敏电阻（FSR）。霍尔传感器通过识别法向和剪切方向刺激检测全局运动；FSR以更高空间分辨率提供位置信息，二者分别模仿鲁菲尼小体和默克尔细胞功能。结构上利用层间刚度差异保证功能运作。结果皮肤可检测法向和剪切刺激，并在串扰受限下提供定位能力；贴在机械臂末端，展示通过多种触摸控制6自由度，并帮助机器人避开外部障碍、支持直观人机交互。适用于动态不可预测环境和协作场景。期刊元数据登记为Soft Robotics。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "可以学什么：在仿真中用多指手模型实现相对接触速度最小二乘规划与互补滤波接触估计，复现抓取—装载—挥动工具三段流程；需核对Aero Hand关节速度/位置反馈是否足够，额外依赖工具与物体位姿及接触测量平台。"
+              "content": "为什么适合你：为灵巧手触觉覆盖提供可扩展分层皮肤方案，霍尔+FSR组合可检测法向/剪切并定位，适合你补齐触觉传感与多接触标定基础；可用于指尖或手掌皮肤设计。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "依据：摘要称将手与工具建模为统一手-物机构，用相对接触速度约束和最小二乘/互补滤波规划，仿真中遥操作五种机械手完成完整工具操作。"
+              "content": "可以学什么：先制作单层霍尔+FSR小样，标定法向/剪切响应与位置串扰（需额外霍尔传感器、FSR、数据采集与力学加载装置）；再评估贴附于Aero Hand指尖的可行性，核对硬件是否预留安装空间。"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "依据：摘要称皮肤用霍尔效应传感器与FSR分层结合，可检测法向和剪切刺激并定位，贴于机械臂末端实现6自由度触控控制。"
             }
           },
           {
@@ -400,19 +424,24 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2609.25619",
+                "url": "https://doi.org/10.1177/21695172261485887",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
                 }
-              },
+              }
+            ]
+          },
+          {
+            "tag": "action",
+            "actions": [
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/pdf/2609.25619",
+                "url": "https://github.com/suyoutzy/dexterous-paper-digest/blob/main/docs/digests/2026-09-30.md",
                 "text": {
                   "tag": "plain_text",
-                  "content": "PDF"
+                  "content": "日报归档 / 其他期刊候选"
                 }
               }
             ]
@@ -422,7 +451,7 @@
             "elements": [
               {
                 "tag": "plain_text",
-                "content": "模型：deepseek-flash · 研究方向：灵巧末端设计与控制"
+                "content": "按课题关联、摘要方法与学习价值推荐。\n来源：arXiv 与五本期刊的公开元数据。仅依据标题/摘要筛选，未读取正文；作者背景未独立核实。有1篇未能确认为最近7天发表的补充论文。部分检索覆盖受限，详细情况见归档。归档另列5篇相关期刊候选。\n模型：deepseek-flash · 研究方向：灵巧末端设计与控制"
               }
             ]
           }
@@ -430,11 +459,11 @@
       }
     }
   ],
-  "report": "# 灵巧手论文日报 · 2026-09-27\n\n来源：arXiv API 与近期数据库。期刊：Crossref 5/5 个来源刷新成功，回查最近 90 天元数据索引，获得 4411 条期刊记录；索引更新日期不作为发表日期。 最近 30 天发表日期补查 5/5 个来源成功，取得 145 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Transactions on Robotics、IEEE Robotics and Automation Letters、The International Journal of Robotics Research。 OpenAlex 补齐 2 篇摘要，8 篇未获得摘要。优先最近7天；必要时从最近30天未发送论文补充。仅依据标题/摘要与元数据，未读取正文；作者背景未独立核实。另有6篇相关期刊候选，标题与链接见当天归档。\n\n模型：deepseek-flash；分数是针对个人学习价值的推荐依据，非学术质量认证。\n\n## 1. 面向灵巧高效抓取与操作的准直驱欠驱动非对称手\n\nA Quasi-Direct-Drive Underactuated Asymmetric Hand for Dexterous and Efficient Grasping and Manipulation\n\n**作者**：Benjamin Davis, Chase Kidder, Hannah S. Stuart（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 发表日期：2026-09-23 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：提出Berkeley QUAD四指仿人手，11自由度、8驱动。指基采用准直驱（QDD）实现力透明，但低扭矩密度带来尺寸、重量与热限制；用非对称设计化解：桡侧手指各自QDD驱动以保留灵巧性，尺侧手指由更大QDD电机经预载连杆欠驱动柔顺耦合，保持类人工作空间。轻载时中指直驱、环指镜像；重载时中指柔顺，电机驱动环指向下向内以增强闭合。硬件评估实现33种Feix抓取中的29种，背驱力低至50g，持续负载产热最多降低96倍。\n\n**为什么适合你**：你已组装Aero Hand，可对照其QDD+欠驱动耦合与非对称布局，理解腱绳/连杆传动、驱动分配和热约束如何共同影响抓取与操作，为你的末端设计建立机构—驱动—控制关联。\n\n**可积累的实验经验**：在仿真中搭建其指基QDD与尺侧欠驱动连杆映射，测试轻/重载下中指顺从与环指闭合路径；需核对Aero Hand是否有背驱力/关节力矩与温度测量条件，额外依赖负载施加与温度采集平台。\n\n**依据**：摘要称其四指手有11自由度8驱动，硬件评估实现33种Feix抓取中的29种，背驱力低至50g，持续负载产热最多降低96倍。\n\n[论文](https://arxiv.org/abs/2609.27240)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2609.27240)\n\n## 2. 笛卡尔手：全直线手指的手内操作\n\nThe Cartesian Hand: In-Hand Manipulation with All-Linear Fingers\n\n**作者**：Boxi Xia, Bokuan Li, Ryan Shin, Zijiang Yang, Jiaxun Liu, Boyuan Chen（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 发表日期：2026-09-22 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：提出Cartesian Hand，一种7自由度末端执行器，仅用直线运动融合独立抓取与相对操作。两个独立驱动的平行夹持器分别夹持物体不同部位，四个平移指尖产生被抓部分间的相对运动；指尖运动学与构型无关，操作可由简单直线基元组合。适合螺纹、枢轴、直线导轨、柱塞、扳机等常见机构。在35个实验室、制造和家庭物体上演示开合瓶盖、移液、泵送、双手柄操作、拧螺丝、扳机驱动和抓取内重定向；同一流程从固定基座机械臂迁移到人形机器人并做双手实验。作者称将开源软硬件。\n\n**为什么适合你**：它用全直线传动和双夹持相对运动实现手内操作，与腱绳多指手形成鲜明对比，有助于你理解机构解耦、直线驱动和操作基元设计，为Aero Hand的抓取后操作提供设计参照。\n\n**可积累的实验经验**：用URDF/SDF搭建双夹持器加四直线指尖模型，仿真复现开瓶盖或移液动作；需确认Aero Hand是否具备必要的位姿或力反馈以做实物迁移，额外依赖螺纹/导轨测试件与运动捕捉或标定平台。\n\n**依据**：摘要称该7自由度末端仅用直线运动，在35个物体上演示开盖、移液、泵送、拧螺丝等，并将同一流程迁移到固定臂与人形平台。\n\n[论文](https://arxiv.org/abs/2609.25696)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2609.25696)\n\n## 3. 全手灵巧抓取的实时力调节\n\nReal-Time Force Regulation for Whole-Hand Dexterous Grasping\n\n**作者**：Sang Min Kim, Alexander Alexiev, Tzu-Yuan Lin, Sangbae Kim, Young Min Kim, Yonghyeon Lee（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 发表日期：2026-09-24 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：针对全手动态接触下抓取稳定性问题，提出实时力调节框架。方法利用被跟踪物体模型与本体感知，几何估计所有手部连杆上的接触，无需在这些接触点使用触觉传感；反复重算满足摩擦约束、执行器限制和受经典全肢力分析启发的驱动一致性约束的期望接触力分布。该力调节控制器与反应式伸手集成，使手能获取抓取、在扰动下保持并在丢失物体后重新抓取。无重力仿真中，相比固定分配和仅指尖执行，在受控扰动下抓取保持更好；27自由度臂手系统实物实验展示接触演化时人类施加扰动下的抓取维持与恢复。\n\n**为什么适合你**：直接对应位置/力/阻抗控制与抓取稳定，你可学习无触觉时用本体感知和几何接触估计做实时力分配，这对多指手控制基础和真实硬件实验很关键。\n\n**可积累的实验经验**：在MuJoCo/PyBullet中实现几何接触估计与摩擦锥QP力分配，测试扰动下的抓取保持与恢复；需核对Aero Hand是否有关节力矩/电流反馈及触觉传感器，额外依赖物体位姿跟踪或外部运动捕捉。\n\n**依据**：摘要称方法仅用被跟踪物体模型和本体感知几何估计全手接触，无需触觉传感，在27自由度臂手系统上展示扰动下抓取维持与恢复。\n\n[论文](https://arxiv.org/abs/2609.30082)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2609.30082)\n\n## 4. 基于接触锚定重定向与残差策略学习的人类示教灵巧操作\n\nDexterous Robot Manipulation from Human Demonstrations via Contact-Anchored Retargeting and Residual Policy Learning\n\n**作者**：Zihao Yang, Chengyuan Liu, Yu Zhou, Runze Lv, Tianyu Cui, Sheng Yi, Haohua Zhu, Irvine Lu, JieQ Sun（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 发表日期：2026-09-21 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：从人类示教学习灵巧操作受限于接触力缺失。方法基于两点观察：跨手型保留的是接触结构（哪些手指区域接触物体何处及顺序），而非关节运动；物理一致性可由一个在多样示教上训练的残差强化学习策略统一修复。三阶段流程：用仿真MANO手做物理细化恢复接触与力；通过手型无关的接触锚定目标做重定向；再用残差策略适应机器人驱动。重建25,454条单手轨迹（成功率7.3%→59.3%）和25个双手任务（16.0%→62.4%），每设定共享一个策略；将一个人手数据集迁移到四种形态不同机械手（+62.4个百分点），并在实物执行四个接触丰富双手任务，零真机训练数据。代码链接：https://github.com/DexGEM-Lab/real2sim2real。\n\n**为什么适合你**：如果你未来想将人手动作迁移到多指手，可重点学习接触锚定重定向和残差策略修复动态可行性的思路，把示教数据用于灵巧手控制而非仅复制关节角。\n\n**可积累的实验经验**：用公开代码在仿真中先跑MANO轨迹物理细化，再将接触锚定重定向到你的手模型并训练小残差策略；需核对Aero Hand驱动接口与关节位置/电流反馈，额外依赖动作捕捉或人手视频数据。\n\n**依据**：摘要称三阶段流程用仿真MANO物理细化、接触锚定重定向与残差策略学习，单手轨迹成功率从7.3%升至59.3%，并迁移到四种机械手。\n\n[论文](https://arxiv.org/abs/2609.24093)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2609.24093)\n\n[公开代码](https://github.com/DexGEM-Lab/real2sim2real)\n\n## 5. 基于相对接触速度控制的手-物机构用于灵巧工具操作\n\nRelative Contact Velocity-Controlled Hand-Object Mechanism for Dexterous Tool Manipulation\n\n**作者**：Sunyu Wang, Jean Oh, Nancy S. Pollard（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 发表日期：2026-09-22 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：研究多指手完成工具操作全过程：拾取工具、装入合适位姿并挥动使用。受人类工具操作与机械设计原理启发，将手与工具建模为统一的手-物机构（HOM），由子装配组成。HOM由手、物体和广义接触坐标系定义，使运动可用同一组笛卡尔空间相对接触速度表达，与手运动学和几何无关；子装配则定义为手指间的相对接触速度与接触力约束。基于此，用最小二乘和互补滤波器构建轻量、物理可解释的运动规划与接触估计框架。仿真中遥操作五种不同机械手，全部能从相同简单参考轨迹执行完整工具操作，并展示对手、工具、任务的适应性。\n\n**为什么适合你**：提供与手型无关的相对接触速度框架，适合你理解工具操作中如何从简单参考轨迹生成多指协调，补充腱绳传动和抓取之外的手内操作控制思路。\n\n**可积累的实验经验**：在仿真中用多指手模型实现相对接触速度最小二乘规划与互补滤波接触估计，复现抓取—装载—挥动工具三段流程；需核对Aero Hand关节速度/位置反馈是否足够，额外依赖工具与物体位姿及接触测量平台。\n\n**依据**：摘要称将手与工具建模为统一手-物机构，用相对接触速度约束和最小二乘/互补滤波规划，仿真中遥操作五种机械手完成完整工具操作。\n\n[论文](https://arxiv.org/abs/2609.25619)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2609.25619)\n\n## 其他相关期刊论文\n\n以下仅列元数据，未进入本次五篇精选；供回查，未进行正文阅读。\n\n- [A Multimodal, Multicontact, and Scalable Soft Robot Skin Enabled by Layered Structures](https://doi.org/10.1177/21695172261485887) · Soft Robotics · 2026-09-11\n- [Adaptive Fuzzy Tactile Servoing on Soft Surfaces With a Multimodal Tactile Sensor](https://doi.org/10.1109/lra.2026.3717172) · IEEE Robotics and Automation Letters · 2026-09\n- [High-DoF Dexterous Soft Hand With an Enhanced Thumb-Palm Composite Design Enables Robust Grasp and Dexterous Manipulation](https://doi.org/10.1109/lra.2026.3709629) · IEEE Robotics and Automation Letters · 2026-09\n- [First Plan Then Evaluate: Multi-Target Planning With Post-Planning Success Evaluation Improves Learning-Based Grasping Pipelines](https://doi.org/10.1109/lra.2026.3713725) · IEEE Robotics and Automation Letters · 2026-09\n- [FG-CLTP: Fine-Grained Contrastive Language Tactile Pretraining for Robotic Manipulation](https://doi.org/10.1109/lra.2026.3711368) · IEEE Robotics and Automation Letters · 2026-09\n- [Wire-Driven Robotic Gripper of Sensorized Flexure Joints With Kinematic Contact Detection and Underactuated Feedback Control](https://doi.org/10.1109/lra.2026.3711377) · IEEE Robotics and Automation Letters · 2026-09\n",
+  "report": "# 灵巧手论文日报 · 2026-09-30\n\n来源：arXiv API 与近期数据库。期刊：Crossref 5/5 个来源刷新成功，回查最近 7 天元数据索引，获得 3512 条期刊记录；索引更新日期不作为发表日期。 最近 30 天发表日期补查 5/5 个来源成功，取得 146 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Transactions on Robotics、IEEE Robotics and Automation Letters。 OpenAlex 补齐 2 篇摘要，8 篇未获得摘要。优先最近7天；必要时从最近30天未发送论文补充。前四篇按统一评分选取，另加一篇不同的期刊论文。仅依据标题/摘要与元数据，未读取正文；作者背景未独立核实。本次有1篇近期补充，请结合发表日期阅读。另有5篇相关期刊候选，标题与链接见当天归档。\n\n模型：deepseek-flash；分数是针对个人学习价值的推荐依据，非学术质量认证。\n\n## 1. 一种具有双向操作的拮抗腱驱动灵巧机械手的设计与验证\n\nDesign and Validation of an Antagonistic Tendon-Driven Dexterous Robotic Hand with Bidirectional Operation\n\n**作者**：Chunghyeon Lee, Hyukjun Kwon, Sungeon Kim, Saehyun Moon, Seokhwan Jeong（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 发表日期：2026-09-28 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：该工作提出拟人、人手尺度（200 mm长）、轻量（220 g）、3D打印、17自由度的机械手，基于双向拮抗腱绳路由机构，屈伸（除耦合关节）和外展/内收均由主动驱动，无被动回程弹簧。路由机制允许各自由度越过中性位，在掌侧或背侧形成抓握闭合。实验显示电机到关节平均传动误差3.0%，平均关节传动带宽13.2 Hz，最大指尖力29 N，定位重复性达0.15 mm；还实现Kapandji评分8、完成全部33种GRASP分类抓握类型，并执行掌侧和背侧抓取任务。\n\n**为什么适合你**：你有Aero Hand装配经验，该文的拮抗腱路由与双向操作设计能直接帮助你理解腱绳传动、关节主动驱动、无弹簧回程的机构设计，以及传动误差、带宽、指尖力、重复性等基础标定指标。\n\n**可积累的实验经验**：在Aero Hand上核对当前腱绳路由是否支持双向越中位；若无，可先做单关节腱绳传动误差标定：用电机编码器与关节角度传感器（需额外关节角度传感器）测量传动误差，并记录带宽与重复性。需核对硬件是否支持角度测量，不假设已有扭矩/触觉。\n\n**依据**：摘要报告电机到关节平均传动误差3.0%、关节带宽13.2 Hz、指尖力29 N、定位重复性0.15 mm，并完成33种GRASP抓握。\n\n[论文](https://arxiv.org/abs/2609.36241)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2609.36241)\n\n## 2. 看见以到达，触摸以抓取：为拟人机械手学习盲抓取反射\n\nSee to Reach, Feel to Grasp: Learning A Blind Grasp Reflex for Anthropomorphic Robotic Hands\n\n**作者**：Alexander Alexiev, Tzu-Yuan Lin, Sang Min Kim, Ho Jae Lee, Yonghyeon Lee, Sangbae Kim（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 发表日期：2026-09-25 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：研究仅用本体感觉、无视觉时机械手能否抓取多样物体。提出模块化灵巧抓取架构，将全局手臂运动与局部接触控制分离：独立控制的手臂引导手靠近物体，强化学习策略仅凭手部本体感觉反馈抓取并稳定物体，称为“盲抓取反射”，不依赖图像、物体位姿或几何观测。学习到的稳定抓取分数判断物体是否被牢固握住，从而让手臂开始抓后操作。该分离使抓取成为可复用手级技能，可与不同手臂控制器组合。仿真与硬件实验表明对多样物体稳健盲抓取，且学习抓取分数与独立物理稳定性度量接近。\n\n**为什么适合你**：对你理解仅靠本体感觉的抓取策略、稳定抓取判定与手级技能复用有帮助；模块化思路可启发你把Aero Hand的抓取控制从手臂/视觉解耦，并设计无视觉反馈下的抓取实验。\n\n**可积累的实验经验**：在Aero Hand上复现盲抓取反射的最小实验：固定物体，仅用关节角度/电流等本体感觉闭环，尝试抓取并抬升，记录稳定判定；需额外电流/位置传感器与可编程电机控制器，不能假设已有触觉或力控，需核对硬件。\n\n**依据**：摘要称仅用本体感觉反馈、无需图像或物体位姿即可抓取，学习抓取分数与独立物理稳定性度量接近，并在仿真与硬件验证。\n\n[论文](https://arxiv.org/abs/2609.31323)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2609.31323)\n\n## 3. 形态计量模仿：从形态与接触感知的手部重定向到仿真到真实的视觉运动策略\n\nMorphometric Imitation: From Morphology and Contact Aware Hand Retargeting to Sim-to-Real Visuomotor Policy\n\n**作者**：Tara Sadjadpour, Siming He, C. K. Wolfe, Haozhi Qi, Lea Wilken, S. Shankar Sastry, Claire Tomlin, Jitendra Malik（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 发表日期：2026-09-23 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：针对人手-物体交互演示到机器人灵巧操作学习中的形态差异、动力学可行性和仿真到真实部署难题，提出三阶段框架：1）形态计量优化（MMO）在保持演示接触的同时将人手运动运动学重定向到不同机械手形态；2）残差强化学习利用物体位姿和接触信息细化运动学参考，生成动力学可行的机器人演示；3）将演示蒸馏为视觉运动策略。在三种机械手和十种人手-物体交互上，MMO在接触F1上优于五个基线8–28点，下游动态重定向成功率提升最多35点；在Sharpa手上策略实现300次真实世界试验、30个物体10类别的89.3%零样本成功率。\n\n**为什么适合你**：帮助你理解跨形态重定向、接触保持、残差RL与仿真到真实迁移的完整链路，对你在Aero Hand上从人手演示学习抓取、以及系统化sim-to-real有框架性参考。\n\n**可积累的实验经验**：选一个简单抓取，按三阶段拆解：先做Aero Hand与人手的运动学重定向（需额外手部运动捕捉或人手关节角度数据），再检查接触约束与关节限位；不假设已有力/触觉反馈，需核对硬件。\n\n**依据**：摘要称MMO在三种手、十种交互上接触F1提高8–28点，动态重定向成功率提升最多35点，Sharpa手上零样本成功率89.3%。\n\n[论文](https://arxiv.org/abs/2609.28660)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2609.28660)\n\n## 4. HACo：为力感知灵巧操作学习触觉主动柔顺\n\nHACo: Learning Haptic Active Compliance for Force-Aware Dexterous Manipulation\n\n**作者**：Naisheng Ye, Yinzhe Zhou, Junkai Zhao, Yuhang Lu, Checheng Yu, Zhenjie Yang, Pengwei Wang, Hongyang Li（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 发表日期：2026-09-29 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：针对接触丰富灵巧操作中需将物理反馈转化为运动指令并调节多接触交互载荷，提出HACo触觉主动柔顺策略，直接从触觉反馈学习力调节动作。柔顺调节遥操作将操作者输入转化为控制器可执行的柔顺动作，保留运动意图同时调节载荷；HACo直接学习这些动作，用指令-状态差异作为辅助柔顺意图监督。它结合局部指尖触觉响应与关节力矩反馈（捕捉多关节手的载荷传递，包括触觉覆盖外的接触）。柔顺接地模块用门控触觉交叉注意力将动作生成接地到演变的触觉状态，实现无显式在线接触建模的闭环力调节。在真实世界基准覆盖多接触摩擦、切向交互、脆弱曲面接触、旋转力矩和可变形物体操作；每任务20次试验，平均成功率83%，最强基线35%。\n\n**为什么适合你**：直接关系触觉反馈与力/柔顺控制，适合你学习如何融合指尖触觉与关节力矩实现力调节；但注意它依赖触觉与关节力矩传感，Aero Hand是否具备需核对硬件。\n\n**可积累的实验经验**：若Aero Hand装有指尖触觉和关节力矩/电流传感器，可先做单指触觉-力映射标定，再复现最小柔顺策略；若缺少力矩传感，可用电机电流近似并核对硬件，不假设已有力控或触觉。\n\n**依据**：摘要称结合指尖触觉与关节力矩反馈，经门控触觉交叉注意力实现闭环力调节，真实任务平均成功率83%，最强基线35%。\n\n[论文](https://arxiv.org/abs/2609.36596)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2609.36596)\n\n## 5. 基于分层结构的多模态、多接触、可扩展软体机器人皮肤\n\nA Multimodal, Multicontact, and Scalable Soft Robot Skin Enabled by Layered Structures\n\n**作者**：Sudong Lee, Josie Hughes（背景权威性未独立核实）\n\n**来源**：Soft Robotics · 发表日期：2026-09-11 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：受人类触觉系统启发，提出分层机器人皮肤，结合两种传感机制：霍尔效应传感器和力敏电阻（FSR）。霍尔传感器通过识别法向和剪切方向刺激检测全局运动；FSR以更高空间分辨率提供位置信息，二者分别模仿鲁菲尼小体和默克尔细胞功能。结构上利用层间刚度差异保证功能运作。结果皮肤可检测法向和剪切刺激，并在串扰受限下提供定位能力；贴在机械臂末端，展示通过多种触摸控制6自由度，并帮助机器人避开外部障碍、支持直观人机交互。适用于动态不可预测环境和协作场景。期刊元数据登记为Soft Robotics。\n\n**为什么适合你**：为灵巧手触觉覆盖提供可扩展分层皮肤方案，霍尔+FSR组合可检测法向/剪切并定位，适合你补齐触觉传感与多接触标定基础；可用于指尖或手掌皮肤设计。\n\n**可积累的实验经验**：先制作单层霍尔+FSR小样，标定法向/剪切响应与位置串扰（需额外霍尔传感器、FSR、数据采集与力学加载装置）；再评估贴附于Aero Hand指尖的可行性，核对硬件是否预留安装空间。\n\n**依据**：摘要称皮肤用霍尔效应传感器与FSR分层结合，可检测法向和剪切刺激并定位，贴于机械臂末端实现6自由度触控控制。\n\n[论文](https://doi.org/10.1177/21695172261485887)\n\n## 其他相关期刊论文\n\n以下仅列元数据，未进入本次五篇精选；供回查，未进行正文阅读。\n\n- [Adaptive Fuzzy Tactile Servoing on Soft Surfaces With a Multimodal Tactile Sensor](https://doi.org/10.1109/lra.2026.3717172) · IEEE Robotics and Automation Letters · 2026-09\n- [High-DoF Dexterous Soft Hand With an Enhanced Thumb-Palm Composite Design Enables Robust Grasp and Dexterous Manipulation](https://doi.org/10.1109/lra.2026.3709629) · IEEE Robotics and Automation Letters · 2026-09\n- [First Plan Then Evaluate: Multi-Target Planning With Post-Planning Success Evaluation Improves Learning-Based Grasping Pipelines](https://doi.org/10.1109/lra.2026.3713725) · IEEE Robotics and Automation Letters · 2026-09\n- [FG-CLTP: Fine-Grained Contrastive Language Tactile Pretraining for Robotic Manipulation](https://doi.org/10.1109/lra.2026.3711368) · IEEE Robotics and Automation Letters · 2026-09\n- [Wire-Driven Robotic Gripper of Sensorized Flexure Joints With Kinematic Contact Detection and Underactuated Feedback Control](https://doi.org/10.1109/lra.2026.3711377) · IEEE Robotics and Automation Letters · 2026-09\n",
   "usage": {
-    "input_tokens": 19208,
-    "output_tokens": 18047,
-    "cached_tokens": 13696,
+    "input_tokens": 18428,
+    "output_tokens": 22529,
+    "cached_tokens": 4864,
     "requests": 7
   }
 }
