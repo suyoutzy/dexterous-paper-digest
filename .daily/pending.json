@@ -1,18 +1,16 @@
 {
   "version": 1,
-  "batch_id": "2874664771a33fa8f0a91c7e",
-  "date": "2026-10-08",
-  "status": "complete",
-  "attempt_run_id": "37726333645-1",
+  "batch_id": "3455f970878a7f091ac47fd6",
+  "date": "2026-10-09",
+  "status": "inflight",
+  "attempt_run_id": "37883169589-1",
   "paper_ids": [
-    "arxiv:2610.10180",
-    "arxiv:2610.09536",
-    "arxiv:2610.10283",
-    "arxiv:2610.10020"
+    "arxiv:2610.08802",
+    "arxiv:2610.05180",
+    "arxiv:2610.11945",
+    "arxiv:2610.12046"
   ],
-  "acknowledged_cards": [
-    0
-  ],
+  "acknowledged_cards": [],
   "cards": [
     {
       "msg_type": "interactive",
@@ -24,7 +22,7 @@
           "template": "blue",
           "title": {
             "tag": "plain_text",
-            "content": "灵巧手论文日报 · 2026-10-08"
+            "content": "灵巧手论文日报 · 2026-10-09"
           }
         },
         "elements": [
@@ -39,7 +37,7 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "1. 全驱动4自由度机械手指设计：关节特异性混合远程驱动\nDesign of a Fully Actuated 4-DOF Robotic Finger With Joint-Specific Hybrid Remote Actuation"
+              "content": "1. SAFE：机器人抓取中低成本声学传感的统一滑移与破裂检测\nSAFE: Unified Slip and Fracture Detection with Low-Cost Acoustic Sensing in Robotic Grasping"
             }
           },
           {
@@ -53,35 +51,35 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "公告日期：2026-10-08；作者：Hyojae Kang, Hyun-mok Jung, Joonho Lee, Dongil Park, Hyunmin Do, Jongwoo Park, Jeongdo Ahn"
+              "content": "公告日期：2026-10-08；作者：Zerun Wang, Vivek Kamat, Shekhar Bhansali"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "核心方法：提出全驱动4自由度手指，采用关节特异性混合远程驱动：MCP由两组协调刚性连杆驱动，PIP和DIP由闭环线传动独立驱动，并加入圆形滚动接触关节（RCJ）。PIP传动半径大于DIP；RCJ线几何在关节转动时保持线环总长，DIP走线使固定MCP时PIP运动不影响其差动驱动。对远端线传动、MCP连杆和指尖运动学进行解析建模。实验中用ArUco标记跟踪滚珠丝杠位移定量评估传动；MCP驱动会引起PIP/DIP传动单元可测位移，固定MCP时PIP/DIP独立驱动支持预期机械解耦。孤立MCP、PIP、DIP驱动的平均指尖峰值力分别为21.28 N、9.22 N、5.75 N，并用不同几何尺寸物体检查手指姿态。"
+              "content": "核心方法：提出SAFE低成本通用传感方法，用两个PVDF声学传感器与电机本体感知，不依赖视觉或先验材料知识，在Fin Ray柔性夹爪上实时检测滑移和破裂。统一HistGradientBoosting分类器从79维特征报告正常、滑移或破裂。留一抓取交叉验证Alert-F1为0.884，滑移-破裂混淆近零；消融表明声学传感必要。自适应抓取控制器在Jetson Orin Nano上以104 Hz运行，46次闭环试验成功率91.3%，固定力策略在不匹配对象条件下为0%，新物体成功率82.4%。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "为什么适合你：该文直接涉及多指手机构与线传动、关节解耦和远程驱动，能为Aero Hand的传动理解与改进提供设计参照。你已有嵌入式基础，可借此学习线传动几何约束与指尖运动学建模；但Aero Hand是否具备RCJ或孤立关节驱动需核对硬件，不能假设有力矩/触觉反馈。"
+              "content": "为什么适合你：对灵巧手/末端抓取中的滑移与破裂检测有启发，涉及低成本声学传感与本体感知融合、自适应抓取控制，可补充腱绳/夹爪抓取状态感知与失败感知控制知识；但实验用Fin Ray夹爪，与Aero Hand平台不同，需核对硬件差异。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "可以学什么：在仿真中建立PIP/DIP闭环线传动与RCJ的几何模型，验证关节转动时线环总长不变；或用相机+ArUco标记测量Aero Hand线传动位移，与解析模型对比。需额外相机/ArUco标记，并先核对Aero Hand是否采用线传动及是否有球螺母位移可测。"
+              "content": "可以学什么：复现需两个PVDF声学传感器、电机编码器或电流等本体感知接口、Fin Ray或柔性夹爪及Jetson Orin Nano类计算平台。先核对Aero Hand是否具备可安装声学传感的指面/夹爪结构与本体感知接口，再采集正常/滑移/破裂三分类数据。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "依据：采用关节特异性混合远程驱动：MCP用两组刚性连杆，PIP/DIP用闭环线传动与圆形滚动接触关节；ArUco跟踪位移评估传动，并报告指尖峰值力。"
+              "content": "依据：摘要称用两个PVDF声学传感器和电机本体感知，以79维特征分类正常、滑移或破裂，闭环抓取成功率91.3%。"
             }
           },
           {
@@ -97,7 +95,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2610.10180",
+                "url": "https://arxiv.org/abs/2610.08802",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
@@ -106,7 +104,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/pdf/2610.10180",
+                "url": "https://arxiv.org/pdf/2610.08802",
                 "text": {
                   "tag": "plain_text",
                   "content": "PDF"
@@ -121,7 +119,7 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "2. MagCilia：用于机器人接触感知与抓取反馈的紧凑磁纤毛三维力触觉传感器\nMagCilia: A Compact Magnetociliary Tactile Sensor with 3D Force Sensing for Robotic Contact Perception and Grasping Feedback"
+              "content": "2. VICON：面向操作数据集的视觉-惯性-接触手物跟踪\nVICON: Visual-Inertial-Contact based Hand-Object Tracking for Manipulation Datasets"
             }
           },
           {
@@ -135,35 +133,35 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "公告日期：2026-10-08；作者：Yu Feng, Hao Wu, Haotian Guo, Haoming Liu, William Su, Jingxiang Guo, Jiankun Li, Masayoshi Tomizuka, Wen Jung Li, Jianshu Zhou"
+              "content": "公告日期：2026-10-06；作者：Yubin Jeon, Uiseong Shin, Hwanchul La, Jaeseong Kang, Hyelim Choi, Yongseok Lee"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "核心方法：提出紧凑磁纤毛触觉传感器MagCilia，用柔性磁纤毛结构与霍尔传感器实现三维力感知。通过准静态有限元分析研究多向加载下结构变形与磁场响应；为从耦合磁通道重建力，提出因果历史融合回归（CHFR），融合当前磁场测量与近期变化量。按标定记录分组做五折交叉验证，Fx、Fy、Fz的RMSE为0.40、0.57、0.69 N，R²为0.93、0.90、0.92。机器人实验展示切向力引导夹爪调整和外部扰动下多轴载荷监测；重建力的频域特征在按采集会话分组的三折交叉验证中以99.39%准确率区分六类表面，在线演示识别全部六种测试表面。"
+              "content": "核心方法：针对人手演示数据中接触点/力缺失及手物遮挡问题，VICON用视觉-惯性手套和RGB-D相机跟踪手，并按抓取频率在手套上布置FSR记录接触状态和标定法向力；无需预存CAD，用RGB-D和单目视频重建网格估计物体位姿；提出因子图物体轨迹估计，融合可见性加权位姿、FSR和手部运动先验。40次动捕、5个物体：失败帧率2.5%，基线50.9-64.6%，遮挡下中位误差3.9 mm和3.0°。构建同步手物运动、接触点与法向力数据集，并将公开覆盖10类物体的扩展数据集。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "为什么适合你：提供触觉传感器从结构、标定到3D力回归和抓取反馈的完整链路，契合你关注的触觉反馈与标定。可帮助建立“传感—标定—回归—抓取”实验思维；但Aero Hand当前是否有触觉或Hall传感接口需核对硬件，不能假设已具备力控或触觉。"
+              "content": "为什么适合你：有助于理解如何为灵巧操作采集人手接触力和运动数据，涉及FSR接触传感、视觉-惯性跟踪、遮挡下位姿估计和数据集构建；若你关注真实硬件实验和从人手演示学习，可借鉴其多模态标定与融合思路。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "可以学什么：用霍尔传感器与磁性弹性纤毛搭建单点触觉单元，配三轴力传感器做标定，采集磁场-力数据并实现CHFR回归，比较有无历史变化项。需额外霍尔传感器、柔性磁纤毛和三轴力标定平台，并核对Aero Hand指端安装空间。"
+              "content": "可以学什么：复现/扩展需视觉-惯性手套（含按抓取频率布置的FSR）、RGB-D相机、单目视频网格重建和因子图优化工具。先核对Aero Hand是否具备手指接触传感与外部动捕/相机标定条件，再对单物体做手物接触力采集与位姿融合验证。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "依据：磁纤毛+霍尔传感器实现3D力感知；CHFR回归融合磁场当前值与变化量，五折交叉验证力RMSE 0.40/0.57/0.69 N；频域特征区分六种表面准确率99.39%。"
+              "content": "依据：摘要称用视觉-惯性手套和RGB-D相机，并在手套上布置FSR同步记录接触状态与标定法向力，遮挡下中位误差3.9 mm和3.0°。"
             }
           },
           {
@@ -179,7 +177,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2610.09536",
+                "url": "https://arxiv.org/abs/2610.05180",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
@@ -188,7 +186,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/pdf/2610.09536",
+                "url": "https://arxiv.org/pdf/2610.05180",
                 "text": {
                   "tag": "plain_text",
                   "content": "PDF"
@@ -203,7 +201,7 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "3. 面向灵巧抓取稳定性的时序视触觉学习\nTemporal Visuo-Tactile Learning for Dexterous Grasp Stability"
+              "content": "3. TACROSS：面向灵巧机器人学习的跨异构触觉传感器高效低成本可扩展人类触觉系统\nTACROSS: An Efficient and Low-Cost Scalable Human Touch System Across Heterogeneous Tactile Sensors for Dexterous Robot Learning"
             }
           },
           {
@@ -217,35 +215,35 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "公告日期：2026-10-08；作者：Ken Nakahara, Aleksei Buvailik, Prokhor Kotov, Roberto Calandra"
+              "content": "公告日期：2026-10-09；作者：Bo Chen, Huanzhang Hu, Junyang Ma, Bo Yue, Fangdi Yu, Haijier Chen, Xianxin Lai, Shuyu Pan, Zhen Yang, Xiaoquan Sun, Wenze Cui, Zhongliang Jiang, Shaopeng Liu, Jiayu Chen"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "核心方法：系统研究高分辨率动态触觉对灵巧手抓取稳定性预测与模型引导抓取的作用。采集数据集：四指多指手配四个Digit 360触觉传感器，对200个物体进行10000次抓取试验，记录外部视觉、本体感觉和触觉流。用这些数据训练端到端时序多模态模型，从提离前抓取观测预测提离后稳定性，并比较不同传感模态和编码骨干。结果与受控输入消融表明，加入触觉、尤其高分辨率动态触觉，能提升抓取稳定性预测。最后将学习到的预测器作为在线稳定性门控部署到真实机器人；视触觉模型引导的重抓取在执行提离成功率上比无触觉门控提高10.5个百分点。摘要称数据集公开。"
+              "content": "核心方法：为降低机器人触觉演示采集成本与难度，TACROSS用低成本人类触觉手套，在接触事件层面而非原始传感器值上对齐人类与机器人异构触觉流。硬件集成五层压阻手套，约10.86美元，285个传感点。设计规范化器和残差适配器，通过跨手指注意力时序Transformer将异构信号映射到256维共享触觉潜空间。提出机器人接地策略学习：机器人演示提供唯一真值动作监督，人类演示支持触觉表示学习和通过有效重定向手目标提供置信加权辅助监督。四个接触丰富操作任务上，相比传统遥操作效率提升3.5倍，演示采集设备成本降低95.7%。将开源硬件软件和超过150小时触觉数据集。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "为什么适合你：聚焦多指手抓取稳定性、视触觉时序学习和在线门控，直接服务灵巧手抓取与手内操作。你已装Aero Hand，可借鉴数据采集与预测思路；但Aero Hand是否支持高分辨率触觉与视觉同步需核对硬件，不能假设具备触觉或力控。"
+              "content": "为什么适合你：对灵巧手触觉反馈与低成本数据采集有直接帮助：用人类手套采集触觉演示并迁移到机器人，涉及触觉异构对齐、注意力Transformer和策略学习；若做触觉传感和抓取/手内操作，可了解如何用少量机器人数据辅助大规模人类触觉数据。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "可以学什么：若Aero Hand可加装触觉与视觉，设计提离前/后抓取协议，采集时序触觉+关节位置+视觉，训练简单时序分类器预测提离稳定性，再做在线门控。需额外触觉传感器与相机，并核对Aero Hand硬件接口与实时通信能力。"
+              "content": "可以学什么：复现需五层压阻式触觉手套（约285测点）、机器人触觉传感器（视平台配置）、重定向手部目标及机器人真值动作数据。先核对Aero Hand是否已有触觉阵列或可加装压阻传感，并确认能否获取机器人演示作为真值监督，再跑小规模触觉对齐实验。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "依据：用四指多指手与四个Digit 360触觉传感器采集200物体、10000次抓取；训练时序多模态模型预测提离后稳定性，在线门控使执行提离成功率提升10.5个百分点。"
+              "content": "依据：摘要称硬件为五层压阻手套、约10.86美元、285个传感点，通过接触事件对齐异构触觉流并提升数据采集效率3.5倍。"
             }
           },
           {
@@ -261,7 +259,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2610.10283",
+                "url": "https://arxiv.org/abs/2610.11945",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
@@ -270,7 +268,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/pdf/2610.10283",
+                "url": "https://arxiv.org/pdf/2610.11945",
                 "text": {
                   "tag": "plain_text",
                   "content": "PDF"
@@ -285,7 +283,7 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "4. 面向混合力/运动控制的接触任务帧与力的触觉重建\nTactile Reconstruction of Contact Task Frames and Forces for Hybrid Force/Motion Control"
+              "content": "4. SkillWeave：将异构演示编织为长时程操作技能\nSkillWeave: Weaving Heterogeneous Demonstrations into Long-Horizon Manipulation Skills"
             }
           },
           {
@@ -299,35 +297,35 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "公告日期：2026-10-08；作者：Antonio Rapuano, Simone Orelli, Barbara Bazzana, Antonio Franchi, Alessandro De Luca"
+              "content": "公告日期：2026-10-09；作者：Ryosei Tamura, Xiaoxiang Dong, Uksang Yoo, Yuemin Mao, Romina Mir, Jonathan Francis, Jeffrey Ichnowski"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "核心方法：针对混合力/运动控制需要交互力和任务帧知识的问题，仅用软光学触觉传感在线估计接触力与可能时变的任务帧，假设局部平面接触且接触力矩可忽略。方法把柔性体变形的单张图像映射为可观测接触变量：压入深度、两个表面对传感器倾角、三维接触力，并给出逐样本不确定性。该映射通过自标注采集过程学习：机械臂施加受控接触，辅助力/力矩传感器离线提供真值标签。触觉测量再与机器人本体感觉数据在扩展卡尔曼滤波中融合，连续更新接触任务帧和交互力估计。控制实验用DigiTac传感器装在UR10上，仅以触觉为外感知反馈，在平面刚性板上由人手施加线性和角运动时实现闭环接触力调节。"
+              "content": "核心方法：针对灵巧操作需同时支持大范围任务推进和精细接触交互，SkillWeave提出异构演示框架，结合遥操作做粗略接近/搬运与动觉示教做精确接触丰富技能。为缓解动觉采集中演示者视觉不匹配，提出物体掩码条件扩散策略：训练用离线物体分割监督，部署用轻量学习掩码预测器，避免在线分割和图像修补。为缓解独立训练子任务策略间的分布偏移，引入后继感知终端引导：从前驱策略采样动作中选择使系统趋向后继策略演示初始状态分布的动作。三个真实长时程任务平均端到端成功率27%；掩码条件动觉策略将灵巧子任务成功率提升至平均65%；后继感知交接平均组合效率87%。视频与代码见项目页。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "为什么适合你：涉及软光学触觉重建接触力与任务帧，并用EKF做混合力/运动控制，对应你学习的力/阻抗控制与触觉反馈。可帮助理解触觉标定、自标注和状态估计融合；但Aero Hand是否可装光学触觉或F/T传感器需核对硬件，不能预设力控能力。"
+              "content": "为什么适合你：对长时程灵巧操作中的异构演示采集和策略组合有启发，涉及遥操作、动觉示教、物体掩码扩散策略和子策略交接；若关注真实硬件实验和仿真到实物迁移，可借鉴其解决视觉不匹配和分布偏移的思路，但主要面向操作策略而非底层手设计。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "可以学什么：用光学触觉传感器和辅助力/力矩传感器做自标注采集，训练回归映射估计压入深度、倾角与三维力，再用EKF融合关节位置估计接触任务帧。需额外光学触觉传感器、F/T传感器和可编程机械臂，并核对Aero Hand是否支持外感知反馈。"
+              "content": "可以学什么：复现需遥操作设备、动觉示教能力、RGB-D相机、物体分割/掩码预测流程、扩散策略训练平台及真实长时程任务环境。先核对Aero Hand平台是否支持遥操作和动觉示教接口，并确认能否获取或标注物体掩码，再复现单任务子策略交接。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "依据：仅用软光学触觉传感器图像估计接触任务帧与三维力；通过自标注采集（辅助力/力矩传感器离线标定），再用EKF融合本体感觉，在UR10与DigiTac上实现闭环力调节。"
+              "content": "依据：摘要称该框架结合遥操作与动觉示教，用物体掩码条件扩散策略和后继感知终端引导，在三个真实长时程任务上平均端到端成功率27%。"
             }
           },
           {
@@ -343,7 +341,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2610.10020",
+                "url": "https://arxiv.org/abs/2610.12046",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
@@ -352,7 +350,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/pdf/2610.10020",
+                "url": "https://arxiv.org/pdf/2610.12046",
                 "text": {
                   "tag": "plain_text",
                   "content": "PDF"
@@ -366,7 +364,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://github.com/suyoutzy/dexterous-paper-digest/blob/main/docs/digests/2026-10-08.md",
+                "url": "https://github.com/suyoutzy/dexterous-paper-digest/blob/main/docs/digests/2026-10-09.md",
                 "text": {
                   "tag": "plain_text",
                   "content": "日报归档 / 其他期刊候选"
@@ -387,11 +385,11 @@
       }
     }
   ],
-  "report": "# 灵巧手论文日报 · 2026-10-08\n\narXiv API 暂不可用；官方 RSS 本次含99条可合并公告，结合近期缓存筛选。期刊：Crossref 5/5 个来源刷新成功，回查最近 7 天元数据索引，获得 3360 条期刊记录；索引更新日期不作为发表日期。 最近 30 天发表日期补查 5/5 个来源成功，取得 186 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Robotics and Automation Letters。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。额外期刊名额不足，补查最近90天期刊。期刊：Crossref 5/5 个来源刷新成功，回查最近 7 天元数据索引，获得 3648 条期刊记录；索引更新日期不作为发表日期。 最近 90 天发表日期补查 5/5 个来源成功，取得 479 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Robotics and Automation Letters。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。优先最近7天；必要时从最近30天未发送论文补充。前四篇按统一评分选取，另加一篇不同的期刊论文。额外期刊名额已扩大到最近90天检索。本次没有找到额外合格且未发送的期刊论文，期刊保留名额暂缺，不用预印本替代。仅依据标题/摘要与元数据，未读取正文；作者背景未独立核实。本次达到推荐门槛的论文有4篇。另有3篇相关期刊候选，标题与链接见当天归档。\n\n模型：deepseek-flash；分数是针对个人学习价值的推荐依据，非学术质量认证。\n\n## 1. 全驱动4自由度机械手指设计：关节特异性混合远程驱动\n\nDesign of a Fully Actuated 4-DOF Robotic Finger With Joint-Specific Hybrid Remote Actuation\n\n**作者**：Hyojae Kang, Hyun-mok Jung, Joonho Lee, Dongil Park, Hyunmin Do, Jongwoo Park, Jeongdo Ahn（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 公告日期：2026-10-08 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：提出全驱动4自由度手指，采用关节特异性混合远程驱动：MCP由两组协调刚性连杆驱动，PIP和DIP由闭环线传动独立驱动，并加入圆形滚动接触关节（RCJ）。PIP传动半径大于DIP；RCJ线几何在关节转动时保持线环总长，DIP走线使固定MCP时PIP运动不影响其差动驱动。对远端线传动、MCP连杆和指尖运动学进行解析建模。实验中用ArUco标记跟踪滚珠丝杠位移定量评估传动；MCP驱动会引起PIP/DIP传动单元可测位移，固定MCP时PIP/DIP独立驱动支持预期机械解耦。孤立MCP、PIP、DIP驱动的平均指尖峰值力分别为21.28 N、9.22 N、5.75 N，并用不同几何尺寸物体检查手指姿态。\n\n**为什么适合你**：该文直接涉及多指手机构与线传动、关节解耦和远程驱动，能为Aero Hand的传动理解与改进提供设计参照。你已有嵌入式基础，可借此学习线传动几何约束与指尖运动学建模；但Aero Hand是否具备RCJ或孤立关节驱动需核对硬件，不能假设有力矩/触觉反馈。\n\n**可积累的实验经验**：在仿真中建立PIP/DIP闭环线传动与RCJ的几何模型，验证关节转动时线环总长不变；或用相机+ArUco标记测量Aero Hand线传动位移，与解析模型对比。需额外相机/ArUco标记，并先核对Aero Hand是否采用线传动及是否有球螺母位移可测。\n\n**依据**：采用关节特异性混合远程驱动：MCP用两组刚性连杆，PIP/DIP用闭环线传动与圆形滚动接触关节；ArUco跟踪位移评估传动，并报告指尖峰值力。\n\n[论文](https://arxiv.org/abs/2610.10180)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2610.10180)\n\n## 2. MagCilia：用于机器人接触感知与抓取反馈的紧凑磁纤毛三维力触觉传感器\n\nMagCilia: A Compact Magnetociliary Tactile Sensor with 3D Force Sensing for Robotic Contact Perception and Grasping Feedback\n\n**作者**：Yu Feng, Hao Wu, Haotian Guo, Haoming Liu, William Su, Jingxiang Guo, Jiankun Li, Masayoshi Tomizuka, Wen Jung Li, Jianshu Zhou（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 公告日期：2026-10-08 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：提出紧凑磁纤毛触觉传感器MagCilia，用柔性磁纤毛结构与霍尔传感器实现三维力感知。通过准静态有限元分析研究多向加载下结构变形与磁场响应；为从耦合磁通道重建力，提出因果历史融合回归（CHFR），融合当前磁场测量与近期变化量。按标定记录分组做五折交叉验证，Fx、Fy、Fz的RMSE为0.40、0.57、0.69 N，R²为0.93、0.90、0.92。机器人实验展示切向力引导夹爪调整和外部扰动下多轴载荷监测；重建力的频域特征在按采集会话分组的三折交叉验证中以99.39%准确率区分六类表面，在线演示识别全部六种测试表面。\n\n**为什么适合你**：提供触觉传感器从结构、标定到3D力回归和抓取反馈的完整链路，契合你关注的触觉反馈与标定。可帮助建立“传感—标定—回归—抓取”实验思维；但Aero Hand当前是否有触觉或Hall传感接口需核对硬件，不能假设已具备力控或触觉。\n\n**可积累的实验经验**：用霍尔传感器与磁性弹性纤毛搭建单点触觉单元，配三轴力传感器做标定，采集磁场-力数据并实现CHFR回归，比较有无历史变化项。需额外霍尔传感器、柔性磁纤毛和三轴力标定平台，并核对Aero Hand指端安装空间。\n\n**依据**：磁纤毛+霍尔传感器实现3D力感知；CHFR回归融合磁场当前值与变化量，五折交叉验证力RMSE 0.40/0.57/0.69 N；频域特征区分六种表面准确率99.39%。\n\n[论文](https://arxiv.org/abs/2610.09536)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2610.09536)\n\n## 3. 面向灵巧抓取稳定性的时序视触觉学习\n\nTemporal Visuo-Tactile Learning for Dexterous Grasp Stability\n\n**作者**：Ken Nakahara, Aleksei Buvailik, Prokhor Kotov, Roberto Calandra（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 公告日期：2026-10-08 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：系统研究高分辨率动态触觉对灵巧手抓取稳定性预测与模型引导抓取的作用。采集数据集：四指多指手配四个Digit 360触觉传感器，对200个物体进行10000次抓取试验，记录外部视觉、本体感觉和触觉流。用这些数据训练端到端时序多模态模型，从提离前抓取观测预测提离后稳定性，并比较不同传感模态和编码骨干。结果与受控输入消融表明，加入触觉、尤其高分辨率动态触觉，能提升抓取稳定性预测。最后将学习到的预测器作为在线稳定性门控部署到真实机器人；视触觉模型引导的重抓取在执行提离成功率上比无触觉门控提高10.5个百分点。摘要称数据集公开。\n\n**为什么适合你**：聚焦多指手抓取稳定性、视触觉时序学习和在线门控，直接服务灵巧手抓取与手内操作。你已装Aero Hand，可借鉴数据采集与预测思路；但Aero Hand是否支持高分辨率触觉与视觉同步需核对硬件，不能假设具备触觉或力控。\n\n**可积累的实验经验**：若Aero Hand可加装触觉与视觉，设计提离前/后抓取协议，采集时序触觉+关节位置+视觉，训练简单时序分类器预测提离稳定性，再做在线门控。需额外触觉传感器与相机，并核对Aero Hand硬件接口与实时通信能力。\n\n**依据**：用四指多指手与四个Digit 360触觉传感器采集200物体、10000次抓取；训练时序多模态模型预测提离后稳定性，在线门控使执行提离成功率提升10.5个百分点。\n\n[论文](https://arxiv.org/abs/2610.10283)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2610.10283)\n\n## 4. 面向混合力/运动控制的接触任务帧与力的触觉重建\n\nTactile Reconstruction of Contact Task Frames and Forces for Hybrid Force/Motion Control\n\n**作者**：Antonio Rapuano, Simone Orelli, Barbara Bazzana, Antonio Franchi, Alessandro De Luca（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 公告日期：2026-10-08 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：针对混合力/运动控制需要交互力和任务帧知识的问题，仅用软光学触觉传感在线估计接触力与可能时变的任务帧，假设局部平面接触且接触力矩可忽略。方法把柔性体变形的单张图像映射为可观测接触变量：压入深度、两个表面对传感器倾角、三维接触力，并给出逐样本不确定性。该映射通过自标注采集过程学习：机械臂施加受控接触，辅助力/力矩传感器离线提供真值标签。触觉测量再与机器人本体感觉数据在扩展卡尔曼滤波中融合，连续更新接触任务帧和交互力估计。控制实验用DigiTac传感器装在UR10上，仅以触觉为外感知反馈，在平面刚性板上由人手施加线性和角运动时实现闭环接触力调节。\n\n**为什么适合你**：涉及软光学触觉重建接触力与任务帧，并用EKF做混合力/运动控制，对应你学习的力/阻抗控制与触觉反馈。可帮助理解触觉标定、自标注和状态估计融合；但Aero Hand是否可装光学触觉或F/T传感器需核对硬件，不能预设力控能力。\n\n**可积累的实验经验**：用光学触觉传感器和辅助力/力矩传感器做自标注采集，训练回归映射估计压入深度、倾角与三维力，再用EKF融合关节位置估计接触任务帧。需额外光学触觉传感器、F/T传感器和可编程机械臂，并核对Aero Hand是否支持外感知反馈。\n\n**依据**：仅用软光学触觉传感器图像估计接触任务帧与三维力；通过自标注采集（辅助力/力矩传感器离线标定），再用EKF融合本体感觉，在UR10与DigiTac上实现闭环力调节。\n\n[论文](https://arxiv.org/abs/2610.10020)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2610.10020)\n\n## 其他相关期刊论文\n\n以下仅列元数据，未进入本次五篇精选；供回查，未进行正文阅读。\n\n- [A Bioinspired Multimodal Soft Gripper With Intuitive Teleoperation and Distal Sensing for Constrained-Space Manipulation](https://doi.org/10.1109/lra.2026.3726374) · IEEE Robotics and Automation Letters · 2026-10\n- [Adaptive Fuzzy Tactile Servoing on Soft Surfaces With a Multimodal Tactile Sensor](https://doi.org/10.1109/lra.2026.3717172) · IEEE Robotics and Automation Letters · 2026-09\n- [FG-CLTP: Fine-Grained Contrastive Language Tactile Pretraining for Robotic Manipulation](https://doi.org/10.1109/lra.2026.3711368) · IEEE Robotics and Automation Letters · 2026-09\n",
+  "report": "# 灵巧手论文日报 · 2026-10-09\n\narXiv API 暂不可用；官方 RSS 本次含102条可合并公告，结合近期缓存筛选。期刊：Crossref 5/5 个来源刷新成功，回查最近 7 天元数据索引，获得 3419 条期刊记录；索引更新日期不作为发表日期。 最近 30 天发表日期补查 5/5 个来源成功，取得 185 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Transactions on Robotics、IEEE Robotics and Automation Letters。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。额外期刊名额不足，补查最近90天期刊。期刊：Crossref 5/5 个来源刷新成功，回查最近 7 天元数据索引，获得 3710 条期刊记录；索引更新日期不作为发表日期。 最近 90 天发表日期补查 5/5 个来源成功，取得 480 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Transactions on Robotics、IEEE Robotics and Automation Letters。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。优先最近7天；必要时从最近30天未发送论文补充。前四篇按统一评分选取，另加一篇不同的期刊论文。额外期刊名额已扩大到最近90天检索。本次没有找到额外合格且未发送的期刊论文，期刊保留名额暂缺，不用预印本替代。仅依据标题/摘要与元数据，未读取正文；作者背景未独立核实。本次达到推荐门槛的论文有4篇。另有3篇相关期刊候选，标题与链接见当天归档。\n\n模型：deepseek-flash；分数是针对个人学习价值的推荐依据，非学术质量认证。\n\n## 1. SAFE：机器人抓取中低成本声学传感的统一滑移与破裂检测\n\nSAFE: Unified Slip and Fracture Detection with Low-Cost Acoustic Sensing in Robotic Grasping\n\n**作者**：Zerun Wang, Vivek Kamat, Shekhar Bhansali（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 公告日期：2026-10-08 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：提出SAFE低成本通用传感方法，用两个PVDF声学传感器与电机本体感知，不依赖视觉或先验材料知识，在Fin Ray柔性夹爪上实时检测滑移和破裂。统一HistGradientBoosting分类器从79维特征报告正常、滑移或破裂。留一抓取交叉验证Alert-F1为0.884，滑移-破裂混淆近零；消融表明声学传感必要。自适应抓取控制器在Jetson Orin Nano上以104 Hz运行，46次闭环试验成功率91.3%，固定力策略在不匹配对象条件下为0%，新物体成功率82.4%。\n\n**为什么适合你**：对灵巧手/末端抓取中的滑移与破裂检测有启发，涉及低成本声学传感与本体感知融合、自适应抓取控制，可补充腱绳/夹爪抓取状态感知与失败感知控制知识；但实验用Fin Ray夹爪，与Aero Hand平台不同，需核对硬件差异。\n\n**可积累的实验经验**：复现需两个PVDF声学传感器、电机编码器或电流等本体感知接口、Fin Ray或柔性夹爪及Jetson Orin Nano类计算平台。先核对Aero Hand是否具备可安装声学传感的指面/夹爪结构与本体感知接口，再采集正常/滑移/破裂三分类数据。\n\n**依据**：摘要称用两个PVDF声学传感器和电机本体感知，以79维特征分类正常、滑移或破裂，闭环抓取成功率91.3%。\n\n[论文](https://arxiv.org/abs/2610.08802)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2610.08802)\n\n## 2. VICON：面向操作数据集的视觉-惯性-接触手物跟踪\n\nVICON: Visual-Inertial-Contact based Hand-Object Tracking for Manipulation Datasets\n\n**作者**：Yubin Jeon, Uiseong Shin, Hwanchul La, Jaeseong Kang, Hyelim Choi, Yongseok Lee（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 公告日期：2026-10-06 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：针对人手演示数据中接触点/力缺失及手物遮挡问题，VICON用视觉-惯性手套和RGB-D相机跟踪手，并按抓取频率在手套上布置FSR记录接触状态和标定法向力；无需预存CAD，用RGB-D和单目视频重建网格估计物体位姿；提出因子图物体轨迹估计，融合可见性加权位姿、FSR和手部运动先验。40次动捕、5个物体：失败帧率2.5%，基线50.9-64.6%，遮挡下中位误差3.9 mm和3.0°。构建同步手物运动、接触点与法向力数据集，并将公开覆盖10类物体的扩展数据集。\n\n**为什么适合你**：有助于理解如何为灵巧操作采集人手接触力和运动数据，涉及FSR接触传感、视觉-惯性跟踪、遮挡下位姿估计和数据集构建；若你关注真实硬件实验和从人手演示学习，可借鉴其多模态标定与融合思路。\n\n**可积累的实验经验**：复现/扩展需视觉-惯性手套（含按抓取频率布置的FSR）、RGB-D相机、单目视频网格重建和因子图优化工具。先核对Aero Hand是否具备手指接触传感与外部动捕/相机标定条件，再对单物体做手物接触力采集与位姿融合验证。\n\n**依据**：摘要称用视觉-惯性手套和RGB-D相机，并在手套上布置FSR同步记录接触状态与标定法向力，遮挡下中位误差3.9 mm和3.0°。\n\n[论文](https://arxiv.org/abs/2610.05180)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2610.05180)\n\n## 3. TACROSS：面向灵巧机器人学习的跨异构触觉传感器高效低成本可扩展人类触觉系统\n\nTACROSS: An Efficient and Low-Cost Scalable Human Touch System Across Heterogeneous Tactile Sensors for Dexterous Robot Learning\n\n**作者**：Bo Chen, Huanzhang Hu, Junyang Ma, Bo Yue, Fangdi Yu, Haijier Chen, Xianxin Lai, Shuyu Pan, Zhen Yang, Xiaoquan Sun, Wenze Cui, Zhongliang Jiang, Shaopeng Liu, Jiayu Chen（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 公告日期：2026-10-09 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：为降低机器人触觉演示采集成本与难度，TACROSS用低成本人类触觉手套，在接触事件层面而非原始传感器值上对齐人类与机器人异构触觉流。硬件集成五层压阻手套，约10.86美元，285个传感点。设计规范化器和残差适配器，通过跨手指注意力时序Transformer将异构信号映射到256维共享触觉潜空间。提出机器人接地策略学习：机器人演示提供唯一真值动作监督，人类演示支持触觉表示学习和通过有效重定向手目标提供置信加权辅助监督。四个接触丰富操作任务上，相比传统遥操作效率提升3.5倍，演示采集设备成本降低95.7%。将开源硬件软件和超过150小时触觉数据集。\n\n**为什么适合你**：对灵巧手触觉反馈与低成本数据采集有直接帮助：用人类手套采集触觉演示并迁移到机器人，涉及触觉异构对齐、注意力Transformer和策略学习；若做触觉传感和抓取/手内操作，可了解如何用少量机器人数据辅助大规模人类触觉数据。\n\n**可积累的实验经验**：复现需五层压阻式触觉手套（约285测点）、机器人触觉传感器（视平台配置）、重定向手部目标及机器人真值动作数据。先核对Aero Hand是否已有触觉阵列或可加装压阻传感，并确认能否获取机器人演示作为真值监督，再跑小规模触觉对齐实验。\n\n**依据**：摘要称硬件为五层压阻手套、约10.86美元、285个传感点，通过接触事件对齐异构触觉流并提升数据采集效率3.5倍。\n\n[论文](https://arxiv.org/abs/2610.11945)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2610.11945)\n\n## 4. SkillWeave：将异构演示编织为长时程操作技能\n\nSkillWeave: Weaving Heterogeneous Demonstrations into Long-Horizon Manipulation Skills\n\n**作者**：Ryosei Tamura, Xiaoxiang Dong, Uksang Yoo, Yuemin Mao, Romina Mir, Jonathan Francis, Jeffrey Ichnowski（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 公告日期：2026-10-09 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：针对灵巧操作需同时支持大范围任务推进和精细接触交互，SkillWeave提出异构演示框架，结合遥操作做粗略接近/搬运与动觉示教做精确接触丰富技能。为缓解动觉采集中演示者视觉不匹配，提出物体掩码条件扩散策略：训练用离线物体分割监督，部署用轻量学习掩码预测器，避免在线分割和图像修补。为缓解独立训练子任务策略间的分布偏移，引入后继感知终端引导：从前驱策略采样动作中选择使系统趋向后继策略演示初始状态分布的动作。三个真实长时程任务平均端到端成功率27%；掩码条件动觉策略将灵巧子任务成功率提升至平均65%；后继感知交接平均组合效率87%。视频与代码见项目页。\n\n**为什么适合你**：对长时程灵巧操作中的异构演示采集和策略组合有启发，涉及遥操作、动觉示教、物体掩码扩散策略和子策略交接；若关注真实硬件实验和仿真到实物迁移，可借鉴其解决视觉不匹配和分布偏移的思路，但主要面向操作策略而非底层手设计。\n\n**可积累的实验经验**：复现需遥操作设备、动觉示教能力、RGB-D相机、物体分割/掩码预测流程、扩散策略训练平台及真实长时程任务环境。先核对Aero Hand平台是否支持遥操作和动觉示教接口，并确认能否获取或标注物体掩码，再复现单任务子策略交接。\n\n**依据**：摘要称该框架结合遥操作与动觉示教，用物体掩码条件扩散策略和后继感知终端引导，在三个真实长时程任务上平均端到端成功率27%。\n\n[论文](https://arxiv.org/abs/2610.12046)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2610.12046)\n\n## 其他相关期刊论文\n\n以下仅列元数据，未进入本次五篇精选；供回查，未进行正文阅读。\n\n- [Adaptive Fuzzy Tactile Servoing on Soft Surfaces With a Multimodal Tactile Sensor](https://doi.org/10.1109/lra.2026.3717172) · IEEE Robotics and Automation Letters · 2026-09\n- [A Bioinspired Multimodal Soft Gripper With Intuitive Teleoperation and Distal Sensing for Constrained-Space Manipulation](https://doi.org/10.1109/lra.2026.3726374) · IEEE Robotics and Automation Letters · 2026-10\n- [FG-CLTP: Fine-Grained Contrastive Language Tactile Pretraining for Robotic Manipulation](https://doi.org/10.1109/lra.2026.3711368) · IEEE Robotics and Automation Letters · 2026-09\n",
   "usage": {
-    "input_tokens": 18515,
-    "output_tokens": 24022,
-    "cached_tokens": 3840,
+    "input_tokens": 18570,
+    "output_tokens": 22152,
+    "cached_tokens": 4864,
     "requests": 7
   }
 }
