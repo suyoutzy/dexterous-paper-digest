@@ -24,6 +24,21 @@ class LLMError(RuntimeError):
     """An intentionally sanitized error that is safe to put in Actions logs."""
 
 
+class ModelOutputError(LLMError):
+    """A completed model answer that failed JSON validation."""
+
+
+class OffPeakSkip(LLMError):
+    """A scheduled call withheld by the published peak-hour guard."""
+
+
+def ensure_off_peak() -> None:
+    # Treat holidays conservatively as weekdays; no external calendar is needed.
+    now = datetime.now(timezone.utc)
+    if now.weekday() < 5 and (1 <= now.hour < 4 or 6 <= now.hour < 10):
+        raise OffPeakSkip("Peak hours: scheduled generation skipped; no request sent after this check.")
+
+
 class _UnsupportedAPI(LLMError):
     pass
 
@@ -152,9 +167,9 @@ def _json_object(text: str) -> dict[str, Any]:
     try:
         value = json.loads(text)
     except (ValueError, TypeError):
-        raise LLMError("Model output was not valid JSON.") from None
+        raise ModelOutputError("Model output was not valid JSON.") from None
     if not isinstance(value, dict):
-        raise LLMError("Model output must be a JSON object.")
+        raise ModelOutputError("Model output must be a JSON object.")
     return value
 
 
@@ -335,14 +350,7 @@ class LLMClient:
         headers = {"Authorization": f"Bearer {self._api_key}", "Content-Type": "application/json"}
         for attempt in range(3):
             if self.off_peak_only:
-                # Holidays are deliberately treated as normal weekdays: this
-                # conservative check may skip a discounted holiday request,
-                # but never starts a call in a published weekday peak window.
-                now = datetime.now(timezone.utc)
-                if now.weekday() < 5 and (1 <= now.hour < 4 or 6 <= now.hour < 10):
-                    raise LLMError(
-                        "Off-peak-only scheduled call skipped during peak hours; no request sent."
-                    )
+                ensure_off_peak()
             try:
                 response = self.session.post(
                     f"{self.base_url}/{endpoint}",

@@ -1,6 +1,7 @@
 .venv/
 .run/
 .artifact/
+local_process/
 __pycache__/
 *.py[cod]
 .pytest_cache/

@@ -10,15 +10,16 @@ import os
 import re
 import time
 import xml.etree.ElementTree as ET
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
+from typing import Callable, TypeVar
 from zoneinfo import ZoneInfo
 
 import requests
 import yaml
 
 from .delivery import DeliveryError, DeliveryUncertainError, build_cards, send_card
-from .llm import LLMClient, LLMError
+from .llm import LLMClient, LLMError, ModelOutputError, OffPeakSkip, ensure_off_peak
 from .state import StateError, acknowledge_all, load_json, load_state, resume_pending, validate_pending, write_json
 from .sources import collect_rss
 from .journals import collect_journals, normalize_doi
@@ -40,6 +41,26 @@ class PipelineError(RuntimeError):
 
 class SourceUnavailable(PipelineError):
     pass
+
+
+class ModelValidationError(PipelineError):
+    """Model JSON that fails the paper identity or content checks."""
+
+
+T = TypeVar("T")
+
+
+def validated_model_batch(client: LLMClient, system: str, user: str, max_output_tokens: int,
+                          validate: Callable[[dict], T]) -> T:
+    """Retry only this batch once, and only for invalid model output."""
+    for attempt in range(2):
+        try:
+            return validate(client.generate_json(system, user, max_output_tokens=max_output_tokens))
+        except (ModelOutputError, ModelValidationError):
+            if attempt == 1:
+                raise
+            print("Model output failed validation; retrying this batch once.", flush=True)
+    raise AssertionError("Unreachable model validation retry state.")
 
 
 def relevance(paper: dict) -> int:
@@ -204,7 +225,7 @@ def collect(db: dict, today: date, config: dict) -> tuple[dict, int]:
 
 def _score(value) -> float:
     if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value) or not 0 <= value <= 100:
-        raise PipelineError("Model returned an invalid recommendation score.")
+        raise ModelValidationError("Model returned an invalid recommendation score.")
     return float(value)
 
 
@@ -212,17 +233,17 @@ def ranked_papers(result: dict, papers: list[dict], minimum: int) -> list[dict]:
     lookup = {p["paper_id"]: p for p in papers}
     rows = result.get("rankings")
     if not isinstance(rows, list):
-        raise PipelineError("Ranking response lacks its rankings list.")
+        raise ModelValidationError("Ranking response lacks its rankings list.")
     output, seen = [], set()
     for row in rows:
-        if not isinstance(row, dict) or row.get("paper_id") not in lookup or row["paper_id"] in seen:
-            raise PipelineError("Ranking response contains an unknown or duplicate paper ID.")
+        if not isinstance(row, dict) or not isinstance(row.get("paper_id"), str) or row["paper_id"] not in lookup or row["paper_id"] in seen:
+            raise ModelValidationError("Ranking response contains an unknown or duplicate paper ID.")
         seen.add(row["paper_id"])
         score = _score(row.get("score"))
         if score >= minimum:
             output.append(dict(lookup[row["paper_id"]], ranking_score=score))
     if seen != set(lookup):
-        raise PipelineError("Ranking response did not cover all candidate papers.")
+        raise ModelValidationError("Ranking response did not cover all candidate papers.")
     return sorted(output, key=lambda p: p["ranking_score"], reverse=True)
 
 
@@ -246,12 +267,12 @@ def final_papers(result: dict, evidence: list[dict], config: dict) -> list[dict]
     lookup = {p["paper_id"]: p for p in evidence}
     rows = result.get("papers")
     if not isinstance(rows, list) or len(rows) != len(evidence) or len(rows) > config["target_count"]:
-        raise PipelineError("Summary response returned an invalid paper count.")
+        raise ModelValidationError("Summary response returned an invalid paper count.")
     output, seen = [], set()
     limits = {"title_zh": 160, "summary": 320, "why_for_you": 200, "learning_action": 180, "evidence": 160}
     for row in rows:
-        if not isinstance(row, dict) or row.get("paper_id") not in lookup or row["paper_id"] in seen:
-            raise PipelineError("Summary response contains an unknown or duplicate paper ID.")
+        if not isinstance(row, dict) or not isinstance(row.get("paper_id"), str) or row["paper_id"] not in lookup or row["paper_id"] in seen:
+            raise ModelValidationError("Summary response contains an unknown or duplicate paper ID.")
         seen.add(row["paper_id"])
         source = lookup[row["paper_id"]]
         # Selection is already settled by the abstract ranking. Summaries cannot
@@ -263,7 +284,7 @@ def final_papers(result: dict, evidence: list[dict], config: dict) -> list[dict]
         for field, limit in limits.items():
             value = row.get(field)
             if not isinstance(value, str) or not value.strip():
-                raise PipelineError(f"Summary response lacks required text: {field}.")
+                raise ModelValidationError(f"Summary response lacks required text: {field}.")
             selected[field] = concise_text(value, limit)
         selected["priority_score"] = priority
         selected["reading_depth"] = source["enrichment_note"]
@@ -271,7 +292,7 @@ def final_papers(result: dict, evidence: list[dict], config: dict) -> list[dict]
         selected["is_recent"] = source["is_recent"]
         output.append(selected)
     if seen != set(lookup):
-        raise PipelineError("Summary response did not cover all selected papers.")
+        raise ModelValidationError("Summary response did not cover all selected papers.")
     return sorted(output, key=lambda p: p["priority_score"], reverse=True)
 
 
@@ -348,10 +369,12 @@ def rank_metadata(client: LLMClient, papers: list[dict], config: dict) -> list[d
     all_rankings = []
     for index, group in enumerate(groups, 1):
         print(f"Ranking batch {index}/{len(groups)}: {len(group)} papers.", flush=True)
-        result = client.generate_json(RANK_PROMPT,
-            json.dumps(dict(context, required_count=len(group), candidates=group), ensure_ascii=False), max_output_tokens=6144)
-        ranked_papers(result, group, config["minimum_score"])
-        all_rankings.extend(result["rankings"])
+        def validate(result: dict) -> list[dict]:
+            ranked_papers(result, group, config["minimum_score"])
+            return result["rankings"]
+        all_rankings.extend(validated_model_batch(client, RANK_PROMPT,
+            json.dumps(dict(context, required_count=len(group), candidates=group), ensure_ascii=False),
+            6144, validate))
     return ranked_papers({"rankings": all_rankings}, papers, config["minimum_score"])
 
 
@@ -407,9 +430,28 @@ def archive_link(today: date) -> str:
 
 
 def prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_uncertain: bool) -> None:
+    try:
+        _prepare(root, config_path, output, preview, retry_uncertain)
+    except OffPeakSkip as error:
+        _skip_prepare(str(error))
+
+
+def _skip_prepare(reason: str) -> None:
+    _outputs(should_send=False, prepared=False)
+    print(reason, flush=True)
+    summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
+    if summary_path:
+        with open(summary_path, "a", encoding="utf-8") as stream:
+            stream.write("## Digest skipped\n\n" + reason + "\n")
+
+
+def _prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_uncertain: bool) -> None:
     config = yaml.safe_load(config_path.read_text(encoding="utf-8"))
     if not isinstance(config, dict) or not 1 <= config["target_count"] <= 5:
         raise PipelineError("Invalid digest configuration.")
+    interval = config.get("delivery_interval_days", 1)
+    if type(interval) is not int or not 1 <= interval <= 365:
+        raise PipelineError("Delivery interval must be an integer from 1 to 365 days.")
     llm_config = config["llm"]
     if not llm_config["base_url"].startswith("https://"):
         raise PipelineError("LLM endpoint must use HTTPS.")
@@ -418,11 +460,23 @@ def prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_un
     run_id = attempt_id()
     today = datetime.now(ZoneInfo(config["timezone"])).date()
     state = load_state(root)
-    _outputs(should_send=False)
-    if state["last_sent_date"] == today.isoformat():
-        print("A digest was already confirmed today; skipping without model calls.")
+    _outputs(should_send=False, prepared=False)
+    last_confirmed = state.get("last_confirmed_date") or state["last_sent_date"]
+    elapsed = (today - date.fromisoformat(last_confirmed)).days if last_confirmed else None
+    if elapsed is not None and elapsed < 0:
+        raise StateError("Last confirmed delivery date is in the future.")
+    if elapsed == 0:
+        _skip_prepare("A digest was already confirmed today; skipping without model calls.")
         return
     pending = load_json(root / ".daily/pending.json", {})
+    generating = not pending or pending.get("status") == "complete"
+    if generating:
+        if elapsed is not None and elapsed < interval:
+            next_date = date.fromisoformat(last_confirmed) + timedelta(days=interval)
+            _skip_prepare(f"Delivery interval has not elapsed; next eligible date: {next_date.isoformat()}.")
+            return
+        if os.environ.get("GITHUB_EVENT_NAME") == "schedule":
+            ensure_off_peak()
     db = load_json(root / "docs/papers_db.json", {})
     if not isinstance(db, dict):
         raise StateError("Invalid source paper database.")
@@ -503,8 +557,10 @@ def prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_un
                     print(f"Summary batch {index}/{len(groups)}: {len(group)} papers.", flush=True)
                     if llm_config["summary_model"] != client.model:
                         client.model = llm_config["summary_model"]
-                    final = client.generate_json(SUMMARY_PROMPT, json.dumps(dict(summary_context, required_count=len(group), candidates=group), ensure_ascii=False), max_output_tokens=8192)
-                    selected.extend(final_papers(final, [source_by_id[p["paper_id"]] for p in group], config))
+                    evidence = [source_by_id[p["paper_id"]] for p in group]
+                    selected.extend(validated_model_batch(client, SUMMARY_PROMPT,
+                        json.dumps(dict(summary_context, required_count=len(group), candidates=group), ensure_ascii=False),
+                        8192, lambda result: final_papers(result, evidence, config)))
                 summary_by_id = {p["paper_id"]: p for p in selected}
                 selected = [summary_by_id[p["paper_id"]] for p in ranked]
             usage = client.usage
@@ -581,7 +637,7 @@ def deliver(source: Path, output: Path) -> None:
             send_card(os.environ.get("FEISHU_WEBHOOK", ""), os.environ.get("FEISHU_SIGN_SECRET", ""), card)
             pending["acknowledged_cards"].append(index)
             write_json(output / "pending.json", pending)
-        acknowledge_all(state, pending)
+        acknowledge_all(state, pending, confirmed_date=datetime.now(timezone(timedelta(hours=8))).date())
         print(f"Feishu confirmed {len(pending['cards'])} card(s), {len(pending['paper_ids'])} papers.", flush=True)
     except DeliveryUncertainError:
         pending["status"] = "uncertain"

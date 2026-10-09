@@ -262,6 +262,23 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
         with self.assertRaisesRegex(PipelineError, "invalid paper count"):
             self.run_prepare(ranking, summary_transform=omit_paper)
 
+    def test_invalid_summary_retries_only_summary_and_preserves_selected_order(self):
+        attempts = 0
+
+        def omit_once(result):
+            nonlocal attempts
+            attempts += 1
+            if attempts == 1:
+                result["papers"] = result["papers"][:-1]
+            return result
+
+        result, requests = self.run_prepare({"arxiv:2609.00001": 80, "arxiv:2609.00011": 90},
+            summary_transform=omit_once)
+        self.assertEqual(len(requests["rank"]), 3)
+        self.assertEqual(len(requests["summary"]), 2)
+        self.assertEqual(requests["summary"][0], requests["summary"][1])
+        self.assertEqual(result["paper_ids"], ["arxiv:2609.00011", "arxiv:2609.00001"])
+
     def test_summary_must_supply_all_required_text_for_selected_papers(self):
         def omit_text(result):
             result["papers"][0]["summary"] = ""

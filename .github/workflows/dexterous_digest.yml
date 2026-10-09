@@ -2,15 +2,12 @@ name: Dexterous Hand Daily Digest
 
 on:
   # 00:00 UTC = 08:00 Asia/Shanghai. GitHub may queue scheduled runs.
-  # Generate and deliver the daily digest from this repository.
+  # Check daily; prepare enforces two calendar days between confirmed deliveries.
   schedule:
     - cron: '0 0 * * *'
     # 00:17 UTC = 08:17 Asia/Shanghai. Avoid a missed top-of-hour trigger.
-    # prepare skips without model calls when today's delivery is confirmed.
+    # The fallback has recovered missed/blocked main runs; cooldown skips model calls.
     - cron: '17 0 * * *'
-    # Temporary probe for 2026-09-28 10:20 Asia/Shanghai (02:20 UTC).
-    # Remove after checking whether GitHub created the scheduled run.
-    - cron: '20 2 28 9 *'
   workflow_dispatch:
     inputs:
       mode:
@@ -66,14 +63,7 @@ jobs:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           DIGEST_MODE: ${{ inputs.mode || 'send' }}
           RETRY_UNCERTAIN: ${{ inputs.retry_uncertain }}
-          SCHEDULE_CRON: ${{ github.event.schedule }}
         run: |
-          if [ "$GITHUB_EVENT_NAME" = schedule ] && [ "$SCHEDULE_CRON" = '20 2 28 9 *' ] && [ "$(date -u +%F)" != '2026-09-28' ]; then
-            echo "The one-day scheduler test has expired; no digest will be sent."
-            echo "should_send=false" >> "$GITHUB_OUTPUT"
-            echo "prepared=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
           args=()
           if [ "$GITHUB_EVENT_NAME" != schedule ] && [ "$DIGEST_MODE" = preview ]; then
             args+=(--preview)

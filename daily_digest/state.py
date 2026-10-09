@@ -6,6 +6,7 @@ import argparse
 import json
 import os
 import re
+from datetime import date
 from pathlib import Path
 
 DATE = re.compile(r"\d{4}-\d{2}-\d{2}\Z")
@@ -40,8 +41,15 @@ def validate_state(state: dict) -> None:
     sent = state.get("sent_ids")
     if not isinstance(sent, list) or any(not isinstance(p, str) or len(p) > 600 for p in sent):
         raise StateError("Invalid sent-paper identifiers.")
-    if state.get("last_sent_date") and not DATE.fullmatch(state["last_sent_date"]):
-        raise StateError("Invalid last delivery date.")
+    for field in ("last_sent_date", "last_confirmed_date"):
+        value = state.get(field, "")
+        if value:
+            try:
+                date.fromisoformat(value)
+            except (ValueError, TypeError):
+                raise StateError("Invalid last delivery date.") from None
+            if not DATE.fullmatch(value):
+                raise StateError("Invalid last delivery date.")
 
 
 def validate_pending(pending: dict) -> None:
@@ -81,11 +89,13 @@ def resume_pending(pending: dict, run_id: str, retry_uncertain: bool = False) ->
     return result
 
 
-def acknowledge_all(state: dict, pending: dict) -> None:
+def acknowledge_all(state: dict, pending: dict, *, confirmed_date: date | None = None) -> None:
     if set(pending["acknowledged_cards"]) != set(range(len(pending["cards"]))):
         raise StateError("Cannot mark papers sent before every card is acknowledged.")
     state["sent_ids"] = sorted(set(state["sent_ids"]) | set(pending["paper_ids"]))
     state["last_sent_date"] = pending["date"]
+    if confirmed_date is not None:
+        state["last_confirmed_date"] = confirmed_date.isoformat()
     pending["status"] = "complete"
 
 

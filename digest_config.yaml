@@ -1,5 +1,7 @@
 # Non-secret settings. Credentials live ONLY in GitHub Actions Secrets.
 timezone: Asia/Shanghai
+# Calendar dates since the last confirmed delivery, including month boundaries.
+delivery_interval_days: 2
 target_count: 5
 recent_days: 7
 fallback_days: 30
