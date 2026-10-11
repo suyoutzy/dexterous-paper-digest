@@ -1,14 +1,14 @@
 # 灵巧手日报：配置与维护
 
-**每两天推送一次；每天北京时间 08:00 主检查，08:17 备用检查。** 2026-09-27 已完成[来源与模型的云端预览验证](https://github.com/suyoutzy/dexterous-paper-digest/actions/runs/36323738971)，2026-10-09 的[生产运行](https://github.com/suyoutzy/dexterous-paper-digest/actions/runs/37883169589)已确认飞书成功接收四篇论文。08:17 在 9 月 30 日和 10 月 2 日补回主任务未能发送的批次，继续保留；过期的 9 月 28 日 10:20 探针已移除。
+**每两天推送一次；每天北京时间 09:07 主检查，08:17 备用检查。** 2026-10-11 将主检查从 08:00 改为 09:07，按历史工作日约四小时延迟估算实际启动约 13:07，目标窗口为 12:00–14:00；新时段延迟可能变化，须以实际运行记录为准。2026-09-27 已完成[来源与模型的云端预览验证](https://github.com/suyoutzy/dexterous-paper-digest/actions/runs/36323738971)，2026-10-09 的[生产运行](https://github.com/suyoutzy/dexterous-paper-digest/actions/runs/37883169589)已确认飞书成功接收四篇论文。08:17 在 9 月 30 日和 10 月 2 日补回主任务未能发送的批次，保留原时间；过期的 9 月 28 日 10:20 探针已移除。
 
-GitHub 在云端运行，无需个人电脑开机或开启代理。08:00 和 08:17 都是计划检查时间，调度可能排队、延迟或丢弃。两次触发共用运行互斥设置；距离上次成功确认少于两个北京时间日期时，在检索与模型调用前退出。失败不推进间隔，后续检查可补发；飞书投递结果不确定时仍需要人工核对。恢复旧批次后，从实际收到全部成功确认的日期计算下一次间隔，日报归档保留原批次日期。
+GitHub 在云端运行，无需个人电脑开机或开启代理。09:07 和 08:17 都是计划检查时间，调度可能排队、延迟或丢弃。备用计划时间早于主计划时间，保留它是因为两条 cron 的历史延迟分布不同，实际执行顺序由 GitHub 调度决定。两次触发共用运行互斥设置；距离上次成功确认少于两个北京时间日期时，在检索与模型调用前退出。失败不推进间隔，后续检查可补发；飞书投递结果不确定时仍需要人工核对。恢复旧批次后，从实际收到全部成功确认的日期计算下一次间隔，日报归档保留原批次日期。
 
 ## 当前设置
 
 | 项目 | 设置 |
 | --- | --- |
-| 运行时间 | 北京时间每天 08:00 主触发、08:17 备用检查；UTC cron `0 0 * * *`、`17 0 * * *` |
+| 运行时间 | 北京时间每天 09:07 主触发、08:17 备用检查；UTC cron `7 1 * * *`、`17 0 * * *` |
 | 推送间隔 | `delivery_interval_days: 2`；按北京时间日期计算，例如 10 月 9 日成功后，10 月 10 日跳过，10 月 11 日可发送；不保证严格相隔 48 小时 |
 | 模型 | 官方 DeepSeek `deepseek-flash`，评分与总结均为思考强度 `low` |
 | 接口 | `https://api.deepseek.com`，Chat Completions |
@@ -83,6 +83,6 @@ Actions 的 **Summary** 显示推荐内容与 token 用量，或本次正常跳�
 
 卡片归档链接从当前仓库地址生成，记录提交后可打开。模型、研究偏好、质量门槛、推送间隔与期刊清单可在 `digest_config.yaml` 调整，修改后应重新验证。手动运行遵守发送间隔，但不限制模型时段，按执行时段计费，以服务提供方当前价格和账单为准。
 
-GitHub Actions 的 cron 默认按 UTC 计算，本仓库的 UTC 00:00/00:17 对应北京时间 08:00/08:17。[官方调度说明](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)确认整点属于高负载时刻，建议避开整点；未给出全球按小时划分的最忙/最闲排名。更换小时或减少候选数量都不能保证准时创建任务。若以后希望增加模型闲时余量，可考虑北京时间 18:17 等晚间时间，但这只是避开峰时和整点的选择，不能称为 GitHub 的最低负载时段。
+GitHub Actions 的 cron 默认按 UTC 计算，本仓库的 UTC 01:07/00:17 对应北京时间 09:07/08:17。[官方调度说明](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)确认整点属于高负载时刻，建议避开整点；未给出全球按小时划分的最忙/最闲排名。更换小时或减少候选数量都不能保证准时创建任务。若以后希望增加模型闲时余量，可考虑北京时间 18:17 等晚间时间，但这只是避开峰时和整点的选择，不能称为 GitHub 的最低负载时段。
 
 参考：[设置 Secrets](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets)、[Actions 设置](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)、[DeepSeek 官方定价](https://api-docs.deepseek.com/quick_start/pricing/)。

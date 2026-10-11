@@ -1,11 +1,11 @@
 name: Dexterous Hand Daily Digest
 
 on:
-  # 00:00 UTC = 08:00 Asia/Shanghai. GitHub may queue scheduled runs.
+  # 01:07 UTC = 09:07 Asia/Shanghai. Trial for a midday start after observed delays.
   # Check daily; prepare enforces two calendar days between confirmed deliveries.
   schedule:
-    - cron: '0 0 * * *'
-    # 00:17 UTC = 08:17 Asia/Shanghai. Avoid a missed top-of-hour trigger.
+    - cron: '7 1 * * *'
+    # 00:17 UTC = 08:17 Asia/Shanghai. Retain the fallback's original time.
     # The fallback has recovered missed/blocked main runs; cooldown skips model calls.
     - cron: '17 0 * * *'
   workflow_dispatch:
