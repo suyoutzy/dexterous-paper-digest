@@ -225,7 +225,7 @@ class SelectionTests(unittest.TestCase):
                 self.assertEqual(selected[0].get("work_module"), module)
                 self.assertNotIn("work_module", source)
                 rendered = report({"date": TODAY.isoformat(), "papers": selected})
-                self.assertIn(f"{source['title']}\n\n工作模块：{module} {name}\n", rendered)
+                self.assertIn(f"{source['title']}\n\n工作模块：{name}\n", rendered)
                 self.assertNotIn("基础重点", rendered)
                 self.assertNotIn("博士主线", rendered)
 

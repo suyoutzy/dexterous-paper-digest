@@ -50,9 +50,9 @@ def byte_count(value):
 class BuildCardsTests(unittest.TestCase):
     def test_every_module_is_one_plain_line_immediately_under_its_title_in_split_cards(self):
         expected = [
-            "工作模块：1 机器人本体与硬件", "工作模块：2 建模、辨识与仿真",
-            "工作模块：3 运动规划与控制", "工作模块：4 感知与状态估计",
-            "工作模块：5 灵巧操作与策略学习", "工作模块：6 高层任务与技能规划",
+            "工作模块：机器人本体与硬件", "工作模块：建模、辨识与仿真",
+            "工作模块：运动规划与控制", "工作模块：感知与状态估计",
+            "工作模块：灵巧操作与策略学习", "工作模块：高层任务与技能规划",
         ]
         papers = [dict(sample_paper(index), work_module=index) for index in range(1, 7)]
         papers[0]["title_zh"] = ""  # A missing translation still has a category under the title.

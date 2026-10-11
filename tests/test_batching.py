@@ -309,9 +309,9 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
         elements = [element for card in result["cards"] for element in card["card"]["elements"]]
         categories = [element["text"]["content"] for element in elements
             if element.get("text", {}).get("content", "").startswith("工作模块：")]
-        self.assertEqual(categories, ["工作模块：5 灵巧操作与策略学习", "工作模块：1 机器人本体与硬件"])
-        self.assertIn("工作模块：5 灵巧操作与策略学习", result["report"])
-        self.assertIn("工作模块：1 机器人本体与硬件", result["report"])
+        self.assertEqual(categories, ["工作模块：灵巧操作与策略学习", "工作模块：机器人本体与硬件"])
+        self.assertIn("工作模块：灵巧操作与策略学习", result["report"])
+        self.assertIn("工作模块：机器人本体与硬件", result["report"])
 
     def test_invalid_category_after_the_single_retry_stops_preparation(self):
         attempts = 0

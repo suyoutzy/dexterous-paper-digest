@@ -129,7 +129,7 @@ def _paper_elements(paper: dict, number: int) -> list[dict]:
         raise DeliveryError(str(exc)) from exc
     blocks = [
         _plain(heading),
-        _plain(f"工作模块：{paper['work_module']} {module_name}"),
+        _plain(f"工作模块：{module_name}"),
         _plain("来源：" + _source_label(paper)),
         _plain(("公告日期：" if paper.get("date_basis") == "rss_announcement" else ("登记发表日期：" if paper.get("source") == "crossref" else "首次发布日期："))
             + _text(paper.get("publish_date"), 32, "来源未提供")

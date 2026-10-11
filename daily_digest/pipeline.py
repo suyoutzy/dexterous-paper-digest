@@ -395,7 +395,7 @@ def report(digest: dict) -> str:
         f"模型：{digest.get('model', '未登记')}；分数是针对个人学习价值的推荐依据，非学术质量认证。", ""]
     for index, p in enumerate(digest["papers"], 1):
         lines.extend([f"## {index}. {p['title_zh']}", "", p["title"], "",
-            f"工作模块：{p['work_module']} {work_module_name(p['work_module'])}", "",
+            f"工作模块：{work_module_name(p['work_module'])}", "",
             f"**作者**：{p.get('authors') or '来源未提供'}（背景权威性未独立核实）", "",
             f"**来源**：{p.get('journal_name') or 'arXiv 预印本'} · {'公告日期' if p.get('date_basis') == 'rss_announcement' else '发表日期'}：{p['publish_date']} · 阅读范围：{p['reading_depth']}", "",
             f"**核心方法**：{p['summary']}", "", f"**为什么适合你**：{p['why_for_you']}", "",
