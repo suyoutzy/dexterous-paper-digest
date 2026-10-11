@@ -19,6 +19,8 @@ from urllib.parse import urlsplit
 
 import requests
 
+from .work_modules import work_module_name
+
 MAX_MESSAGE_BYTES = 20_000  # Conservative interpretation of the 20 KB API limit.
 SIGNATURE_RESERVE_BYTES = 2_000
 MAX_CARD_BYTES = MAX_MESSAGE_BYTES - SIGNATURE_RESERVE_BYTES
@@ -121,8 +123,13 @@ def _paper_elements(paper: dict, number: int) -> list[dict]:
     heading = f"{number}. {title_zh or title}"
     if title_zh and title_zh != title:
         heading += f"\n{title}"
+    try:
+        module_name = work_module_name(paper.get("work_module"))
+    except ValueError as exc:
+        raise DeliveryError(str(exc)) from exc
     blocks = [
         _plain(heading),
+        _plain(f"工作模块：{paper['work_module']} {module_name}"),
         _plain("来源：" + _source_label(paper)),
         _plain(("公告日期：" if paper.get("date_basis") == "rss_announcement" else ("登记发表日期：" if paper.get("source") == "crossref" else "首次发布日期："))
             + _text(paper.get("publish_date"), 32, "来源未提供")
@@ -139,7 +146,7 @@ def _paper_elements(paper: dict, number: int) -> list[dict]:
         and paper["journal_ref"] == paper.get("journal_name")
     ):
         label = "期刊登记（Crossref）：" if paper.get("source") == "crossref" else "发表登记（来源自报，未独立核实）："
-        blocks.insert(3, _plain(label + _text(paper["journal_ref"], 220)))
+        blocks.insert(4, _plain(label + _text(paper["journal_ref"], 220)))
     links = []
     seen = set()
     for label, fields in (

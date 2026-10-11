@@ -118,6 +118,7 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
             result = {"papers": [{
                 "paper_id": p["paper_id"],
                 "title_zh": "灵巧手标定与控制", "summary": "结合腱绳机构建立标定模型。",
+                "work_module": 3,
                 "why_for_you": "有助于理解机构与控制参数的联系。",
                 "learning_action": "先在仿真中验证标定过程；硬件依赖以论文为准。",
                 "evidence": "摘要描述结合腱绳机构开展抓取控制；未核实正文实验。",
@@ -286,6 +287,44 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
 
         with self.assertRaisesRegex(PipelineError, "required text: summary"):
             self.run_prepare({"arxiv:2609.00001": 80}, summary_transform=omit_text)
+
+    def test_bad_classification_retries_only_summary_and_keeps_categories_with_selected_papers(self):
+        attempts = 0
+
+        def classify(result):
+            nonlocal attempts
+            attempts += 1
+            for row in result["papers"]:
+                row["work_module"] = 1 if row["paper_id"] == "arxiv:2609.00001" else 5
+            if attempts == 1:
+                result["papers"][0]["work_module"] = 7
+            return result
+
+        result, requests = self.run_prepare({"arxiv:2609.00001": 80, "arxiv:2609.00011": 90},
+            summary_transform=classify)
+        self.assertEqual(len(requests["rank"]), 3)
+        self.assertEqual(len(requests["summary"]), 2)
+        self.assertEqual(requests["summary"][0], requests["summary"][1])
+        self.assertEqual(result["paper_ids"], ["arxiv:2609.00011", "arxiv:2609.00001"])
+        elements = [element for card in result["cards"] for element in card["card"]["elements"]]
+        categories = [element["text"]["content"] for element in elements
+            if element.get("text", {}).get("content", "").startswith("工作模块：")]
+        self.assertEqual(categories, ["工作模块：5 灵巧操作与策略学习", "工作模块：1 机器人本体与硬件"])
+        self.assertIn("工作模块：5 灵巧操作与策略学习", result["report"])
+        self.assertIn("工作模块：1 机器人本体与硬件", result["report"])
+
+    def test_invalid_category_after_the_single_retry_stops_preparation(self):
+        attempts = 0
+
+        def unclassified(result):
+            nonlocal attempts
+            attempts += 1
+            del result["papers"][0]["work_module"]
+            return result
+
+        with self.assertRaisesRegex(PipelineError, "work module"):
+            self.run_prepare({"arxiv:2609.00001": 80}, summary_transform=unclassified)
+        self.assertEqual(attempts, 2)
 
     def test_author_and_publication_metadata_reaches_ranking_and_selected_summary(self):
         result, requests = self.run_prepare({"arxiv:2609.00011": 90})

@@ -27,6 +27,7 @@ def sample_paper(number=1):
         "source": "arxiv",
         "title": f"Dexterous manipulation {number}",
         "title_zh": f"灵巧手触觉控制方法 {number}",
+        "work_module": 3,
         "summary": "以触觉估计物体接触状态，并闭环调节抓取力。",
         "why_for_you": "有助于理解末端感知与控制的联系。",
         "learning_action": "先复现实验中的接触状态估计，再比较控制效果。",
@@ -47,6 +48,44 @@ def byte_count(value):
 
 
 class BuildCardsTests(unittest.TestCase):
+    def test_every_module_is_one_plain_line_immediately_under_its_title_in_split_cards(self):
+        expected = [
+            "工作模块：1 机器人本体与硬件", "工作模块：2 建模、辨识与仿真",
+            "工作模块：3 运动规划与控制", "工作模块：4 感知与状态估计",
+            "工作模块：5 灵巧操作与策略学习", "工作模块：6 高层任务与技能规划",
+        ]
+        papers = [dict(sample_paper(index), work_module=index) for index in range(1, 7)]
+        papers[0]["title_zh"] = ""  # A missing translation still has a category under the title.
+        papers[1]["journal_ref"] = "Source-reported journal reference"
+        for paper in papers:
+            for field in ("summary", "why_for_you", "learning_action", "evidence", "reading_depth"):
+                paper[field] = "灵" * 1_500
+        cards = build_cards({"papers": papers})
+        self.assertGreater(len(cards), 1)
+        modules = []
+        for card in cards:
+            self.assertLessEqual(byte_count(card), MAX_CARD_BYTES)
+            elements = card["card"]["elements"]
+            for index, element in enumerate(elements):
+                text = element.get("text", {})
+                if text.get("content", "").startswith("工作模块："):
+                    self.assertEqual(text["tag"], "plain_text")
+                    number = len(modules) + 1
+                    title = elements[index - 1]["text"]["content"]
+                    self.assertTrue(title.startswith(f"{number}. "))
+                    self.assertIn(papers[number - 1]["title"], title)
+                    modules.append(text["content"])
+        self.assertEqual(modules, expected)
+
+    def test_unclassified_paper_cannot_be_rendered_as_a_complete_digest(self):
+        for value in (None, 0, 7, True, "3", [3, 5]):
+            with self.subTest(module=value), self.assertRaisesRegex(DeliveryError, "work module"):
+                build_cards({"papers": [dict(sample_paper(), work_module=value)]})
+        paper = sample_paper()
+        del paper["work_module"]
+        with self.assertRaises(DeliveryError):
+            build_cards({"papers": [paper]})
+
     def test_card_uses_concise_note_and_checked_archive_link(self):
         archive = "https://github.com/example/dexterous-paper-digest/blob/main/docs/digests/2026-09-27.md"
         card = build_cards({"papers": [sample_paper()], "note": "Detailed source diagnostics",
@@ -168,7 +207,7 @@ class BuildCardsTests(unittest.TestCase):
         self.assertEqual(summary["text"]["tag"], "plain_text")
 
     def test_missing_links_are_not_inferred_from_an_arxiv_id(self):
-        paper = {"title": "Paper", "arxiv_id": "2609.12345"}
+        paper = {"title": "Paper", "arxiv_id": "2609.12345", "work_module": 3}
         card = build_cards({"papers": [paper]})[0]
         self.assertFalse(any(element.get("tag") == "action" for element in card["card"]["elements"]))
 

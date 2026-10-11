@@ -22,6 +22,7 @@ from daily_digest.pipeline import (
     final_papers,
     ranked_papers,
     relevance,
+    report,
 )
 from daily_digest.state import (
     StateError,
@@ -92,6 +93,7 @@ def summary_row(identifier="arxiv:2609.00001"):
         "paper_id": identifier,
         "priority_score": 88,
         "title_zh": "灵巧手机构标定",
+        "work_module": 3,
         "summary": "结合腱绳机构与标定方法。",
         "why_for_you": "适合建立灵巧末端设计与控制基础。",
         "learning_action": "先检查机构参数并建立仿真，需要论文指定的传感器。",
@@ -210,6 +212,32 @@ class SelectionTests(unittest.TestCase):
         self.assertEqual(result[0]["reading_depth_code"], "abstract_only")
         with self.assertRaises(PipelineError):
             final_papers({"papers": []}, [source], CONFIG)
+
+    def test_each_valid_module_survives_summary_validation_and_appears_under_archive_title(self):
+        for module, name in (
+            (1, "机器人本体与硬件"), (2, "建模、辨识与仿真"), (3, "运动规划与控制"),
+            (4, "感知与状态估计"), (5, "灵巧操作与策略学习"), (6, "高层任务与技能规划"),
+        ):
+            with self.subTest(module=module):
+                row = dict(summary_row(), work_module=module)
+                source = paper()
+                selected = final_papers({"papers": [row]}, [source], CONFIG)
+                self.assertEqual(selected[0].get("work_module"), module)
+                self.assertNotIn("work_module", source)
+                rendered = report({"date": TODAY.isoformat(), "papers": selected})
+                self.assertIn(f"{source['title']}\n\n工作模块：{module} {name}\n", rendered)
+                self.assertNotIn("基础重点", rendered)
+                self.assertNotIn("博士主线", rendered)
+
+    def test_summary_rejects_missing_invalid_or_multiple_work_modules(self):
+        invalid_values = (None, 0, 7, True, False, 3.0, "3", "运动规划与控制", [3, 5], {})
+        rows = [dict(summary_row(), work_module=value) for value in invalid_values]
+        missing = summary_row()
+        del missing["work_module"]
+        rows.append(missing)
+        for row in rows:
+            with self.subTest(module=row.get("work_module")), self.assertRaisesRegex(PipelineError, "work module"):
+                final_papers({"papers": [row]}, [paper()], CONFIG)
 
     @patch("daily_digest.pipeline.requests.get")
     def test_arxiv_metadata_preserves_author_and_bibliographic_fields_without_verifying_authority(self, get):

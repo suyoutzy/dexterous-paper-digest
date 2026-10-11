@@ -94,7 +94,7 @@ class JournalSelectionTests(unittest.TestCase):
     def test_journal_report_uses_doi_without_creating_a_pdf_url(self):
         p = self.pick([journal()])[0]
         p.update(title_zh="腱绳灵巧手", reading_depth="暂无摘要，仅依据标题", summary="暂无摘要",
-            why_for_you="可了解标定", learning_action="先查看摘要", evidence="仅标题")
+            why_for_you="可了解标定", learning_action="先查看摘要", evidence="仅标题", work_module=1)
         rendered = report({"date": TODAY.isoformat(), "model": "deepseek-flash", "papers": [p]})
         self.assertIn("https://doi.org/10.1109/example.2026.1", rendered)
         self.assertNotIn("[PDF", rendered)

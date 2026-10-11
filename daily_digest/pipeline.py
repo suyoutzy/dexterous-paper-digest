@@ -23,6 +23,7 @@ from .llm import LLMClient, LLMError, ModelOutputError, OffPeakSkip, ensure_off_
 from .state import StateError, acknowledge_all, load_json, load_state, resume_pending, validate_pending, write_json
 from .sources import collect_rss
 from .journals import collect_journals, normalize_doi
+from .work_modules import WORK_MODULES, work_module_name
 
 ARXIV_ID = re.compile(r"\d{4}\.\d{4,5}\Z", re.ASCII)
 HAND_TERMS = (
@@ -280,7 +281,12 @@ def final_papers(result: dict, evidence: list[dict], config: dict) -> list[dict]
         priority = _score(source.get("ranking_score"))
         if priority < config["minimum_score"]:
             continue
+        try:
+            work_module_name(row.get("work_module"))
+        except ValueError as exc:
+            raise ModelValidationError(str(exc)) from exc
         selected = {key: source.get(key, "") for key in ("paper_id", "arxiv_id", "title", "arxiv_url", "paper_url", "pdf_url", "code_url", "publish_date", "date_basis", "date_precision", "authors", "affiliations", "journal_ref", "journal_name", "publication_status", "source", "doi")}
+        selected["work_module"] = row["work_module"]
         for field, limit in limits.items():
             value = row.get(field)
             if not isinstance(value, str) or not value.strip():
@@ -329,8 +335,14 @@ source=crossref且journal_name来自白名单时可说明期刊元数据登记�
 learning_action一个可以实施的阅读/仿真/标定/复现实验步骤(≤160字)，必须注明额外传感器或平台依赖，
 不要假设Aero Hand具备力矩传感器、触觉或力控功能，也不能凭缺少资料断言它一定不具备某项能力，应说明需要核对硬件；evidence用一句简明中文转述摘要中的具体描述(≤110字)，不输出长英文引文，不得编造正文页码。
 不以模型分数宣称论文优秀或已通过同行评审。
+work_module必须是1到6的整数，只选一个最符合论文主要研究问题和贡献的工作模块。
+缺摘要时仅按标题的明确研究主题归类，不由此补写未经提供的方法或结果。
+分类不能仅凭使用的工具：使用MuJoCo训练操作策略仍可归5，传感器硬件研制归1，基于反馈估计状态归4；
+以建模、辨识或仿真验证为核心归2，以运动规划或反馈控制方法为核心归3，操作策略学习为核心归5，高层技能组合为核心归6。
+六个工作模块如下：
+""" + "\n".join(f"{number} {name}：{scope}" for number, (name, scope) in WORK_MODULES.items()) + """
 返回JSON：{\"papers\":[{\"paper_id\":\"arxiv:...\",\"title_zh\":\"...\",\"summary\":\"...\",
-\"why_for_you\":\"...\",\"learning_action\":\"...\",\"evidence\":\"...\"}]}。"""
+\"work_module\":3,\"why_for_you\":\"...\",\"learning_action\":\"...\",\"evidence\":\"...\"}]}。"""
 
 
 def input_groups(items: list[dict], context: dict, max_chars: int, max_items: int) -> list[list[dict]]:
@@ -383,6 +395,7 @@ def report(digest: dict) -> str:
         f"模型：{digest.get('model', '未登记')}；分数是针对个人学习价值的推荐依据，非学术质量认证。", ""]
     for index, p in enumerate(digest["papers"], 1):
         lines.extend([f"## {index}. {p['title_zh']}", "", p["title"], "",
+            f"工作模块：{p['work_module']} {work_module_name(p['work_module'])}", "",
             f"**作者**：{p.get('authors') or '来源未提供'}（背景权威性未独立核实）", "",
             f"**来源**：{p.get('journal_name') or 'arXiv 预印本'} · {'公告日期' if p.get('date_basis') == 'rss_announcement' else '发表日期'}：{p['publish_date']} · 阅读范围：{p['reading_depth']}", "",
             f"**核心方法**：{p['summary']}", "", f"**为什么适合你**：{p['why_for_you']}", "",
