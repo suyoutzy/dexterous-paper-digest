@@ -678,7 +678,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3730297",
     "source": "crossref",
     "first_seen_date": "2026-09-27",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2026-10",
     "metadata_indexed_at": "2026-09-24T18:05:22Z",
     "abstract_source": "openalex"
@@ -1155,7 +1155,7 @@
   "arxiv:2609.30959": {
     "paper_id": "arxiv:2609.30959",
     "arxiv_id": "2609.30959",
-    "title": "VisTacAlign: Co-Training Dexterous Policies on Tactile Human and Robot Demonstrations",
+    "title": "VisTacAlign: Co-Training Dexterous Policies on Tactile Human and Robot Demonstrations using Visual-Tactile Alignment",
     "abstract": "Human demonstrations are a cheap source of data for dexterous manipulation, but co-training a robot policy on them requires closing the human--robot gap in every modality the policy consumes. We present VisTacAlign, a framework for co-training 3D-visual-tactile dexterous policies on human and robot demonstrations. Glove-tracked human hand motion is retargeted to a 17-DoF tactile robot hand with a one-time fingertip correction. The human hand is then erased from both stereo views and replaced by a posed robot-hand mesh painted with pixels from robot recordings, and a real-time stereo foundation model is re-run on the composite, so the human point clouds carry the same stereo errors and visibility as the robot ones. Finally, a capacitive tactile glove is aligned to the robot's fingertip sensors in its signal space, giving one interpretable per-finger force representation. A diffusion transformer consumes point-cloud, proprioceptive, and per-finger tactile tokens. On three real-world tasks requiring precise force -- Lego assembly, plucking strawberries of varying size, and activating and lifting a power drill -- adding aligned human demonstrations to existing robot data improves over robot-only policies, and ablations show that both tactile input and visual alignment are necessary. Project page: https://vis-tac-align.github.io",
     "date_basis": "initial_publication",
     "authors": "Julien Poffet, Matthew Strong, Ankush Dhawan, Baiyu Shi, Shalika Neelaveni, Yujia Yuan, Zhenan Bao, Monroe Kennedy",
@@ -1819,7 +1819,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2023.3280028",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2023-10",
     "metadata_indexed_at": "2026-10-08T17:35:07Z"
   },
@@ -1901,7 +1901,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2022.3156806",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2022-12",
     "metadata_indexed_at": "2026-10-09T17:47:52Z"
   },
@@ -1921,7 +1921,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2018.2830407",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2018-10",
     "metadata_indexed_at": "2026-10-09T17:30:28Z"
   },
@@ -1941,9 +1941,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2017.2693391",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-04",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2017-08",
-    "metadata_indexed_at": "2026-09-29T12:42:22Z"
+    "metadata_indexed_at": "2026-10-13T16:59:17Z"
   },
   "doi:10.1109/tro.2017.2765668": {
     "paper_id": "doi:10.1109/tro.2017.2765668",
@@ -1981,7 +1981,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2011.2132930",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2011-06",
     "metadata_indexed_at": "2026-10-08T18:30:06Z"
   },
@@ -2045,9 +2045,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2024.3508932",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2025",
-    "metadata_indexed_at": "2026-10-03T20:55:59Z"
+    "metadata_indexed_at": "2026-10-11T09:31:58Z"
   },
   "doi:10.1109/tro.2022.3186806": {
     "paper_id": "doi:10.1109/tro.2022.3186806",
@@ -2173,7 +2173,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2011.2162271",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2011-12",
     "metadata_indexed_at": "2026-10-08T18:14:00Z"
   },
@@ -2196,9 +2196,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2013.2252251",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2013-08",
-    "metadata_indexed_at": "2026-10-06T21:23:04Z"
+    "metadata_indexed_at": "2026-10-13T17:29:47Z"
   },
   "doi:10.1109/tro.2020.3033696": {
     "paper_id": "doi:10.1109/tro.2020.3033696",
@@ -2239,9 +2239,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2024.3521864",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2025",
-    "metadata_indexed_at": "2026-10-03T16:57:13Z"
+    "metadata_indexed_at": "2026-10-13T02:38:40Z"
   },
   "doi:10.1109/tro.2026.3721670": {
     "paper_id": "doi:10.1109/tro.2026.3721670",
@@ -2439,9 +2439,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2023.3280829",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2023-07",
-    "metadata_indexed_at": "2026-10-09T17:30:32Z"
+    "metadata_indexed_at": "2026-10-11T09:31:54Z"
   },
   "doi:10.1109/lra.2023.3346756": {
     "paper_id": "doi:10.1109/lra.2023.3346756",
@@ -2567,7 +2567,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2020.2977257",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2020-07",
     "metadata_indexed_at": "2026-10-09T01:57:50Z"
   },
@@ -2771,9 +2771,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2020.2969953",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-09-30",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2020-04",
-    "metadata_indexed_at": "2026-09-28T19:34:26Z"
+    "metadata_indexed_at": "2026-10-11T13:35:42Z"
   },
   "doi:10.1109/lra.2022.3187497": {
     "paper_id": "doi:10.1109/lra.2022.3187497",
@@ -2817,11 +2817,11 @@
     "paper_url": "https://doi.org/10.1177/0278364917710318",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2017-06-12",
     "print_publication_date": "2018-04",
-    "metadata_indexed_at": "2026-10-08T16:55:01Z"
+    "metadata_indexed_at": "2026-10-14T02:18:50Z"
   },
   "doi:10.1177/0278364919887447": {
     "paper_id": "doi:10.1177/0278364919887447",
@@ -2841,11 +2841,11 @@
     "paper_url": "https://doi.org/10.1177/0278364919887447",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2019-11-18",
     "print_publication_date": "2020-01",
-    "metadata_indexed_at": "2026-10-08T19:14:08Z"
+    "metadata_indexed_at": "2026-10-14T01:02:38Z"
   },
   "doi:10.1177/027836498400300210": {
     "paper_id": "doi:10.1177/027836498400300210",
@@ -2965,7 +2965,7 @@
     "paper_url": "https://doi.org/10.1177/0278364920933655",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2020-08-05",
     "print_publication_date": "2020-10",
@@ -3014,11 +3014,11 @@
     "paper_url": "https://doi.org/10.1177/027836499201100301",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "1992-06-01",
     "print_publication_date": "1992-06",
-    "metadata_indexed_at": "2026-10-06T14:32:12Z"
+    "metadata_indexed_at": "2026-10-13T18:04:21Z"
   },
   "doi:10.1177/0278364909360852": {
     "paper_id": "doi:10.1177/0278364909360852",
@@ -3039,11 +3039,11 @@
     "paper_url": "https://doi.org/10.1177/0278364909360852",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2010-02-02",
     "print_publication_date": "2010-04",
-    "metadata_indexed_at": "2026-10-08T18:28:41Z"
+    "metadata_indexed_at": "2026-10-13T17:06:28Z"
   },
   "doi:10.1177/0278364913514466": {
     "paper_id": "doi:10.1177/0278364913514466",
@@ -3065,11 +3065,11 @@
     "paper_url": "https://doi.org/10.1177/0278364913514466",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2014-02-17",
     "print_publication_date": "2014-04",
-    "metadata_indexed_at": "2026-10-07T16:42:53Z"
+    "metadata_indexed_at": "2026-10-13T17:29:43Z"
   },
   "doi:10.1177/02783649211027233": {
     "paper_id": "doi:10.1177/02783649211027233",
@@ -3115,11 +3115,11 @@
     "paper_url": "https://doi.org/10.1177/027836498800700301",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "1988-06-01",
     "print_publication_date": "1988-06",
-    "metadata_indexed_at": "2026-10-07T17:43:26Z"
+    "metadata_indexed_at": "2026-10-13T18:04:23Z"
   },
   "doi:10.1177/0278364917700714": {
     "paper_id": "doi:10.1177/0278364917700714",
@@ -3142,7 +3142,7 @@
     "paper_url": "https://doi.org/10.1177/0278364917700714",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2017-04-01",
     "print_publication_date": "2017-03",
@@ -3168,7 +3168,7 @@
     "paper_url": "https://doi.org/10.1177/0278364920946815",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2020-08-24",
     "print_publication_date": "2021-02",
@@ -3192,11 +3192,11 @@
     "paper_url": "https://doi.org/10.1177/0278364915592961",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2015-08-21",
     "print_publication_date": "2016-01",
-    "metadata_indexed_at": "2026-10-07T17:01:04Z"
+    "metadata_indexed_at": "2026-10-13T17:06:27Z"
   },
   "doi:10.1177/0278364913518998": {
     "paper_id": "doi:10.1177/0278364913518998",
@@ -3242,7 +3242,7 @@
     "paper_url": "https://doi.org/10.1177/0278364913511677",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2014-02-07",
     "print_publication_date": "2014-04",
@@ -3269,11 +3269,11 @@
     "paper_url": "https://doi.org/10.1177/0278364913518997",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2014-02-20",
     "print_publication_date": "2014-04",
-    "metadata_indexed_at": "2026-10-07T17:01:04Z"
+    "metadata_indexed_at": "2026-10-13T17:06:29Z"
   },
   "doi:10.1177/0278364920947818": {
     "paper_id": "doi:10.1177/0278364920947818",
@@ -3296,7 +3296,7 @@
     "paper_url": "https://doi.org/10.1177/0278364920947818",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2020-08-24",
     "print_publication_date": "2021-01",
@@ -3320,11 +3320,11 @@
     "paper_url": "https://doi.org/10.1177/027836499601500302",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "1996-06-01",
     "print_publication_date": "1996-06",
-    "metadata_indexed_at": "2026-10-06T17:32:02Z"
+    "metadata_indexed_at": "2026-10-13T18:04:25Z"
   },
   "doi:10.1177/0278364914564232": {
     "paper_id": "doi:10.1177/0278364914564232",
@@ -3440,11 +3440,11 @@
     "paper_url": "https://doi.org/10.1177/027836499501400301",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "1995-06-01",
     "print_publication_date": "1995-06",
-    "metadata_indexed_at": "2026-10-09T17:57:33Z"
+    "metadata_indexed_at": "2026-10-13T20:32:16Z"
   },
   "doi:10.1177/0278364917694723": {
     "paper_id": "doi:10.1177/0278364917694723",
@@ -3618,11 +3618,11 @@
     "paper_url": "https://doi.org/10.1177/02783640122067372",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2001-03-01",
     "print_publication_date": "2001-03",
-    "metadata_indexed_at": "2026-10-06T16:59:50Z"
+    "metadata_indexed_at": "2026-10-11T14:34:03Z"
   },
   "doi:10.1177/0278364908091463": {
     "paper_id": "doi:10.1177/0278364908091463",
@@ -3645,7 +3645,7 @@
     "paper_url": "https://doi.org/10.1177/0278364908091463",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2008-06-01",
     "print_publication_date": "2008-06",
@@ -3670,7 +3670,7 @@
     "paper_url": "https://doi.org/10.1177/0278364911436019",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2012-03-07",
     "print_publication_date": "2012-04",
@@ -3719,11 +3719,11 @@
     "paper_url": "https://doi.org/10.1177/027836498800700302",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "1988-06-01",
     "print_publication_date": "1988-06",
-    "metadata_indexed_at": "2026-10-10T15:33:04Z"
+    "metadata_indexed_at": "2026-10-13T18:04:21Z"
   },
   "doi:10.1177/0278364913519897": {
     "paper_id": "doi:10.1177/0278364913519897",
@@ -3748,7 +3748,7 @@
     "paper_url": "https://doi.org/10.1177/0278364913519897",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2014-04-30",
     "print_publication_date": "2014-04",
@@ -3850,7 +3850,7 @@
     "paper_url": "https://doi.org/10.1177/0278364911403178",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2011-07-07",
     "print_publication_date": "2011-09",
@@ -4082,10 +4082,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.ads5033",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "print_publication_date": "2025-08-20",
-    "metadata_indexed_at": "2026-10-08T18:28:03Z"
+    "metadata_indexed_at": "2026-10-13T17:03:26Z"
   },
   "doi:10.1126/scirobotics.adp7821": {
     "paper_id": "doi:10.1126/scirobotics.adp7821",
@@ -4109,7 +4109,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.adp7821",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "print_publication_date": "2025-03-19",
     "metadata_indexed_at": "2026-10-08T00:03:31Z"
@@ -4137,10 +4137,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.adt5254",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "print_publication_date": "2025-07-09",
-    "metadata_indexed_at": "2026-10-08T16:57:16Z"
+    "metadata_indexed_at": "2026-10-14T01:49:21Z"
   },
   "doi:10.1126/scirobotics.abd7935": {
     "paper_id": "doi:10.1126/scirobotics.abd7935",
@@ -4163,10 +4163,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.abd7935",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "print_publication_date": "2021-05-12",
-    "metadata_indexed_at": "2026-10-07T16:52:19Z"
+    "metadata_indexed_at": "2026-10-13T18:01:34Z"
   },
   "doi:10.1126/scirobotics.aau9924": {
     "paper_id": "doi:10.1126/scirobotics.aau9924",
@@ -4193,7 +4193,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.aau9924",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "print_publication_date": "2019-02-20",
     "metadata_indexed_at": "2026-10-09T13:18:59Z"
@@ -4268,10 +4268,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.aat0429",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "print_publication_date": "2018-09-19",
-    "metadata_indexed_at": "2026-09-27T02:52:36Z"
+    "metadata_indexed_at": "2026-10-13T17:26:45Z"
   },
   "doi:10.1126/scirobotics.abm7187": {
     "paper_id": "doi:10.1126/scirobotics.abm7187",
@@ -4293,7 +4293,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.abm7187",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "print_publication_date": "2022-06-29",
     "metadata_indexed_at": "2026-10-08T02:51:09Z"
@@ -4316,7 +4316,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.abc8134",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "print_publication_date": "2020-12-16",
     "metadata_indexed_at": "2026-10-08T14:11:50Z"
@@ -4366,7 +4366,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.aax2198",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "print_publication_date": "2019-07-17",
     "metadata_indexed_at": "2026-10-07T17:41:50Z"
@@ -4441,7 +4441,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.adc9244",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "print_publication_date": "2023-11-22",
     "metadata_indexed_at": "2026-10-08T16:59:37Z"
@@ -4500,10 +4500,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.adi2084",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "print_publication_date": "2024-11-27",
-    "metadata_indexed_at": "2026-10-02T16:43:28Z"
+    "metadata_indexed_at": "2026-10-13T16:28:28Z"
   },
   "doi:10.1126/scirobotics.adl0628": {
     "paper_id": "doi:10.1126/scirobotics.adl0628",
@@ -4527,7 +4527,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.adl0628",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "print_publication_date": "2024-11-13",
     "metadata_indexed_at": "2026-10-08T18:27:02Z"
@@ -4625,7 +4625,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2018.0061",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2019-08-02",
     "print_publication_date": "2019-08-01",
@@ -4857,7 +4857,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2018.0006",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2019-04-23",
     "print_publication_date": "2019-04-01",
@@ -4959,11 +4959,11 @@
     "paper_url": "https://doi.org/10.1089/soro.2018.0034",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2019-02-13",
     "print_publication_date": "2019-02-01",
-    "metadata_indexed_at": "2026-09-30T16:55:31Z"
+    "metadata_indexed_at": "2026-10-11T13:35:47Z"
   },
   "doi:10.1089/soro.2017.0125": {
     "paper_id": "doi:10.1089/soro.2017.0125",
@@ -5009,7 +5009,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2016.0081",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2017-12",
     "metadata_indexed_at": "2026-10-09T17:22:29Z"
   },
@@ -5057,7 +5057,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2017.0090",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2018-10-10",
     "print_publication_date": "2018-10-01",
@@ -5105,11 +5105,11 @@
     "paper_url": "https://doi.org/10.1089/soro.2017.0052",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2018-01-03",
     "print_publication_date": "2018-04-01",
-    "metadata_indexed_at": "2026-10-08T18:31:18Z"
+    "metadata_indexed_at": "2026-10-13T02:38:41Z"
   },
   "doi:10.1089/soro.2019.0142": {
     "paper_id": "doi:10.1089/soro.2019.0142",
@@ -5129,11 +5129,11 @@
     "paper_url": "https://doi.org/10.1089/soro.2019.0142",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2021-10-13",
     "print_publication_date": "2021-10-01",
-    "metadata_indexed_at": "2026-09-25T22:49:27Z"
+    "metadata_indexed_at": "2026-10-13T17:16:36Z"
   },
   "doi:10.1177/21695172251401339": {
     "paper_id": "doi:10.1177/21695172251401339",
@@ -5484,7 +5484,7 @@
     "paper_id": "arxiv:2610.00438",
     "arxiv_id": "2610.00438",
     "title": "Towards a General Humanoid Loco-Manipulation Model via Egocentric Whole-Body Human Data Pretraining",
-    "abstract": "Humanoid whole-body manipulation has advanced rapidly, enabling policies to coordinate locomotion, posture, bimanual interaction, and dexterous hand movements. Meanwhile, egocentric human videos provide diverse examples of everyday interactions across objects and scenes, offering scalable supervision without robot operation. However, existing supervision from these videos provides limited coverage of whole-body movement and coordination with hand-object interaction, while obtaining such supervision through humanoid teleoperation is also costly and difficult to scale. We therefore explore how human experience can support scalable learning of humanoid loco-manipulation. To support this study, we introduce HumanVerse-500, a 500-hour dataset of diverse human loco-manipulation behaviors in open-world environments, collected with a lightweight wearable system that synchronizes egocentric video with body and hand motion. Building on this dataset, we develop $\\lambda_0$, a whole-body humanoid vision-language-action policy, through three-stage training that first learns interaction from diverse egocentric datasets, then coordinates body and hand motion using HumanVerse-500, and finally adapts the policy to downstream tasks and robot embodiments. Across these stages, $\\lambda_0$ learns a shared representation space for human experience transfer, while domain-specific interfaces handle differences between human and robot states and actions. We evaluate $\\lambda_0$ on SIMPLE and 4 real-world loco-manipulation tasks, achieving state-of-the-art performance, and further analyze its scaling behavior, generalization, and training-stage contributions to understand how human data support downstream whole-body humanoid control. We will release our code, models, and data to support further research.",
+    "abstract": "Humanoid whole-body manipulation has advanced rapidly, enabling policies to coordinate locomotion, posture, bimanual interaction, and dexterous hand movements. Meanwhile, egocentric human videos provide diverse examples of everyday interactions across objects and scenes, offering scalable supervision without robot operation. However, existing supervision from these videos provides limited coverage of whole-body movement and coordination with hand-object interaction, while obtaining such supervision through humanoid teleoperation is also costly and difficult to scale. We therefore explore how human experience can support scalable learning of humanoid loco-manipulation. To support this study, we introduce HumanVerse-500, a 500-hour dataset of diverse human loco-manipulation behaviors in open-world environments, collected with a lightweight wearable system that synchronizes egocentric video with body and hand motion. Building on this dataset, we develop $λ_0$, a whole-body humanoid vision-language-action policy, through three-stage training that first learns interaction from diverse egocentric datasets, then coordinates body and hand motion using HumanVerse-500, and finally adapts the policy to downstream tasks and robot embodiments. Across these stages, $λ_0$ learns a shared representation space for human experience transfer, while domain-specific interfaces handle differences between human and robot states and actions. We evaluate $λ_0$ on SIMPLE and 4 real-world loco-manipulation tasks, achieving state-of-the-art performance, and further analyze its scaling behavior, generalization, and training-stage contributions to understand how human data support downstream whole-body humanoid control. We will release our code, models, and data to support further research.",
     "date_basis": "initial_publication",
     "authors": "Chongyang Xu, Zhao Wu, Jin Chen, Yiming Jiang, Jinhui Ye, Yuming Jiang, Shifeng Zhang, Ziliang Feng, Mu Xu, Yilun Chen, Li Lu, Steven C. H. Hoi",
     "affiliations": [],
@@ -5626,7 +5626,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2025.3547267",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2025",
     "metadata_indexed_at": "2026-10-08T18:31:45Z"
   },
@@ -5713,9 +5713,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2020.3031245",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-06",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2021-04",
-    "metadata_indexed_at": "2026-09-30T10:45:14Z"
+    "metadata_indexed_at": "2026-10-12T15:53:55Z"
   },
   "doi:10.1109/lra.2022.3205768": {
     "paper_id": "doi:10.1109/lra.2022.3205768",
@@ -5735,7 +5735,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2022.3205768",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2022-10",
     "metadata_indexed_at": "2026-10-09T01:57:59Z"
   },
@@ -5845,9 +5845,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3739025",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2026-11",
-    "metadata_indexed_at": "2026-10-09T15:55:09Z"
+    "metadata_indexed_at": "2026-10-13T06:48:56Z"
   },
   "doi:10.1109/lra.2020.2969946": {
     "paper_id": "doi:10.1109/lra.2020.2969946",
@@ -6126,7 +6126,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3726374",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2026-10",
     "metadata_indexed_at": "2026-09-07T20:07:47Z"
   },
@@ -6148,7 +6148,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3728305",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2026-10",
     "metadata_indexed_at": "2026-09-08T05:12:03Z"
   },
@@ -6195,11 +6195,11 @@
     "paper_url": "https://doi.org/10.1177/0278364914559753",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2015-04-27",
     "print_publication_date": "2015-06",
-    "metadata_indexed_at": "2026-10-07T16:59:26Z"
+    "metadata_indexed_at": "2026-10-13T17:06:27Z"
   },
   "doi:10.1177/027836490302210001": {
     "paper_id": "doi:10.1177/027836490302210001",
@@ -6220,7 +6220,7 @@
     "paper_url": "https://doi.org/10.1177/027836490302210001",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2003-10-01",
     "print_publication_date": "2003-10",
@@ -6618,7 +6618,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.abl7286",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "print_publication_date": "2022-06-29",
     "metadata_indexed_at": "2026-10-08T23:29:03Z"
@@ -6667,7 +6667,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2019.0106",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2022-02-14",
     "print_publication_date": "2022-02-01",
@@ -6796,7 +6796,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2017.0121",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2018-08-28",
     "print_publication_date": "2018-08-28",
@@ -8132,7 +8132,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2025.3576951",
     "source": "crossref",
     "first_seen_date": "2026-10-03",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2025",
     "metadata_indexed_at": "2026-10-08T18:01:40Z"
   },
@@ -8155,7 +8155,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2024.3352969",
     "source": "crossref",
     "first_seen_date": "2026-10-03",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2024",
     "metadata_indexed_at": "2026-10-08T18:31:42Z"
   },
@@ -8247,9 +8247,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2022.3145961",
     "source": "crossref",
     "first_seen_date": "2026-10-03",
-    "last_seen_date": "2026-10-08",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2022-04",
-    "metadata_indexed_at": "2026-10-03T02:53:19Z"
+    "metadata_indexed_at": "2026-10-13T18:38:50Z"
   },
   "doi:10.1109/lra.2023.3339397": {
     "paper_id": "doi:10.1109/lra.2023.3339397",
@@ -8272,9 +8272,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2023.3339397",
     "source": "crossref",
     "first_seen_date": "2026-10-03",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2024-02",
-    "metadata_indexed_at": "2026-10-08T18:30:02Z"
+    "metadata_indexed_at": "2026-10-13T16:53:27Z"
   },
   "doi:10.1109/lra.2024.3357030": {
     "paper_id": "doi:10.1109/lra.2024.3357030",
@@ -8538,9 +8538,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2022.3191812",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-08",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2022-10",
-    "metadata_indexed_at": "2026-10-03T16:56:27Z"
+    "metadata_indexed_at": "2026-10-12T15:53:54Z"
   },
   "doi:10.1109/lra.2023.3306670": {
     "paper_id": "doi:10.1109/lra.2023.3306670",
@@ -8679,10 +8679,10 @@
     "paper_url": "https://doi.org/10.1177/02783649261432253",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2026-03-27",
-    "metadata_indexed_at": "2026-10-03T16:46:38Z"
+    "metadata_indexed_at": "2026-10-12T17:02:24Z"
   },
   "doi:10.1177/0278364914558494": {
     "paper_id": "doi:10.1177/0278364914558494",
@@ -8754,7 +8754,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.aea6201",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "print_publication_date": "2026-04-15",
     "metadata_indexed_at": "2026-10-09T17:25:46Z"
@@ -8881,7 +8881,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.adq5046",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "print_publication_date": "2025-06-25",
     "metadata_indexed_at": "2026-10-08T18:12:07Z"
@@ -8950,7 +8950,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.abm0608",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "print_publication_date": "2022-02-23",
     "metadata_indexed_at": "2026-10-07T17:31:37Z"
@@ -9124,7 +9124,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.adi9762",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "print_publication_date": "2024-04-17",
     "metadata_indexed_at": "2026-10-08T17:00:42Z"
@@ -9577,7 +9577,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2021.0225",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2022-11-07",
     "print_publication_date": "2023-06-01",
@@ -9604,7 +9604,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2021.0025",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2022-12-12",
     "print_publication_date": "2022-12-01",
@@ -9631,7 +9631,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2020.0065",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2022-04-19",
     "print_publication_date": "2022-04-01",
@@ -9984,11 +9984,11 @@
     "paper_url": "https://doi.org/10.1089/soro.2021.0077",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2023-02-14",
     "print_publication_date": "2023-02-01",
-    "metadata_indexed_at": "2026-09-05T15:05:54Z"
+    "metadata_indexed_at": "2026-10-11T09:30:43Z"
   },
   "doi:10.1089/soro.2022.0111": {
     "paper_id": "doi:10.1089/soro.2022.0111",
@@ -10008,7 +10008,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2022.0111",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2023-08-09",
     "print_publication_date": "2023-08-01",
@@ -10420,7 +10420,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2020.0200",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2022-08-08",
     "print_publication_date": "2022-08-01",
@@ -10497,7 +10497,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2023.0134",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2024-10-14",
     "print_publication_date": "2024-10-01",
@@ -10913,7 +10913,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2018.0172",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2020-08-03",
     "print_publication_date": "2020-08-01",
@@ -10964,14 +10964,17 @@
     "title": "GOTT: Object-centric Dexterous Manipulation with a Reusable Cross-Embodiment Primitive",
     "abstract": "Foundation models and large-scale human data provide rich sources of manipulation intent, but translating this intent into multi-fingered robot behavior remains difficult. Dexterous hands still lack a reusable low-level primitive that reliably establishes contact across tasks and embodiments. We propose GOTT, a reach-acquire-move framework built around a single cross-embodiment contact-acquisition primitive. Given a robot-agnostic object trajectory and a reach specification, GOTT first brings the hand near a task-relevant contact region. The shared closed-loop primitive then establishes stable contact from this approximate initialization, and a pose-conditioned controller tracks the desired object motion. Reach specifications may come from future-aware planning, external models, or human demonstrations, while the primitive and tracking backend remain unchanged. Simulation and real-world experiments show that GOTT is able to establish robust contact across diverse objects, arm-hand platforms, and seen and unseen hand morphologies. It also consistently improves end-to-end task success over open-loop grasp execution.",
     "authors": "Yulin Liu, Lai Wei, Yen-Jen Wang, Akash Sharma, Pieter Abbeel, Henrik I. Christensen, Haozhi Qi",
-    "publish_date": "2026-10-06",
-    "date_basis": "rss_announcement",
+    "publish_date": "2026-10-02",
+    "date_basis": "initial_publication",
     "arxiv_url": "https://arxiv.org/abs/2610.03861",
     "source": "arxiv",
     "matched_categories": [
       "Dexterous-Hand"
     ],
-    "matched_keywords": []
+    "matched_keywords": [],
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": ""
   },
   "arxiv:2610.03898": {
     "paper_id": "arxiv:2610.03898",
@@ -11234,14 +11237,17 @@
     "title": "TacOT: Learning Contact-Rich Dexterous Manipulation from Human Demonstrations via Tactile-Guided Optimal Transport",
     "abstract": "Learning contact-rich dexterous manipulation from human demonstrations provides a scalable source of interaction data, yet transferring such skills to robots remains challenging due to unreliable human--robot correspondence. Existing human-to-robot transfer methods typically rely on visual appearance or motion similarity, which may associate similar motions with different contact states and force patterns. Tactile dynamics provide interaction-aware cues to distinguish manipulation processes with similar motions but different contact states. We introduce tactile-guided optimal transport (TacOT), a framework for human-to-robot contact-rich manipulation. TacOT leverages action--tactile dynamic time warping to identify human--robot demonstration correspondences with consistent interaction dynamics and uses these correspondences to guide soft optimal transport alignment in a shared policy representation space. This enables human demonstrations to provide contact-rich supervision for robot policy learning without requiring predefined frame-level human--robot pairing. Across four real-world dexterous manipulation tasks, TacOT improves closed-loop success rates over action-guided OT by up to 17 points on in-distribution tasks and 20 points under targeted human-to-robot out-of-distribution transfer. Further analyses show that tactile-guided correspondence selects demonstration pairs with more consistent contact dynamics and produces latent representations that better reflect interaction-state evolution. These results demonstrate that tactile dynamics provide an effective semantic signal for establishing reliable human-to-robot correspondence in contact-rich dexterous manipulation.",
     "authors": "Xingting Li, Yifan Han, Zijian Lin, Wei Hou, Chuqiao Lyu, Shoujie Li, Wenbo Ding",
-    "publish_date": "2026-10-06",
-    "date_basis": "rss_announcement",
+    "publish_date": "2026-10-03",
+    "date_basis": "initial_publication",
     "arxiv_url": "https://arxiv.org/abs/2610.04363",
     "source": "arxiv",
     "matched_categories": [
       "Dexterous-Hand"
     ],
-    "matched_keywords": []
+    "matched_keywords": [],
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": ""
   },
   "arxiv:2610.04366": {
     "paper_id": "arxiv:2610.04366",
@@ -11279,14 +11285,17 @@
     "title": "AgenticTactileVLA: Contact-Guided Execution-Time Supervision for Generalizable Dexterous Manipulation without VLA Retraining",
     "abstract": "Vision-language-action policies may predict a transferable manipulation strategy yet fail to realize it reliably on the encountered object: objects compatible with the same grasp differ in geometry and compliance, and visual feedback degrades under closure occlusion. AgenticTactileVLA is presented as an execution-time supervisor that shifts part of object-specific adaptation from prediction to physical interaction. A fixed VLA provides the approach and hand targets; the supervisor decides whether to remain transparent, refine finger flexion, retain or release the corrected configuration, return control to the VLA for retry, or select a compliant hand-control regime. It uses finger-position and motor-effort feedback as proprioceptive contact evidence and requires neither tactile sensors nor VLA retraining. On a Unitree G1 with a BrainCo Revo2 hand, a randomized matched-block evaluation on five objects held out from VLA training yields 61.3% completion for the base VLA, 72.0% for unconditional close-to-stall control, and 84.0% for the supervisor under a shared budget; the gain is positive on every object and persists under moderate pose perturbations. Ablations show the gain is not explained by extended closure alone, and that selective triggering reduces correction episodes by 65.7% with no detected change in completion. A retention audit shows acceptance predicts retention in 88.9% of held-out cases, while compliant objects expose conservative false rejection. A thin-walled-cup study demonstrates contextual routing to compliant control, matching an always-compliant reference. These results suggest that contact-guided execution-time adaptation can improve the object-level generalization of a fixed VLA to held-out objects by adapting physical realization without object-specific retraining.",
     "authors": "Elizaveta Semenyakina, Ivan Snegirev, Mikhail Kiselev, Miguel Altamirano Cabrera, Artem Lykov, Hajira Amjad, Dzmitry Tsetserukou",
-    "publish_date": "2026-10-06",
-    "date_basis": "rss_announcement",
+    "publish_date": "2026-10-03",
+    "date_basis": "initial_publication",
     "arxiv_url": "https://arxiv.org/abs/2610.04391",
     "source": "arxiv",
     "matched_categories": [
       "Dexterous-Hand"
     ],
-    "matched_keywords": []
+    "matched_keywords": [],
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": ""
   },
   "arxiv:2610.04406": {
     "paper_id": "arxiv:2610.04406",
@@ -11549,14 +11558,17 @@
     "title": "PatternDex: Learning Interaction Patterns to Guide Reinforcement Learning of Bimanual Dexterous Manipulation of Articulated Objects",
     "abstract": "In this paper, we develop a method that enables bimanual dexterous hands to manipulate articulated objects with a high success rate without suffering from an embodiment gap. We observe that the correlation between hand motions and object motions is dictated by the object rather than the hands and can be learned from human-object demonstrations. Based on this observation, we propose PatternDex, a method that learns this correlation and represents it as a token sequence, which we call an interaction pattern. From this pattern, PatternDex estimates the wrist motions and contact points that fit the target robot, and then trains a reinforcement learning policy that exploits these estimates as guidance. Since the guidance fits the target embodiment, the policy explores only the actions that the target robot can execute and thus achieves high success rates. PatternDex also requires only simple fine-tuning to train a new robot, since it can reuse the learned interaction pattern. We evaluate PatternDex with bimanual dexterous hands on human demonstrations from the ARCTIC dataset. PatternDex achieves, on average, a 92.8% success rate with Allegro hands, while the state-of-the-art baseline achieves 52.2%. Also, it achieves success rates above 70% with three other robot hands after fine-tuning alone. Furthermore, we verify that the learned policy transfers well to a real-world task of opening a microwave. Videos and additional results are available at https://patterndex.github.io/PatternDex/",
     "authors": "David Minkwan Kim, Runfa Blark Li, Beckham Po-Ju Lee, Nikolay Atanasov, Truong Nguyen",
-    "publish_date": "2026-10-06",
-    "date_basis": "rss_announcement",
+    "publish_date": "2026-10-03",
+    "date_basis": "initial_publication",
     "arxiv_url": "https://arxiv.org/abs/2610.04765",
     "source": "arxiv",
     "matched_categories": [
       "Dexterous-Hand"
     ],
-    "matched_keywords": []
+    "matched_keywords": [],
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": ""
   },
   "arxiv:2610.04767": {
     "paper_id": "arxiv:2610.04767",
@@ -11759,14 +11771,17 @@
     "title": "Now You Feel It, Now You See Me: Digital-Twin-based Teleoperation Interface for Dexterous Manipulation",
     "abstract": "Teleoperation is becoming increasingly important for collecting high-quality demonstrations to teach robots dexterous manipulation skills. For dexterous manipulation, bare-hand tracking provides a practical way to control robotic hands and demonstrate coordinated finger movements without gloves or exoskeletons. However, this type of teleoperation faces two key feedback limitations: a lack of force feedback and visual feedback of occluded region. The absence of force feedback hinders precise and safe manipulation, as operators must infer contact force visually rather than feel them directly. Occlusion by objects or other robot parts impairs the assessment of hand positions, approach distances, and pre-grasp configurations suited to the object's shape. To address these limitations, we propose a digital-twin-based augmented reality (AR) teleoperation interface that integrates bare-hand tracking, bimanual robotic hands, and virtual representations of the robot and task objects. The interface renders tactile measurements on robot hand meshes as visuo-force feedback. Furthermore, it offers a user-controlled virtual view panel or occlusion-aware transparency rendering to provide occlusion-mitigating visual feedback. We evaluated the interface through user studies involving Task 1 and Task 2, examining how force visualization and visual assistance support demonstration collection in tasks requiring careful force regulation and manipulation under occlusion.",
     "authors": "Youngchan Shim, Kyutae Lee, JooYun Kim, Jaeseong Hwang, Harim Ji, Yongseok Lee",
-    "publish_date": "2026-10-06",
-    "date_basis": "rss_announcement",
+    "publish_date": "2026-10-04",
+    "date_basis": "initial_publication",
     "arxiv_url": "https://arxiv.org/abs/2610.05081",
     "source": "arxiv",
     "matched_categories": [
       "Dexterous-Hand"
     ],
-    "matched_keywords": []
+    "matched_keywords": [],
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": ""
   },
   "arxiv:2610.05122": {
     "paper_id": "arxiv:2610.05122",
@@ -11804,14 +11819,17 @@
     "title": "VICON: Visual-Inertial-Contact based Hand-Object Tracking for Manipulation Datasets",
     "abstract": "Learning dexterous manipulation benefits from human demonstration datasets that capture diverse and natural hand-object interactions. In particular, contact points and forces provide supervision on where and how strongly to interact, which cannot be fully captured by motion trajectories alone. However, methods for jointly capturing hand and object motion, contact points, and forces remain limited. Moreover, severe occlusion from hand-object interaction challenges accurate tracking of both hands and objects. To address these limitations, we present a Visual-Inertial-CONtact based hand-object tracking (VICON) framework. It holistically captures both hand and object motion along with contact information during manipulation, even under severe occlusion. First, we adopt a visual-inertial glove and an RGB-D camera for accurate hand tracking, and redesign the glove to incorporate contact sensing. Specifically, force-sensitive resistors (FSRs) are placed on the glove based on human grasp frequency to synchronously record contact states and calibrated normal forces. Second, without requiring pre-existing CAD models, we estimate object poses using RGB-D images and a mesh reconstructed from a monocular video. We propose factor-graph-based object trajectory estimation that fuses object-pose estimates weighted by visibility under hand-object occlusion, FSR measurements, and a hand-motion prior. Across 40 motion-capture sessions with five objects, VICON achieves a 2.5% failed-frame rate compared with 50.9-64.6% for the baselines, with median errors of 3.9 mm and 3.0 degrees under occlusion. Using VICON, we construct a dataset containing synchronized hand-object motion, contact points, and normal forces, and will publicly release an expanded dataset covering 10 object categories at https://github.com/VICON-dataset/dataset.",
     "authors": "Yubin Jeon, Uiseong Shin, Hwanchul La, Jaeseong Kang, Hyelim Choi, Yongseok Lee",
-    "publish_date": "2026-10-06",
-    "date_basis": "rss_announcement",
+    "publish_date": "2026-10-04",
+    "date_basis": "initial_publication",
     "arxiv_url": "https://arxiv.org/abs/2610.05180",
     "source": "arxiv",
     "matched_categories": [
       "Dexterous-Hand"
     ],
-    "matched_keywords": []
+    "matched_keywords": [],
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": ""
   },
   "arxiv:2610.05230": {
     "paper_id": "arxiv:2610.05230",
@@ -12794,14 +12812,17 @@
     "title": "DexForge: High-Fidelity Physics-Informed Dexterous Retargeting",
     "abstract": "Human demonstrations offer rich examples of precise dexterous manipulation and a promising source of robot training data. However, high-fidelity reproduction of demonstrated motions and hand-object interactions across robot embodiments remains challenging under physical constraints. We present DexForge, a differentiable physics-grounded framework for converting human video demonstrations into high-fidelity robot trajectories. We reconstruct spherical-Gaussian object models and hand-object motion from visual observations, then build a differentiable simulator combining efficient Gaussian collision detection with existing differentiable dynamics. Based on this simulator, DexForge combines contact-aware kinematic retargeting with force-aware dynamics retargeting: robot-adapted stable contacts guide kinematic reference construction and subsequent gradient-based control refinement for precise physical motion reproduction. Experiments on 130 DexYCB and HOT3D demonstrations across seven dexterous hands show success-rate gains of approximately 35-53 percentage points over the baseline, with object position and orientation tracking errors on successful trajectories reduced by approximately 34-67% and 71-78%, respectively. Further experiments demonstrate open-loop transfer to MuJoCo and real-robot execution. Our project page is available at https://wmz1226.github.io/DexForge/",
     "authors": "Meizhong Wang, Kun Cao, Ruiqi Ni, Lihua Xie, Yiguang Hong",
-    "publish_date": "2026-10-06",
-    "date_basis": "rss_announcement",
+    "publish_date": "2026-10-05",
+    "date_basis": "initial_publication",
     "arxiv_url": "https://arxiv.org/abs/2610.06331",
     "source": "arxiv",
     "matched_categories": [
       "Dexterous-Hand"
     ],
-    "matched_keywords": []
+    "matched_keywords": [],
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": ""
   },
   "arxiv:2610.06376": {
     "paper_id": "arxiv:2610.06376",
@@ -12974,14 +12995,17 @@
     "title": "InterMimicGen: Scaling Humanoid Loco-Manipulation through Self-Evolving Motion Imitation",
     "abstract": "Captured human-object interactions provide rich supervision for humanoid loco-manipulation, but they are sparse, heterogeneous, and not directly executable by robots. We introduce InterMimicGen, a self-evolving motion-imitation framework in which robot motion data and a tracking policy improve each other. First, we consolidate motion-captured human-object interaction datasets and retarget them into humanoid robot references while preserving whole-body coordination and dexterous hand-object relationships. This produces a large and diverse humanoid robot reference collection for dexterous whole-body loco-manipulation. Second, we train a physics-based generalist tracker that executes these references in simulation on a humanoid with dexterous hands, covering a scale and diversity beyond prior humanoid tracking systems for loco-manipulation. Third, we close a data flywheel: each round makes small, task-preserving changes to where an interaction takes place and how the body performs it, fine-tunes the tracker on them, and keeps only the variants whose simulated execution completes the task, which seed the next round. With more iterations, these small edits compound into broader coverage around the sparse original demonstrations while preserving task semantics and motion quality. Experiments show contact-preserving retargeting across robot configurations, broad tracking with a single generalist policy, executable motions that keep growing over augmentation rounds, and transfer to real robots. InterMimicGen provides a unified path from heterogeneous human demonstrations to a continually expanding motion resource for humanoid robot learning.",
     "authors": "Yucheng Zhang, Sirui Xu, Jinhong Li, Liuyu Bian, Anatulya Nandi, Derek Zhang, Xiangchen Liu, Xueting Li, Umar Iqbal, Yu-Xiong Wang, Liang-Yan Gui",
-    "publish_date": "2026-10-06",
-    "date_basis": "rss_announcement",
+    "publish_date": "2026-10-05",
+    "date_basis": "initial_publication",
     "arxiv_url": "https://arxiv.org/abs/2610.06850",
     "source": "arxiv",
     "matched_categories": [
       "Dexterous-Hand"
     ],
-    "matched_keywords": []
+    "matched_keywords": [],
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": ""
   },
   "doi:10.1109/tro.2009.2017138": {
     "paper_id": "doi:10.1109/tro.2009.2017138",
@@ -12999,7 +13023,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2009.2017138",
     "source": "crossref",
     "first_seen_date": "2026-10-06",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2009-08",
     "metadata_indexed_at": "2026-10-08T18:28:40Z"
   },
@@ -13518,14 +13542,17 @@
     "title": "Fast Planning for Multi-object Multi-target Throwing",
     "abstract": "Robot throwing has emerged as a promising technique for improving efficiency in logistics and warehouse automation, by enlarging the workspace and speeding up the process. To significantly increase the throwing system's throughput, we develop strategies for throwing multiple objects in one swipe. Such multi-object multi-target throwing (MOMT) leverages the large degrees of freedom of anthropomorphic hands. The key is to quickly generate fast and feasible throwing motions, which involves a complex trade-off between short trajectory duration and short planning time. We solve this problem in two stages. Offline, we build a model of the feasible set by combining object's inverted flying dynamics and the robot's kinematics and dynamics. Online, we generate feasible throws through fast solution matching and filtering of object's valid detach state and robot's feasible state that can compose sequences of throws in less than 5 ms. We validate the framework on a 7-DoF manipulator equipped with a multi-fingered hand. In simulation, coordinated two-object throwing reduces execution time by up to 46% compared to independent single-object planning, and this improvement is maintained when scaling to three objects. Real-world experiments with two objects confirm a 29% reduction; the remaining gap to the theoretical 50% is attributed to inter-throw transition overhead. When target positions are randomly changed mid-execution, the system re-plans and successfully reaches the new targets within 100 ms latency without stopping the robot. These results establish the first unified planning framework for MOMT throwing -- demonstrating scalability to multiple objects in simulation and real-world feasibility on two-object tasks -- advancing the frontier of high-throughput robotic manipulation. A video summarizing the method and the hardware experiments is available at https://liuyangdh.github.io/momt-video",
     "authors": "Zhengming Zhu, Yang Liu, Xiao Gao, Aude Billard",
-    "publish_date": "2026-10-08",
-    "date_basis": "rss_announcement",
+    "publish_date": "2026-10-06",
+    "date_basis": "initial_publication",
     "arxiv_url": "https://arxiv.org/abs/2610.09224",
     "source": "arxiv",
     "matched_categories": [
       "Dexterous-Hand"
     ],
-    "matched_keywords": []
+    "matched_keywords": [],
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": ""
   },
   "arxiv:2610.09228": {
     "paper_id": "arxiv:2610.09228",
@@ -13593,14 +13620,17 @@
     "title": "Co${}^{2}$Skill: Whole-Body Control via Skill Composition for Long-Horizon Human-Environment Interaction",
     "abstract": "Achieving human-level dexterity in complex, unstructured environments requires the seamless integration of whole-body scene interaction and dexterous object manipulation skills. While existing physics-based controllers generate physically plausible behaviors in each domain, they largely address these two capabilities independently. In this paper, we present Co${}^{2}$Skill that integrates scene interaction and dexterous manipulation through a unified policy formulation. Built on a pretrained motion prior, the policy uses task and phase dependent observation masks to select information relevant to the current interaction goals. We introduce a goal-conditioned loco-manipulation curriculum that combines partial reference guidance for precision with exploration from varied initial states while allowing goal-directed execution beyond the demonstrated trajectories. We further introduce a cross-task curriculum that jointly trains individual skills and selected task sequences, preserving physical states across task boundaries and maintaining grasps during subsequent scene interactions. Together, these support sequential task execution and simultaneous scene interaction with object manipulation. We evaluate sitting, standing, climbing, stair traversal, and goal-directed manipulation, together with sequential execution and with random different conditions. Additionally, we demonstrate skill compositions in indoor environments, illustrating their integration within the same control formulation.",
     "authors": "Jeonghwan Kim, Hyeonwoo Kim, Hanbyul Joo",
-    "publish_date": "2026-10-08",
-    "date_basis": "rss_announcement",
+    "publish_date": "2026-10-07",
+    "date_basis": "initial_publication",
     "arxiv_url": "https://arxiv.org/abs/2610.09291",
     "source": "arxiv",
     "matched_categories": [
       "Dexterous-Hand"
     ],
-    "matched_keywords": []
+    "matched_keywords": [],
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": ""
   },
   "arxiv:2610.09302": {
     "paper_id": "arxiv:2610.09302",
@@ -14283,14 +14313,17 @@
     "title": "Temporal Visuo-Tactile Learning for Dexterous Grasp Stability",
     "abstract": "Humans can grasp everyday objects with almost perfect success rates using fingertip tactile feedback, yet much of the robotic grasping literature emphasizes vision-based grasp selection with parallel grippers. In this work, we systematically investigate how high-resolution, dynamic tactile sensing contributes to grasp stability prediction and model-guided grasping in dexterous robotic hands. To this end, we collected a dataset of 10,000 grasp trials across 200 objects using a multi-fingered robotic hand equipped with four Digit 360 tactile sensors, recording external vision, proprioception, and tactile streams throughout each grasp. With this dataset, we trained end-to-end temporal multimodal models to predict post-lift stability from pre-lift grasp observations and compared sensing modalities and encoding backbones. Experimental results and controlled input ablations show that incorporating touch, and particularly high-resolution, dynamic touch, improves grasp stability prediction. Finally, we deployed the learned predictor as an online stability gate on the real robot, where visuo-tactile model-guided regrasping improved the success rate among executed lifts by 10.5 percentage points over a non-tactile gate. These results show how rich fingertip sensing and expressive temporal models that capture the dynamics of touch can support learned grasping with multi-fingered hands without explicit contact or force modeling, providing a scalable data-driven path from tactile experience toward stable dexterous manipulation. The dataset is publicly available at https://lasr-lab.github.io/dexterous-grasp-stability/.",
     "authors": "Ken Nakahara, Aleksei Buvailik, Prokhor Kotov, Roberto Calandra",
-    "publish_date": "2026-10-08",
-    "date_basis": "rss_announcement",
+    "publish_date": "2026-10-07",
+    "date_basis": "initial_publication",
     "arxiv_url": "https://arxiv.org/abs/2610.10283",
     "source": "arxiv",
     "matched_categories": [
       "Dexterous-Hand"
     ],
-    "matched_keywords": []
+    "matched_keywords": [],
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": ""
   },
   "arxiv:2610.10297": {
     "paper_id": "arxiv:2610.10297",
@@ -14611,7 +14644,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2022.3205510",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2023-04",
     "metadata_indexed_at": "2026-10-07T17:50:45Z"
   },
@@ -14631,7 +14664,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2018.2830364",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2018-08",
     "metadata_indexed_at": "2026-10-07T17:42:10Z"
   },
@@ -14651,9 +14684,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2016.2562122",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2016-06",
-    "metadata_indexed_at": "2026-10-07T17:01:54Z"
+    "metadata_indexed_at": "2026-10-14T03:03:10Z"
   },
   "doi:10.1109/tro.2020.3043981": {
     "paper_id": "doi:10.1109/tro.2020.3043981",
@@ -14863,7 +14896,7 @@
     "paper_url": "https://doi.org/10.1177/02783649241227559",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2024-01-22",
     "print_publication_date": "2024-04",
@@ -14887,7 +14920,7 @@
     "paper_url": "https://doi.org/10.1177/02783649231196925",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2023-09-11",
     "print_publication_date": "2023-11",
@@ -14960,11 +14993,11 @@
     "paper_url": "https://doi.org/10.1177/027836498800700603",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "1988-12-01",
     "print_publication_date": "1988-12",
-    "metadata_indexed_at": "2026-10-06T22:33:09Z"
+    "metadata_indexed_at": "2026-10-14T02:18:43Z"
   },
   "doi:10.1177/027836498900800402": {
     "paper_id": "doi:10.1177/027836498900800402",
@@ -14984,11 +15017,11 @@
     "paper_url": "https://doi.org/10.1177/027836498900800402",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "1989-08-01",
     "print_publication_date": "1989-08",
-    "metadata_indexed_at": "2026-10-06T21:23:04Z"
+    "metadata_indexed_at": "2026-10-13T18:04:22Z"
   },
   "doi:10.1177/02783649251398875": {
     "paper_id": "doi:10.1177/02783649251398875",
@@ -15035,7 +15068,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2017.0058",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2018-10-10",
     "print_publication_date": "2018-10-01",
@@ -15182,14 +15215,17 @@
     "title": "Cross-Embodiment Robot Foundation World Models with Latent Actions",
     "abstract": "The diversity of robot embodiments and action spaces makes it challenging to build robot world models that generalize across different embodiments. We introduce the Latent Action-Conditioned Robot World Model (LAC-WM), which operates within a learned unified latent action space shared across diverse embodiments. This unified action space improves the world model's performance when adapted to previously unseen robot embodiments. We compare LAC-WM with an Explicit Action-Conditioned World Model (EAC-WM), which conditions on explicit motion labels. Our results show that explicit action conditioning leads to disjoint action representations across embodiments, limiting downstream performance when adapting to new robots. We evaluate both models on dexterous manipulation tasks and a modified LIBERO benchmark. LAC-WM improves downstream performance over EAC-WM by up to 46.7% on dexterous manipulation and 11.7% on LIBERO. Crucially, the unified latent action space allows LAC-WM's downstream performance to scale positively with the number of embodiments used during pretraining. In contrast, the disjoint action space in EAC-WM leads to decreased performance as the number of pretraining embodiments increases. These results highlight the importance of a unified action space for efficient cross-embodiment learning, addressing a key challenge in robotics. Project website: https://lacwm.github.io/",
     "authors": "Huang Huang, Sriram Yenamandra, Arjun Majumdar, Elie Aljalbout, Tushar Nagarajan, Tsung-Yen Yang, Akshara Rai, Michael Rabbat, Li Fei-Fei, Jiajun Wu, Tingfan Wu, Franziska Meier",
-    "publish_date": "2026-10-09",
-    "date_basis": "rss_announcement",
+    "publish_date": "2026-10-07",
+    "date_basis": "initial_publication",
     "arxiv_url": "https://arxiv.org/abs/2610.10846",
     "source": "arxiv",
     "matched_categories": [
       "Dexterous-Hand"
     ],
-    "matched_keywords": []
+    "matched_keywords": [],
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": ""
   },
   "arxiv:2610.10855": {
     "paper_id": "arxiv:2610.10855",
@@ -15197,14 +15233,17 @@
     "title": "OmniHOI: Dexterous Hand-Object Interaction from Monocular Human Video",
     "abstract": "Monocular videos of human manipulation provide abundant dexterous demonstrations, yet reconstructing hand-object interaction from a single view and transferring it to robot hands remain difficult, limiting their direct use for robot execution. Prior methods either require task-specific RL training, limiting scalability, or assume clean motion-capture trajectories and thus cannot operate directly on video. We present OmniHOI, a pipeline that turns an RGB video of hand-object interaction into an interaction-faithful trajectory on dexterous hands. The key idea is to enforce physical consistency using the evidence available at each stage: image evidence during reconstruction, contact geometry during retargeting, and dynamics during physics-in-the-loop refinement. Each stage optimizes the corresponding representation directly, correcting errors before they propagate downstream or must be absorbed by a learned policy. Across 150 motion-capture trajectories transferred to each of five dexterous hands with 6 to 22 DoF, we achieve 39-89% success, compared with at most 31% for prior transfer methods. On 60 monocular video clips, we achieve 53% success, compared with 28% for the best prior video-to-robot pipeline. Its trajectories also execute on a real bimanual robot across diverse tasks.",
     "authors": "Ting Mao, Yanming Shao, Ziheng Wang, Haoyu Liu, Yiqun Wang, Xuanye Wu, Yao Mu",
-    "publish_date": "2026-10-09",
-    "date_basis": "rss_announcement",
+    "publish_date": "2026-10-07",
+    "date_basis": "initial_publication",
     "arxiv_url": "https://arxiv.org/abs/2610.10855",
     "source": "arxiv",
     "matched_categories": [
       "Dexterous-Hand"
     ],
-    "matched_keywords": []
+    "matched_keywords": [],
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": ""
   },
   "arxiv:2610.10905": {
     "paper_id": "arxiv:2610.10905",
@@ -15377,14 +15416,17 @@
     "title": "OmniDex: Scaling Dexterous Hand Grasping to Diverse Cluttered Scenes",
     "abstract": "Dexterous grasping is the foundational primitive in embodied AI, demanding massive data to train robust models. As real-world data collection is expensive, simulation has become the mainstream paradigm. Yet, while cluttered scenes best reflect real-world applications, learning to grasp within them is bottlenecked by a critical scarcity of large-scale data. To resolve this, we curate high-quality 3D objects and supporting bases, proposing a scalable seed-and-filter strategy that bypasses sluggish scene-level optimization. This yields an unprecedented benchmark comprising over 2.6 million scenes and 0.4B scene-specific grasp ground truths, featuring diverse realistic layouts paired with rich semantic and geometric observations. Furthermore, we introduce the OmniDex model to overcome the grasp multimodality and last-millimeter precision errors plaguing current generative models. By coupling Soft Winner-Takes-All learning with human-inspired physical constraints during training, and utilizing physics-driven ranking, our approach achieves robust dexterous grasping without the latency of post-optimization. Experimental results show that OmniDex model achieves state-of-the-art performance and strong generalization across diverse scenes, views, and unseen objects.",
     "authors": "Naiyu Fang, Zhongjin Luo, Yuxin Mo, Siyuan Huang, Jianbo Liu, Yufei Liu, Zheyuan Zhou, Chenkai Jin, Xiaogang Wang, Hongsheng Li",
-    "publish_date": "2026-10-09",
-    "date_basis": "rss_announcement",
+    "publish_date": "2026-10-08",
+    "date_basis": "initial_publication",
     "arxiv_url": "https://arxiv.org/abs/2610.11194",
     "source": "arxiv",
     "matched_categories": [
       "Dexterous-Hand"
     ],
-    "matched_keywords": []
+    "matched_keywords": [],
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": ""
   },
   "arxiv:2610.11220": {
     "paper_id": "arxiv:2610.11220",
@@ -15932,14 +15974,17 @@
     "title": "SkillWeave: Weaving Heterogeneous Demonstrations into Long-Horizon Manipulation Skills",
     "abstract": "Dexterous manipulation requires both large-scale task progression and precise contact-rich interaction, making it challenging to collect demonstrations that effectively support both regimes. We present SkillWeave, a heterogeneous demonstration framework for long-horizon dexterous manipulation that combines teleoperation for coarse reaching and transport with kinesthetic teaching for precise, contact-rich skills. To address the visual mismatch introduced by the demonstrator's presence during kinesthetic data collection, we propose an object-mask-conditioned diffusion policy that uses offline object segmentation for training supervision and a lightweight learned mask predictor at deployment, avoiding online segmentation and image inpainting. To mitigate distribution shift between independently trained sub-task policies, we introduce successor-aware terminal steering, which selects among actions sampled from the predecessor policy to guide the system toward states supported by the successor's demonstrated initial-state distribution. Across three real-world long-horizon tasks, SkillWeave achieves 27% average end-to-end success. Mask-conditioned kinesthetic policies improve dexterous sub-task success to an average of 65%, while successor-aware handoffs achieve an average composition efficiency of 87%. These results show that matching demonstration modality to interaction regime, explicitly addressing kinesthetic visual mismatch, and steering policy handoffs toward successor-supported states substantially improves long-horizon dexterous manipulation. Videos and code are available at skillweave-authors.github.io .",
     "authors": "Ryosei Tamura, Xiaoxiang Dong, Uksang Yoo, Yuemin Mao, Romina Mir, Jonathan Francis, Jeffrey Ichnowski",
-    "publish_date": "2026-10-09",
-    "date_basis": "rss_announcement",
+    "publish_date": "2026-10-08",
+    "date_basis": "initial_publication",
     "arxiv_url": "https://arxiv.org/abs/2610.12046",
     "source": "arxiv",
     "matched_categories": [
       "Dexterous-Hand"
     ],
-    "matched_keywords": []
+    "matched_keywords": [],
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": ""
   },
   "arxiv:2610.12073": {
     "paper_id": "arxiv:2610.12073",
@@ -16382,14 +16427,17 @@
     "title": "Generative Neural Retargeting for Human-to-Robot Dexterous Manipulation",
     "abstract": "Human demonstrations are a scalable data source for learning dexterous manipulation, but the embodiment gap prevents human motion from being executed directly on robots. Inverse kinematics (IK) retargets human motion to robots efficiently but ignores dynamics, often producing infeasible motions. Reinforcement learning (RL) and sampling-based model predictive control (MPC) are commonly employed to yield dynamically feasible motions, but both are sample-inefficient and sensitive to hyperparameters. RL suffers from costly and unstable training and tedious reward engineering; MPC avoids policy optimization, yet retargets each trajectory in isolation, and solving one does not make the next easier. Sampling cost grows rapidly with dataset size and task difficulty. We hypothesize that dynamically feasible trajectories concentrate near a low-dimensional manifold shared across demonstrations, so that retargeting can be reduced to sampling from that manifold, conditioned on human motion, rather than solving a fresh optimization problem for every demonstration. We propose \\textbf{Generative Neural Retargeting} (GNR), which uses a flow matching model to sample feasible trajectories. GNR outperforms MPC with only $8.5\\%$ of the samples required by MPC, achieving a success rate of $56.20\\%$ compared to $27.20\\%$ for MPC. GNR can be used for scalable and efficient retargeting of large-scale, long-horizon, and millimeter precision human demonstrations: by applying GNR within a real-to-sim data engine, we produce a dexterous manipulation dataset with dense contact-force labels, spanning $223$k demonstrations and $3.3$k object geometries.",
     "authors": "Dechen Gao, Yue Yang, Ben Abbatematteo, Nathan Godwin, Pengcheng Wang, Roger Boldu, Steven Man, Zhiyang Dou, Chuan Qin, Sho Nakagome, Eric Whitmire",
-    "publish_date": "2026-10-09",
-    "date_basis": "rss_announcement",
+    "publish_date": "2026-10-08",
+    "date_basis": "initial_publication",
     "arxiv_url": "https://arxiv.org/abs/2610.12440",
     "source": "arxiv",
     "matched_categories": [
       "Dexterous-Hand"
     ],
-    "matched_keywords": []
+    "matched_keywords": [],
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": ""
   },
   "arxiv:2610.12457": {
     "paper_id": "arxiv:2610.12457",
@@ -16412,14 +16460,17 @@
     "title": "A Balanced Data Diet: Addressing the Exploration Bottleneck in Mega-Scale RL for Robot Control",
     "abstract": "General-purpose robots must perform a wide range of tasks from agile locomotion to dexterous manipulation. While sim-to-real reinforcement learning (RL) has proven to be a useful tool for this goal, current RL pipelines depend on engineering-heavy, per-task structural priors such as shaped rewards and demonstrations. Recent work has shown that diverse simulator resets, combined with massively parallel simulation, can alleviate much of this engineering burden on several manipulation problems. However, we find that naively scaling this paradigm to more precise or dynamic problems remains non-trivial. While simulator resets can help with exploration, uniformly sampling over this distribution wastes a growing fraction of learning experience on task configurations the policy has already mastered or cannot yet attempt. This makes it challenging to see the expected benefits of scaling parallel environments for RL, since much of the learning signal in a batch is wasted during learning. To mitigate this, we introduce Success Guided Sampling (SGS), a simple adaptive sampler that concentrates RL training on task configurations around the frontier of the policy's capabilities. Doing so allows large-scale simulated RL to make the most out of the experience in a batch, enabling much more effective scaling to large-scale parallel simulation. Across experiments using up to $2^{20}$ (over one million) parallel environments, SGS enables RL to solve challenging multi-terrain quadruped locomotion and contact-rich assembly tasks that prior methods fail to solve. Finally, we distill the learned manipulation policies into RGB-based policies and demonstrate zero-shot transfer to several challenging assembly tasks on real hardware. Project website: https://sgs-rl.github.io/.",
     "authors": "Octi Zhang, Mateo Guaman Castro, Patrick Yin, Ignacio Dagnino, Abhishek Gupta, Rosario Scalise, Byron Boots",
-    "publish_date": "2026-10-09",
-    "date_basis": "rss_announcement",
+    "publish_date": "2026-10-08",
+    "date_basis": "initial_publication",
     "arxiv_url": "https://arxiv.org/abs/2610.12465",
     "source": "arxiv",
     "matched_categories": [
       "Dexterous-Hand"
     ],
-    "matched_keywords": []
+    "matched_keywords": [],
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": ""
   },
   "arxiv:2610.12467": {
     "paper_id": "arxiv:2610.12467",
@@ -16457,14 +16508,17 @@
     "title": "Dex-One2Many: Learning Dexterous Manipulation from a Single Human Demonstration",
     "abstract": "While learning dexterous manipulation from a single human video offers a promising alternative to costly robot demonstrations, many recent methods predominantly imitate demonstrated motions. Such strict motion matching often limits generalization to initial object poses, goal poses, and grasps not shown in the video. Alternatively, discovering a policy via reinforcement learning (RL) allows for broad generalization, but without prior guidance, it struggles with high-dimensional exploration in complex, multi-stage tasks. To address these coupled generalization and exploration challenges, we present Dex-One2Many, a real-to-sim-to-real framework that learns a generalizable dexterous manipulation policy from a single human video. Our key insight is to abstract the video into sequential scene graphs that guide RL, enabling efficient exploration while preserving broad generalizability. The graphs serve as generative constraints for sampling diverse reset states and provide dense rewards for each stage. Because the graphs constrain relations rather than exact poses, these reset states cover object poses and grasps beyond the video, while initializing each stage from them with dense rewards keeps exploration short and guided. Trained entirely in simulation, Dex-One2Many transfers zero-shot to a real multi-fingered hand. Across five tool-use and manipulation tasks, Dex-One2Many exceeds baselines by 6.5% in seen configurations, while its robust generalization widens this gap to 71% in unseen scenarios.",
     "authors": "Jusuk Lee, Sungha Kim, Yeonsoo Park, Jonguk Cheon, Yoonkyo Jung, Yongjun You, H. Jin Kim, Jia-Bin Huang, Furong Huang, Youngseok Jang, Seungjae Lee",
-    "publish_date": "2026-10-09",
-    "date_basis": "rss_announcement",
+    "publish_date": "2026-10-08",
+    "date_basis": "initial_publication",
     "arxiv_url": "https://arxiv.org/abs/2610.12470",
     "source": "arxiv",
     "matched_categories": [
       "Dexterous-Hand"
     ],
-    "matched_keywords": []
+    "matched_keywords": [],
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": ""
   },
   "doi:10.1109/tro.2024.3462931": {
     "paper_id": "doi:10.1109/tro.2024.3462931",
@@ -16485,7 +16539,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2024.3462931",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2024",
     "metadata_indexed_at": "2026-10-09T01:57:50Z"
   },
@@ -16507,7 +16561,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2024.3508315",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2025",
     "metadata_indexed_at": "2026-10-08T18:33:13Z"
   },
@@ -16530,7 +16584,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2025.3576970",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2025",
     "metadata_indexed_at": "2026-10-08T18:31:38Z"
   },
@@ -16553,7 +16607,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2021.3099310",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2022-04",
     "metadata_indexed_at": "2026-10-08T18:19:00Z"
   },
@@ -16578,7 +16632,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2024.3492375",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2025",
     "metadata_indexed_at": "2026-10-08T18:01:40Z"
   },
@@ -16602,7 +16656,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3737042",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2026-11",
     "metadata_indexed_at": "2026-10-09T15:52:54Z"
   },
@@ -16624,9 +16678,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3735899",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2026-11",
-    "metadata_indexed_at": "2026-10-09T15:52:29Z"
+    "metadata_indexed_at": "2026-10-13T06:50:56Z"
   },
   "doi:10.1109/lra.2026.3741779": {
     "paper_id": "doi:10.1109/lra.2026.3741779",
@@ -16646,7 +16700,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3741779",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2026",
     "metadata_indexed_at": "2026-10-09T15:53:18Z"
   },
@@ -16666,7 +16720,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2018.2890199",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2019-04",
     "metadata_indexed_at": "2026-10-08T19:12:49Z"
   },
@@ -16735,9 +16789,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2024.3427557",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2024-09",
-    "metadata_indexed_at": "2026-10-08T18:28:56Z"
+    "metadata_indexed_at": "2026-10-11T13:35:49Z"
   },
   "doi:10.1109/lra.2020.3003257": {
     "paper_id": "doi:10.1109/lra.2020.3003257",
@@ -16822,9 +16876,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2025.3568318",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2025-06",
-    "metadata_indexed_at": "2026-10-08T18:27:43Z"
+    "metadata_indexed_at": "2026-10-13T17:58:37Z"
   },
   "doi:10.1109/lra.2018.2852797": {
     "paper_id": "doi:10.1109/lra.2018.2852797",
@@ -16842,9 +16896,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2018.2852797",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2018-10",
-    "metadata_indexed_at": "2026-10-08T18:26:58Z"
+    "metadata_indexed_at": "2026-10-13T17:42:36Z"
   },
   "doi:10.1109/lra.2020.3026970": {
     "paper_id": "doi:10.1109/lra.2020.3026970",
@@ -16867,9 +16921,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2020.3026970",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2021-01",
-    "metadata_indexed_at": "2026-10-08T18:26:00Z"
+    "metadata_indexed_at": "2026-10-13T18:58:21Z"
   },
   "doi:10.1109/lra.2022.3196141": {
     "paper_id": "doi:10.1109/lra.2022.3196141",
@@ -16892,9 +16946,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2022.3196141",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2022-10",
-    "metadata_indexed_at": "2026-10-08T18:01:44Z"
+    "metadata_indexed_at": "2026-10-12T15:53:56Z"
   },
   "doi:10.1109/lra.2020.2972881": {
     "paper_id": "doi:10.1109/lra.2020.2972881",
@@ -17024,7 +17078,7 @@
     "paper_url": "https://doi.org/10.1177/02783649211048929",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2021-10-22",
     "print_publication_date": "2021-12",
@@ -17048,7 +17102,7 @@
     "paper_url": "https://doi.org/10.1177/0278364915608250",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2015-11-03",
     "print_publication_date": "2015-12",
@@ -17073,7 +17127,7 @@
     "paper_url": "https://doi.org/10.1177/02783649231225811",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2024-01-30",
     "print_publication_date": "2024-06",
@@ -17099,7 +17153,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2022.0134",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2023-10-16",
     "print_publication_date": "2023-10-01",
@@ -17125,7 +17179,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2024.0043",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2025-07-31",
     "print_publication_date": "2025-08-01",
@@ -17149,7 +17203,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2021.3132532",
     "source": "crossref",
     "first_seen_date": "2026-10-11",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2022-08",
     "metadata_indexed_at": "2026-10-09T17:30:30Z"
   },
@@ -17169,7 +17223,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2022.3143578",
     "source": "crossref",
     "first_seen_date": "2026-10-11",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2022-04",
     "metadata_indexed_at": "2026-10-10T07:12:56Z"
   },
@@ -17191,9 +17245,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2023.3320906",
     "source": "crossref",
     "first_seen_date": "2026-10-11",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2023-11",
-    "metadata_indexed_at": "2026-10-09T17:30:34Z"
+    "metadata_indexed_at": "2026-10-11T09:31:57Z"
   },
   "doi:10.1109/lra.2018.2851360": {
     "paper_id": "doi:10.1109/lra.2018.2851360",
@@ -17211,7 +17265,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2018.2851360",
     "source": "crossref",
     "first_seen_date": "2026-10-11",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2018-10",
     "metadata_indexed_at": "2026-10-09T17:30:29Z"
   },
@@ -17234,9 +17288,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3742281",
     "source": "crossref",
     "first_seen_date": "2026-10-11",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2026",
-    "metadata_indexed_at": "2026-10-09T15:55:36Z"
+    "metadata_indexed_at": "2026-10-13T19:46:30Z"
   },
   "doi:10.1109/lra.2026.3742286": {
     "paper_id": "doi:10.1109/lra.2026.3742286",
@@ -17256,9 +17310,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3742286",
     "source": "crossref",
     "first_seen_date": "2026-10-11",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2026",
-    "metadata_indexed_at": "2026-10-09T15:52:13Z"
+    "metadata_indexed_at": "2026-10-12T19:48:17Z"
   },
   "doi:10.1109/lra.2023.3280752": {
     "paper_id": "doi:10.1109/lra.2023.3280752",
@@ -17281,7 +17335,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2023.3280752",
     "source": "crossref",
     "first_seen_date": "2026-10-11",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "print_publication_date": "2023-08",
     "metadata_indexed_at": "2026-10-09T13:18:49Z"
   },
@@ -17303,7 +17357,7 @@
     "paper_url": "https://doi.org/10.1177/02783649241272120",
     "source": "crossref",
     "first_seen_date": "2026-10-11",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2024-09-23",
     "print_publication_date": "2025-09",
@@ -17328,7 +17382,7 @@
     "paper_url": "https://doi.org/10.1177/02783649241250362",
     "source": "crossref",
     "first_seen_date": "2026-10-11",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2024-06-05",
     "print_publication_date": "2024-12",
@@ -17354,10 +17408,910 @@
     "paper_url": "https://doi.org/10.1089/soro.2022.0242",
     "source": "crossref",
     "first_seen_date": "2026-10-11",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-14",
     "abstract_source": "crossref",
     "online_publication_date": "2024-02-13",
     "print_publication_date": "2024-02-01",
     "metadata_indexed_at": "2026-10-09T14:04:01Z"
+  },
+  "arxiv:2610.18822": {
+    "paper_id": "arxiv:2610.18822",
+    "arxiv_id": "2610.18822",
+    "title": "EgoMatrix: Physically Faithful Dexterous Robot Demonstrations from Egocentric Human Videos",
+    "abstract": "Egocentric human videos offer a scalable alternative to robot teleoperation for collecting dexterous manipulation data. However, two challenges limit their use as reliable training data: accurate hand-object interaction (HOI) reconstruction from monocular RGB and high-quality robot demonstrations, especially visual observations. We present EgoMatrix, an end-to-end data engine that converts monocular egocentric human videos into bimanual dexterous trajectories and paired robot observation videos, with the trajectories directly replayable on real robots. It reconstructs HOI with emphasis on relative geometry and contact rather than exact metric scene recovery, then uses retargeting and reinforcement learning (RL) to reproduce the demonstrated tasks in simulation. We jointly render robot hands and objects from these simulated trajectories to produce physically faithful observations synchronized with state and control records. Rendering the same trajectories in diverse, task-compatible backgrounds expands paired training data while preserving robot-object motion and contact. Across TACO, OakInk2, and self-collected data, EgoMatrix achieves 54.84% end-to-end success in simulation versus 14.52% for the strongest baseline. Reconstruction reaches state-of-the-art performance on most metrics of the two public benchmarks. Qualitative results show more faithful hand-object interactions than prior methods, while feature-space analysis shows closer alignment with real-robot observations than GPT-6 Astra.Our project page is available at https://spikew726.github.io/EgoMatrix/.",
+    "date_basis": "initial_publication",
+    "authors": "Ziheng Wang, Yanming Shao, Ting Mao, Kaihan Chen, Yiqun Wang, Xuanye Wu, Yao Mu",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-13",
+    "arxiv_url": "https://arxiv.org/abs/2610.18822",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.18443": {
+    "paper_id": "arxiv:2610.18443",
+    "arxiv_id": "2610.18443",
+    "title": "PACT: Posture-Aligned Co-Design Technique for Hand Configuration and Retargeting in Multi-Finger Imitation Learning",
+    "abstract": "The fidelity of teleoperated demonstrations used for imitation learning is determined by how faithfully a robot hand can replicate the operator's posture. The posture retargeting law that the robot will execute is typically selected only once the hardware has been finalized, and conventional hand designs often neglect human-like grasping postures. We introduce PACT, an optimization based on human grasping postures that jointly optimizes the mechanical parameters of a 17-servo robot hand (link lengths, joint offsets, mounting angles, and base placements) and its nonlinear posture retargeter (a linear human-to-robot joint map, per-joint posture-IK weights, and damping). The optimization enforces full-finger correspondence (MCP, PIP, DIP, and tip of each finger) to human poses from the DexYCB dataset, and is constrained by servo interference, assembly clearances, and flat-hand protrusion, so the resulting design can be physically assembled. We fabricate the PACT Hand and validate it through teleoperation experiments and an imitation-learning demonstration. The hand reproduces all human hand keypoints with a kinematic RMSE of 3.9 mm, compared to 12.8 mm for the LEAP Hand baseline, and keeps all fingertips within 10 mm on every grasping posture, while the baseline achieves this for only 21.6% of the poses. Under matched per-joint torque limits, it lifts twice the baseline payload, 2 kg against 1 kg, and deforms a held paper cup seven times less, reaching a deformation level comparable to a human hand. It also achieves an 86% grasping success rate on YCB daily objects, compared to 64% for the baseline. Finally, as a demonstration, an imitation-learning policy trained on demonstrations collected with the PACT Hand achieved a 75% success rate at held-out placements in a can pick-and-place task. Project page: https://pact-hand-2027.github.io",
+    "date_basis": "initial_publication",
+    "authors": "Koyo Sasazaki, Satoshi Funabashi, Pranav Ponnivalavan, Alexander Schmitz, Tetsuya Ogata, Shigeki Sugano",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-13",
+    "arxiv_url": "https://arxiv.org/abs/2610.18443",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.17789": {
+    "paper_id": "arxiv:2610.17789",
+    "arxiv_id": "2610.17789",
+    "title": "DexStitch: Learning and Composing Dexterous Skills from Human Videos via Contact-Aware Robotic Inpainting",
+    "abstract": "A long-horizon manipulation task consists of primitive skills and the transitions connecting them. Learning skills that can be executed in sequence requires supervision for both, which is costly to collect on a robot. Human videos offer a scalable source of demonstrations, but transferring them to robots requires extracting robot-compatible observations and actions together with their skill structure. We present DexStitch, a framework that cuts long-horizon human videos into skills and transitions, converts them into aligned robot observation-action-skill data, and stitches the learned skills into a requested sequence. A skill classifier first segments the videos into manipulation skills and transitions. DexStitch then converts the human demonstrations into robot observations and actions while retaining their corresponding skill labels. During conversion, per-finger human-object contacts guide dexterous hand retargeting and robotic inpainting, preserving contact geometry and finger-object occlusion ordering. To stitch the learned skills into a sequence, a shared skill-conditioned policy is pretrained on the resulting synthetic data and finetuned on a mixture of synthetic data and a small set of single-skill teleoperation episodes. Conditioning on the current and next skills guides each transition toward the following skill, while predicted skill progression enables closed-loop switching. On a held-out session, the classifier agrees with manual annotations on 92.4% of frames. Across four household skills, DexStitch achieves 80.0% single-skill success and 77.5% sequence success.",
+    "date_basis": "initial_publication",
+    "authors": "Byeonggyeol Choi, Seongmin Jung, Unghui Nam, Youngbo Song, Sunhong Min, MinHyung Lee, Byonghyo Shim, Yongseok Lee",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-13",
+    "arxiv_url": "https://arxiv.org/abs/2610.17789",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.17572": {
+    "paper_id": "arxiv:2610.17572",
+    "arxiv_id": "2610.17572",
+    "title": "EgoCPT: Learning Dexterous Manipulation from a Single Ego-Centric Video with Contact-Aware Optimization",
+    "abstract": "While expert demonstrations on real robots are difficult to collect, human ego-centric videos are easy to collect and abundant on the internet. However, learning dexterous manipulation policies from human videos remains challenging---one of the most important challenges being the difficulty of reconstructing physically grounded robot trajectories due to the large embodiment gap. In this paper, we propose EgoCPT, a novel paradigm for learning high-quality retargeted dexterous hand trajectories directly from an ego-centric video, which can then be deployed directly on real robots. The only inputs to our method are an ego-centric RGB video and a reference hand pose trajectory, which can be easily obtained through off-the-shelf software or specialized cameras during recording. Our method is particularly robust to noisy hand poses attributed to our novel contact-aware optimization framework, which iteratively optimizes the contact points between the robot hands and objects. Across five manipulation tasks, our method achieves overall success rates of 67.3% on noisy EgoDex hand-pose reconstructions and 92.0% on high-quality TACO reconstructions collected using motion-capture hardware, outperforming multiple baselines on both benchmarks.",
+    "date_basis": "initial_publication",
+    "authors": "Zhixin Sun, Kairui Shi, Tianao Ren, Ming Yang, Mark Cutkosky, James Jingxi Xu",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-13",
+    "arxiv_url": "https://arxiv.org/abs/2610.17572",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.17208": {
+    "paper_id": "arxiv:2610.17208",
+    "arxiv_id": "2610.17208",
+    "title": "DexNinja: Learning Robust Dexterous Cutting Policy with a Real-to-Sim-to-Real Data Engine",
+    "abstract": "Cutting a piece of food looks effortless in human hands. For a robot, however, every cut is a high-contact interaction with a deformable, elasto-plastic object whose behavior changes with pose, contact mode, and cutting stage. Collecting real-world data is expensive and wasteful: each trial typically contaminates or damages the food, so obtaining scalable real world data for dexterous cutting is expensive and difficult. Simulation is an appealing alternative, but a large sim-to-real gap exists in both physics and perception. This gap is especially severe for topology-changing interactions like cutting, where small errors in contact, friction, or material and elasticity responses quickly compound. We propose \\textsc{DexNinja}, a real2sim2real framework that turns a handful of real demonstrations into a dense and realistic training distribution. \\textsc{DexNinja} (i) reconstructs object instances from real captures, (ii) randomizes physically meaningful parameters under category-level constraints, and (iii) produces augmented dexterous manipulation episodes using a custom differentiable simulator that couples robot dynamics, tactile contact, and deformable cutting. We evaluate \\textsc{DexNinja} on a dexterous food-slicing task and show that (1) with tens of real demonstrations and hundreds of augmented simulator data, the success rate could reach more than 60\\%. (2) the augmented data consistently improves success rates when only using real data with more than 20\\% via sim-to-real, and (3) the resulting policies generalize to out-of-distribution objects with varying shapes and sizes.",
+    "date_basis": "initial_publication",
+    "authors": "Haozhe Lou, Runyi Yang, Wanqi Zhong, Caiyun Liu, Yicheng Liu, Wenhao Liu, Wenlong Ma, Jiawei Xia, Kanzhi Wu, Danda Pani Paudel, Luc Van Gool, Hang Zhao, Yiming Li",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-12",
+    "arxiv_url": "https://arxiv.org/abs/2610.17208",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.17161": {
+    "paper_id": "arxiv:2610.17161",
+    "arxiv_id": "2610.17161",
+    "title": "Force-Modulated Dexterity: Unified Compliance for Contact-Rich Manipulation",
+    "abstract": "Teleoperation is widely used to collect high-quality demonstrations for robot learning. Dexterous manipulation, however, requires coordinated control of motion and contact forces. Operators can specify motion, but struggle to reproduce the subtle force adjustments of human manipulation without feeling the robot's contacts. We introduce Force-Modulated Dexterity (FOMO-Dex), a unified compliance formulation for contact-rich manipulation. FOMO-Dex expresses nominal actions in coordinates defined by task geometry and contact structure. It applies force-driven motion corrections along selected directions while leaving the remaining command components unchanged. Across card picking, paper cutting, screwdriving, and nut-and-bolt assembly, FOMO-Dex reduces excessive contact forces compared with stiff control. A user study shows that operators collect more successful demonstration data per hour after brief practice. For policy learning, imitating the corrected actions improves card-picking success over imitating raw operator commands. Policies trained on FOMO-Dex demonstrations also achieve more rotation in nut-and-bolt manipulation and screwdriving than those trained on demonstrations collected with the stiff controller. Videos are shown on https://yingyuan0414.github.io/fomo-dex/ .",
+    "date_basis": "initial_publication",
+    "authors": "Ying Yuan, David Held, Jitendra Malik, Haozhi Qi",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-12",
+    "arxiv_url": "https://arxiv.org/abs/2610.17161",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.15769": {
+    "paper_id": "arxiv:2610.15769",
+    "arxiv_id": "2610.15769",
+    "title": "Hand2Robot: Object-Centric 4D Hand Reconstruction from Human Demonstrations for Robotics",
+    "abstract": "Human demonstrations can capture task-relevant manipulation without using the target robot, but the recorded hand motions cannot directly serve as robot action supervision. Hand reconstruction and motion retargeting provide a direct route to such supervision, yet recovering hand motion alone does not ensure physically consistent hand-object interactions. To address this issue, we introduce Hand2Robot, an object-centric 4D hand reconstruction framework for robot policy post-training. Given videos of humans performing the target task, Hand2Robot extracts interaction clips, reconstructs object geometry, and generates robot action supervision through hand-object interaction optimization and motion retargeting. For object tracking, we combine observation confidence with temporal motion constraints to select a globally consistent object pose trajectory from per-frame pose candidates. For hand refinement, we use object geometry and motion as a reference and combine staged 2D alignment with object-local contact constraints to refine hand trajectories and finger joint configurations. Experiments on DexYCB and HO3D-v3 show improved object pose accuracy and hand-object interaction quality. Experiments on three real-robot dexterous manipulation tasks further show that reconstructed and retargeted human demonstrations can effectively supplement limited robot data for target-task policy post-training.",
+    "date_basis": "initial_publication",
+    "authors": "Zetao Du, Weiqing Wang, Hanbing Zhang, Yimiao Zhou, Ye Shi, Liang Wang, Jingya Wang",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-11",
+    "arxiv_url": "https://arxiv.org/abs/2610.15769",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.14926": {
+    "paper_id": "arxiv:2610.14926",
+    "arxiv_id": "2610.14926",
+    "title": "Edge-Native Temporal--Graph Dual-Expert Inference for Dexterous Grasp Classification",
+    "abstract": "Multi-finger hands contact objects at different times, so a global close command can overload early-contact fingers while others are still moving. Dense tactile arrays address this problem but add hardware, calibration, bandwidth, and computation. We present an edge-native pipeline that uses only built-in joint-angle and pre-use-calibrated actuator-load feedback to recognize the grasped object and predict an independent Stop event for each finger. Four samples and their first differences form a 4-by-20 contact-evolution window. At its core is a heterogeneous dual-expert architecture, termed DualExpert, that assigns complementary tasks to a Temporal Convolutional Network (TCN) and a Finger Graph Filter Network (FGFN). The TCN models short-term contact evolution and supplies all five Stop probabilities, while the FGFN encodes finger topology and contributes only to object classification. Fixed 0.7/0.3 class-probability fusion reaches 93.78\\% trajectory-level classification accuracy on 225 held-out trials, improving the standalone TCN and FGFN by 4.00 and 2.22 percentage points, respectively. The TCN Stop path attains 95.25\\% F1. The dataset contains 1,500 automatically collected trajectories from five object instances. In Flash deployment, mixed accelerator execution retains 93.78\\% classification accuracy and 94.84\\% Stop F1 with 2.890~ms mean inference time and 9.172~ms mean sample-to-stop latency. Across 50 physical trials, the system achieves 96.00\\% recognition and 98.00\\% grasp success while the complete embedded board draws approximately 0.80~W.",
+    "date_basis": "initial_publication",
+    "authors": "Jiajian Zheng, Bin Zhang, Wen Fan, Yanan Liu",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-10",
+    "arxiv_url": "https://arxiv.org/abs/2610.14926",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.14691": {
+    "paper_id": "arxiv:2610.14691",
+    "arxiv_id": "2610.14691",
+    "title": "DexCast: Learning Real-World Dexterous Control from Human Videos",
+    "abstract": "Recent advances in 3D hand-object interaction (HOI) perception have opened new opportunities for learning dexterous robotic skills from human videos. However, existing dexterous imitation learning methods often rely on costly and manually teleoperated robot demonstrations, requiring substantial human effort. Therefore, we build DEXCAST, a framework that learns dexterous robotic hand control directly from monocular RGB-D videos by leveraging joint HOI reconstructions, without requiring any teleoperation. Furthermore, how to model high-dimensional robotic hand motion and extract temporal context to inform future action generation remains a key challenge. To this end, we propose a DexHand Motion Perception Module (DMPM) to capture inter-joint coordination and temporal dependencies in compact latent representations that condition our diffusion policy. Extensive real-world experiments demonstrate that DEXCAST achieves exceptional performance across diverse dexterous manipulation tasks.",
+    "date_basis": "initial_publication",
+    "authors": "Zihan Gao, Yuhong Zhang, Mengzhe Wang, Kaisheng Liu, Shengpeng Li, Siyao Xiao, Runqing Cheng, Xiao Lin, Zhifang Liu, Haoqian Wang",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-10",
+    "arxiv_url": "https://arxiv.org/abs/2610.14691",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.14379": {
+    "paper_id": "arxiv:2610.14379",
+    "arxiv_id": "2610.14379",
+    "title": "OATH: Object-Agnostic Tracking for Dexterous Hands, Enabling Rapid Physics-based Retargeting",
+    "abstract": "Retargeting human demonstrations into dynamically feasible dexterous hand trajectories requires resolving complex contact physics, yet current methods either omit physical constraints or rely on computationally expensive sampling-based optimization in simulation. Reinforcement learning has previously been used to achieve planning and control through contact dynamics; however, standard policies require object-specific training and fail to generalize across arbitrary geometries. This work reframes physics-based retargeting as a residual learning problem, where we demonstrate that zero-shot generalization across objects relies on structured state representations. Specifically, formulating the observation space to include a localized contact-error signal guiding each robot link to its target coordinate on the object surface enables a single, unified residual policy to successfully grasp novel, unseen object geometries. Rolling out this policy in simulation on a kinematic reference trajectory yields a physics-based retargeter, OATH. Operating at 0.4 seconds of compute per second of reference, OATH achieves 2.4x faster-than-real-time performance and a 60-350x reduction in computational cost compared to sampling-based methods. The system recovers 58% of held-out and 54% of unseen-object DexYCB trajectories while maintaining a sub-2 cm tracking error.",
+    "date_basis": "initial_publication",
+    "authors": "Solvin Sigurdson, Prasanna Sriganesh, Juan Borbon, Joel Burdick, Dingqi Zhang, Jiuguang Wang",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-09",
+    "arxiv_url": "https://arxiv.org/abs/2610.14379",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.14372": {
+    "paper_id": "arxiv:2610.14372",
+    "arxiv_id": "2610.14372",
+    "title": "DexFLEX: Contact-Aware Foundation Controller for Command-Guided Dexterity",
+    "abstract": "Dexterous robot hands can receive useful motion intent from teleoperation or learned policies, but successful execution also depends on contact decisions that these commands rarely specify. We introduce DexFLEX, a contact-aware foundation controller that turns upstream fingertip-motion drafts into contact-consistent joint commands. Instead of treating a draft as a trajectory to copy, DexFLEX treats it as evidence about intent: from the current tactile-proprioceptive state, it proposes feasible short-horizon motion chunks, predicts their contact consequences, and selects the candidate that best follows the command while preserving future contact stability. At inference time, a simple Draft-Dream-Select procedure combines pure-prior proposals for recovery with draft-seeded proposals for responsiveness, then decodes the selected motion into executable joint-space targets. Across degraded-command simulation, real-world shared control, and visuomotor policy learning, the same trained controller improves robustness without retraining, increasing real-world teleoperation success from 29.2% to 78.3% and reaching 46.7% policy-learning success, 3.5 times direct joint-action prediction, and 1.56 times prior-only correction. Videos are available at dex-flex.github.io.",
+    "date_basis": "initial_publication",
+    "authors": "Weikang Wan, Zeyu Lai, Jianyu Hou, Yuchen Zhou, Jiawei Fu, Henrik I Christensen, Hao Su",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-09",
+    "arxiv_url": "https://arxiv.org/abs/2610.14372",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.13643": {
+    "paper_id": "arxiv:2610.13643",
+    "arxiv_id": "2610.13643",
+    "title": "AutoBio+: Benchmarking Dexterous Manipulation with Dynamic Experimental Phenomena in Realistic Laboratories",
+    "abstract": "Automating biological laboratories requires robots to perform dexterous tool interactions under realistic visual conditions while handling dynamic experimental phenomena, presenting significant challenges for robotic manipulation. To enable systematic evaluation under these conditions, we introduce AutoBio+, a simulation benchmark and framework for dexterous manipulation in realistic biological laboratory environments. AutoBio+ comprises 14 tasks across 4 robot embodiments, spanning functional tool use, precision manipulation, language-conditioned visual grounding, and instrument operation. We introduce controllable dynamic experimental phenomena, including flames, vapor, and bubbles, to capture the evolving visual conditions of laboratory procedures. To further enhance environmental realism, we develop a hybrid rendering pipeline that integrates interactive simulated foreground objects with Gaussian-splatting backgrounds reconstructed from 6 real laboratory scenes. For efficient large-scale data generation and evaluation, we further build a parallel simulation framework on top of mjlab, proposing Parallel Finite-State Machine (PFSM) and integrating batched rendering with decoupled trajectory replay for demonstration generation and model-independent closed-loop policy evaluation. Our evaluation reveals substantial variation in policy performance across tasks, exposing distinct strengths and weaknesses of current manipulation policies. Real-world experiments further demonstrate a reduced sim-to-real gap, supporting the validity of AutoBio+ for realistic manipulation evaluation. Supplementary materials are available at https://autobio-plus.github.io/AutoBioPlus.",
+    "date_basis": "initial_publication",
+    "authors": "Xuanye Wu, Yue Shi, Yongcan Yang, Yiqun Wang, Zhaoqi Wan, Dayu Xia, Jiezhang Cao, Xiangfei Li, Yao Mu, Guangtao Zhai",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-09",
+    "arxiv_url": "https://arxiv.org/abs/2610.13643",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.13212": {
+    "paper_id": "arxiv:2610.13212",
+    "arxiv_id": "2610.13212",
+    "title": "Beyond Actions: Learning Future Operation Targets for Vision-Language-Action Models",
+    "abstract": "Actions specify what a robot should execute, but do not describe what those commands will achieve. Vision-language-action (VLA) policies nevertheless learn primarily by predicting action chunks from images, language, and state. We introduce Action--Future Coupled Effect Learning (AFCE), which makes a future-grounded physical Effect the policy's primary prediction target. An offline tokenizer constructs temporally ordered Effect tokens from demonstrated actions, realized robot responses, and sparse visual transitions. Reconstruction objectives encourage the representation to retain executable detail and observed physical change. A flow-matching VLA predicts Effects from current images, instruction, and robot state, while a state-conditioned decoder converts them into action chunks. Embodiment-specific interfaces allow single- and dual-arm tasks to share the Effect model. On DexJoCo, AFCE achieves $50.97\\%$ overall success, improving over $π_{0.5}$ and UVT by 11.82 and 15.21 percentage points, respectively. It leads on all five bimanual tasks, highlighting the value of Effect supervision for coordinated dexterous manipulation. The project page is available at https://afceproject.github.io/AFCE-Web/.",
+    "date_basis": "initial_publication",
+    "authors": "Min Lin, Bokai Zhou, Jianqi Lin, Kaiyuan Yang, Yicheng Chang, Junjie Yu, Xiaofan Liu, Jianhua Han, Rui Li, Shen Zhao, Xiaodan Liang",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-09",
+    "arxiv_url": "https://arxiv.org/abs/2610.13212",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.13119": {
+    "paper_id": "arxiv:2610.13119",
+    "arxiv_id": "2610.13119",
+    "title": "Human2Dex: Dexterous Robot Learning from Wrist-Centric Human Demonstrations",
+    "abstract": "Collecting dexterous manipulation demonstrations for each robot hand requires repeated task-specific data acquisition. We ask whether one shared corpus of natural human demonstrations can instead serve as a reusable data interface for different dexterous hands, without collecting task demonstrations on each target robot. We present Human2Dex, a wrist-centric human demonstration interface that separates shared human observation and motion semantics from embodiment-specific execution. It aligns observations through local hand-appearance adaptation and a shared 21-point hand representation with consistent structural semantics across human and robot observations. It constructs executable supervision by retargeting fused human hand motion to each target hand, and introduces the Grasp-Pocket Interaction Representation (GPIR) to express tracked objects relative to a hand-centered Functional Grasp Pocket. The corpus is converted into separate training sets for Linker O6 and Wuji, while action labels, normalization, training, and diffusion-policy checkpoints remain hand-specific. Across six real-world tasks, Human2Dex achieves 109/120 (90.8%) successes on Linker O6 and 97/120 (80.8%) on Wuji. Across both hands, Human-Raw achieves 63/240 (26.3%) successes, whereas the complete Human2Dex configuration achieves 206/240 (85.8%). These results support the use of wrist-centric human demonstrations as a reusable interface across calibrated dexterous hands while retaining embodiment-specific policy learning. The project website is publicly available at https://human2dex.pages.dev/.",
+    "date_basis": "initial_publication",
+    "authors": "Jiachen Zhang, Yuanyuan Li, Shaqi Luo",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-09",
+    "arxiv_url": "https://arxiv.org/abs/2610.13119",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.07969": {
+    "paper_id": "arxiv:2610.07969",
+    "arxiv_id": "2610.07969",
+    "title": "EmbodiedSmith: Scaling Embodied Data through Recursive Self-Improvement Flywheel in Simulation",
+    "abstract": "Scaling robotic foundation models requires diverse training data and reliable evaluation environments. Simulation offers a scalable solution, yet existing generation pipelines remain constrained by predefined assets and skills, a disconnect between scene generation and task generation, and limited support for complex embodiments and physics. We introduce EmbodiedSmith, a framework for scalable embodied data generation through recursive self-improvement (RSI). EmbodiedSmith unifies asset, scene, and task generation in a pipeline that supports autonomous creation and language-driven customization. Its core is an agentic refinement loop: scene generation anticipates downstream task requirements, while task generation guides targeted scene edits, allowing scenes and tasks to iteratively improve one another. This joint refinement improves task generation success, including for long-horizon tasks. The framework further supports mobile manipulators, humanoids, and dexterous hands, as well as interactions involving deformable objects and fluids, broadening the range of behaviors and physical phenomena represented in generated data. Together, these capabilities provide a flexible simulation engine for both robot pretraining and evaluation. Extensive experiments validate the quality, diversity, and generation efficiency of the resulting data, while downstream policy experiments demonstrate that increased data diversity improves generalization.",
+    "date_basis": "initial_publication",
+    "authors": "Yikai Qin, Yifei Deng, Mingjian Liang, Wenxuan Song, Zepeng Lin, Zhiyi Jiang, Jiajun Fu, Qiao Sun, Huashuo Lei, Xicheng Gong, Jiayi Chen, Han Zhao, Shuanghao Bai, Pengxiang Ding, Pengwei Wang, Haoang Li",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-06",
+    "arxiv_url": "https://arxiv.org/abs/2610.07969",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.07692": {
+    "paper_id": "arxiv:2610.07692",
+    "arxiv_id": "2610.07692",
+    "title": "ExoBridge: Learning a Bare Hand to Hand-Worn Exoskeleton Mapping through Human Limb Coupling",
+    "abstract": "Human video offers a scalable source of experience for dexterous robot learning, but obtaining motion and tactile supervision while preserving bare hand interaction remains challenging. We present ExoBridge, a framework that leverages human limb coupling to learn a bridging function from bare hand video to the motion and tactile state of a sensorized exoskeleton. Our central idea is to use coordinated bimanual behavior to connect an uninstrumented visual source with a measured manipulation interface. During collection, one hand remains bare and provides visual observations, while the opposite hand wears the exoskeleton and supplies synchronized motion and tactile measurements. These paired demonstrations train a temporal visual model to predict fingertip contact, continuous tactile intensity, and relative encoder motion from bare hand video alone. The exoskeleton defines an intermediate state space whose motion coordinates are linked to a dexterous robot hand through existing calibration. Evaluation on 1,215 demonstrations across four manipulation tasks uses held out collection sessions and yields a pooled any contact AUROC of 0.916 and a Pearson correlation of 0.790 for tactile intensity. The learned bridge also predicts relative changes in exoskeleton configuration from bare hand video. These results demonstrate that human limb coupling can turn exoskeleton measurements into supervision for bare hand video, establishing a learned bridge between human visual demonstrations and a robot oriented manipulation interface.",
+    "date_basis": "initial_publication",
+    "authors": "Ruitong Tian, Xianyao Li, Noah B. Wilson, Fang Xu, Eric Jing Du",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-06",
+    "arxiv_url": "https://arxiv.org/abs/2610.07692",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.07681": {
+    "paper_id": "arxiv:2610.07681",
+    "arxiv_id": "2610.07681",
+    "title": "EigenDEXplore: Structured Exploration for Dexterous Manipulation with Human Priors",
+    "abstract": "Dexterous manipulation poses a challenging high-dimensional optimization problem, as useful behaviors require coordinated motion across many hand joints. In reinforcement learning (RL) and sampling-based trajectory optimization, exploration commonly relies on independent robot joint perturbations, making coordinated behaviors difficult to discover. Prior work reduces this search space for grasp learning using low-dimensional spaces of coordinated joint motions learned from human hand data, but this restricts the expressivity required for general manipulation. Some combine learned and joint-space actions to restore expressivity, but this increases dimensionality and introduces redundancy. We study these effects across diverse manipulation settings, varying action dimensionality, exploration strategy, and the source of human data. Our experiments suggest that human-motion priors are most effective when used to structure exploration rather than change the action representation. Motivated by this finding, we propose EigenDEXplore, which induces correlated exploration by adding perturbations along human-derived eigenvectors to independent joint-space noise, leaving the action space unchanged. Across multiple dexterous hands, EigenDEXplore consistently outperforms joint-space and learned action-space baselines in grasping, in-hand reorientation, and contact-rich manipulation. These gains span unstructured and reference-guided RL, trajectory optimization, and sim-to-real deployment, and are largest in settings with less reward shaping and curriculum design.",
+    "date_basis": "initial_publication",
+    "authors": "Harsh Gupta, Tyler Ga Wei Lum, Changhao Wang, Chuer Pan, C. Karen Liu, Jeannette Bohg, Shuran Song",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-06",
+    "arxiv_url": "https://arxiv.org/abs/2610.07681",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.07525": {
+    "paper_id": "arxiv:2610.07525",
+    "arxiv_id": "2610.07525",
+    "title": "ReDex: Repairing Sim-to-Real Dexterous Policies by Finger-Level Compliant Interaction",
+    "abstract": "Dexterous manipulation policies trained in simulation often fail to transfer to the real world because of errors in contact timing and force regulation. Yet these policies can retain useful multi-finger coordination for task progression. We propose ReDex, a framework for adapting a simulation-trained base policy to the real world by correcting local contact failures and incorporating tactile feedback. Starting from a proprioception-only base policy, ReDex allows a human operator to physically correct contact failures at selected fingers under compliant control during real-world rollouts, while the frozen base policy continues to control the remaining fingers. These rollouts combine base policy execution, human-corrected finger motion, and fingertip force observations. We reconstruct force-informed targets from these rollouts to train a standalone force-conditioned policy via behavior cloning. This design reduces human correction effort, enables learning of contact regulation from real-world interaction, and introduces force feedback into a proprioception-only policy without tactile simulation or complex full-hand teleoperation. We evaluate ReDex on two challenging, contact-rich dexterous manipulation tasks on real hardware. Compared with sim-to-real transferred base policies, ReDex increases Object Flipping success rate from 14\\% to 86\\% across two objects and average Screwdriver Rotation progress from 26.0% to 95.3% across three objects.",
+    "date_basis": "initial_publication",
+    "authors": "Jinzhou Li, Hadi Tabatabaee, Kelin Yu, Yuyin Sun, Cheng-Hao Kuo, Roberto Martín-Martín, Nima Fazeli, X. Alice Wu, Xianyi Cheng",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-05",
+    "arxiv_url": "https://arxiv.org/abs/2610.07525",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.07511": {
+    "paper_id": "arxiv:2610.07511",
+    "arxiv_id": "2610.07511",
+    "title": "MobileVISTA: Generative Data Augmentation for Pose Generalization in Mobile Manipulation",
+    "abstract": "Mobile manipulators such as humanoid robots are increasingly deployed in dynamic, unstructured environments to perform dexterous manipulation tasks. However, end-to-end manipulation policies trained to imitate demonstration data collected from a single robot pose are brittle: even centimeter-scale deviations in robot pose at deployment can drive ego-centric observations and end-effector trajectories out of the training distribution, leading to sharp drops in performance. We introduce MobileVISTA, a data generation framework that transforms demonstrations captured at canonical poses into diverse, pose-perturbed training data by jointly (1) augmenting egocentric visual observations and (2) retargeting actions to compensate for base pose changes. Unlike prior methods, which assume a camera rigidly mounted off the actuated chain or non-trivial articulated robot geometry largely out of frame, MobileVISTA targets compatibility with egocentric platforms (e.g., humanoids) where the camera is both influenced by and must observe the robot's kinematic chain as it moves. We study MobileVISTA in simulated tasks spanning humanoid and bimanual embodiments, and on a real Galaxea R1 Pro. We find policies trained on MobileVISTA-augmented data demonstrate improved robustness to previously out-of-distribution poses encountered at test time, without additional demonstration collection or a trained generative model. Additionally, we find MobileVISTA's benefit is largest on tested humanoids, where the camera rides the actuated chain and the robot fills much of the frame. Additional videos and appendix can be found on our website: https://mobilevista.github.io",
+    "date_basis": "initial_publication",
+    "authors": "Suzannah Wistreich, Stephen Tian, Isabella Huang, Vitor Campagnolo Guizilini, Sergey Zakharov, Katherine Liu, Jiajun Wu",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-05",
+    "arxiv_url": "https://arxiv.org/abs/2610.07511",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.03278": {
+    "paper_id": "arxiv:2610.03278",
+    "arxiv_id": "2610.03278",
+    "title": "DexJoCo-X: Benchmarking Action Representations for Multi-Hand Dexterous Manipulation",
+    "abstract": "As dexterous hands proliferate, collecting data and training policies separately for every morphology becomes increasingly impractical. Scalable cross-embodiment learning therefore requires a unified representation that captures shared manipulation structure while preserving morphology-specific control. Differences in hands, tasks, datasets, and control interfaces prevent existing studies from isolating the effects of representation, pretraining, and architecture. We introduce DexJoCo-X, a benchmark and toolkit for controlled comparison across seven representative dexterous hands, six single-arm and bimanual tasks, and 2,100 balanced demonstrations. DexJoCo-X provides a matched multi-hand, multi-task protocol with common scenes, success criteria, and execution interfaces, redesigned glove-to-hand mappings, and an automated pipeline that expands reviewed demonstrations across randomized scenes. Using $π_{0.5}$, Ego-Pi, and Being-H0.5, we examine whether a shared action interface is sufficient for multi-hand learning. Expanding $π_{0.5}$ to an 80-dimensional bimanual output yields near-zero success. Ego-Pi preserves the pretrained action head through interleaved prediction and supports per-hand multi-task learning, but remains ineffective for seven-hand joint training. By contrast, Being-H0.5 combines cross-embodiment pretraining, a unified action space, and embodiment-aware experts, enabling one policy to control all seven hands. Within this architecture, function-aligned action slots achieve 47.7% mean success, compared with 47.0% for native coordinates and 33.1% for DexLatent. These results show that cross-embodiment representation depends on the entire learning system: action coordinates, pretraining, and architecture must jointly separate shared manipulation structure from embodiment-specific control.",
+    "date_basis": "initial_publication",
+    "authors": "Xiangwei Jiang, Yao Mu, Lixin Duan, Wen Li",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-02",
+    "arxiv_url": "https://arxiv.org/abs/2610.03278",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.02840": {
+    "paper_id": "arxiv:2610.02840",
+    "arxiv_id": "2610.02840",
+    "title": "PointWAM: 3D World Action Modeling for Dexterous Robotic Manipulation",
+    "abstract": "World action models jointly learn to forecast world dynamics and predict robot actions, such that the learned internal world dynamics guide accurate actions. Existing approaches typically represent the world as RGB frames or latent counterparts while predicting actions as end-effector poses or joint angles, but they often struggle to capture the 3D spatial structure and contact geometry central to dexterous manipulation. We introduce Point World Action Model (PointWAM), a 3D world action model that decomposes the world into a scene (i.e., environment) and hands (i.e., actor), and jointly forecasts both as 3D point trajectories within a shared space-time coordinate frame. This explicit, disentangled representation enables effective pre-training on large-scale human demonstration videos without requiring any task-specific object or keypoint selection. Given a colored point cloud and a language instruction, PointWAM predicts how the scene and hands co-evolve in 3D space over time, then retargets the forecast hand motion to robot actions. Pre-training on human videos improves average DexJoCo success by 56.9 percentage points, and scene-trajectory supervision adds 10.9 points over forecasting the hands alone. With both, PointWAM surpasses the prior state of the art on ten DexJoCo tasks by 11.7 points and outperforms strong VLAs on a real robot.",
+    "date_basis": "initial_publication",
+    "authors": "Chunghyun Park, Beomjun Kim, Seungcheol Park, Heeseung Kwon, Yashu Shukla, Seunghoon Sim, Jinwoo Shin, Minsu Cho",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-02",
+    "arxiv_url": "https://arxiv.org/abs/2610.02840",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.02338": {
+    "paper_id": "arxiv:2610.02338",
+    "arxiv_id": "2610.02338",
+    "title": "SoTa: Soft Tactile Skins for Dexterous Manipulation",
+    "abstract": "A growing body of work suggests that tactile sensing gives robot policies contact information that complements vision in dexterous manipulation. However, visuo-tactile robot data remains scarce: dexterous demonstrations require teleoperating robots, which limits dataset scale. Human demonstrations are far cheaper to collect and offer a path to scale this data, but only if human and robot hands carry tactile sensors with corresponding signals. This requires sensors that conform to different hand geometries, cover the full hand, and share a common layout across embodiments. We present SoTa, a low-cost capacitive tactile skin that provides full-hand coverage on humans and robots while preserving a shared layout of 202 taxels across corresponding finger and palm regions. Our multilayer design with fabric electrodes enables in-house fabrication of thin, soft skins with customizable geometry for under $10 in materials per skin. The sensor retains over 97% of its initial response span after 10,000 loading-unloading cycles with traces retaining continuity through 1,280 tight-fist folding cycles. The shared taxel layout supports human-robot co-training with a common tactile encoder and no learned cross-sensor mapping. Across three contact-rich manipulation tasks, tactile observations improve in-distribution success over vision-only policies. With a fixed robot demonstration budget, adding human demonstrations more than doubles mean success across eight evaluation conditions, from 22.8% to 45.9%, improving success in all five out-of-distribution conditions. We plan to open-source the resources needed to fabricate and operate these skins.",
+    "date_basis": "initial_publication",
+    "authors": "Jingyun Yang, Baiyu Shi, Timothy Yu, Haitian Liu, Alberta Longhini, Weichen Wang, Rika Antonova, Zhenan Bao, Jeannette Bohg",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-01",
+    "arxiv_url": "https://arxiv.org/abs/2610.02338",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "doi:10.1109/tro.2013.2273849": {
+    "paper_id": "doi:10.1109/tro.2013.2273849",
+    "title": "On Motion and Force Controllability of Precision Grasps with Hands Actuated by Soft Synergies",
+    "abstract": "",
+    "authors": "Domenico Prattichizzo, Monica Malvezzi, Marco Gabiccini, Antonio Bicchi",
+    "affiliations": [],
+    "doi": "10.1109/tro.2013.2273849",
+    "publish_date": "2013-12",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Transactions on Robotics",
+    "journal_name": "IEEE Transactions on Robotics",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/tro.2013.2273849",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "print_publication_date": "2013-12",
+    "metadata_indexed_at": "2026-10-13T18:04:22Z"
+  },
+  "doi:10.1109/tro.2024.3522149": {
+    "paper_id": "doi:10.1109/tro.2024.3522149",
+    "title": "Integrating Human-Like Impedance Regulation and Model-Based Approaches for Compliance Discrimination via Biomimetic Optical Tactile Sensors",
+    "abstract": "",
+    "authors": "Giulia Pagnanelli, Lucia Zinelli, Nathan Lepora, Manuel Catalano, Antonio Bicchi, Matteo Bianchi",
+    "affiliations": [
+      "Centro di Ricerca “Enrico Piaggio”, Universita‘ di Pisa, Pisa, Italy",
+      "Department of Engineering Mathematics, Bristol Robotics Laboratory, University of Bristol, Bristol, U.K."
+    ],
+    "doi": "10.1109/tro.2024.3522149",
+    "publish_date": "2025",
+    "date_precision": "year",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Transactions on Robotics",
+    "journal_name": "IEEE Transactions on Robotics",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/tro.2024.3522149",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "print_publication_date": "2025",
+    "metadata_indexed_at": "2026-10-13T16:54:25Z"
+  },
+  "doi:10.1109/tro.2025.3530319": {
+    "paper_id": "doi:10.1109/tro.2025.3530319",
+    "title": "ThinTact: Thin Vision-Based Tactile Sensor by Lensless Imaging",
+    "abstract": "",
+    "authors": "Jing Xu, Weihang Chen, Hongyu Qian, Dan Wu, Rui Chen",
+    "affiliations": [
+      "Department of Mechanical Engineering, Tsinghua University, Beijing, China"
+    ],
+    "doi": "10.1109/tro.2025.3530319",
+    "publish_date": "2025",
+    "date_precision": "year",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Transactions on Robotics",
+    "journal_name": "IEEE Transactions on Robotics",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/tro.2025.3530319",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "print_publication_date": "2025",
+    "metadata_indexed_at": "2026-10-13T16:54:25Z"
+  },
+  "doi:10.1109/tro.2026.3672523": {
+    "paper_id": "doi:10.1109/tro.2026.3672523",
+    "title": "Visual-Tactile Grasp Dataset and Grasp Margin Matrix Analysis for Stability Evaluation",
+    "abstract": "",
+    "authors": "Wanhao Niu, Zifan Zhu, Jianxin Zheng, Chungang Zhuang",
+    "affiliations": [
+      "School of Mechanical Engineering, Shanghai Jiao Tong University, Shanghai, China"
+    ],
+    "doi": "10.1109/tro.2026.3672523",
+    "publish_date": "2026",
+    "date_precision": "year",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Transactions on Robotics",
+    "journal_name": "IEEE Transactions on Robotics",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/tro.2026.3672523",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "print_publication_date": "2026",
+    "metadata_indexed_at": "2026-10-12T15:53:53Z"
+  },
+  "doi:10.1109/tro.2025.3562458": {
+    "paper_id": "doi:10.1109/tro.2025.3562458",
+    "title": "A Biomimetic Rigid-Soft Hybrid Underwater Gripper With Compliance, Stability, Precise Control, and High Load Capacity",
+    "abstract": "",
+    "authors": "Fei Suo, Xiaolong Hui, Peixin Hua, Xuejian Bai, Jin Ma, Min Tan, Yu Wang",
+    "affiliations": [
+      "School of Artificial Intelligence, University of Chinese Academy of Sciences, Beijing, China",
+      "State Key Laboratory of Multimodal Artificial Intelligence Systems, Institute of Automation, Chinese Academy of Sciences, Beijing, China",
+      "School of Electrical Engineering, Liaoning University of Technology, Jinzhou, China"
+    ],
+    "doi": "10.1109/tro.2025.3562458",
+    "publish_date": "2025",
+    "date_precision": "year",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Transactions on Robotics",
+    "journal_name": "IEEE Transactions on Robotics",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/tro.2025.3562458",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "print_publication_date": "2025",
+    "metadata_indexed_at": "2026-10-11T09:31:55Z"
+  },
+  "doi:10.1109/lra.2020.2972876": {
+    "paper_id": "doi:10.1109/lra.2020.2972876",
+    "title": "Shear, Torsion and Pressure Tactile Sensor via Plastic Optofiber Guided Imaging",
+    "abstract": "",
+    "authors": "Daulet Baimukashev, Zhanat Kappassov, Huseyin Atakan Varol",
+    "affiliations": [],
+    "doi": "10.1109/lra.2020.2972876",
+    "publish_date": "2020-04",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2020.2972876",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "print_publication_date": "2020-04",
+    "metadata_indexed_at": "2026-10-13T18:50:38Z"
+  },
+  "doi:10.1109/lra.2024.3475052": {
+    "paper_id": "doi:10.1109/lra.2024.3475052",
+    "title": "Whole-Body Multi-Contact Motion Control for Humanoid Robots Based on Distributed Tactile Sensors",
+    "abstract": "",
+    "authors": "Masaki Murooka, Kensuke Fukumitsu, Marwan Hamze, Mitsuharu Morisawa, Hiroshi Kaminaga, Fumio Kanehiro, Eiichi Yoshida",
+    "affiliations": [
+      "CNRS-AIST JRL (Joint Robotics Laboratory), IRL and National Institute of Advanced Industrial Science and Technology (AIST), Ibaraki, Japan",
+      "Tokyo University of Science, Tokyo, Japan"
+    ],
+    "doi": "10.1109/lra.2024.3475052",
+    "publish_date": "2024-11",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2024.3475052",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "print_publication_date": "2024-11",
+    "metadata_indexed_at": "2026-10-13T18:29:22Z"
+  },
+  "doi:10.1109/lra.2025.3582538": {
+    "paper_id": "doi:10.1109/lra.2025.3582538",
+    "title": "Data-Driven Compliance Discrimination via Biomimetic Soft Optical Tactile Sensors: Implementation and Benchmarking With a Model-Based Approach",
+    "abstract": "",
+    "authors": "Paolo Susini, Giulia Pagnanelli, Saekwang Nam, Nathan F. Lepora, Matteo Bianchi",
+    "affiliations": [
+      "Centro di Ricerca “Enrico Piaggio”, Universita‘ di Pisa, Pisa, Italy",
+      "Graduate School of Data Science, Kyungpook National University, Daegu, South Korea",
+      "Department of Engineering Mathematics- Bristol Robotics Laboratory, University of Bristol, Bristol, U.K."
+    ],
+    "doi": "10.1109/lra.2025.3582538",
+    "publish_date": "2025-08",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2025.3582538",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "print_publication_date": "2025-08",
+    "metadata_indexed_at": "2026-10-13T16:54:16Z"
+  },
+  "doi:10.1109/lra.2025.3629985": {
+    "paper_id": "doi:10.1109/lra.2025.3629985",
+    "title": "Grasp Independent Indirect Tool Force Estimation Using Vision-Based Tactile Sensors",
+    "abstract": "",
+    "authors": "Luchen Li, Thomas George Thuruthel",
+    "affiliations": [
+      "Department of Computer Science, University College London, London, U.K."
+    ],
+    "doi": "10.1109/lra.2025.3629985",
+    "publish_date": "2026-01",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2025.3629985",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "print_publication_date": "2026-01",
+    "metadata_indexed_at": "2026-10-13T16:52:52Z"
+  },
+  "doi:10.1109/lra.2022.3216230": {
+    "paper_id": "doi:10.1109/lra.2022.3216230",
+    "title": "Variable-Friction-Based In-Hand Manipulation of Fabrics Applied to Unfolding Operations",
+    "abstract": "",
+    "authors": "Haizhuang Jiang, Xin Jiang, Yanling Zhou, Haoyao Chen, Peng Li, Yunhui Liu",
+    "affiliations": [
+      "Department of Mechanical Engineering and Automation, Harbin Institute of Technology, Shenzhen, China",
+      "Department of Mechanical and Automation Engineering, The Chinese University of Hong Kong, Hong Kong, China"
+    ],
+    "doi": "10.1109/lra.2022.3216230",
+    "publish_date": "2022-10",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2022.3216230",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "print_publication_date": "2022-10",
+    "metadata_indexed_at": "2026-10-12T17:04:32Z"
+  },
+  "doi:10.1109/lra.2023.3295296": {
+    "paper_id": "doi:10.1109/lra.2023.3295296",
+    "title": "Visual-Tactile Robot Grasping Based on Human Skill Learning From Demonstrations Using a Wearable Parallel Hand Exoskeleton",
+    "abstract": "",
+    "authors": "Zhenyu Lu, Lu Chen, Hengtai Dai, Haoran Li, Zhou Zhao, Bofang Zheng, Nathan F. Lepora, Chenguang Yang",
+    "affiliations": [
+      "Bristol Robotics Lab, University of the West of England, Bristol, U.K.",
+      "Institute of Big Data Science and Industry, Shanxi University, Taiyuan, China",
+      "Bristol Robotics Laboratory, University of Bristol, Bristol, U.K.",
+      "School of Computer Science, Central China Normal University, Wuhan, China"
+    ],
+    "doi": "10.1109/lra.2023.3295296",
+    "publish_date": "2023-09",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2023.3295296",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "print_publication_date": "2023-09",
+    "metadata_indexed_at": "2026-10-12T15:53:53Z"
+  },
+  "doi:10.1109/lra.2022.3193466": {
+    "paper_id": "doi:10.1109/lra.2022.3193466",
+    "title": "TANDEM: Learning Joint Exploration and Decision Making With Tactile Sensors",
+    "abstract": "",
+    "authors": "Jingxi Xu, Shuran Song, Matei Ciocarlie",
+    "affiliations": [
+      "Department of Computer Science, Columbia University, New York, NY, USA",
+      "Department of Mechanical Engineering, Columbia University, New York, NY, USA"
+    ],
+    "doi": "10.1109/lra.2022.3193466",
+    "publish_date": "2022-10",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2022.3193466",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "print_publication_date": "2022-10",
+    "metadata_indexed_at": "2026-10-12T15:53:52Z"
+  },
+  "doi:10.1109/lra.2022.3231520": {
+    "paper_id": "doi:10.1109/lra.2022.3231520",
+    "title": "Planning Visual-Tactile Precision Grasps via Complementary Use of Vision and Touch",
+    "abstract": "",
+    "authors": "Martin Matak, Tucker Hermans",
+    "affiliations": [
+      "School of Computing and the Robotics Center, University of Utah, Salt Lake City, UT, USA"
+    ],
+    "doi": "10.1109/lra.2022.3231520",
+    "publish_date": "2023-02",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2022.3231520",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "print_publication_date": "2023-02",
+    "metadata_indexed_at": "2026-10-12T15:53:52Z"
+  },
+  "doi:10.1109/lra.2025.3555161": {
+    "paper_id": "doi:10.1109/lra.2025.3555161",
+    "title": "CasiaHand: Design and Evaluation of a 15-DoF Tendon-Driven Anthropomorphic Robotic Hand",
+    "abstract": "",
+    "authors": "Dashun Yan, Peng Wang, Tianyi Zhang, Xiwei Wang, Yinglu Wang, Zhenghan Wang, Yongkang Luo, Yayu Huang, Guoqiang Deng",
+    "affiliations": [
+      "State Key Laboratory of Multimodal Artificial Intelligence Systems, Institute of Automation, Chinese Academy of Sciences, Beijing, China",
+      "CasiaHand Robotics Co., Ltd, Nanjing, China"
+    ],
+    "doi": "10.1109/lra.2025.3555161",
+    "publish_date": "2025-05",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2025.3555161",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "print_publication_date": "2025-05",
+    "metadata_indexed_at": "2026-10-11T09:31:52Z"
+  },
+  "doi:10.1109/lra.2024.3497721": {
+    "paper_id": "doi:10.1109/lra.2024.3497721",
+    "title": "A Rigid-Flexible-Soft Coupled Dexterous Hand With Sliding Tactile Perception and Feedback",
+    "abstract": "",
+    "authors": "Rui Chen, Haixiang Zhang, Shamiao Zhou, Xiangjian Xu, Zean Yuan, Huijiang Wang, Jun Luo",
+    "affiliations": [
+      "State Key Laboratory of Mechanical Transmission for Advanced Equipment, Chongqing University, Chongqing, China",
+      "Department of Engineering, University of Cambridge, Cambridge, U.K."
+    ],
+    "doi": "10.1109/lra.2024.3497721",
+    "publish_date": "2024-12",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2024.3497721",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "print_publication_date": "2024-12",
+    "metadata_indexed_at": "2026-10-11T09:31:52Z"
+  },
+  "doi:10.1109/lra.2025.3597486": {
+    "paper_id": "doi:10.1109/lra.2025.3597486",
+    "title": "A Versatile Underactuated Robotic Hand for Cloth Manipulation",
+    "abstract": "",
+    "authors": "Xinhao Chen, Alberto Elías Petrilli Barceló, Shiry Ghidary Saeed, Dayuan Chen, Jose Victorio Salazar Luces, Yasuhisa Hirata",
+    "affiliations": [
+      "Department of Robotics, Graduate School of Engineering, Tohoku University, Sendai, Japan"
+    ],
+    "doi": "10.1109/lra.2025.3597486",
+    "publish_date": "2025-10",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2025.3597486",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "print_publication_date": "2025-10",
+    "metadata_indexed_at": "2026-10-11T09:30:43Z"
+  },
+  "doi:10.1109/lra.2024.3400148": {
+    "paper_id": "doi:10.1109/lra.2024.3400148",
+    "title": "Fast In-Hand Slip Control on Unfeatured Objects With Programmable Tactile Sensing",
+    "abstract": "",
+    "authors": "Yuri Gloumakov, Tae Myung Huh, Hannah S. Stuart",
+    "affiliations": [
+      "Embodied Dexterity Group, Department of Mechanical Engineering, University of California Berkeley, Berkeley, CA, USA",
+      "Department of Electrical and Computer Engineering, University of California Santa Cruz, Santa Cruz, CA, USA"
+    ],
+    "doi": "10.1109/lra.2024.3400148",
+    "publish_date": "2024-07",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2024.3400148",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "print_publication_date": "2024-07",
+    "metadata_indexed_at": "2026-10-11T04:03:54Z"
+  },
+  "doi:10.1109/lra.2023.3347141": {
+    "paper_id": "doi:10.1109/lra.2023.3347141",
+    "title": "Robust Learning-Based Incipient Slip Detection Using the PapillArray Optical Tactile Sensor for Improved Robotic Gripping",
+    "abstract": "",
+    "authors": "Qiang Wang, Pablo Martinez Ulloa, Robert Burke, David Cordova Bulens, Stephen J. Redmond",
+    "affiliations": [
+      "School of Electrical and Electronic Engineering, University College Dublin, Dublin, Ireland"
+    ],
+    "doi": "10.1109/lra.2023.3347141",
+    "publish_date": "2024-02",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2023.3347141",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "print_publication_date": "2024-02",
+    "metadata_indexed_at": "2026-10-11T04:03:53Z"
+  },
+  "doi:10.1177/0278364911416526": {
+    "paper_id": "doi:10.1177/0278364911416526",
+    "title": "Comparison of object-level grasp controllers for dynamic dexterous manipulation",
+    "abstract": "Object-level control of a dexterous robot hand provides an intuitive high-level interface to solve fine manipulation tasks. In the past, many algorithms were proposed based on a weighted pseudoinverse of the grasp map. In a different approach, Stramigioli introduced a virtual-object based controller – called an Intrinsically Passive Controller (IPC). These controllers are reviewed and compared. A new controller that is similar to the IPC but using a virtual frame rather than a virtual object is subsequently proposed. The controllers are compared with respect to their object force distribution, the extendability to N fingers, the ease of specifying the object-level impedance and grasp forces, the dimensionality of the coupling springs, the internal controller dynamics, and the computational effort. Controllers for robotic hands usually implement only stiffness controllers and do not program the damping. We address how to choose and implement damping as a function of the desired object-level stiffness and the effective hand–object inertia. The evaluation reveals the dynamic effects of fast motions, which should not be neglected for the design of grasp controllers in practice. The application of the controllers to the torque-controlled DLR Hand II is employed to compare their effectiveness in experiments.",
+    "authors": "Thomas Wimböck, Christian Ott, Alin Albu-Schäffer, Gerd Hirzinger",
+    "affiliations": [
+      "Institute of Robotics andMechatronics, German Aerospace Center (DLR), Germany"
+    ],
+    "doi": "10.1177/0278364911416526",
+    "publish_date": "2011-09-12",
+    "date_precision": "day",
+    "date_basis": "online_publication",
+    "journal_ref": "The International Journal of Robotics Research",
+    "journal_name": "The International Journal of Robotics Research",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1177/0278364911416526",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "abstract_source": "crossref",
+    "online_publication_date": "2011-09-12",
+    "print_publication_date": "2012-01",
+    "metadata_indexed_at": "2026-10-13T18:04:22Z"
+  },
+  "doi:10.1177/027836499601500203": {
+    "paper_id": "doi:10.1177/027836499601500203",
+    "title": "Liapunov Stability of Force-Controlled Grasps with a Multi-Fingered Hand",
+    "abstract": "Holding an object stably is a building block for dexterous ma nipulation with a multi-fingered hand. In recent years a rather large body of literature related to this topic has developed. These works isolate some desired property of a grasp and use this property as the definition of stable grasp. To varying degrees, these approaches ignore the system dynamics. The purpose of this article is to put grasp stability on a more basic and fundamental foundation by defining grasp stability in terms of the well-established stability theory of differential equations. This approach serves to unify the field and to bring a large body of knowledge to bear on the field. Some relationships be tween the stability concepts used here and the previously used grasp stability concepts are discussed. A hierarchy of three levels of approach to the problem is treated. We consider that the grasp force applied is a basic consideration, in terms of ensuring both that there is sufficient force to prevent dropping the object and that the forces are not too large to cause break age. As a result, we first investigate the use of constant force grasps. It is shown that with the proper combination of finger locations and grasp forces, such grasps can be Liapunov sta ble, and methods are presented that help find such grasps. It is also shown that such grasps cannot be asymptotically stable. To produce asymptotic stability, one must alter the forces ap plied to an object when the object deviates from equilibrium, and a linear feedback force law is given for this. It results in local asymptotic stability guaranteeing convergence to the desired grasp equilibrium from all states within a region of attraction in the state space. Some of the results are similar to results obtained previously, but this time they have a stronger meaning in terms of the dynamic response of the system. In the third level, a nonlinear force law is given that, to within certain limitations, produces global asymptotic grasp stability, so that all initial states are guaranteed to converge to the de sired grasp equilibrium. The method is robust to large classes of inaccuracies in the implementation.",
+    "authors": "Fuhua Jen, Moshe Shoham, Richard W. Longman",
+    "affiliations": [
+      "Department of Mechanical Engineering Ming-Hsin Institute of Technology and Commerce Hsin-Feng, Hsin-Chu, Taiwan 330, Republic of China",
+      "Technion—Israel Institute of Technology Technion City, Haifa 32000, Israel",
+      "Department of Mechanical Engineering Columbia University New York, New York 10027"
+    ],
+    "doi": "10.1177/027836499601500203",
+    "publish_date": "1996-04-01",
+    "date_precision": "day",
+    "date_basis": "online_publication",
+    "journal_ref": "The International Journal of Robotics Research",
+    "journal_name": "The International Journal of Robotics Research",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1177/027836499601500203",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "abstract_source": "crossref",
+    "online_publication_date": "1996-04-01",
+    "print_publication_date": "1996-04",
+    "metadata_indexed_at": "2026-10-13T18:04:21Z"
+  },
+  "doi:10.1177/21695172261496958": {
+    "paper_id": "doi:10.1177/21695172261496958",
+    "title": "Synergistic Roles of Hard and Soft Structures in Fingertip Tactile Sensing",
+    "abstract": "Touch is often attributed to the skin, but what if hard structures above the contact surface play a larger role than we thought? While most haptic research focuses on soft tissue, we explore how the fingernail and distal phalanx bone contribute to texture perception, combining human exploration data, finite element analysis (FEA), and experiments with a soft robotic fingertip equipped with Hall-effect sensors. Analysis of human exploration revealed a predominant use of lateral movements, which informed the robotic and simulation procedures. FEA showed that adding rigid elements altered internal stress patterns within the soft tissue during lateral sweeping, increasing strain variability in regions relevant for sensing. Lateral sweeping consistently produced higher strain variability than longitudinal motion, with Shannon entropy ratios up to 1.96 across probe regions. Robotic texture classification experiments quantified these effects: Adding only a nail improved discrimination accuracy by 22%, adding only a bone by 51%, and integrating both features increased performance by more than 88% compared to the soft-only model. These results demonstrate that the nail and distal phalanx bone provide complementary mechanical benefits that enhance texture-related signal richness and can improve the efficacy of soft tactile systems. This study can lead to a design principle for soft robotic tactile systems in prosthetics, surgical robotics, and dexterous manipulation where sensing performance must be maximized without increasing sensor complexity.",
+    "authors": "Parvathi Sunilkumar, Ege Cogulu, Thrishantha Nanayakkara",
+    "affiliations": [
+      "Dyson School of Design Engineering, Imperial College London, London, UK."
+    ],
+    "doi": "10.1177/21695172261496958",
+    "publish_date": "2026-10-12",
+    "date_precision": "day",
+    "date_basis": "online_publication",
+    "journal_ref": "Soft Robotics",
+    "journal_name": "Soft Robotics",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1177/21695172261496958",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "abstract_source": "crossref",
+    "online_publication_date": "2026-10-12",
+    "metadata_indexed_at": "2026-10-13T05:47:48Z"
+  },
+  "doi:10.1089/soro.2023.0246": {
+    "paper_id": "doi:10.1089/soro.2023.0246",
+    "title": "Origami-Enhanced Mechanical Properties for Worm-Like Robot",
+    "abstract": "In recent years, the exploration of worm-like robots has garnered much attention for their adaptability in confined environments. However, current designs face challenges in fully utilizing the mechanical properties of structures/materials to replicate the superior performance of real worms. In this article, we propose an approach to address this limitation based on the stacked Miura origami structure, achieving the seamless integration of structural design, mechanical properties, and robotic functionalities, that is, the mechanical properties originate from the geometric design of the origami structure and at the same time serve the locomotion capability of the robot. Three major advantages of our design are: the implementation of origami technology facilitates a more accessible and convenient fabrication process for segmented robotic skin with periodicity and flexibility, as well as robotic bristles with anchoring effect; the utilization of the Poisson’s ratio effect for deformation amplification; and the incorporation of localized folding motion for continuous peristaltic locomotion. Utilizing the high geometric designability inherent in origami, our robot demonstrates customizable morphing and quantifiable mechanical properties. Based on the origami worm-like robot prototype, we experimentally verified the effectiveness of the proposed design in realizing the deformation amplification effect and localized folding motion. By comparing this to a conventional worm-like robot with discontinuous deformation, we highlight the merits of these mechanical properties in enhancing the robot’s mobility. To sum up, this article showcases a bottom-up approach to robot development, including geometric design, mechanical characterization, and functionality realization, presenting a unique perspective for advancing the development of bioinspired soft robots.",
+    "authors": "Zuolin Liu, Zihan He, Xiao Hu, Zitao Sun, Qi Ge, Jian Xu, Hongbin Fang",
+    "affiliations": [
+      "Institute of AI and Robotics, State Key Laboratory of Medical Neurobiology, MOE Engineering Research Center of AI & Robotics, Fudan University, Shanghai, China.",
+      "Department of Mechanical and Energy Engineering, Southern University of Science and Technology, Shenzhen, China."
+    ],
+    "doi": "10.1089/soro.2023.0246",
+    "publish_date": "2025-02-14",
+    "date_precision": "day",
+    "date_basis": "online_publication",
+    "journal_ref": "Soft Robotics",
+    "journal_name": "Soft Robotics",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1089/soro.2023.0246",
+    "source": "crossref",
+    "first_seen_date": "2026-10-14",
+    "last_seen_date": "2026-10-14",
+    "abstract_source": "crossref",
+    "online_publication_date": "2025-02-14",
+    "print_publication_date": "2025-02-01",
+    "metadata_indexed_at": "2026-10-12T19:33:07Z"
   }
 }
