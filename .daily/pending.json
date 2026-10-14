@@ -2,7 +2,7 @@
   "version": 1,
   "batch_id": "3d23febee48e9c12514c5ded",
   "date": "2026-10-14",
-  "status": "inflight",
+  "status": "complete",
   "attempt_run_id": "38514310444-1",
   "paper_ids": [
     "arxiv:2610.18443",
@@ -11,7 +11,9 @@
     "arxiv:2610.14372",
     "doi:10.1109/lra.2026.3717172"
   ],
-  "acknowledged_cards": [],
+  "acknowledged_cards": [
+    0
+  ],
   "cards": [
     {
       "msg_type": "interactive",
