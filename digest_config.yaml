@@ -29,7 +29,9 @@ llm:
   timeout_seconds: 180
   max_input_chars: 24000
   ranking_batch_size: 5
-  summary_batch_size: 5
+  # Keep fulltext analyses separate; ranking still uses the original budget.
+  summary_max_input_chars: 100000
+  summary_batch_size: 1
 journals:
   enabled: true
   # Only widen publication lookup when the extra journal slot cannot be filled.

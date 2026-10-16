@@ -83,8 +83,7 @@ class BuildCardsTests(unittest.TestCase):
                 build_cards({"papers": [dict(sample_paper(), work_module=value)]})
         paper = sample_paper()
         del paper["work_module"]
-        with self.assertRaises(DeliveryError):
-            build_cards({"papers": [paper]})
+        self.assertIn("未分类（历史记录）", json.dumps(build_cards({"papers": [paper]}), ensure_ascii=False))
 
     def test_card_uses_concise_note_and_checked_archive_link(self):
         archive = "https://github.com/example/dexterous-paper-digest/blob/main/docs/digests/2026-09-27.md"

@@ -19,7 +19,7 @@ from urllib.parse import urlsplit
 
 import requests
 
-from .work_modules import work_module_name
+from .content import module_names, sections
 
 MAX_MESSAGE_BYTES = 20_000  # Conservative interpretation of the 20 KB API limit.
 SIGNATURE_RESERVE_BYTES = 2_000
@@ -124,7 +124,7 @@ def _paper_elements(paper: dict, number: int) -> list[dict]:
     if title_zh and title_zh != title:
         heading += f"\n{title}"
     try:
-        module_name = work_module_name(paper.get("work_module"))
+        module_name = module_names(paper)
     except ValueError as exc:
         raise DeliveryError(str(exc)) from exc
     blocks = [
@@ -163,6 +163,18 @@ def _paper_elements(paper: dict, number: int) -> list[dict]:
             })
     if links:
         blocks.append({"tag": "action", "actions": links})
+    if paper.get("content_version") == 4:
+        # Keep metadata and checked links above the four body sections.
+        basic = blocks[:4]
+        if paper.get("journal_ref") and not (paper.get("source") == "crossref"
+                and paper["journal_ref"] == paper.get("journal_name")):
+            basic.append(blocks[4])
+        if links:
+            basic.append(blocks[-1])
+        for heading, body in sections(paper):
+            basic.append({"tag": "div", "text": {"tag": "lark_md", "content": f"**{heading}**\n{body}"}})
+        basic.append(_plain("阅读依据：" + paper["reading_basis"]))
+        return basic
     return blocks
 
 

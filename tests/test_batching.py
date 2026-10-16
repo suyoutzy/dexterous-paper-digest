@@ -11,6 +11,7 @@ from unittest.mock import Mock, patch
 
 from daily_digest.pipeline import PipelineError, input_groups, prepare
 from daily_digest.state import load_json, write_json
+from v4_fixtures import v4_row, evidence_text
 
 
 def payload_length(context, group):
@@ -73,7 +74,7 @@ def source_papers():
 
 
 class PrepareBatchIntegrationTests(unittest.TestCase):
-    def run_prepare(self, ranking_scores, summary_transform=None, sources=None, extended_sources=None):
+    def run_prepare(self, ranking_scores, summary_transform=None, sources=None, extended_sources=None, long_reading=False):
         config = {
             "timezone": "Asia/Shanghai", "target_count": 5, "recent_days": 7,
             "fallback_days": 30, "shortlist_limit": 30,
@@ -86,7 +87,7 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
                 "max_input_chars": 24_000, "ranking_batch_size": 5, "summary_batch_size": 5,
             },
         }
-        requests = {"rank": [], "summary": [], "journal_windows": []}
+        requests = {"rank": [], "summary": [], "journal_windows": [], "read": []}
         db = copy.deepcopy(source_papers() if sources is None else sources)
         source_lookup = dict(db, **(extended_sources or {}))
         config["journals"] = {"enabled": extended_sources is not None or any(p.get("source") == "crossref" for p in db.values()),
@@ -102,7 +103,7 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
         def generate_json(system, user, **_kwargs):
             payload = json.loads(user)
             group = payload["candidates"]
-            self.assertLessEqual(len(user), config["llm"]["max_input_chars"])
+            self.assertLessEqual(len(user), 100_000 if "rankings" not in system else config["llm"]["max_input_chars"])
             if "rankings" in system:
                 requests["rank"].append(payload)
                 self.assertEqual(payload["required_count"], len(group))
@@ -115,17 +116,16 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
             self.assertLessEqual(len(group), 5)
             self.assertEqual(payload["required_count"], len(group))
             # Reverse model output order to ensure summary cannot undo ranking.
-            result = {"papers": [{
-                "paper_id": p["paper_id"],
-                "title_zh": "灵巧手标定与控制", "summary": "结合腱绳机构建立标定模型。",
-                "work_module": 3,
-                "why_for_you": "有助于理解机构与控制参数的联系。",
-                "learning_action": "先在仿真中验证标定过程；硬件依赖以论文为准。",
-                "evidence": "摘要描述结合腱绳机构开展抓取控制；未核实正文实验。",
-            } for p in reversed(group)]}
+            result = {"papers": [v4_row(p["paper_id"]) for p in reversed(group)]}
             return summary_transform(result) if summary_transform else result
 
         client.generate_json.side_effect = generate_json
+
+        def read_selected(paper, **_kwargs):
+            requests["read"].append(paper["paper_id"])
+            text = evidence_text() + "hand\n" * 17_980 if long_reading else evidence_text()
+            return dict(paper, reading_text=text, reading_depth="full_text",
+                enrichment_note="论文全文（测试资料）。", reading_url=paper.get("arxiv_url", ""))
 
         with TemporaryDirectory() as temporary:
             root = Path(temporary)
@@ -143,8 +143,9 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
                 patch("daily_digest.pipeline.collect", return_value=(db, len(db))),
                 patch("daily_digest.pipeline.collect_journals", side_effect=collect_journal_metadata),
                 patch("daily_digest.pipeline.LLMClient", return_value=client),
+                patch("daily_digest.pipeline.read_paper", side_effect=read_selected),
                 patch("daily_digest.pipeline.requests.get", side_effect=AssertionError(
-                    "The abstract-only pipeline must not request PDFs or Hugging Face metadata."
+                    "Offline integration must not issue external HTTP requests."
                 )) as external_get,
             ):
                 clock.now.return_value = datetime(2026, 9, 27, 12, tzinfo=timezone(timedelta(hours=8)))
@@ -162,8 +163,18 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
                     source = source_lookup[item["paper_id"]]
                     for field in ("abstract", "authors", "affiliations", "journal_ref", "doi", "publish_date"):
                         self.assertEqual(item[field], source[field])
-        self.assertIn("仅依据标题/摘要与元数据，未读取正文", result["report"])
+        self.assertIn("实际阅读范围逐篇标注", result["report"])
+        self.assertEqual(requests["read"], result["paper_ids"])
+        self.assertTrue(all("reading_text" not in p for request in requests["rank"] for p in request["candidates"]))
         return result, requests
+
+    def test_serialization_heavy_fulltext_is_excerpted_instead_of_aborting_the_digest(self):
+        result, requests = self.run_prepare({"arxiv:2609.00001": 80}, long_reading=True)
+        self.assertEqual(result["paper_ids"], ["arxiv:2609.00001"])
+        self.assertIn("节选", result["report"])
+        supplied = requests["summary"][0]["candidates"][0]
+        self.assertEqual(supplied["reading_depth"], "full_text_excerpt")
+        self.assertLessEqual(len(json.dumps(requests["summary"][0], ensure_ascii=False)), 100_000)
 
     def test_without_a_journal_only_best_four_are_summarized_and_slot_is_not_filled_by_preprint(self):
         ranking = {f"arxiv:2609.{index:05d}": score for index, score in enumerate((70, 95, 80, 99, 65, 90), start=1)}
@@ -282,10 +293,10 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
 
     def test_summary_must_supply_all_required_text_for_selected_papers(self):
         def omit_text(result):
-            result["papers"][0]["summary"] = ""
+            result["papers"][0]["research"]["problem"] = ""
             return result
 
-        with self.assertRaisesRegex(PipelineError, "required text: summary"):
+        with self.assertRaisesRegex(PipelineError, "required text: problem"):
             self.run_prepare({"arxiv:2609.00001": 80}, summary_transform=omit_text)
 
     def test_bad_classification_retries_only_summary_and_keeps_categories_with_selected_papers(self):
@@ -295,9 +306,9 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
             nonlocal attempts
             attempts += 1
             for row in result["papers"]:
-                row["work_module"] = 1 if row["paper_id"] == "arxiv:2609.00001" else 5
+                row["work_modules"] = [1] if row["paper_id"] == "arxiv:2609.00001" else [5]
             if attempts == 1:
-                result["papers"][0]["work_module"] = 7
+                result["papers"][0]["work_modules"] = [7]
             return result
 
         result, requests = self.run_prepare({"arxiv:2609.00001": 80, "arxiv:2609.00011": 90},
@@ -319,7 +330,7 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
         def unclassified(result):
             nonlocal attempts
             attempts += 1
-            del result["papers"][0]["work_module"]
+            del result["papers"][0]["work_modules"]
             return result
 
         with self.assertRaisesRegex(PipelineError, "work module"):

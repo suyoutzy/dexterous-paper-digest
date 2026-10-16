@@ -23,7 +23,9 @@ from .llm import LLMClient, LLMError, ModelOutputError, OffPeakSkip, ensure_off_
 from .state import StateError, acknowledge_all, load_json, load_state, resume_pending, validate_pending, write_json
 from .sources import collect_rss
 from .journals import collect_journals, normalize_doi
-from .work_modules import WORK_MODULES, work_module_name
+from .work_modules import work_module_name
+from .content import SUMMARY_PROMPT_V4, escape_markdown, module_names, sections, validate_v4
+from .reading import read_paper, _excerpt
 
 ARXIV_ID = re.compile(r"\d{4}\.\d{4,5}\Z", re.ASCII)
 HAND_TERMS = (
@@ -264,7 +266,7 @@ def select_recommendations(ranked: list[dict], target_count: int) -> tuple[list[
     return general + ([extra] if extra else []), extra is not None
 
 
-def final_papers(result: dict, evidence: list[dict], config: dict) -> list[dict]:
+def final_papers(result: dict, evidence: list[dict], config: dict, *, require_v4: bool = False) -> list[dict]:
     lookup = {p["paper_id"]: p for p in evidence}
     rows = result.get("papers")
     if not isinstance(rows, list) or len(rows) != len(evidence) or len(rows) > config["target_count"]:
@@ -281,17 +283,23 @@ def final_papers(result: dict, evidence: list[dict], config: dict) -> list[dict]
         priority = _score(source.get("ranking_score"))
         if priority < config["minimum_score"]:
             continue
-        try:
-            work_module_name(row.get("work_module"))
-        except ValueError as exc:
-            raise ModelValidationError(str(exc)) from exc
         selected = {key: source.get(key, "") for key in ("paper_id", "arxiv_id", "title", "arxiv_url", "paper_url", "pdf_url", "code_url", "publish_date", "date_basis", "date_precision", "authors", "affiliations", "journal_ref", "journal_name", "publication_status", "source", "doi")}
-        selected["work_module"] = row["work_module"]
-        for field, limit in limits.items():
-            value = row.get(field)
-            if not isinstance(value, str) or not value.strip():
-                raise ModelValidationError(f"Summary response lacks required text: {field}.")
-            selected[field] = concise_text(value, limit)
+        if require_v4 or row.get("content_version") == 4:
+            try:
+                selected.update(validate_v4(row, source))
+            except ValueError as exc:
+                raise ModelValidationError(str(exc)) from exc
+        else:
+            try:
+                work_module_name(row.get("work_module"))
+            except ValueError as exc:
+                raise ModelValidationError(str(exc)) from exc
+            selected["work_module"] = row["work_module"]
+            for field, limit in limits.items():
+                value = row.get(field)
+                if not isinstance(value, str) or not value.strip():
+                    raise ModelValidationError(f"Summary response lacks required text: {field}.")
+                selected[field] = concise_text(value, limit)
         selected["priority_score"] = priority
         selected["reading_depth"] = source["enrichment_note"]
         selected["reading_depth_code"] = source["reading_depth"]
@@ -325,24 +333,7 @@ abstract_source=arxiv_same_doi时提供的是同一DOI对应预印本的摘要�
 必须返回required_count个评分，不能只列推荐项。每次请求是一小批候选，按固定评分尺度评分。
 返回JSON：{\"rankings\":[{\"paper_id\":\"arxiv:...\",\"score\":80,\"reason\":\"简短理由\"}]}。"""
 
-SUMMARY_PROMPT = """你是灵巧手设计与控制研究导师。输入是已经按摘要评分选好的论文，仅为这些论文写中文阅读推荐。
-只依据标题、摘要、日期和来源提供的作者/发表元数据；未下载或读取正文，不描述为全文精读或实验核验。
-必须为required_count篇逐一提供总结，不能重新筛选、遗漏、替换或改变评分。只使用给定paper_id，不生成链接。
-作者权威性仅能依据提供的可核实背景资料辅助说明，不能凭姓名/机构或记忆编造资历、引用数和录用状态。
-source=crossref且journal_name来自白名单时可说明期刊元数据登记；其他来源journal_ref或DOI未独立核实。
-缺摘要时summary和evidence明确“暂无摘要，仅依据标题”，不得编造技术路径、性能或结论；learning_action优先核对摘要/方法与平台依赖。
-用简明中文写：title_zh译名；summary核心技术路径(≤300字)；why_for_you对背景的帮助(≤180字)；
-learning_action一个可以实施的阅读/仿真/标定/复现实验步骤(≤160字)，必须注明额外传感器或平台依赖，
-不要假设Aero Hand具备力矩传感器、触觉或力控功能，也不能凭缺少资料断言它一定不具备某项能力，应说明需要核对硬件；evidence用一句简明中文转述摘要中的具体描述(≤110字)，不输出长英文引文，不得编造正文页码。
-不以模型分数宣称论文优秀或已通过同行评审。
-work_module必须是1到6的整数，只选一个最符合论文主要研究问题和贡献的工作模块。
-缺摘要时仅按标题的明确研究主题归类，不由此补写未经提供的方法或结果。
-分类不能仅凭使用的工具：使用MuJoCo训练操作策略仍可归5，传感器硬件研制归1，基于反馈估计状态归4；
-以建模、辨识或仿真验证为核心归2，以运动规划或反馈控制方法为核心归3，操作策略学习为核心归5，高层技能组合为核心归6。
-六个工作模块如下：
-""" + "\n".join(f"{number} {name}：{scope}" for number, (name, scope) in WORK_MODULES.items()) + """
-返回JSON：{\"papers\":[{\"paper_id\":\"arxiv:...\",\"title_zh\":\"...\",\"summary\":\"...\",
-\"work_module\":3,\"why_for_you\":\"...\",\"learning_action\":\"...\",\"evidence\":\"...\"}]}。"""
+SUMMARY_PROMPT = SUMMARY_PROMPT_V4
 
 
 def input_groups(items: list[dict], context: dict, max_chars: int, max_items: int) -> list[list[dict]]:
@@ -364,6 +355,19 @@ def input_groups(items: list[dict], context: dict, max_chars: int, max_items: in
     if current:
         groups.append(current)
     return groups
+
+
+def fit_summary_input(paper: dict, context: dict, max_chars: int) -> dict:
+    """Bound the actual JSON representation; only fulltext may be excerpted."""
+    paper = dict(paper)
+    while len(json.dumps(dict(context, required_count=1, candidates=[paper]), ensure_ascii=False)) > max_chars:
+        text = paper.get("reading_text", "")
+        if len(text) < 500 or paper.get("reading_depth") not in {"full_text", "full_text_excerpt"}:
+            raise PipelineError("One paper's metadata exceeds the summary input budget.")
+        paper["reading_text"] = _excerpt(text, int(len(text) * 0.8))
+        paper["reading_depth"] = "full_text_excerpt"
+        paper["enrichment_note"] = "论文全文节选（序列化后的输入预算限制）；未提供全部正文。"
+    return paper
 
 
 METADATA_FIELDS = ("paper_id", "title", "abstract", "abstract_source", "authors", "affiliations", "journal_ref",
@@ -394,8 +398,22 @@ def report(digest: dict) -> str:
     lines = [f"# 灵巧手论文日报 · {digest['date']}", "", digest.get("note", ""), "",
         f"模型：{digest.get('model', '未登记')}；分数是针对个人学习价值的推荐依据，非学术质量认证。", ""]
     for index, p in enumerate(digest["papers"], 1):
+        if p.get("content_version") == 4:
+            lines.extend([f"## {index}. {escape_markdown(p['title_zh'])}", "", escape_markdown(p["title"]), "",
+                f"工作模块：{module_names(p)}", "", f"**作者**：{escape_markdown(p.get('authors') or '来源未提供')}", "",
+                f"**来源**：{escape_markdown(p.get('journal_name') or 'arXiv 预印本')} · **发表日期**：{escape_markdown(p.get('publish_date') or '来源未提供')}"
+                + ("（仅精确到月）" if p.get("date_precision") == "month" else ""), "",
+                f"[论文原文]({p.get('paper_url') or p.get('arxiv_url', '')})", ""])
+            for heading, body in sections(p):
+                lines.extend([f"### {heading}", "", body, ""])
+            lines.extend(["阅读依据：" + p["reading_basis"], ""])
+            from .delivery import _safe_link
+            reading_url = _safe_link(p.get("reading_url"))
+            if reading_url and reading_url != (p.get("paper_url") or p.get("arxiv_url")):
+                lines.extend([f"[本次阅读资料]({reading_url})", ""])
+            continue
         lines.extend([f"## {index}. {p['title_zh']}", "", p["title"], "",
-            f"工作模块：{work_module_name(p['work_module'])}", "",
+            f"工作模块：{module_names(p)}", "",
             f"**作者**：{p.get('authors') or '来源未提供'}（背景权威性未独立核实）", "",
             f"**来源**：{p.get('journal_name') or 'arXiv 预印本'} · {'公告日期' if p.get('date_basis') == 'rss_announcement' else '发表日期'}：{p['publish_date']} · 阅读范围：{p['reading_depth']}", "",
             f"**核心方法**：{p['summary']}", "", f"**为什么适合你**：{p['why_for_you']}", "",
@@ -559,12 +577,16 @@ def _prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_u
                     ranked.append(extra_ranked[0])
                     journal_extra = True
             if ranked:
-                selected_sources = [dict(p, reading_depth="abstract_only" if p.get("abstract") else "title_only",
-                    enrichment_note=("采用同 DOI 的 arXiv 预印本摘要；期刊正文未读取。" if p.get("abstract_source") == "arxiv_same_doi" else "仅依据标题、摘要、日期及来源元数据；未读取正文。") if p.get("abstract") else "暂无摘要，仅依据标题与来源元数据；未读取正文。") for p in ranked]
-                inputs = [{k: p.get(k, "") for k in (*metadata_fields, "ranking_score")} for p in selected_sources]
-                summary_context = dict(context, required_count=llm_config["summary_batch_size"])
-                groups = input_groups(inputs, summary_context, llm_config["max_input_chars"], llm_config["summary_batch_size"])
-                print(f"Summarizing {len(ranked)} selected papers with {llm_config['summary_model']} in {len(groups)} bounded batches; no PDF requests.", flush=True)
+                summary_budget = min(120_000, max(12_000, int(llm_config.get("summary_max_input_chars", 100_000))))
+                selected_sources = [read_paper(p, max_chars=summary_budget - 10_000) for p in ranked]
+                summary_count = min(5, max(1, int(llm_config["summary_batch_size"])))
+                summary_context = {"required_count": summary_count}
+                inputs = [fit_summary_input({k: p.get(k, "") for k in (*metadata_fields, "ranking_score", "reading_text",
+                    "reading_depth", "enrichment_note", "reading_url")}, summary_context, summary_budget) for p in selected_sources]
+                for source, brief in zip(selected_sources, inputs):
+                    source.update(brief)
+                groups = input_groups(inputs, summary_context, summary_budget, summary_count)
+                print(f"Summarizing {len(ranked)} selected papers with {llm_config['summary_model']} in {len(groups)} V4 batches; public fulltext preferred.", flush=True)
                 source_by_id = {p["paper_id"]: p for p in selected_sources}
                 for index, group in enumerate(groups, 1):
                     print(f"Summary batch {index}/{len(groups)}: {len(group)} papers.", flush=True)
@@ -573,7 +595,7 @@ def _prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_u
                     evidence = [source_by_id[p["paper_id"]] for p in group]
                     selected.extend(validated_model_batch(client, SUMMARY_PROMPT,
                         json.dumps(dict(summary_context, required_count=len(group), candidates=group), ensure_ascii=False),
-                        8192, lambda result: final_papers(result, evidence, config)))
+                        8192, lambda result: final_papers(result, evidence, config, require_v4=True)))
                 summary_by_id = {p["paper_id"]: p for p in selected}
                 selected = [summary_by_id[p["paper_id"]] for p in ranked]
             usage = client.usage
@@ -587,7 +609,7 @@ def _prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_u
             note += f"额外期刊名额已扩大到最近{journal_window}天检索。"
         if not journal_extra:
             note += "本次没有找到额外合格且未发送的期刊论文，期刊保留名额暂缺，不用预印本替代。"
-        note += "仅依据标题/摘要与元数据，未读取正文；作者背景未独立核实。"
+        note += "筛选依据标题/摘要与元数据；入选后优先分析公开全文，实际阅读范围逐篇标注。"
         if older:
             note += f"本次有{older}篇近期补充，请结合发表日期阅读。"
         if len(selected) < config["target_count"]:
@@ -596,7 +618,7 @@ def _prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_u
         extras = [p for p in shortlist if p.get("source") == "crossref" and p["paper_id"] not in selected_ids]
         if extras:
             note += f"另有{len(extras)}篇相关期刊候选，标题与链接见当天归档。"
-        card_note = "来源：arXiv 与五本期刊的公开元数据。仅依据标题/摘要筛选，未读取正文；作者背景未独立核实。"
+        card_note = "来源：arXiv 与五本期刊。按标题/摘要筛选；入选后优先阅读公开全文，实际资料范围逐篇标注。"
         if older:
             card_note += f"有{older}篇未能确认为最近7天发表的补充论文。"
         if extended_selected:
