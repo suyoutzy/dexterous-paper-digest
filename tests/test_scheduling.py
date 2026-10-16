@@ -21,6 +21,19 @@ BEIJING = timezone(timedelta(hours=8))
 
 
 class ScheduleTests(unittest.TestCase):
+    def test_validation_retry_receives_the_actual_error_and_compression_request(self):
+        client = Mock()
+        client.generate_json.side_effect = [{"long": True}, {"ok": True}]
+        def validate(result):
+            if result.get("long"):
+                raise ModelValidationError("V4 body has 1200 Chinese characters; target 500–650.")
+            return result
+        result = validated_model_batch(client, "system", '{"candidates":[]}', 8192, validate)
+        self.assertEqual(result, {"ok": True})
+        retry_input = json.loads(client.generate_json.call_args_list[1].args[1])
+        self.assertIn("1200", client.generate_json.call_args_list[1].args[0])
+        self.assertEqual(retry_input["candidates"], [])
+
     def setUp(self):
         self.temporary = TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
@@ -192,7 +205,8 @@ class ValidationRetryTests(unittest.TestCase):
         self.assertEqual(len(ranked), 11)
         calls = client.generate_json.call_args_list
         self.assertEqual(len(calls), 4)
-        self.assertEqual(calls[1], calls[2])
+        self.assertEqual(calls[1].args[1], calls[2].args[1])
+        self.assertIn("上次当前批次未通过程序校验", calls[2].args[0])
         self.assertNotEqual(calls[0], calls[1])
         self.assertNotEqual(calls[2], calls[3])
 

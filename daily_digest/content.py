@@ -124,8 +124,9 @@ def validate_v4(row: dict, source: dict) -> dict:
         "reading_basis": source.get("enrichment_note", "摘要及公开页面，未获取全文。"),
         "reading_url": source.get("reading_url", ""),
     }
-    if body_hanzi(result) > 1000:
-        raise ContentError("V4 body is too long; compress secondary findings and generic insight.")
+    count = body_hanzi(result)
+    if count > 1000:
+        raise ContentError(f"V4 body has {count} Chinese characters; target 500–650; compress secondary findings and generic insight.")
     return result
 
 
@@ -202,3 +203,10 @@ work_modules为1–6整数列表，只选有实质关联的模块，可多个，
 {"english":"...","chinese":"...","meaning":"...","role":"..."}],
 "insight":"...","reading":{"level":"选择性阅读","focus":"..."}}]}
 只返回JSON。超长时先压缩泛化启发、重复内容、次要数据，不优先删研究问题和核心方法。"""
+
+SUMMARY_PROMPT_V4 += """
+篇幅预算按单个汉字计数（不是中文词数）：problem约60–80字，idea约50–60字，全部implementation合计约90–120字；
+setup最多25字，通常只保留2条最重要结果、每条约30–40字，局限约30–40字；
+术语通常2–3个，每个meaning+role合计约25–35字；insight约30–40字，reading.focus约30–40字。
+方法部分应为全篇最长部分。每个字段写一句或一个简短步骤，不把完整段落塞进多个字段反复复述。
+正文目标500–650汉字，请在提交JSON前估算总长，超过1000汉字会被拒绝。"""

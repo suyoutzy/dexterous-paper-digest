@@ -59,10 +59,13 @@ def validated_model_batch(client: LLMClient, system: str, user: str, max_output_
     for attempt in range(2):
         try:
             return validate(client.generate_json(system, user, max_output_tokens=max_output_tokens))
-        except (ModelOutputError, ModelValidationError):
+        except (ModelOutputError, ModelValidationError) as error:
             if attempt == 1:
                 raise
             print("Model output failed validation; retrying this batch once.", flush=True)
+            system += ("\n上次当前批次未通过程序校验：" + str(error)[:350]
+                + "\n请修正该问题，只重做本批。若正文超长，请按字段预算压缩到500–650个汉字，"
+                "优先压缩泛化启发、重复文字和次要数据，不能省略论文或降低事实依据要求。")
     raise AssertionError("Unreachable model validation retry state.")
 
 
