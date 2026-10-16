@@ -18780,5 +18780,29 @@
     "online_publication_date": "2025-12-27",
     "print_publication_date": "2026-06",
     "metadata_indexed_at": "2026-10-15T16:17:51Z"
+  },
+  "doi:10.1109/lra.2024.3511372": {
+    "paper_id": "doi:10.1109/lra.2024.3511372",
+    "title": "ChatEMG: Synthetic Data Generation to Control a Robotic Hand Orthosis for Stroke",
+    "abstract": "",
+    "authors": "Jingxi Xu, Runsheng Wang, Siqi Shang, Ava Chen, Lauren Winterbottom, To-Liang Hsu, Wenxi Chen, Khondoker Ahmed, Pedro Leandro La Rotta, Xinyue Zhu, Dawn M. Nilsen, Joel Stein, Matei Ciocarlie",
+    "affiliations": [
+      "Department of Computer Science, Columbia University, New York, NY, USA",
+      "Department of Mechanical Engineering, Columbia University, New York, NY, USA",
+      "Department of Rehabilitation and Regenerative Medicine, Columbia University Irving Medical Center, New York, NY, USA"
+    ],
+    "doi": "10.1109/lra.2024.3511372",
+    "publish_date": "2025-02",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2024.3511372",
+    "source": "crossref",
+    "first_seen_date": "2026-10-16",
+    "last_seen_date": "2026-10-16",
+    "print_publication_date": "2025-02",
+    "metadata_indexed_at": "2026-10-16T06:11:38Z"
   }
 }
