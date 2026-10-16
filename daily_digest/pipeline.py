@@ -24,7 +24,7 @@ from .state import StateError, acknowledge_all, archive_filename, load_json, loa
 from .sources import collect_rss
 from .journals import collect_journals, normalize_doi
 from .work_modules import work_module_name
-from .content import SUMMARY_PROMPT_V4, escape_markdown, module_names, sections, validate_v4
+from .content import SUMMARY_PROMPT_V4, escape_markdown, module_names, number_source_text, sections, validate_v4
 from .reading import read_paper, _excerpt
 
 ARXIV_ID = re.compile(r"\d{4}\.\d{4,5}\Z", re.ASCII)
@@ -288,7 +288,7 @@ def final_papers(result: dict, evidence: list[dict], config: dict, *, require_v4
             try:
                 selected.update(validate_v4(row, source))
             except ValueError as exc:
-                raise ModelValidationError(str(exc)) from exc
+                raise ModelValidationError(f"{source['paper_id']}: {exc}") from exc
         else:
             try:
                 work_module_name(row.get("work_module"))
@@ -360,6 +360,7 @@ def input_groups(items: list[dict], context: dict, max_chars: int, max_items: in
 def fit_summary_input(paper: dict, context: dict, max_chars: int) -> dict:
     """Bound the actual JSON representation; only fulltext may be excerpted."""
     paper = dict(paper)
+    paper["reading_text"] = number_source_text(paper.get("reading_text", ""))
     while len(json.dumps(dict(context, required_count=1, candidates=[paper]), ensure_ascii=False)) > max_chars:
         text = paper.get("reading_text", "")
         if len(text) < 500 or paper.get("reading_depth") not in {"full_text", "full_text_excerpt"}:

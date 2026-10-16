@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import html
 import re
+import textwrap
 
 from .work_modules import WORK_MODULES, work_module_name
 
@@ -52,6 +53,26 @@ def _evidence(quote: object, source: str, claim: str = "") -> None:
         raise ContentError("V4 result numbers are absent from the quoted evidence.")
 
 
+def number_source_text(text: str) -> str:
+    """Give the model stable references instead of asking it to retype PDF prose."""
+    parts = textwrap.wrap(text, width=1100, replace_whitespace=False, drop_whitespace=False,
+        break_long_words=False, break_on_hyphens=False)
+    return "\n".join(f"[E{index}] {part}" for index, part in enumerate(parts, 1))
+
+
+def _source_evidence(item: dict, source: str, claim: str = "") -> None:
+    if "source_ids" not in item:
+        _evidence(item.get("quote"), source, claim)
+        return
+    ids = _items(item["source_ids"], "source evidence IDs", 1, 6)
+    blocks = {match[1]: match[2] for match in re.finditer(
+        r"(?ms)^\[(E\d+)\] (.*?)(?=^\[E\d+\] |\Z)", source)}
+    if any(not isinstance(key, str) or key not in blocks for key in ids):
+        raise ContentError("V4 has unknown source evidence IDs.")
+    if not _numbers(claim) <= _numbers("\n".join(blocks[key] for key in ids)):
+        raise ContentError("V4 result numbers are absent from the referenced evidence.")
+
+
 def validate_v4(row: dict, source: dict) -> dict:
     """Never trust model provenance; validate structure without cropping technical prose."""
     if type(row.get("content_version")) is not int or row["content_version"] != 4:
@@ -71,7 +92,7 @@ def validate_v4(row: dict, source: dict) -> dict:
     for item in _items(experiments.get("results"), "results", 0, 4):
         item = _object(item, "result")
         claim = _text(item.get("text"), "result", 260)
-        _evidence(item.get("quote"), text, claim)
+        _source_evidence(item, text, claim)
         results.append({"text": claim})  # Source quotations are checked, not published.
     limitations = []
     for item in _items(experiments.get("limitations"), "limitations", 1, 2):
@@ -80,7 +101,7 @@ def validate_v4(row: dict, source: dict) -> dict:
             raise ContentError("V4 limitation must distinguish author from analysis.")
         claim = _text(item.get("text"), "limitation", 220)
         if item["kind"] == "author":
-            _evidence(item.get("quote"), text)
+            _source_evidence(item, text)
         limitations.append({"kind": item["kind"], "text": claim})
     terms = []
     for item in _items(row.get("terms"), "terms", 2, 6):
@@ -162,8 +183,9 @@ SUMMARY_PROMPT_V4 = """你是科研论文速览编辑。为已入选论文生成
 implementation用1项或2–4个步骤写模型、算法、机构、输入输出与流程关系，区分作者创新与直接采用的已有技术。
 2 实验结果与局限，约100–150字：setup仅写必要的平台/任务/基线；results选2–4个关键定量指标，必要时可少于2个，
 没有可核实结果时返回空列表。保留基线、单位及实验条件，区分准确率、相对百分比与百分点，仿真不写成真机、单任务不推成通用能力。
-每条result给出text及quote：quote逐字复制输入资料中的短原文（可含必要的表格行，≤600字符），必须支撑text所有数字，不自行计算新数字。
-limitations给1–2项；kind=author必须有支撑作者明确局限的原文quote；kind=analysis表示基于证据分析，不能将摘要没提及当作作者承认未验证。
+reading_text用[E1]、[E2]等标记原文段落。每条result给出text及source_ids，例如["E2","E3"]；
+引用1–6个真正支撑该结论的原文段落，text的全部数字必须出现在这些段落中，不自行计算新数字。无需复制原文引文。
+limitations给1–2项；kind=author必须有支撑作者明确局限的source_ids；kind=analysis表示基于证据分析，不能将摘要没提及当作作者承认未验证。
 3 关键术语，约100–150字：选2–4个理解核心技术必需的术语，确有必要最多6个。english尽可能写完整英文名称与缩写，
 chinese写中文名称，meaning通俗解释，role说明在本文中具体承担的作用，不凑数、不只写百科定义。
 4 科研启发与阅读建议，约60–100字：insight提炼可借鉴思路及相关研究领域；reading.level只取了解即可/选择性阅读/重点精读，
@@ -174,8 +196,8 @@ work_modules为1–6整数列表，只选有实质关联的模块，可多个，
 输出必须覆盖required_count篇，每篇content_version=4，paper_id原样，格式如下（示例数字不代表输入事实）：
 {"papers":[{"content_version":4,"paper_id":"...","title_zh":"...","work_modules":[1,3],
 "research":{"problem":"...","idea":"...","implementation":["..."]},
-"experiments":{"setup":"...","results":[{"text":"...","quote":"原文短引"}],
-"limitations":[{"kind":"analysis","text":"...","quote":""}]},
+"experiments":{"setup":"...","results":[{"text":"...","source_ids":["E1"]}],
+"limitations":[{"kind":"analysis","text":"..."}]},
 "terms":[{"english":"...","chinese":"...","meaning":"...","role":"..."},
 {"english":"...","chinese":"...","meaning":"...","role":"..."}],
 "insight":"...","reading":{"level":"选择性阅读","focus":"..."}}]}

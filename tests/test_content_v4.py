@@ -3,12 +3,26 @@ import json
 import unittest
 
 from daily_digest.delivery import build_cards, MAX_CARD_BYTES
-from daily_digest.pipeline import final_papers, PipelineError, report
+from daily_digest.pipeline import final_papers, PipelineError, report, fit_summary_input
 from test_pipeline import paper, CONFIG
 from v4_fixtures import v4_row, evidence_text
 
 
 class ContentV4Tests(unittest.TestCase):
+    def test_source_segment_ids_ground_results_without_requiring_model_to_retype_the_pdf(self):
+        source = fit_summary_input(dict(self.source(), reading_text=evidence_text()), {"required_count": 1}, 100_000)
+        self.assertIn("[E1]", source["reading_text"])
+        row = v4_row()
+        row["experiments"]["results"][0].pop("quote")
+        row["experiments"]["results"][0]["source_ids"] = ["E1"]
+        selected = final_papers({"papers": [row]}, [source], CONFIG, require_v4=True)[0]
+        self.assertIn("3.9", selected["experiments"]["results"][0]["text"])
+        row["experiments"]["results"][0]["source_ids"] = ["E9999"]
+        with self.assertRaisesRegex(PipelineError, "evidence"):
+            final_papers({"papers": [row]}, [source], CONFIG, require_v4=True)
+        row["experiments"]["results"][0].update(source_ids=["E1"], text="误差0.01 mm。")
+        with self.assertRaisesRegex(PipelineError, "evidence"):
+            final_papers({"papers": [row]}, [source], CONFIG, require_v4=True)
     def source(self, full=True):
         return dict(paper(), reading_text=evidence_text(), reading_depth="full_text" if full else "abstract_only",
             enrichment_note="论文全文（可提取文本；图像与公式未独立核验）。" if full else "摘要及公开页面，未获取全文。",
