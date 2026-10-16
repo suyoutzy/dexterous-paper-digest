@@ -74,7 +74,7 @@ def source_papers():
 
 
 class PrepareBatchIntegrationTests(unittest.TestCase):
-    def run_prepare(self, ranking_scores, summary_transform=None, sources=None, extended_sources=None, long_reading=False):
+    def run_prepare(self, ranking_scores, summary_transform=None, sources=None, extended_sources=None, long_reading=False, manual_sample=False):
         config = {
             "timezone": "Asia/Shanghai", "target_count": 5, "recent_days": 7,
             "fallback_days": 30, "shortlist_limit": 30,
@@ -88,6 +88,8 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
             },
         }
         requests = {"rank": [], "summary": [], "journal_windows": [], "read": []}
+        if manual_sample:
+            config["llm"]["summary_batch_size"] = 1
         db = copy.deepcopy(source_papers() if sources is None else sources)
         source_lookup = dict(db, **(extended_sources or {}))
         config["journals"] = {"enabled": extended_sources is not None or any(p.get("source") == "crossref" for p in db.values()),
@@ -137,6 +139,7 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
                 patch.dict(os.environ, {
                     "LLM_API_KEY": "mock-key-not-real", "GITHUB_RUN_ID": "test-run",
                     "GITHUB_RUN_ATTEMPT": "1", "GITHUB_OUTPUT": "", "GITHUB_STEP_SUMMARY": "",
+                    "GITHUB_EVENT_NAME": "workflow_dispatch" if manual_sample else "",
                 }),
                 patch("daily_digest.pipeline.datetime") as clock,
                 patch("daily_digest.pipeline.ZoneInfo", return_value=timezone(timedelta(hours=8))),
@@ -149,7 +152,7 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
                 )) as external_get,
             ):
                 clock.now.return_value = datetime(2026, 9, 27, 12, tzinfo=timezone(timedelta(hours=8)))
-                prepare(root, config_path, output, preview=True, retry_uncertain=False)
+                prepare(root, config_path, output, preview=True, retry_uncertain=False, force_send=manual_sample)
                 external_get.assert_not_called()
             result = load_json(output / "pending.json")
         rank_ids = [p["paper_id"] for request in requests["rank"] for p in request["candidates"]]
@@ -164,9 +167,25 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
                     for field in ("abstract", "authors", "affiliations", "journal_ref", "doi", "publish_date"):
                         self.assertEqual(item[field], source[field])
         self.assertIn("实际阅读范围逐篇标注", result["report"])
-        self.assertEqual(requests["read"], result["paper_ids"])
+        if not manual_sample:
+            self.assertEqual(requests["read"], result["paper_ids"])
         self.assertTrue(all("reading_text" not in p for request in requests["rank"] for p in request["candidates"]))
         return result, requests
+
+    def test_manual_sample_sends_only_verified_papers_and_leaves_bad_paper_unsent(self):
+        def invalid_second(result):
+            if result["papers"][0]["paper_id"] == "arxiv:2609.00001":
+                return {"papers": []}
+            return result
+        result, requests = self.run_prepare({"arxiv:2609.00011": 90, "arxiv:2609.00001": 80},
+            summary_transform=invalid_second, manual_sample=True)
+        self.assertEqual(result["paper_ids"], ["arxiv:2609.00011"])
+        self.assertEqual(len(requests["summary"]), 3)
+        self.assertIn("未通过内容校验", result["report"])
+
+    def test_manual_sample_with_no_verified_papers_still_sends_nothing(self):
+        with self.assertRaisesRegex(PipelineError, "No manually selected"):
+            self.run_prepare({"arxiv:2609.00001": 80}, summary_transform=lambda result: {"papers": []}, manual_sample=True)
 
     def test_serialization_heavy_fulltext_is_excerpted_instead_of_aborting_the_digest(self):
         result, requests = self.run_prepare({"arxiv:2609.00001": 80}, long_reading=True)

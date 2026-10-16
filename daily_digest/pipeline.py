@@ -62,7 +62,7 @@ def validated_model_batch(client: LLMClient, system: str, user: str, max_output_
         except (ModelOutputError, ModelValidationError) as error:
             if attempt == 1:
                 raise
-            print("Model output failed validation; retrying this batch once.", flush=True)
+            print(f"Model output failed validation ({str(error)[:350]}); retrying this batch once.", flush=True)
             system += ("\n上次当前批次未通过程序校验：" + str(error)[:350]
                 + "\n请修正该问题，只重做本批。若正文超长，请按字段预算压缩到500–650个汉字，"
                 "优先压缩泛化启发、重复文字和次要数据，不能省略论文或降低事实依据要求。")
@@ -273,7 +273,8 @@ def final_papers(result: dict, evidence: list[dict], config: dict, *, require_v4
     lookup = {p["paper_id"]: p for p in evidence}
     rows = result.get("papers")
     if not isinstance(rows, list) or len(rows) != len(evidence) or len(rows) > config["target_count"]:
-        raise ModelValidationError("Summary response returned an invalid paper count.")
+        shape = f"list of {len(rows)}" if isinstance(rows, list) else type(rows).__name__
+        raise ModelValidationError(f"Summary response returned an invalid paper count: expected {len(evidence)}, got {shape}; return a papers array.")
     output, seen = [], set()
     limits = {"title_zh": 160, "summary": 320, "why_for_you": 200, "learning_action": 180, "evidence": 160}
     for row in rows:
@@ -544,6 +545,7 @@ def _prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_u
         shortlist = candidates(db, state, today, config)
         print(f"Source refresh: arXiv {fetched}, journal metadata {journal_count}; {len(shortlist)} relevant, unsent candidates.", flush=True)
         selected, usage = [], {}
+        skipped_summaries = []
         journal_settings = config.get("journals", {})
         journal_extra, expanded = False, False
         evaluated_count = len(shortlist)
@@ -600,11 +602,19 @@ def _prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_u
                     if llm_config["summary_model"] != client.model:
                         client.model = llm_config["summary_model"]
                     evidence = [source_by_id[p["paper_id"]] for p in group]
-                    selected.extend(validated_model_batch(client, SUMMARY_PROMPT,
-                        json.dumps(dict(summary_context, required_count=len(group), candidates=group), ensure_ascii=False),
-                        8192, lambda result: final_papers(result, evidence, config, require_v4=True)))
+                    try:
+                        selected.extend(validated_model_batch(client, SUMMARY_PROMPT,
+                            json.dumps(dict(summary_context, required_count=len(group), candidates=group), ensure_ascii=False),
+                            8192, lambda result: final_papers(result, evidence, config, require_v4=True)))
+                    except (ModelValidationError, ModelOutputError) as error:
+                        if not force_send:
+                            raise
+                        skipped_summaries.extend(p["paper_id"] for p in evidence)
+                        print(f"Manual sample excludes invalid summary batch: {error}", flush=True)
+                if not selected and force_send:
+                    raise ModelValidationError("No manually selected paper passed content validation; nothing will be sent.")
                 summary_by_id = {p["paper_id"]: p for p in selected}
-                selected = [summary_by_id[p["paper_id"]] for p in ranked]
+                selected = [summary_by_id[p["paper_id"]] for p in ranked if p["paper_id"] in summary_by_id]
             usage = client.usage
         if sources_unavailable and not evaluated_count and not journal_count:
             raise PipelineError("Paper sources unavailable and no recent unsent cache exists; no empty digest will be sent.")
@@ -617,6 +627,8 @@ def _prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_u
         if not journal_extra:
             note += "本次没有找到额外合格且未发送的期刊论文，期刊保留名额暂缺，不用预印本替代。"
         note += "筛选依据标题/摘要与元数据；入选后优先分析公开全文，实际阅读范围逐篇标注。"
+        if skipped_summaries:
+            note += f"本次手动批次有{len(skipped_summaries)}篇未通过内容校验，未推送且未标记已发送，保留以后重试。"
         if older:
             note += f"本次有{older}篇近期补充，请结合发表日期阅读。"
         if len(selected) < config["target_count"]:
@@ -626,6 +638,8 @@ def _prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_u
         if extras:
             note += f"另有{len(extras)}篇相关期刊候选，标题与链接见当天归档。"
         card_note = "来源：arXiv 与五本期刊。按标题/摘要筛选；入选后优先阅读公开全文，实际资料范围逐篇标注。"
+        if skipped_summaries:
+            card_note += f"本次手动批次有{len(skipped_summaries)}篇未通过内容校验，未推送，保留以后重试。"
         if older:
             card_note += f"有{older}篇未能确认为最近7天发表的补充论文。"
         if extended_selected:
