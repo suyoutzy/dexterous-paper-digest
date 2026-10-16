@@ -59,11 +59,34 @@ class ScheduleTests(unittest.TestCase):
         self.client = Mock(usage={})
         self.llm = self.stack.enter_context(patch("daily_digest.pipeline.LLMClient", return_value=self.client))
 
-    def run_prepare(self):
+    def run_prepare(self, **kwargs):
         self.config_path.write_text(json.dumps(self.config), encoding="utf-8")
         write_json(self.root / ".daily/state.json", self.state)
         write_json(self.root / ".daily/pending.json", self.batch)
-        prepare(self.root, self.config_path, self.output, preview=False, retry_uncertain=False)
+        prepare(self.root, self.config_path, self.output, preview=False, retry_uncertain=False, **kwargs)
+
+    def test_explicit_manual_extra_send_bypasses_today_and_interval_without_erasing_history(self):
+        for confirmed in ("2026-10-09", "2026-10-10"):
+            with self.subTest(confirmed=confirmed), patch.dict(os.environ, {"GITHUB_EVENT_NAME": "workflow_dispatch"}):
+                self.state.update(last_sent_date=confirmed, sent_ids=["arxiv:2609.00001"])
+                self.run_prepare(force_send=True)
+                batch = load_json(self.output / "pending.json")
+                self.assertTrue(batch["manual_extra"])
+                self.assertEqual(load_json(self.output / "state.json"), self.state)
+                self.assertIn("should_send=true", self.github_output.read_text(encoding="utf-8"))
+        self.peak.assert_not_called()
+
+    def test_force_send_cannot_enable_an_extra_scheduled_delivery(self):
+        with self.assertRaises(PipelineError):
+            self.run_prepare(force_send=True)
+        self.collect.assert_not_called()
+
+    def test_force_does_not_bypass_uncertain_delivery_protection(self):
+        self.state["last_sent_date"] = "2026-10-10"
+        self.batch["status"] = "uncertain"
+        with patch.dict(os.environ, {"GITHUB_EVENT_NAME": "workflow_dispatch"}), self.assertRaises(StateError):
+            self.run_prepare(force_send=True)
+        self.collect.assert_not_called()
 
     def assert_skipped_before_network(self):
         self.collect.assert_not_called()

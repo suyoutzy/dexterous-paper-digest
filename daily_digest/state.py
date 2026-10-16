@@ -70,6 +70,19 @@ def validate_pending(pending: dict) -> None:
         raise StateError("Invalid card acknowledgement indexes.")
     if not isinstance(pending.get("paper_ids"), list) or any(not isinstance(p, str) or len(p) > 600 for p in pending["paper_ids"]):
         raise StateError("Invalid pending-paper identifiers.")
+    archive_filename(pending)
+
+
+def archive_filename(pending: dict) -> str:
+    if type(pending.get("manual_extra", False)) is not bool:
+        raise StateError("Invalid manual-extra flag.")
+    suffix = ""
+    if pending.get("manual_extra"):
+        run_id = pending.get("archive_run_id", pending.get("attempt_run_id", ""))
+        if not isinstance(run_id, str) or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_-]{0,80}", run_id):
+            raise StateError("Invalid manual archive run ID.")
+        suffix = "-manual-" + run_id
+    return pending["date"] + suffix + ".md"
 
 
 def load_state(root: Path) -> dict:
@@ -85,6 +98,8 @@ def resume_pending(pending: dict, run_id: str, retry_uncertain: bool = False) ->
     if pending["status"] in {"inflight", "uncertain"} and not retry_uncertain:
         raise StateError("Previous delivery is unconfirmed. Check the Feishu group, then use the explicit retry option if resending is necessary.")
     result = dict(pending)
+    if result.get("manual_extra"):
+        result.setdefault("archive_run_id", pending["attempt_run_id"])
     result.update(status="inflight", attempt_run_id=run_id)
     return result
 
@@ -116,7 +131,7 @@ def publish(source: Path, root: Path, phase: str, expected_run_id: str) -> None:
         if pending["status"] != "inflight":
             raise StateError("Only a delivery intent can be published before sending.")
         current_state = load_state(root)
-        if current_state.get("last_sent_date") == pending["date"]:
+        if current_state.get("last_sent_date") == pending["date"] and not pending.get("manual_extra"):
             raise StateError("A delivery for this date is already confirmed; stale plans cannot overwrite it.")
         if set(pending["paper_ids"]) & set(current_state["sent_ids"]):
             raise StateError("A stale plan contains papers that have already been sent.")
@@ -137,7 +152,7 @@ def publish(source: Path, root: Path, phase: str, expected_run_id: str) -> None:
             report = pending.get("report", "")
             if not isinstance(report, str) or len(report) > 50000:
                 raise StateError("Invalid digest archive.")
-            archive = root / "docs/digests" / f"{pending['date']}.md"
+            archive = root / "docs/digests" / archive_filename(pending)
             archive.parent.mkdir(parents=True, exist_ok=True)
             archive.write_text(report, encoding="utf-8")
     write_json(root / ".daily/state.json", state)

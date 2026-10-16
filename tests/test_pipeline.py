@@ -386,6 +386,40 @@ class PublisherTests(unittest.TestCase):
     def tearDown(self):
         self.temporary.cleanup()
 
+    def test_manual_extra_uses_separate_archive_and_keeps_today_original(self):
+        prior = dict(fresh_state(), last_sent_date=TODAY.isoformat(), sent_ids=["arxiv:older"])
+        write_json(self.root / ".daily/state.json", prior)
+        write_json(self.source / "state.json", prior)
+        original = self.root / "docs/digests" / f"{TODAY.isoformat()}.md"
+        original.parent.mkdir(parents=True)
+        original.write_text("Original daily digest", encoding="utf-8")
+        batch = dict(pending(), manual_extra=True)
+        write_json(self.source / "pending.json", batch)
+        publish(self.source, self.root, "plan", "123-1")
+        batch["acknowledged_cards"] = [0, 1]
+        acknowledge_all(prior, batch)
+        write_json(self.source / "pending.json", batch)
+        write_json(self.source / "state.json", prior)
+        publish(self.source, self.root, "result", "123-1")
+        self.assertEqual(original.read_text(encoding="utf-8"), "Original daily digest")
+        extra = original.with_name("2026-09-27-manual-123-1.md")
+        self.assertEqual(extra.read_text(encoding="utf-8"), batch["report"])
+
+    def test_manual_extra_still_rejects_already_sent_papers(self):
+        write_json(self.root / ".daily/state.json", dict(fresh_state(), last_sent_date=TODAY.isoformat(),
+            sent_ids=["arxiv:2609.00001"]))
+        write_json(self.source / "pending.json", dict(pending(), manual_extra=True))
+        with self.assertRaisesRegex(StateError, "already been sent"):
+            publish(self.source, self.root, "plan", "123-1")
+
+    def test_manual_archive_link_stays_stable_when_a_saved_batch_resumes(self):
+        from daily_digest.state import archive_filename
+        batch = dict(pending(status="failed"), manual_extra=True)
+        before = archive_filename(batch)
+        resumed = resume_pending(batch, "456-2")
+        self.assertEqual(archive_filename(resumed), before)
+        self.assertEqual(resumed["attempt_run_id"], "456-2")
+
     def test_publisher_copies_only_named_data_and_does_not_replace_or_execute_code(self):
         script = self.root / "daily_digest" / "pipeline.py"
         script.parent.mkdir()

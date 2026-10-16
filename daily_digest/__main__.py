@@ -16,13 +16,14 @@ build.add_argument("--config", type=Path, default=Path("digest_config.yaml"))
 build.add_argument("--output", type=Path, default=Path(".run"))
 build.add_argument("--preview", action="store_true")
 build.add_argument("--retry-uncertain", action="store_true")
+build.add_argument("--force-send", action="store_true", help="Explicit manual extra batch; keep sent-paper deduplication")
 send = commands.add_parser("deliver")
 send.add_argument("--source", type=Path, required=True)
 send.add_argument("--output", type=Path, default=Path(".run/result"))
 args = parser.parse_args()
 try:
     if args.command == "prepare":
-        prepare(args.root, args.config, args.output, args.preview, args.retry_uncertain)
+        prepare(args.root, args.config, args.output, args.preview, args.retry_uncertain, force_send=args.force_send)
     else:
         deliver(args.source, args.output)
 except (PipelineError, StateError, LLMError, DeliveryError) as error:

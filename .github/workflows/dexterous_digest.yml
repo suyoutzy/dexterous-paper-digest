@@ -19,6 +19,10 @@ on:
         description: "已检查群聊，确认重发未确认卡片（可能重复）"
         type: boolean
         default: false
+      force_send:
+        description: "本次额外生成并发送，忽略日期间隔；仍跳过已发论文"
+        type: boolean
+        default: false
 
 permissions: {}
 concurrency:
@@ -63,6 +67,7 @@ jobs:
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
           DIGEST_MODE: ${{ inputs.mode || 'send' }}
           RETRY_UNCERTAIN: ${{ inputs.retry_uncertain }}
+          FORCE_SEND: ${{ inputs.force_send || 'false' }}
         run: |
           args=()
           if [ "$GITHUB_EVENT_NAME" != schedule ] && [ "$DIGEST_MODE" = preview ]; then
@@ -70,6 +75,9 @@ jobs:
           fi
           if [ "$RETRY_UNCERTAIN" = true ]; then
             args+=(--retry-uncertain)
+          fi
+          if [ "$GITHUB_EVENT_NAME" = workflow_dispatch ] && [ "$FORCE_SEND" = true ]; then
+            args+=(--force-send)
           fi
           python -m daily_digest prepare --root source-data --output .run "${args[@]}"
       - name: Save data and preview (contains no credentials or full PDFs)

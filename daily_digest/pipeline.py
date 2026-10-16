@@ -20,7 +20,7 @@ import yaml
 
 from .delivery import DeliveryError, DeliveryUncertainError, build_cards, send_card
 from .llm import LLMClient, LLMError, ModelOutputError, OffPeakSkip, ensure_off_peak
-from .state import StateError, acknowledge_all, load_json, load_state, resume_pending, validate_pending, write_json
+from .state import StateError, acknowledge_all, archive_filename, load_json, load_state, resume_pending, validate_pending, write_json
 from .sources import collect_rss
 from .journals import collect_journals, normalize_doi
 from .work_modules import work_module_name
@@ -450,19 +450,20 @@ def attempt_id() -> str:
     return os.environ.get("GITHUB_RUN_ID", "local-preview") + "-" + os.environ.get("GITHUB_RUN_ATTEMPT", "1")
 
 
-def archive_link(today: date) -> str:
+def archive_link(today: date, *, manual_run_id: str = "") -> str:
     """Link the digest archive in the currently deploying repository."""
     repository = os.environ.get("GITHUB_REPOSITORY", "")
     if not repository:
         return ""  # Local previews have no published archive to link to.
     if not re.fullmatch(r"[A-Za-z0-9-]+/[A-Za-z0-9_.-]+", repository) or repository.rsplit("/", 1)[1] in {".", ".."}:
         raise PipelineError("Invalid deployment repository for the archive link.")
-    return f"https://github.com/{repository}/blob/main/docs/digests/{today.isoformat()}.md"
+    filename = archive_filename({"date": today.isoformat(), "manual_extra": bool(manual_run_id), "attempt_run_id": manual_run_id})
+    return f"https://github.com/{repository}/blob/main/docs/digests/{filename}"
 
 
-def prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_uncertain: bool) -> None:
+def prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_uncertain: bool, *, force_send: bool = False) -> None:
     try:
-        _prepare(root, config_path, output, preview, retry_uncertain)
+        _prepare(root, config_path, output, preview, retry_uncertain, force_send=force_send)
     except OffPeakSkip as error:
         _skip_prepare(str(error))
 
@@ -476,7 +477,9 @@ def _skip_prepare(reason: str) -> None:
             stream.write("## Digest skipped\n\n" + reason + "\n")
 
 
-def _prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_uncertain: bool) -> None:
+def _prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_uncertain: bool, *, force_send: bool = False) -> None:
+    if force_send and os.environ.get("GITHUB_EVENT_NAME") != "workflow_dispatch":
+        raise PipelineError("Extra send is allowed only for an explicit manual workflow run.")
     config = yaml.safe_load(config_path.read_text(encoding="utf-8"))
     if not isinstance(config, dict) or not 1 <= config["target_count"] <= 5:
         raise PipelineError("Invalid digest configuration.")
@@ -496,13 +499,13 @@ def _prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_u
     elapsed = (today - date.fromisoformat(last_confirmed)).days if last_confirmed else None
     if elapsed is not None and elapsed < 0:
         raise StateError("Last confirmed delivery date is in the future.")
-    if elapsed == 0:
+    if elapsed == 0 and not force_send:
         _skip_prepare("A digest was already confirmed today; skipping without model calls.")
         return
     pending = load_json(root / ".daily/pending.json", {})
     generating = not pending or pending.get("status") == "complete"
     if generating:
-        if elapsed is not None and elapsed < interval:
+        if elapsed is not None and elapsed < interval and not force_send:
             next_date = date.fromisoformat(last_confirmed) + timedelta(days=interval)
             _skip_prepare(f"Delivery interval has not elapsed; next eligible date: {next_date.isoformat()}.")
             return
@@ -631,10 +634,12 @@ def _prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_u
             card_note += f"归档另列{len(extras)}篇相关期刊候选。"
         digest = {"date": today.isoformat(), "papers": selected, "note": note,
             "model": llm_config["summary_model"], "other_journal_papers": extras, "card_note": card_note,
-            "archive_url": archive_link(today)}
+            "archive_url": archive_link(today, manual_run_id=run_id if force_send else "")}
         cards = build_cards(digest)
         batch_id = hashlib.sha256(json.dumps(digest, sort_keys=True, ensure_ascii=False).encode()).hexdigest()[:24]
         pending = {"version": 1, "batch_id": batch_id, "date": today.isoformat(), "status": "inflight",
+            "manual_extra": force_send,
+            "archive_run_id": run_id if force_send else "",
             "attempt_run_id": run_id, "paper_ids": [p["paper_id"] for p in selected], "acknowledged_cards": [],
             "cards": cards, "report": report(digest), "usage": usage}
     validate_pending(pending)
