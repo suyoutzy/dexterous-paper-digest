@@ -1,19 +1,16 @@
 {
   "version": 1,
-  "batch_id": "3d23febee48e9c12514c5ded",
-  "date": "2026-10-14",
-  "status": "complete",
-  "attempt_run_id": "38514310444-1",
+  "batch_id": "1de33b9707345f28896da177",
+  "date": "2026-10-16",
+  "status": "inflight",
+  "attempt_run_id": "38851691317-1",
   "paper_ids": [
-    "arxiv:2610.18443",
-    "doi:10.1177/21695172261496958",
-    "arxiv:2610.14926",
-    "arxiv:2610.14372",
-    "doi:10.1109/lra.2026.3717172"
+    "arxiv:2610.02338",
+    "arxiv:2610.17161",
+    "arxiv:2610.19518",
+    "arxiv:2610.14379"
   ],
-  "acknowledged_cards": [
-    0
-  ],
+  "acknowledged_cards": [],
   "cards": [
     {
       "msg_type": "interactive",
@@ -25,7 +22,7 @@
           "template": "blue",
           "title": {
             "tag": "plain_text",
-            "content": "灵巧手论文日报 · 2026-10-14"
+            "content": "灵巧手论文日报 · 2026-10-16"
           }
         },
         "elements": [
@@ -33,14 +30,14 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "今日精选 5 篇。"
+              "content": "今日精选 4 篇。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "1. PACT：多指模仿学习中手部构型与重定向的姿态对齐协同设计技术\nPACT: Posture-Aligned Co-Design Technique for Hand Configuration and Retargeting in Multi-Finger Imitation Learning"
+              "content": "1. SoTa：用于灵巧操作的柔性触觉皮肤\nSoTa: Soft Tactile Skins for Dexterous Manipulation"
             }
           },
           {
@@ -61,35 +58,35 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "首次发布日期：2026-10-13；作者：Koyo Sasazaki, Satoshi Funabashi, Pranav Ponnivalavan, Alexander Schmitz, Tetsuya Ogata, Shigeki Sugano"
+              "content": "首次发布日期：2026-10-01；作者：Jingyun Yang, Baiyu Shi, Timothy Yu, Haitian Liu, Alberta Longhini, Weichen Wang, Rika Antonova, Zhenan Bao, Jeannette Bohg"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "核心方法：提出PACT，基于人类抓取姿态联合优化17舵机机器人手的机械参数（连杆长度、关节偏移、安装角度、基座位置）与非线性姿态重定向器（线性人-机器人关节映射、逐关节姿态IK权重、阻尼）。约束舵机干涉、装配间隙和平手突出，使设计可物理装配。制造PACT Hand并在遥操作和模仿学习演示中验证：运动学RMSE 3.9mm（基线LEAP 12.8mm），抓取姿态指尖10mm内（基线21.6%），举升2kg（基线1kg），纸杯变形少7倍，YCB抓取成功率86%（基线64%），IL策略在罐子拾放任务中75%成功率。"
+              "content": "核心方法：摘要提出SoTa低成本电容触觉皮肤，覆盖人手和机器人手，在对应手指与手掌区域保持共享的202 taxels布局。多层结构结合织物电极，可自制薄软皮肤，材料成本低于10美元/片。摘要称1万次加载-卸载循环后保留超97%初始响应跨度，1280次紧握折叠循环轨迹保持连续。共享布局支持人-机器人共同训练和统一触觉编码器，无需学习跨传感器映射。在三个接触丰富操作任务中，触觉观测提升分布内成功率；固定机器人演示预算下加入人类演示使八个评估条件平均成功率从22.8%到45.9%，五个分布外条件均提升。计划开源制造与操作资源。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "为什么适合你：你已组装Aero Hand，该文展示如何把机械参数与重定向器联合优化，并考虑舵机干涉和装配约束。可帮助你理解手部构型设计对模仿学习演示质量的影响，以及如何用人类姿态数据指导设计。需注意其依赖17舵机平台和DexYCB数据。"
+              "content": "为什么适合你：对已组装Aero Hand的读者，可作为触觉皮肤硬件、标定与人机数据协同入门：理解全手覆盖、共享布局、低成本制造和耐久测试指标；但需核对你的手型可否适配202 taxel布局及电容读出电路。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "可以学什么：用Python搭建简化优化：以你Aero Hand的运动学为约束，用DexYCB子集采样人类姿态，优化线性映射与加权IK参数，比较直接映射与优化后的指尖误差。额外依赖：多指手运动学模型、关节零位/限位标定数据；若真机验证还需指尖位姿测量（如运动捕捉或视觉）。"
+              "content": "可以学什么：先根据摘要与开源计划核对皮肤读出接口和供电；若平台无触觉采集，可用电容传感开发板加单指皮肤做加载-卸载标定，再评估与Aero Hand指节或手掌几何适配；需额外电容采集与力标定装置。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "依据：摘要称PACT联合优化17舵机手机械参数与重定向器，用DexYCB约束，运动学RMSE 3.9mm，举升2kg，YCB抓取成功率86%。"
+              "content": "依据：摘要称共享202 taxel布局的柔性电容皮肤支持人机共同训练，且加入人类演示使平均成功率从22.8%升至45.9%。"
             }
           },
           {
@@ -105,7 +102,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2610.18443",
+                "url": "https://arxiv.org/abs/2610.02338",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
@@ -114,7 +111,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/pdf/2610.18443",
+                "url": "https://arxiv.org/pdf/2610.02338",
                 "text": {
                   "tag": "plain_text",
                   "content": "PDF"
@@ -129,176 +126,7 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "2. 指尖触觉传感中硬质与软质结构的协同作用\nSynergistic Roles of Hard and Soft Structures in Fingertip Tactile Sensing"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "工作模块：机器人本体与硬件"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "来源：Soft Robotics（Soft Robot.）"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "登记发表日期：2026-10-12；作者：Parvathi Sunilkumar, Ege Cogulu, Thrishantha Nanayakkara"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "核心方法：结合人类探索数据、有限元分析（FEA）和带霍尔效应传感器的软体指尖实验，研究指甲与远端指骨对纹理感知的贡献。人类探索以横向运动为主；FEA显示加入刚性元件改变软组织内部应力模式，横向扫掠应变变异性更高，香农熵比达1.96。机器人纹理分类中，仅加指甲提升22%，仅加骨提升51%，两者结合提升超88%。"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "为什么适合你：你研究灵巧末端，触觉传感设计直接影响抓取与操作信号质量。该文通过FEA和软指尖实验说明硬质结构（指甲/指骨）如何增强纹理信号，可帮助你思考指尖软硬材料搭配与传感器布局。需核对Aero Hand指尖是否便于加装类似霍尔传感器。"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "可以学什么：用有限元软件建立软指尖模型，分别加入刚性指甲和指骨，在横向与纵向扫掠下比较应变变异性；或在软指尖上装霍尔传感器做纹理分类对比。额外依赖：软材料参数、霍尔传感器或触觉阵列、纹理样本与分类流程。"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "依据：摘要称结合人类数据、FEA与带霍尔传感器的软指尖实验，发现加指甲和指骨分别提升纹理分类22%和51%，两者结合提升超88%。"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "阅读深度：仅依据标题、摘要、日期及来源元数据；未读取正文。"
-            }
-          },
-          {
-            "tag": "action",
-            "actions": [
-              {
-                "tag": "button",
-                "type": "default",
-                "url": "https://doi.org/10.1177/21695172261496958",
-                "text": {
-                  "tag": "plain_text",
-                  "content": "论文"
-                }
-              }
-            ]
-          },
-          {
-            "tag": "hr"
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "3. 面向灵巧抓取分类的边缘原生时序-图双专家推理\nEdge-Native Temporal--Graph Dual-Expert Inference for Dexterous Grasp Classification"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "工作模块：感知与状态估计"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "来源：arXiv"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "首次发布日期：2026-10-10；作者：Jiajian Zheng, Bin Zhang, Wen Fan, Yanan Liu"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "核心方法：提出边缘原生流水线，仅用内置关节角和预标定执行器负载反馈，识别被抓物体并预测每指独立停止事件。四样本及其一阶差分组成4×20接触演化窗口。双专家架构DualExpert：时序卷积网络（TCN）建模短期接触演化并输出五个停止概率，图滤波网络（FGFN）编码手指拓扑仅用于物体分类，固定0.7/0.3融合。225次留出试验达93.78%轨迹级分类准确率，TCN停止路径F1 95.25%。边缘部署保持93.78%分类和94.84%停止F1，平均推理2.890ms，采样到停止延迟9.172ms；50次物理试验识别96.00%，抓取成功98.00%，功耗约0.80W。"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "为什么适合你：你关注灵巧手控制，该文展示仅用关节角和执行器负载（无需密集触觉阵列）实现物体识别与逐指停止预测，有助于理解本体感知在抓取状态估计中的作用，并为边缘部署提供参考。需核对你的Aero Hand能否读取关节角和执行器负载。"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "可以学什么：采集多指手抓取不同物体时的关节角与执行器负载序列，按4样本窗口构造一阶差分特征，训练轻量TCN做逐指停止预测，并与固定阈值基线比较。额外依赖：可读关节角/负载的舵机或电机驱动器，以及多物体抓取实验平台。"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "依据：摘要称仅用关节角和预标定执行器负载，双专家架构实现93.78%轨迹级分类与95.25%停止F1，边缘推理2.890ms，物理试验抓取成功98.00%。"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "阅读深度：仅依据标题、摘要、日期及来源元数据；未读取正文。"
-            }
-          },
-          {
-            "tag": "action",
-            "actions": [
-              {
-                "tag": "button",
-                "type": "default",
-                "url": "https://arxiv.org/abs/2610.14926",
-                "text": {
-                  "tag": "plain_text",
-                  "content": "论文"
-                }
-              },
-              {
-                "tag": "button",
-                "type": "default",
-                "url": "https://arxiv.org/pdf/2610.14926",
-                "text": {
-                  "tag": "plain_text",
-                  "content": "PDF"
-                }
-              }
-            ]
-          },
-          {
-            "tag": "hr"
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "4. DexFLEX：面向命令引导灵巧操作的接触感知基础控制器\nDexFLEX: Contact-Aware Foundation Controller for Command-Guided Dexterity"
+              "content": "2. 力调制灵巧性：面向接触丰富操作的统一柔顺控制\nForce-Modulated Dexterity: Unified Compliance for Contact-Rich Manipulation"
             }
           },
           {
@@ -319,35 +147,35 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "首次发布日期：2026-10-09；作者：Weikang Wan, Zeyu Lai, Jianyu Hou, Yuchen Zhou, Jiawei Fu, Henrik I Christensen, Hao Su"
+              "content": "首次发布日期：2026-10-12；作者：Ying Yuan, David Held, Jitendra Malik, Haozhi Qi"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "核心方法：提出接触感知基础控制器DexFLEX，将上游指尖运动草案转化为接触一致的关节命令。不把草案当作轨迹复制，而是视为意图证据：从当前触觉-本体状态出发，提议短时域运动块，预测其接触后果，选择最跟随命令且保持未来接触稳定的候选。推理时用Draft-Dream-Select结合纯先验提议（恢复）与草案种子提议（响应），解码为可执行关节空间目标。在退化命令仿真、真机共享控制和视觉运动策略学习中，同一训练控制器无需重训练提升鲁棒性：真机遥操作成功率29.2%到78.3%，策略学习成功率46.7%，为直接关节动作预测3.5倍，仅先验修正1.56倍。"
+              "content": "核心方法：摘要提出FOMO-Dex统一柔顺公式，用于接触丰富操作。它把名义动作表达在任务几何和接触结构定义的坐标中，在选定方向施加力驱运动修正，其余命令分量保持不变。在取卡、剪纸、拧螺丝、螺母螺栓装配中，相比刚性控制减少过大接触力。用户研究表明操作者短暂练习后每小时收集更多成功演示。策略学习方面，模仿修正动作比模仿原始操作者命令提高取卡成功率；FOMO-Dex演示训练的策略在螺母螺栓和拧螺丝中实现更多旋转。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "为什么适合你：你学习位置/力/阻抗控制，该文提供一种接触感知的控制器框架，将运动意图与接触稳定性结合，可能启发你在Aero Hand上实现类似“命令+接触修正”的控制层。需注意其依赖触觉-本体状态，你要核对Aero Hand能否提供触觉或力反馈。"
+              "content": "为什么适合你：为你提供位置、力与阻抗控制接口设计的直观案例：如何把任务几何与接触方向显式用于动作修正，并连接遥操作演示与策略学习；但需核对Aero Hand是否有可用的力、触觉反馈或力控接口，不能假定具备。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "可以学什么：在MuJoCo中建立多指手接触场景，实现简化版Draft-Dream-Select：给定指尖运动草案，采样短时域关节目标，用接触仿真预测稳定性，选择代价最小者执行。额外依赖：接触传感器仿真或真机触觉/力传感反馈。"
+              "content": "可以学什么：在仿真中复现“名义动作加选定方向力修正”的极简一维接触模型，先不依赖实体手；若真机验证，需要额外关节力矩或电流估计、末端力传感器，并确认Aero Hand固件是否开放力矩或柔顺接口。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "依据：摘要称DexFLEX将指尖运动草案作为意图证据，预测接触后果并选择候选，真机遥操作成功率从29.2%提升至78.3%，策略学习成功率46.7%。"
+              "content": "依据：摘要称FOMO-Dex在选定方向施加力驱运动修正，取卡等任务中比刚性控制减少过大接触力，并提升演示数据成功率。"
             }
           },
           {
@@ -363,7 +191,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2610.14372",
+                "url": "https://arxiv.org/abs/2610.17161",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
@@ -372,7 +200,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/pdf/2610.14372",
+                "url": "https://arxiv.org/pdf/2610.17161",
                 "text": {
                   "tag": "plain_text",
                   "content": "PDF"
@@ -387,7 +215,96 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "5. 基于多模态触觉传感器的软表面自适应模糊触觉伺服\nAdaptive Fuzzy Tactile Servoing on Soft Surfaces With a Multimodal Tactile Sensor"
+              "content": "3. HiFun：高效功能灵巧操作学习的分层框架\nHiFun: a Hierarchical Framework for Efficient Functional Dexterous Manipulation Learning"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "工作模块：高层任务与技能规划"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "来源：arXiv"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "首次发布日期：2026-10-14；作者：Linyi Huang, Guowei Huai, Weibin Liu, Shulong Jiang, Ping Tan, Weixuan Zhang, Hui Zhang, Jie Song"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "核心方法：摘要提出HiFun，面向功能灵巧操作的真实世界分层强化学习框架。关键思路是把控制复杂度解耦为功能手部技能，用于精确接触执行，以及臂手协调策略，用于手臂控制与手部技能激活。这种设计支持实时人类干预以学习反应式恢复，并用动态运动基元增强高效数据收集。在两个灵巧手、六个真实世界任务上，摘要称一小时内在线训练平均成功率达98.3%，并对动态扰动保持鲁棒。"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "为什么适合你：对灵巧手控制背景，展示如何将高自由度手部接触与手臂运动分层，减少全臂手空间演示成本，并加入人类干预和DMP；需要核对Aero Hand可提供的底层技能接口、臂手平台与实时控制频率。"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "可以学什么：先在仿真或单任务真机上定义“手部原语技能”和“手臂激活策略”两层接口，记录能否实时干预；真机需额外运动捕捉或视觉位姿反馈、机械臂和手部底层SDK，且须核对Aero Hand是否支持所需位置或力指令接口。"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "依据：摘要称HiFun将控制解耦为手部功能技能与臂手协调策略，在两款灵巧手六个真实任务上一小时在线训练平均成功率达98.3%。"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "阅读深度：仅依据标题、摘要、日期及来源元数据；未读取正文。"
+            }
+          },
+          {
+            "tag": "action",
+            "actions": [
+              {
+                "tag": "button",
+                "type": "default",
+                "url": "https://arxiv.org/abs/2610.19518",
+                "text": {
+                  "tag": "plain_text",
+                  "content": "论文"
+                }
+              },
+              {
+                "tag": "button",
+                "type": "default",
+                "url": "https://arxiv.org/pdf/2610.19518",
+                "text": {
+                  "tag": "plain_text",
+                  "content": "PDF"
+                }
+              }
+            ]
+          },
+          {
+            "tag": "hr"
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "4. OATH：面向灵巧手的物体无关跟踪，实现快速基于物理的重定向\nOATH: Object-Agnostic Tracking for Dexterous Hands, Enabling Rapid Physics-based Retargeting"
             }
           },
           {
@@ -401,49 +318,49 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "来源：IEEE Robotics and Automation Letters（RA-L）"
+              "content": "来源：arXiv"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "登记发表日期：2026-09（仅精确到月）；作者：Pengwen Xiong, Jiangang Ouyang, Qi Wei, Yuhua Song, Aiguo Song"
+              "content": "首次发布日期：2026-10-09；作者：Solvin Sigurdson, Prasanna Sriganesh, Juan Borbon, Joel Burdick, Dingqi Zhang, Jiuguang Wang"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "核心方法：暂无摘要，仅依据标题：该文研究在多模态触觉传感器支持下，于软表面上进行自适应模糊触觉伺服。"
+              "content": "核心方法：摘要把基于物理的重定向重新表述为残差学习问题，提出结构化状态表示以实现跨物体零样本泛化。观测空间包含局部接触误差信号，引导每个机器人连杆到物体表面对应目标坐标，从而用单一统一残差策略抓取未见新物体几何。在仿真中沿运动学参考轨迹滚动该策略，得到物理重定向器OATH。摘要称每秒钟参考轨迹仅需0.4秒计算，达到2.4倍快于实时，相比采样方法计算量降低60至350倍。恢复58%留出和54%未见物体DexYCB轨迹，跟踪误差低于2厘米。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "为什么适合你：你关注触觉反馈与柔顺控制，标题表明该文研究软表面上的自适应模糊触觉伺服，可能涉及触觉传感器与伺服控制结合；但缺少摘要，需进一步核对全文以确认方法、传感器类型和实验条件。"
+              "content": "为什么适合你：可帮助你理解人手演示到多指手轨迹的重定向、接触误差表征和残差强化学习，连接规划、控制与仿真验证；但需核对Aero Hand的动力学参数、物体几何与接触模型，以及是否具备指尖位姿或力反馈用于真机部署。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "可以学什么：优先获取摘要或全文，核对所用多模态触觉传感器型号、软表面参数和模糊伺服控制结构；若条件允许，可在你的平台上复现基本触觉伺服回路，需额外依赖多模态触觉传感器与可测接触力的软表面实验台。"
+              "content": "可以学什么：在MuJoCo等仿真平台复现“运动学参考加残差接触误差策略”的轨迹跟踪，先用手部URDF和少量物体网格；真机部署需额外指尖或物体位姿估计、力触觉传感器，且需核对Aero Hand硬件接口。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "依据：暂无摘要，仅依据标题。"
+              "content": "依据：摘要称OATH用含局部接触误差的结构化观测训练统一残差策略，仿真中恢复58%留出和54%未见DexYCB轨迹，跟踪误差低于2厘米。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "阅读深度：暂无摘要，仅依据标题与来源元数据；未读取正文。"
+              "content": "阅读深度：仅依据标题、摘要、日期及来源元数据；未读取正文。"
             }
           },
           {
@@ -452,10 +369,19 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://doi.org/10.1109/lra.2026.3717172",
+                "url": "https://arxiv.org/abs/2610.14379",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
+                }
+              },
+              {
+                "tag": "button",
+                "type": "default",
+                "url": "https://arxiv.org/pdf/2610.14379",
+                "text": {
+                  "tag": "plain_text",
+                  "content": "PDF"
                 }
               }
             ]
@@ -466,7 +392,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://github.com/suyoutzy/dexterous-paper-digest/blob/main/docs/digests/2026-10-14.md",
+                "url": "https://github.com/suyoutzy/dexterous-paper-digest/blob/main/docs/digests/2026-10-16.md",
                 "text": {
                   "tag": "plain_text",
                   "content": "日报归档 / 其他期刊候选"
@@ -479,7 +405,7 @@
             "elements": [
               {
                 "tag": "plain_text",
-                "content": "按课题关联、摘要方法与学习价值推荐。\n来源：arXiv 与五本期刊的公开元数据。仅依据标题/摘要筛选，未读取正文；作者背景未独立核实。有1篇未能确认为最近7天发表的补充论文。部分检索覆盖受限，详细情况见归档。归档另列2篇相关期刊候选。\n模型：deepseek-flash · 研究方向：灵巧末端设计与控制"
+                "content": "按课题关联、摘要方法与学习价值推荐。\n来源：arXiv 与五本期刊的公开元数据。仅依据标题/摘要筛选，未读取正文；作者背景未独立核实。有1篇未能确认为最近7天发表的补充论文。额外期刊名额暂缺，未用预印本替代。部分检索覆盖受限，详细情况见归档。归档另列2篇相关期刊候选。\n模型：deepseek-flash · 研究方向：灵巧末端设计与控制"
               }
             ]
           }
@@ -487,11 +413,11 @@
       }
     }
   ],
-  "report": "# 灵巧手论文日报 · 2026-10-14\n\n来源：arXiv API 与近期数据库。期刊：Crossref 5/5 个来源刷新成功，回查最近 7 天元数据索引，获得 2729 条期刊记录；索引更新日期不作为发表日期。 最近 30 天发表日期补查 5/5 个来源成功，取得 182 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Robotics and Automation Letters。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。优先最近7天；必要时从最近30天未发送论文补充。前四篇按统一评分选取，另加一篇不同的期刊论文。仅依据标题/摘要与元数据，未读取正文；作者背景未独立核实。本次有1篇近期补充，请结合发表日期阅读。另有2篇相关期刊候选，标题与链接见当天归档。\n\n模型：deepseek-flash；分数是针对个人学习价值的推荐依据，非学术质量认证。\n\n## 1. PACT：多指模仿学习中手部构型与重定向的姿态对齐协同设计技术\n\nPACT: Posture-Aligned Co-Design Technique for Hand Configuration and Retargeting in Multi-Finger Imitation Learning\n\n工作模块：机器人本体与硬件\n\n**作者**：Koyo Sasazaki, Satoshi Funabashi, Pranav Ponnivalavan, Alexander Schmitz, Tetsuya Ogata, Shigeki Sugano（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 发表日期：2026-10-13 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：提出PACT，基于人类抓取姿态联合优化17舵机机器人手的机械参数（连杆长度、关节偏移、安装角度、基座位置）与非线性姿态重定向器（线性人-机器人关节映射、逐关节姿态IK权重、阻尼）。约束舵机干涉、装配间隙和平手突出，使设计可物理装配。制造PACT Hand并在遥操作和模仿学习演示中验证：运动学RMSE 3.9mm（基线LEAP 12.8mm），抓取姿态指尖10mm内（基线21.6%），举升2kg（基线1kg），纸杯变形少7倍，YCB抓取成功率86%（基线64%），IL策略在罐子拾放任务中75%成功率。\n\n**为什么适合你**：你已组装Aero Hand，该文展示如何把机械参数与重定向器联合优化，并考虑舵机干涉和装配约束。可帮助你理解手部构型设计对模仿学习演示质量的影响，以及如何用人类姿态数据指导设计。需注意其依赖17舵机平台和DexYCB数据。\n\n**可积累的实验经验**：用Python搭建简化优化：以你Aero Hand的运动学为约束，用DexYCB子集采样人类姿态，优化线性映射与加权IK参数，比较直接映射与优化后的指尖误差。额外依赖：多指手运动学模型、关节零位/限位标定数据；若真机验证还需指尖位姿测量（如运动捕捉或视觉）。\n\n**依据**：摘要称PACT联合优化17舵机手机械参数与重定向器，用DexYCB约束，运动学RMSE 3.9mm，举升2kg，YCB抓取成功率86%。\n\n[论文](https://arxiv.org/abs/2610.18443)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2610.18443)\n\n## 2. 指尖触觉传感中硬质与软质结构的协同作用\n\nSynergistic Roles of Hard and Soft Structures in Fingertip Tactile Sensing\n\n工作模块：机器人本体与硬件\n\n**作者**：Parvathi Sunilkumar, Ege Cogulu, Thrishantha Nanayakkara（背景权威性未独立核实）\n\n**来源**：Soft Robotics · 发表日期：2026-10-12 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：结合人类探索数据、有限元分析（FEA）和带霍尔效应传感器的软体指尖实验，研究指甲与远端指骨对纹理感知的贡献。人类探索以横向运动为主；FEA显示加入刚性元件改变软组织内部应力模式，横向扫掠应变变异性更高，香农熵比达1.96。机器人纹理分类中，仅加指甲提升22%，仅加骨提升51%，两者结合提升超88%。\n\n**为什么适合你**：你研究灵巧末端，触觉传感设计直接影响抓取与操作信号质量。该文通过FEA和软指尖实验说明硬质结构（指甲/指骨）如何增强纹理信号，可帮助你思考指尖软硬材料搭配与传感器布局。需核对Aero Hand指尖是否便于加装类似霍尔传感器。\n\n**可积累的实验经验**：用有限元软件建立软指尖模型，分别加入刚性指甲和指骨，在横向与纵向扫掠下比较应变变异性；或在软指尖上装霍尔传感器做纹理分类对比。额外依赖：软材料参数、霍尔传感器或触觉阵列、纹理样本与分类流程。\n\n**依据**：摘要称结合人类数据、FEA与带霍尔传感器的软指尖实验，发现加指甲和指骨分别提升纹理分类22%和51%，两者结合提升超88%。\n\n[论文](https://doi.org/10.1177/21695172261496958)\n\n## 3. 面向灵巧抓取分类的边缘原生时序-图双专家推理\n\nEdge-Native Temporal--Graph Dual-Expert Inference for Dexterous Grasp Classification\n\n工作模块：感知与状态估计\n\n**作者**：Jiajian Zheng, Bin Zhang, Wen Fan, Yanan Liu（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 发表日期：2026-10-10 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：提出边缘原生流水线，仅用内置关节角和预标定执行器负载反馈，识别被抓物体并预测每指独立停止事件。四样本及其一阶差分组成4×20接触演化窗口。双专家架构DualExpert：时序卷积网络（TCN）建模短期接触演化并输出五个停止概率，图滤波网络（FGFN）编码手指拓扑仅用于物体分类，固定0.7/0.3融合。225次留出试验达93.78%轨迹级分类准确率，TCN停止路径F1 95.25%。边缘部署保持93.78%分类和94.84%停止F1，平均推理2.890ms，采样到停止延迟9.172ms；50次物理试验识别96.00%，抓取成功98.00%，功耗约0.80W。\n\n**为什么适合你**：你关注灵巧手控制，该文展示仅用关节角和执行器负载（无需密集触觉阵列）实现物体识别与逐指停止预测，有助于理解本体感知在抓取状态估计中的作用，并为边缘部署提供参考。需核对你的Aero Hand能否读取关节角和执行器负载。\n\n**可积累的实验经验**：采集多指手抓取不同物体时的关节角与执行器负载序列，按4样本窗口构造一阶差分特征，训练轻量TCN做逐指停止预测，并与固定阈值基线比较。额外依赖：可读关节角/负载的舵机或电机驱动器，以及多物体抓取实验平台。\n\n**依据**：摘要称仅用关节角和预标定执行器负载，双专家架构实现93.78%轨迹级分类与95.25%停止F1，边缘推理2.890ms，物理试验抓取成功98.00%。\n\n[论文](https://arxiv.org/abs/2610.14926)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2610.14926)\n\n## 4. DexFLEX：面向命令引导灵巧操作的接触感知基础控制器\n\nDexFLEX: Contact-Aware Foundation Controller for Command-Guided Dexterity\n\n工作模块：运动规划与控制\n\n**作者**：Weikang Wan, Zeyu Lai, Jianyu Hou, Yuchen Zhou, Jiawei Fu, Henrik I Christensen, Hao Su（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 发表日期：2026-10-09 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：提出接触感知基础控制器DexFLEX，将上游指尖运动草案转化为接触一致的关节命令。不把草案当作轨迹复制，而是视为意图证据：从当前触觉-本体状态出发，提议短时域运动块，预测其接触后果，选择最跟随命令且保持未来接触稳定的候选。推理时用Draft-Dream-Select结合纯先验提议（恢复）与草案种子提议（响应），解码为可执行关节空间目标。在退化命令仿真、真机共享控制和视觉运动策略学习中，同一训练控制器无需重训练提升鲁棒性：真机遥操作成功率29.2%到78.3%，策略学习成功率46.7%，为直接关节动作预测3.5倍，仅先验修正1.56倍。\n\n**为什么适合你**：你学习位置/力/阻抗控制，该文提供一种接触感知的控制器框架，将运动意图与接触稳定性结合，可能启发你在Aero Hand上实现类似“命令+接触修正”的控制层。需注意其依赖触觉-本体状态，你要核对Aero Hand能否提供触觉或力反馈。\n\n**可积累的实验经验**：在MuJoCo中建立多指手接触场景，实现简化版Draft-Dream-Select：给定指尖运动草案，采样短时域关节目标，用接触仿真预测稳定性，选择代价最小者执行。额外依赖：接触传感器仿真或真机触觉/力传感反馈。\n\n**依据**：摘要称DexFLEX将指尖运动草案作为意图证据，预测接触后果并选择候选，真机遥操作成功率从29.2%提升至78.3%，策略学习成功率46.7%。\n\n[论文](https://arxiv.org/abs/2610.14372)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2610.14372)\n\n## 5. 基于多模态触觉传感器的软表面自适应模糊触觉伺服\n\nAdaptive Fuzzy Tactile Servoing on Soft Surfaces With a Multimodal Tactile Sensor\n\n工作模块：运动规划与控制\n\n**作者**：Pengwen Xiong, Jiangang Ouyang, Qi Wei, Yuhua Song, Aiguo Song（背景权威性未独立核实）\n\n**来源**：IEEE Robotics and Automation Letters · 发表日期：2026-09 · 阅读范围：暂无摘要，仅依据标题与来源元数据；未读取正文。\n\n**核心方法**：暂无摘要，仅依据标题：该文研究在多模态触觉传感器支持下，于软表面上进行自适应模糊触觉伺服。\n\n**为什么适合你**：你关注触觉反馈与柔顺控制，标题表明该文研究软表面上的自适应模糊触觉伺服，可能涉及触觉传感器与伺服控制结合；但缺少摘要，需进一步核对全文以确认方法、传感器类型和实验条件。\n\n**可积累的实验经验**：优先获取摘要或全文，核对所用多模态触觉传感器型号、软表面参数和模糊伺服控制结构；若条件允许，可在你的平台上复现基本触觉伺服回路，需额外依赖多模态触觉传感器与可测接触力的软表面实验台。\n\n**依据**：暂无摘要，仅依据标题。\n\n[论文](https://doi.org/10.1109/lra.2026.3717172)\n\n## 其他相关期刊论文\n\n以下仅列元数据，未进入本次五篇精选；供回查，未进行正文阅读。\n\n- [A Bioinspired Multimodal Soft Gripper With Intuitive Teleoperation and Distal Sensing for Constrained-Space Manipulation](https://doi.org/10.1109/lra.2026.3726374) · IEEE Robotics and Automation Letters · 2026-10\n- [FG-CLTP: Fine-Grained Contrastive Language Tactile Pretraining for Robotic Manipulation](https://doi.org/10.1109/lra.2026.3711368) · IEEE Robotics and Automation Letters · 2026-09\n",
+  "report": "# 灵巧手论文日报 · 2026-10-16\n\n来源：arXiv API 与近期数据库。期刊：Crossref 5/5 个来源刷新成功，回查最近 7 天元数据索引，获得 2341 条期刊记录；索引更新日期不作为发表日期。 最近 30 天发表日期补查 5/5 个来源成功，取得 187 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Robotics and Automation Letters。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。额外期刊名额不足，补查最近90天期刊。期刊：Crossref 5/5 个来源刷新成功，回查最近 7 天元数据索引，获得 2622 条期刊记录；索引更新日期不作为发表日期。 最近 90 天发表日期补查 5/5 个来源成功，取得 482 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Robotics and Automation Letters。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。优先最近7天；必要时从最近30天未发送论文补充。前四篇按统一评分选取，另加一篇不同的期刊论文。额外期刊名额已扩大到最近90天检索。本次没有找到额外合格且未发送的期刊论文，期刊保留名额暂缺，不用预印本替代。仅依据标题/摘要与元数据，未读取正文；作者背景未独立核实。本次有1篇近期补充，请结合发表日期阅读。本次达到推荐门槛的论文有4篇。另有2篇相关期刊候选，标题与链接见当天归档。\n\n模型：deepseek-flash；分数是针对个人学习价值的推荐依据，非学术质量认证。\n\n## 1. SoTa：用于灵巧操作的柔性触觉皮肤\n\nSoTa: Soft Tactile Skins for Dexterous Manipulation\n\n工作模块：机器人本体与硬件\n\n**作者**：Jingyun Yang, Baiyu Shi, Timothy Yu, Haitian Liu, Alberta Longhini, Weichen Wang, Rika Antonova, Zhenan Bao, Jeannette Bohg（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 发表日期：2026-10-01 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：摘要提出SoTa低成本电容触觉皮肤，覆盖人手和机器人手，在对应手指与手掌区域保持共享的202 taxels布局。多层结构结合织物电极，可自制薄软皮肤，材料成本低于10美元/片。摘要称1万次加载-卸载循环后保留超97%初始响应跨度，1280次紧握折叠循环轨迹保持连续。共享布局支持人-机器人共同训练和统一触觉编码器，无需学习跨传感器映射。在三个接触丰富操作任务中，触觉观测提升分布内成功率；固定机器人演示预算下加入人类演示使八个评估条件平均成功率从22.8%到45.9%，五个分布外条件均提升。计划开源制造与操作资源。\n\n**为什么适合你**：对已组装Aero Hand的读者，可作为触觉皮肤硬件、标定与人机数据协同入门：理解全手覆盖、共享布局、低成本制造和耐久测试指标；但需核对你的手型可否适配202 taxel布局及电容读出电路。\n\n**可积累的实验经验**：先根据摘要与开源计划核对皮肤读出接口和供电；若平台无触觉采集，可用电容传感开发板加单指皮肤做加载-卸载标定，再评估与Aero Hand指节或手掌几何适配；需额外电容采集与力标定装置。\n\n**依据**：摘要称共享202 taxel布局的柔性电容皮肤支持人机共同训练，且加入人类演示使平均成功率从22.8%升至45.9%。\n\n[论文](https://arxiv.org/abs/2610.02338)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2610.02338)\n\n## 2. 力调制灵巧性：面向接触丰富操作的统一柔顺控制\n\nForce-Modulated Dexterity: Unified Compliance for Contact-Rich Manipulation\n\n工作模块：运动规划与控制\n\n**作者**：Ying Yuan, David Held, Jitendra Malik, Haozhi Qi（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 发表日期：2026-10-12 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：摘要提出FOMO-Dex统一柔顺公式，用于接触丰富操作。它把名义动作表达在任务几何和接触结构定义的坐标中，在选定方向施加力驱运动修正，其余命令分量保持不变。在取卡、剪纸、拧螺丝、螺母螺栓装配中，相比刚性控制减少过大接触力。用户研究表明操作者短暂练习后每小时收集更多成功演示。策略学习方面，模仿修正动作比模仿原始操作者命令提高取卡成功率；FOMO-Dex演示训练的策略在螺母螺栓和拧螺丝中实现更多旋转。\n\n**为什么适合你**：为你提供位置、力与阻抗控制接口设计的直观案例：如何把任务几何与接触方向显式用于动作修正，并连接遥操作演示与策略学习；但需核对Aero Hand是否有可用的力、触觉反馈或力控接口，不能假定具备。\n\n**可积累的实验经验**：在仿真中复现“名义动作加选定方向力修正”的极简一维接触模型，先不依赖实体手；若真机验证，需要额外关节力矩或电流估计、末端力传感器，并确认Aero Hand固件是否开放力矩或柔顺接口。\n\n**依据**：摘要称FOMO-Dex在选定方向施加力驱运动修正，取卡等任务中比刚性控制减少过大接触力，并提升演示数据成功率。\n\n[论文](https://arxiv.org/abs/2610.17161)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2610.17161)\n\n## 3. HiFun：高效功能灵巧操作学习的分层框架\n\nHiFun: a Hierarchical Framework for Efficient Functional Dexterous Manipulation Learning\n\n工作模块：高层任务与技能规划\n\n**作者**：Linyi Huang, Guowei Huai, Weibin Liu, Shulong Jiang, Ping Tan, Weixuan Zhang, Hui Zhang, Jie Song（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 发表日期：2026-10-14 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：摘要提出HiFun，面向功能灵巧操作的真实世界分层强化学习框架。关键思路是把控制复杂度解耦为功能手部技能，用于精确接触执行，以及臂手协调策略，用于手臂控制与手部技能激活。这种设计支持实时人类干预以学习反应式恢复，并用动态运动基元增强高效数据收集。在两个灵巧手、六个真实世界任务上，摘要称一小时内在线训练平均成功率达98.3%，并对动态扰动保持鲁棒。\n\n**为什么适合你**：对灵巧手控制背景，展示如何将高自由度手部接触与手臂运动分层，减少全臂手空间演示成本，并加入人类干预和DMP；需要核对Aero Hand可提供的底层技能接口、臂手平台与实时控制频率。\n\n**可积累的实验经验**：先在仿真或单任务真机上定义“手部原语技能”和“手臂激活策略”两层接口，记录能否实时干预；真机需额外运动捕捉或视觉位姿反馈、机械臂和手部底层SDK，且须核对Aero Hand是否支持所需位置或力指令接口。\n\n**依据**：摘要称HiFun将控制解耦为手部功能技能与臂手协调策略，在两款灵巧手六个真实任务上一小时在线训练平均成功率达98.3%。\n\n[论文](https://arxiv.org/abs/2610.19518)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2610.19518)\n\n## 4. OATH：面向灵巧手的物体无关跟踪，实现快速基于物理的重定向\n\nOATH: Object-Agnostic Tracking for Dexterous Hands, Enabling Rapid Physics-based Retargeting\n\n工作模块：运动规划与控制\n\n**作者**：Solvin Sigurdson, Prasanna Sriganesh, Juan Borbon, Joel Burdick, Dingqi Zhang, Jiuguang Wang（背景权威性未独立核实）\n\n**来源**：arXiv 预印本 · 发表日期：2026-10-09 · 阅读范围：仅依据标题、摘要、日期及来源元数据；未读取正文。\n\n**核心方法**：摘要把基于物理的重定向重新表述为残差学习问题，提出结构化状态表示以实现跨物体零样本泛化。观测空间包含局部接触误差信号，引导每个机器人连杆到物体表面对应目标坐标，从而用单一统一残差策略抓取未见新物体几何。在仿真中沿运动学参考轨迹滚动该策略，得到物理重定向器OATH。摘要称每秒钟参考轨迹仅需0.4秒计算，达到2.4倍快于实时，相比采样方法计算量降低60至350倍。恢复58%留出和54%未见物体DexYCB轨迹，跟踪误差低于2厘米。\n\n**为什么适合你**：可帮助你理解人手演示到多指手轨迹的重定向、接触误差表征和残差强化学习，连接规划、控制与仿真验证；但需核对Aero Hand的动力学参数、物体几何与接触模型，以及是否具备指尖位姿或力反馈用于真机部署。\n\n**可积累的实验经验**：在MuJoCo等仿真平台复现“运动学参考加残差接触误差策略”的轨迹跟踪，先用手部URDF和少量物体网格；真机部署需额外指尖或物体位姿估计、力触觉传感器，且需核对Aero Hand硬件接口。\n\n**依据**：摘要称OATH用含局部接触误差的结构化观测训练统一残差策略，仿真中恢复58%留出和54%未见DexYCB轨迹，跟踪误差低于2厘米。\n\n[论文](https://arxiv.org/abs/2610.14379)\n\n[PDF（按需自行打开）](https://arxiv.org/pdf/2610.14379)\n\n## 其他相关期刊论文\n\n以下仅列元数据，未进入本次五篇精选；供回查，未进行正文阅读。\n\n- [A Bioinspired Multimodal Soft Gripper With Intuitive Teleoperation and Distal Sensing for Constrained-Space Manipulation](https://doi.org/10.1109/lra.2026.3726374) · IEEE Robotics and Automation Letters · 2026-10\n- [FG-CLTP: Fine-Grained Contrastive Language Tactile Pretraining for Robotic Manipulation](https://doi.org/10.1109/lra.2026.3711368) · IEEE Robotics and Automation Letters · 2026-09\n",
   "usage": {
-    "input_tokens": 19252,
-    "output_tokens": 25595,
-    "cached_tokens": 4096,
+    "input_tokens": 19017,
+    "output_tokens": 22666,
+    "cached_tokens": 3840,
     "requests": 7
   }
 }
