@@ -1,20 +1,17 @@
 {
   "version": 1,
-  "batch_id": "52e21f861598a34360d6bbeb",
-  "date": "2026-10-16",
-  "status": "complete",
-  "manual_extra": true,
-  "archive_run_id": "38881505934-1",
-  "attempt_run_id": "38881505934-1",
+  "batch_id": "04aeb8cd628ee29c963dd726",
+  "date": "2026-10-18",
+  "status": "inflight",
+  "manual_extra": false,
+  "archive_run_id": "",
+  "attempt_run_id": "39101507216-1",
   "paper_ids": [
-    "arxiv:2610.07681",
-    "arxiv:2610.19155",
-    "arxiv:2609.20107",
-    "arxiv:2610.21180"
+    "arxiv:2610.07525",
+    "arxiv:2610.04363",
+    "arxiv:2610.10855"
   ],
-  "acknowledged_cards": [
-    0
-  ],
+  "acknowledged_cards": [],
   "cards": [
     {
       "msg_type": "interactive",
@@ -26,7 +23,7 @@
           "template": "blue",
           "title": {
             "tag": "plain_text",
-            "content": "灵巧手论文日报 · 2026-10-16"
+            "content": "灵巧手论文日报 · 2026-10-18"
           }
         },
         "elements": [
@@ -34,21 +31,21 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "今日精选 4 篇。"
+              "content": "今日精选 3 篇。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "1. EigenDEXplore：以人体先验结构化探索的灵巧操作\nEigenDEXplore: Structured Exploration for Dexterous Manipulation with Human Priors"
+              "content": "1. ReDex：通过手指级柔顺交互修复仿真到真实的灵巧策略\nReDex: Repairing Sim-to-Real Dexterous Policies by Finger-Level Compliant Interaction"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "工作模块：灵巧操作与策略学习、运动规划与控制"
+              "content": "工作模块：灵巧操作与策略学习、运动规划与控制、感知与状态估计"
             }
           },
           {
@@ -62,7 +59,7 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "首次发布日期：2026-10-06；作者：Harsh Gupta, Tyler Ga Wei Lum, Changhao Wang, Chuer Pan, C. Karen Liu, Jeannette Bohg, Shuran Song"
+              "content": "首次发布日期：2026-10-05；作者：Jinzhou Li, Hadi Tabatabaee, Kelin Yu, Yuyin Sun, Cheng-Hao Kuo, Roberto Martín-Martín, Nima Fazeli, X. Alice Wu, Xianyi Cheng"
             }
           },
           {
@@ -71,7 +68,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2610.07681",
+                "url": "https://arxiv.org/abs/2610.07525",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
@@ -80,7 +77,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/pdf/2610.07681",
+                "url": "https://arxiv.org/pdf/2610.07525",
                 "text": {
                   "tag": "plain_text",
                   "content": "PDF"
@@ -92,28 +89,28 @@
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 灵巧操作是高维优化问题，有效行为需要多关节协调。RL与采样轨迹优化通常对每个关节施加独立高斯扰动，难以采样到协调构型；已有方法用人体数据学低维协同动作空间，却限制了通用操作所需的表达力，或叠加关节动作来恢复表达力，但增加了维度与冗余。收益究竟来自协调动作表示、探索噪声还是维度变化尚不清楚。\n- **核心思路：** 作者通过对比实验发现，人体运动先验的主要作用是塑造探索分布，而非改变动作表示；据此提出EigenDEXplore，在完全保留关节空间动作的前提下，沿人体运动导出的特征向量方向加入相关扰动，与独立关节噪声共同构成采样分布。\n- **实现方法：**\n  - 将EgoSuite人体手部动作重定向到各机器人手，镜像双手到统一坐标系后对关节角做PCA，取解释90%方差的前k个主成分构成特征基E（Sharpa 22关节得k=9，XHand 12关节得k=6）。\n  - 采样规则为q\\*=a\\_q\\+σ\\_q⊙η\\_q\\+E^T\\(σ\\_e⊙η\\_e\\)，动作维度仍为d；PPO学习σ\\_q与σ\\_e而E固定，部署时确定性执行均值并丢弃E。\n  - 在SPIDER轨迹优化中保持关节空间轨迹表示与目标不变，仅用同一噪声替换候选轨迹的扰动项。"
+              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 仿真训练的灵巧策略因接触时序与力调节误差难以迁移到真实手；现有末端或手臂级纠正难以修正单指接触，操作者也难直接感知接触力。\n- **核心思路：** 核心思想是失败通常是局部的：冻结基策略保留多指协同，只让操作者柔顺纠正失效手指，并用指尖力重建监督。\n- **实现方法：**\n  - 在Isaac Sim按RMA范式训练仅用本体感知的基策略：先训练PPO教师，再蒸馏适应模块。\n  - 真机执行时对选定手指降低位置增益并覆盖目标，基策略继续控制其余手指，记录关节位置、目标与指尖力。\n  - 离线用雅可比和虚拟刚度将力转为关节目标偏移，平滑拼接后以动作分块BC训练力条件策略。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**2. 实验结果与局限**\n- **实验设置：** 仿真RL（SimToolReal、DeXtreme、DexMachina）与SPIDER轨迹优化，覆盖六种灵巧手，并做真机部署。\n- **关键结果：** SimToolReal固定9B帧预算下连续成功数为10\\.6，关节空间基线为7\\.9；延长训练至60B帧并收紧容差后为14\\.1，基线仅4\\.9。\n- **关键结果：** DeXtreme 2B帧下连续成功数12\\.3，关节空间基线为8\\.8，且更早推进域随机化课程。\n- **关键结果：** SPIDER中六个手平均重定向代价下降16%，Wuji降31%、Sharpa降25%，高自由度手增益最大。\n- **关键结果：** 真机上SimToolReal四项工具任务平均进度由33%升至82%，DeXtreme连续成功数由8\\.45升至11\\.90。\n- **局限（作者指出）：** 使用固定线性基，数据中未出现的协调模式与非线性协同只能靠独立关节噪声探索；先验依赖运动学重定向，对手部形态与人差异较大者可能效果有限，且低自由度手增益较小。"
+              "content": "**2. 实验结果与局限**\n- **实验设置：** 真机XHAND1，翻转与旋转两任务五物体，每物体25次自主试验。\n- **关键结果：** Object Flipping总体成功率由14%升至86%（两物体）。\n- **关键结果：** Screwdriver Rotation平均进度由26\\.0%升至95\\.3%（三物体）。\n- **局限（作者指出）：** 仅两种手内技能与单一硬件平台；磁传感器漂移会削弱力标签，过度或时机不当干预会破坏手指协调。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**3. 关键术语**\n- **Principal Component Analysis \\(PCA\\)（主成分分析）：** 提取关节角协方差的主要正交方向；本文作用：构建固定特征基E，作为相关扰动方向。\n- **Kinematic Retargeting（运动学重定向）：** 把人体手动作映射到机器人手关节角；本文作用：使同一人体先验可跨不同灵巧手使用。\n- **Proximal Policy Optimization \\(PPO\\)（近端策略优化）：** 一种常用的策略梯度强化学习算法；本文作用：学习策略均值并优化关节与特征两路噪声标准差。"
+              "content": "**3. 关键术语**\n- **Rapid Motor Adaptation \\(RMA\\)（快速运动适应）：** 从本体感知历史估计动力学潜变量；本文作用：作为仿真基策略训练范式\n- **Behavior Cloning \\(BC\\)（行为克隆）：** 监督拟合观测到动作块；本文作用：将纠正轨迹蒸馏为力条件策略\n- **Finger-Level Compliant Control（手指级柔顺控制）：** 降低选定关节刚度与力矩上限；本文作用：允许操作者只纠正失效手指"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 将人体先验用于塑造探索噪声分布而非压缩动作空间，是提升高维协调探索效率的低成本思路，可迁移到其他高维机器人学习的噪声设计。\n- **阅读建议：** 重点精读。3\\.2节噪声采样公式与图1的动作空间对比，4\\.1与4\\.4的消融设计，图3、图6的跨手结果。"
+              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 局部接触修复与力感知重标注能以少量真机数据弥补仿真缺口，可推广到接触丰富装配与工具操作。\n- **阅读建议：** 重点精读。重点看III-B至III-D的纠正、重标注与BC流程，以及表I、II、IV。"
             }
           },
           {
@@ -130,14 +127,14 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "2. FACT：面向人到机器人灵巧操作的多模态力–动作–轨迹基础模型\nFACT: A Multimodal Force-Action-Track Foundation Model for Human-to-Robot Dexterity"
+              "content": "2. TacOT：通过触觉引导最优传输从人类演示学习富接触灵巧操作\nTacOT: Learning Contact-Rich Dexterous Manipulation from Human Demonstrations via Tactile-Guided Optimal Transport"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "工作模块：灵巧操作与策略学习、感知与状态估计、运动规划与控制"
+              "content": "工作模块：灵巧操作与策略学习、感知与状态估计、机器人本体与硬件"
             }
           },
           {
@@ -151,7 +148,7 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "首次发布日期：2026-10-13；作者：Zhi Cao, Yining Hong, Jiaolong Yang, Yejin Choi, Li Fei-Fei, Jiajun Wu, Huang Huang"
+              "content": "首次发布日期：2026-10-03；作者：Xingting Li, Yifan Han, Zijian Lin, Wei Hou, Chuqiao Lyu, Shoujie Li, Wenbo Ding"
             }
           },
           {
@@ -160,7 +157,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2610.19155",
+                "url": "https://arxiv.org/abs/2610.04363",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
@@ -169,7 +166,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/pdf/2610.19155",
+                "url": "https://arxiv.org/pdf/2610.04363",
                 "text": {
                   "tag": "plain_text",
                   "content": "PDF"
@@ -181,28 +178,28 @@
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 灵巧操作依赖接触力反馈，但现有人类示范数据集多只记录视觉与手部动作而缺失力，机器人端力数据采集又昂贵；已有触觉策略多把力当作输入或量化历史，动作与接触动力学的关系保持隐式。\n- **核心思路：** 提出FACT级联式力感知基础模型：先用未来视频与视觉轨迹生成粗动作，再让连续未来指尖力与动作后缀在同一个去噪过程中互相塑造；力从观测变成预测目标。\n- **实现方法：**\n  - 构建EgoForce：三目自拍相机加双触觉手套采集约两千小时人类示范，用气动气囊自动标定把A/D读数换算为物理力。\\[E4\\]\n  - 轨迹引导粗规划器以Wan2\\.2视频DiT用逐token流匹配联合去噪未来视频、视觉轨迹与动作块，在τ=0\\.4处交接。\\[E12\\]\n  - 力–动作联合精修器用双向注意力共同去噪动作后缀与连续未来指尖力，观测触觉作干净上下文，粗记忆经缓存交叉注意力复用。\\[E18\\]"
+              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 现有从人类演示迁移灵巧操作的方法多依赖视觉外观或末端运动相似性，难以区分动作相近但接触状态与力分布不同的片段，导致人-机对应不可靠。\n- **核心思路：** TacOT把对应关系视为交互一致的行为匹配，用动作-触觉联合动态筛选示范对，并以其引导共享策略潜空间中的软最优传输对齐，而非逐帧配对。\n- **实现方法：**\n  - 匹配传感系统以30 Hz采集RGB、12维手部/末端运动及15维指尖力并统一表示。\\[E10\\]\\[E13\\]\\[E14\\]\n  - 流匹配策略编码多模态观测生成64步动作块，并与Sinkhorn软OT联合优化。\\[E14\\]\\[E19\\]\n  - 创新点：动作-触觉DTW选交互一致示范对并降低其OT传输代价；DTW/OT仅训练用。\\[E17\\]\\[E18\\]\\[E19\\]\\[E20\\]"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**2. 实验结果与局限**\n- **实验设置：** 双臂YAM站加Sharpa Wave手，10项真机接触任务，基线π0\\.5与T-Rex。\n- **关键结果：** 在移液、开试管帽、多物体抓取三项代表性任务上成功率40/80/40%，T-Rex为0/20/0%，π0\\.5为0/10/0%。\n- **关键结果：** 竖琴任务10个音中清晰发声6\\.7个，T-Rex为2\\.1个、π0\\.5为0\\.5个。\n- **关键结果：** 预训练去掉人类示范力监督后，开试管帽成功率由80%降至0%，移液由40%降至20%。\n- **局限（作者指出）：** 作者报告失败集中于接触层面，如调液量任务中半数试验始终未能接触到旋钮。\n- **局限（基于证据分析）：** 评测只覆盖单一双臂平台、每任务十次真机rollout，跨平台与跨具身泛化尚未验证。"
+              "content": "**2. 实验结果与局限**\n- **实验设置：** UR5-XHand四任务闭环成功率，30 Hz\n- **关键结果：** 分布内Tissue/Wiping/Egg/Block成功率为93%/83%/73%/80%，均为最佳或并列最佳。\n- **关键结果：** 相比动作引导OT，TacOT分布内最高提升17个百分点，OOD最高提升20个百分点。\n- **局限（作者指出）：** 作者指出当前仅固定机器人本体，且仅用RGB、缺乏显式三维几何。\n- **局限（基于证据分析）：** OOD每任务仅一种配置、15次机器人试验，统计覆盖有限。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**3. 关键术语**\n- **Flow Matching（流匹配）：** 用噪声到数据的插值训练模型预测速度场，可一步式生成连续量；本文作用：统一去噪视频、轨迹、动作与未来力，是全模型训练目标基础。\n- **Visual Track（视觉点轨迹）：** 在图像序列中跟踪指定点的二维运动路径；本文作用：提供与具身无关的任务表示，约束粗动作并促进人机知识迁移。\n- **Force–Action Joint Refiner（力–动作联合精修器）：** 把动作后缀与未来指尖力放进同一次去噪中相互条件；本文作用：在粗规划之后实现接触力感知的细粒度执行。"
+              "content": "**3. 关键术语**\n- **Action–Tactile Dynamic Time Warping \\(DTW\\)（动作–触觉动态时间规整）：** 按时间对齐动作与触觉序列并度量差异；本文作用：用于筛选交互一致的人-机示范对\n- **Soft Optimal Transport \\(OT\\)（软最优传输）：** 以熵正则求多对多软匹配；本文作用：在策略潜空间对齐人-机表示\n- **Conditional Flow Matching \\(FM\\)（条件流匹配）：** 学习从噪声到动作块的连续速度场；本文作用：作为多模态策略的动作生成目标"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 把连续未来力设为生成目标并与动作共同去噪，可迁移到其他接触密集操作与力控策略设计。\n- **阅读建议：** 选择性阅读。第IV-A、IV-B节的级联去噪与缓存交叉注意力，以及表I、表II的力监督消融。"
+              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 触觉不仅作观测，还可作跨本体对应的监督信号；可迁移到多模态示范匹配与策略预训练。\n- **阅读建议：** 重点精读。III-D与图3的触觉引导OT流程，表I/II的ID与OOD对比。"
             }
           },
           {
@@ -219,103 +216,14 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "3. AnyViewDex：基于RGB观测的视角不变灵巧操作\nAnyViewDex: View-Invariant Dexterous Manipulation from RGB Observations"
+              "content": "3. OmniHOI：从单目人类视频生成灵巧手-物交互轨迹\nOmniHOI: Dexterous Hand-Object Interaction from Monocular Human Video"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "工作模块：灵巧操作与策略学习、感知与状态估计、建模、辨识与仿真"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "来源：arXiv"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "首次发布日期：2026-09-17；作者：Soham Patil, Om Sanjay Gunjal, Sourabh Bhosale, Arhan Chavare, Ramandeep Singh Hora, Spandan Roy"
-            }
-          },
-          {
-            "tag": "action",
-            "actions": [
-              {
-                "tag": "button",
-                "type": "default",
-                "url": "https://arxiv.org/abs/2609.20107",
-                "text": {
-                  "tag": "plain_text",
-                  "content": "论文"
-                }
-              },
-              {
-                "tag": "button",
-                "type": "default",
-                "url": "https://arxiv.org/pdf/2609.20107",
-                "text": {
-                  "tag": "plain_text",
-                  "content": "PDF"
-                }
-              }
-            ]
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "lark_md",
-              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 多指灵巧操作的视觉运动策略对相机视角高度敏感；依赖RGB-D或点云虽可缓解，却引入测试时深度硬件、标定和噪声问题。\n- **核心思路：** AnyViewDex在仿真训练中把几何知识注入视觉表征，使策略部署时仅用未标定单目RGB与本体感受即可视角不变控制。\n- **实现方法：**\n  - 用ResNet-18编码RGB并全局池化为1D嵌入，以InfoNCE多视角对比对齐（已有技术）。\n  - 作者创新是训练时加特权3D辅助头，回归物体绝对世界坐标，以MSE锚定全局嵌入、缓解空间坍塌；LSTM或帧堆叠聚合时序。\n  - 部署丢弃辅助头与特权信息，仅用单目RGB和本体感受，将状态送入RL或学生-教师蒸馏策略零样本输出动作。"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "lark_md",
-              "content": "**2. 实验结果与局限**\n- **实验设置：** 仿真Maniwhere四任务与Isaac Lab蒸馏；真机xArm7\\+LEAP Hand。\n- **关键结果：** 真机零样本抓取达76\\.7%（368/480），在8个未见物体和6个未标定视角下，DR-only基线仅30\\.2%（145/480）。\n- **关键结果：** 仿真Close Dex达92\\.1%，高于RGB-D Maniwhere的81\\.5%；Lift Cube Dex仅53\\.0%，低于MV-MWM的78\\.0%。\n- **关键结果：** 蒸馏中相对特权教师恢复61–72%能力，DR-only为33–49%，去掉辅助损失≤29%，去掉InfoNCE≤21%。\n- **局限（作者指出）：** 全局池化丢弃二维空间网格，危及小物体跟踪；单坐标回归难扩展至杂乱多目标。\n- **局限（作者指出）：** 未将几何监督与同维通用稠密辅助目标隔离，归因存在混杂。"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "lark_md",
-              "content": "**3. 关键术语**\n- **View-Invariant Representation Learning（视角不变表征学习）：** 学习对未标定相机视角变化不敏感的视觉特征；本文作用：本文核心目标，支撑单目RGB跨视角部署。\n- **Privileged 3D Geometric Supervision（特权3D几何监督）：** 训练时用仿真真值3D坐标作辅助监督；本文作用：锚定对比嵌入，防止全局池化空间坍塌。\n- **InfoNCE Contrastive Alignment（InfoNCE对比对齐）：** 拉近同一状态不同视角嵌入，推远不同时刻嵌入；本文作用：提供跨视角语义不变性基础。\n- **Global Average Pooling（全局平均池化）：** 把卷积特征图压缩成单个1D向量；本文作用：降低控制频率开销，但丢弃二维空间网格。"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "lark_md",
-              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 用仿真特权3D监督为单目RGB表征补几何，可迁移到视角泛化与sim-to-real策略学习。\n- **阅读建议：** 选择性阅读。重点看III-C特权几何正则、IV-F消融与IV-E真机零样本抓取。"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。"
-            }
-          },
-          {
-            "tag": "hr"
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "4. Evo-DexBench：面向灵巧操作相关任务泛化的基准测试\nEvo-DexBench: Benchmarking Generalization across Related Tasks for Dexterous Manipulation"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "工作模块：灵巧操作与策略学习、建模、辨识与仿真、感知与状态估计"
+              "content": "工作模块：运动规划与控制、感知与状态估计、建模、辨识与仿真"
             }
           },
           {
@@ -329,7 +237,7 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "首次发布日期：2026-10-15；作者：Bing Cheng, Yiran Mao, Zewei Ye, Yifan Jin, Xinyi Chen, Ruifeng Tu, Shuhuai Wang, Tao Lin, Zhimu Zhou, Yuxin Du, Fangwei Zhong, Junchi Yan, Bo Zhao"
+              "content": "首次发布日期：2026-10-07；作者：Ting Mao, Yanming Shao, Ziheng Wang, Haoyu Liu, Yiqun Wang, Xuanye Wu, Yao Mu"
             }
           },
           {
@@ -338,7 +246,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2610.21180",
+                "url": "https://arxiv.org/abs/2610.10855",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
@@ -347,7 +255,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/pdf/2610.21180",
+                "url": "https://arxiv.org/pdf/2610.10855",
                 "text": {
                   "tag": "plain_text",
                   "content": "PDF"
@@ -359,28 +267,28 @@
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 现有灵巧操作基准常给过多目标演示，且源-目标差异未受控，难以区分功能交互迁移与任务记忆。\n- **核心思路：** 提出Core-Gen原则：同功能交互相关任务为Core源，少量演示的新任务为Gen目标，并控制源相关性与目标曝光。\n- **实现方法：**\n  - 30个任务分6类功能族，每族4个Core和1个Gen；每任务在3个场景随机实例化。\n  - 用Quest 3 VR遥操作采集，映射到Panda臂与Shadow Hand，每Core 50条、每Gen 8条，共1,248条。\n  - 统一观测、动作与123维触觉接口，在15任务上评测π0\\.5、DP-C、DP-T、KineDex和SmolVLA。"
+              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 单目人-物交互视频蕴含大量灵巧示教，但现有方法要么需任务特定强化学习训练、难以扩展，要么假设干净动捕轨迹，无法直接处理视频；单目深度歧义易把遮挡误判为接触，早期几何误差经重定向放大为机器人手指穿透物体。\n- **核心思路：** 不做策略学习，而是在重建、重定向与物理在环细化三阶段，分别用图像、接触几何与动力学证据直接优化对应表示，在误差传播前就地纠正，而非留给策略吸收。\n- **实现方法：**\n  - 用SAM 3分割手、物体与桌面，MoGe-3估计深度与相机，WiLoR、SAM 3D与FoundationPose给出像素对齐的手物几何；按二阶运动累积量自适应抽取关键帧。\n  - 在关键帧上交替进行遮挡序损失与接触-穿透优化，并用奇偶性检测修复穿薄物体的手指，输出无穿透的MANO手。\n  - 以接触引导的重定向把MANO手映射到机器人手，PCHIP插值成60Hz轨迹，再在MuJoCo滚动时域中用CMA-ES优化关键帧偏移。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**2. 实验结果与局限**\n- **实验设置：** 3个功能族15任务，每任务100回合；Core每任务50条，Gen仅8条。\n- **关键结果：** 标准评测最佳任务平均成功率仅38\\.5%（DP-C），π0\\.5为37\\.9%、KineDex为37\\.5%，无策略全面领先。\n- **关键结果：** 少样本适配中，联合Core\\+Gen训练在两个Gen任务上达20%和46%成功率，优于Full Core→Gen的8%和8%。\n- **关键结果：** 在DishwasherKnob上，功能匹配的Rotational源在π0\\.5、DP-T、KineDex中总体迁移最强，错配源收益较小或不稳定。\n- **局限（作者指出）：** 作者指出评估主要基于特定机器人本体，未系统考察跨本体迁移。\n- **局限（基于证据分析）：** 基准为仿真构建，结论反映仿真环境与所选策略，不能直接外推到真实硬件。"
+              "content": "**2. 实验结果与局限**\n- **实验设置：** 5种手（6–22 DoF）150条轨迹与60段视频，MuJoCo开环回放。\n- **关键结果：** 迁移150条动捕轨迹至五种灵巧手，成功率39–89%，此前迁移方法最高31%。\n- **关键结果：** 60段单目视频端到端成功率53%，VideoManip为28%、Do as I Do为25%。\n- **局限（作者指出）：** 作者指出受单目感知精度尤其是度量尺度估计限制，细化也受视频导出物体几何与物理属性误差影响，真机执行为开环。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**3. 关键术语**\n- **Core-Gen principle（核心-泛化任务对原则）：** 用同功能交互源任务提供知识，用少量演示新任务检验迁移；本文作用：本文基准的组织与评价单元。\n- **Tactile taxel（触觉单元）：** 虚拟触觉点，输出非负法向接触力；本文作用：每手123个，提供接触观测并支撑触觉消融。\n- **VR teleoperation（VR遥操作）：** 通过VR手部追踪采集人类演示并重定向到机器人；本文作用：用于收集1,248条多模态演示。"
+              "content": "**3. 关键术语**\n- **Contact-aware Retargeting（接触感知重定向）：** 保留示教接触区域，把人手动作映射到不同自由度机器人手；本文作用：跨本体迁移的关键，并抑制形态差异导致的穿透。\n- **Physics-in-the-loop Refinement（物理在环细化）：** 在MuJoCo中滚动仿真轨迹，用CMA-ES优化关键帧偏移；本文作用：把插值轨迹变为可执行动作，提升抓取稳定与物体跟踪。\n- **Occlusion-order Loss（遮挡序损失）：** 按像素深度与可见性判断手物前后顺序并惩罚违规；本文作用：在重建阶段消解遮挡与接触的歧义。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 可借鉴用功能交互族控制源-目标相关性，并用Core\\+Gen联合采样缓解少样本过拟合，适合策略泛化基准设计。\n- **阅读建议：** 重点精读。第3节Core-Gen设计与第4\\.3–4\\.4节少样本迁移实验，重点看图3与表4–5。"
+              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 分阶段用各阶段可得证据修正误差、不交给策略吸收，可迁移到跨本体示教迁移与仿真细化研究。\n- **阅读建议：** 重点精读。第3节的三级流水线设计，以及表2、表5的迁移与消融结果。"
             }
           },
           {
@@ -396,7 +304,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://github.com/suyoutzy/dexterous-paper-digest/blob/main/docs/digests/2026-10-16-manual-38881505934-1.md",
+                "url": "https://github.com/suyoutzy/dexterous-paper-digest/blob/main/docs/digests/2026-10-18.md",
                 "text": {
                   "tag": "plain_text",
                   "content": "日报归档 / 其他期刊候选"
@@ -409,7 +317,7 @@
             "elements": [
               {
                 "tag": "plain_text",
-                "content": "按课题关联、摘要方法与学习价值推荐。\n来源：arXiv 与五本期刊。按标题/摘要筛选；入选后优先阅读公开全文，实际资料范围逐篇标注。有2篇未能确认为最近7天发表的补充论文。额外期刊名额暂缺，未用预印本替代。部分检索覆盖受限，详细情况见归档。归档另列2篇相关期刊候选。\n模型：deepseek-flash · 研究方向：灵巧末端设计与控制"
+                "content": "按课题关联、摘要方法与学习价值推荐。\n来源：arXiv 与五本期刊。按标题/摘要筛选；入选后优先阅读公开全文，实际资料范围逐篇标注。本次有1篇未通过内容校验，未推送，保留以后重试。有3篇未能确认为最近7天发表的补充论文。额外期刊名额暂缺，未用预印本替代。部分检索覆盖受限，详细情况见归档。归档另列2篇相关期刊候选。\n模型：deepseek-flash · 研究方向：灵巧末端设计与控制"
               }
             ]
           }
@@ -417,11 +325,11 @@
       }
     }
   ],
-  "report": "# 灵巧手论文日报 · 2026-10-16\n\n来源：arXiv API 与近期数据库。期刊：Crossref 5/5 个来源刷新成功，回查最近 7 天元数据索引，获得 2348 条期刊记录；索引更新日期不作为发表日期。 最近 30 天发表日期补查 5/5 个来源成功，取得 188 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Robotics and Automation Letters。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。额外期刊名额不足，补查最近90天期刊。期刊：Crossref 5/5 个来源刷新成功，回查最近 7 天元数据索引，获得 2629 条期刊记录；索引更新日期不作为发表日期。 最近 90 天发表日期补查 5/5 个来源成功，取得 483 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Robotics and Automation Letters。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。优先最近7天；必要时从最近30天未发送论文补充。前四篇按统一评分选取，另加一篇不同的期刊论文。额外期刊名额已扩大到最近90天检索。本次没有找到额外合格且未发送的期刊论文，期刊保留名额暂缺，不用预印本替代。筛选依据标题/摘要与元数据；入选后优先分析公开全文，实际阅读范围逐篇标注。本次有2篇近期补充，请结合发表日期阅读。本次达到推荐门槛的论文有4篇。另有2篇相关期刊候选，标题与链接见当天归档。\n\n模型：deepseek-flash；分数是针对个人学习价值的推荐依据，非学术质量认证。\n\n## 1. EigenDEXplore：以人体先验结构化探索的灵巧操作\n\nEigenDEXplore: Structured Exploration for Dexterous Manipulation with Human Priors\n\n工作模块：灵巧操作与策略学习、运动规划与控制\n\n**作者**：Harsh Gupta, Tyler Ga Wei Lum, Changhao Wang, Chuer Pan, C\\. Karen Liu, Jeannette Bohg, Shuran Song\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-06\n\n[论文原文](https://arxiv.org/abs/2610.07681)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 灵巧操作是高维优化问题，有效行为需要多关节协调。RL与采样轨迹优化通常对每个关节施加独立高斯扰动，难以采样到协调构型；已有方法用人体数据学低维协同动作空间，却限制了通用操作所需的表达力，或叠加关节动作来恢复表达力，但增加了维度与冗余。收益究竟来自协调动作表示、探索噪声还是维度变化尚不清楚。\n- **核心思路：** 作者通过对比实验发现，人体运动先验的主要作用是塑造探索分布，而非改变动作表示；据此提出EigenDEXplore，在完全保留关节空间动作的前提下，沿人体运动导出的特征向量方向加入相关扰动，与独立关节噪声共同构成采样分布。\n- **实现方法：**\n  - 将EgoSuite人体手部动作重定向到各机器人手，镜像双手到统一坐标系后对关节角做PCA，取解释90%方差的前k个主成分构成特征基E（Sharpa 22关节得k=9，XHand 12关节得k=6）。\n  - 采样规则为q\\*=a\\_q\\+σ\\_q⊙η\\_q\\+E^T\\(σ\\_e⊙η\\_e\\)，动作维度仍为d；PPO学习σ\\_q与σ\\_e而E固定，部署时确定性执行均值并丢弃E。\n  - 在SPIDER轨迹优化中保持关节空间轨迹表示与目标不变，仅用同一噪声替换候选轨迹的扰动项。\n\n### 2. 实验结果与局限\n\n- **实验设置：** 仿真RL（SimToolReal、DeXtreme、DexMachina）与SPIDER轨迹优化，覆盖六种灵巧手，并做真机部署。\n- **关键结果：** SimToolReal固定9B帧预算下连续成功数为10\\.6，关节空间基线为7\\.9；延长训练至60B帧并收紧容差后为14\\.1，基线仅4\\.9。\n- **关键结果：** DeXtreme 2B帧下连续成功数12\\.3，关节空间基线为8\\.8，且更早推进域随机化课程。\n- **关键结果：** SPIDER中六个手平均重定向代价下降16%，Wuji降31%、Sharpa降25%，高自由度手增益最大。\n- **关键结果：** 真机上SimToolReal四项工具任务平均进度由33%升至82%，DeXtreme连续成功数由8\\.45升至11\\.90。\n- **局限（作者指出）：** 使用固定线性基，数据中未出现的协调模式与非线性协同只能靠独立关节噪声探索；先验依赖运动学重定向，对手部形态与人差异较大者可能效果有限，且低自由度手增益较小。\n\n### 3. 关键术语\n\n- **Principal Component Analysis \\(PCA\\)（主成分分析）：** 提取关节角协方差的主要正交方向；本文作用：构建固定特征基E，作为相关扰动方向。\n- **Kinematic Retargeting（运动学重定向）：** 把人体手动作映射到机器人手关节角；本文作用：使同一人体先验可跨不同灵巧手使用。\n- **Proximal Policy Optimization \\(PPO\\)（近端策略优化）：** 一种常用的策略梯度强化学习算法；本文作用：学习策略均值并优化关节与特征两路噪声标准差。\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 将人体先验用于塑造探索噪声分布而非压缩动作空间，是提升高维协调探索效率的低成本思路，可迁移到其他高维机器人学习的噪声设计。\n- **阅读建议：** 重点精读。3\\.2节噪声采样公式与图1的动作空间对比，4\\.1与4\\.4的消融设计，图3、图6的跨手结果。\n\n阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。\n\n[本次阅读资料](https://arxiv.org/pdf/2610.07681)\n\n## 2. FACT：面向人到机器人灵巧操作的多模态力–动作–轨迹基础模型\n\nFACT: A Multimodal Force-Action-Track Foundation Model for Human-to-Robot Dexterity\n\n工作模块：灵巧操作与策略学习、感知与状态估计、运动规划与控制\n\n**作者**：Zhi Cao, Yining Hong, Jiaolong Yang, Yejin Choi, Li Fei-Fei, Jiajun Wu, Huang Huang\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-13\n\n[论文原文](https://arxiv.org/abs/2610.19155)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 灵巧操作依赖接触力反馈，但现有人类示范数据集多只记录视觉与手部动作而缺失力，机器人端力数据采集又昂贵；已有触觉策略多把力当作输入或量化历史，动作与接触动力学的关系保持隐式。\n- **核心思路：** 提出FACT级联式力感知基础模型：先用未来视频与视觉轨迹生成粗动作，再让连续未来指尖力与动作后缀在同一个去噪过程中互相塑造；力从观测变成预测目标。\n- **实现方法：**\n  - 构建EgoForce：三目自拍相机加双触觉手套采集约两千小时人类示范，用气动气囊自动标定把A/D读数换算为物理力。\\[E4\\]\n  - 轨迹引导粗规划器以Wan2\\.2视频DiT用逐token流匹配联合去噪未来视频、视觉轨迹与动作块，在τ=0\\.4处交接。\\[E12\\]\n  - 力–动作联合精修器用双向注意力共同去噪动作后缀与连续未来指尖力，观测触觉作干净上下文，粗记忆经缓存交叉注意力复用。\\[E18\\]\n\n### 2. 实验结果与局限\n\n- **实验设置：** 双臂YAM站加Sharpa Wave手，10项真机接触任务，基线π0\\.5与T-Rex。\n- **关键结果：** 在移液、开试管帽、多物体抓取三项代表性任务上成功率40/80/40%，T-Rex为0/20/0%，π0\\.5为0/10/0%。\n- **关键结果：** 竖琴任务10个音中清晰发声6\\.7个，T-Rex为2\\.1个、π0\\.5为0\\.5个。\n- **关键结果：** 预训练去掉人类示范力监督后，开试管帽成功率由80%降至0%，移液由40%降至20%。\n- **局限（作者指出）：** 作者报告失败集中于接触层面，如调液量任务中半数试验始终未能接触到旋钮。\n- **局限（基于证据分析）：** 评测只覆盖单一双臂平台、每任务十次真机rollout，跨平台与跨具身泛化尚未验证。\n\n### 3. 关键术语\n\n- **Flow Matching（流匹配）：** 用噪声到数据的插值训练模型预测速度场，可一步式生成连续量；本文作用：统一去噪视频、轨迹、动作与未来力，是全模型训练目标基础。\n- **Visual Track（视觉点轨迹）：** 在图像序列中跟踪指定点的二维运动路径；本文作用：提供与具身无关的任务表示，约束粗动作并促进人机知识迁移。\n- **Force–Action Joint Refiner（力–动作联合精修器）：** 把动作后缀与未来指尖力放进同一次去噪中相互条件；本文作用：在粗规划之后实现接触力感知的细粒度执行。\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 把连续未来力设为生成目标并与动作共同去噪，可迁移到其他接触密集操作与力控策略设计。\n- **阅读建议：** 选择性阅读。第IV-A、IV-B节的级联去噪与缓存交叉注意力，以及表I、表II的力监督消融。\n\n阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。\n\n[本次阅读资料](https://arxiv.org/html/2610.19155)\n\n## 3. AnyViewDex：基于RGB观测的视角不变灵巧操作\n\nAnyViewDex: View-Invariant Dexterous Manipulation from RGB Observations\n\n工作模块：灵巧操作与策略学习、感知与状态估计、建模、辨识与仿真\n\n**作者**：Soham Patil, Om Sanjay Gunjal, Sourabh Bhosale, Arhan Chavare, Ramandeep Singh Hora, Spandan Roy\n\n**来源**：arXiv 预印本 · **发表日期**：2026-09-17\n\n[论文原文](https://arxiv.org/abs/2609.20107)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 多指灵巧操作的视觉运动策略对相机视角高度敏感；依赖RGB-D或点云虽可缓解，却引入测试时深度硬件、标定和噪声问题。\n- **核心思路：** AnyViewDex在仿真训练中把几何知识注入视觉表征，使策略部署时仅用未标定单目RGB与本体感受即可视角不变控制。\n- **实现方法：**\n  - 用ResNet-18编码RGB并全局池化为1D嵌入，以InfoNCE多视角对比对齐（已有技术）。\n  - 作者创新是训练时加特权3D辅助头，回归物体绝对世界坐标，以MSE锚定全局嵌入、缓解空间坍塌；LSTM或帧堆叠聚合时序。\n  - 部署丢弃辅助头与特权信息，仅用单目RGB和本体感受，将状态送入RL或学生-教师蒸馏策略零样本输出动作。\n\n### 2. 实验结果与局限\n\n- **实验设置：** 仿真Maniwhere四任务与Isaac Lab蒸馏；真机xArm7\\+LEAP Hand。\n- **关键结果：** 真机零样本抓取达76\\.7%（368/480），在8个未见物体和6个未标定视角下，DR-only基线仅30\\.2%（145/480）。\n- **关键结果：** 仿真Close Dex达92\\.1%，高于RGB-D Maniwhere的81\\.5%；Lift Cube Dex仅53\\.0%，低于MV-MWM的78\\.0%。\n- **关键结果：** 蒸馏中相对特权教师恢复61–72%能力，DR-only为33–49%，去掉辅助损失≤29%，去掉InfoNCE≤21%。\n- **局限（作者指出）：** 全局池化丢弃二维空间网格，危及小物体跟踪；单坐标回归难扩展至杂乱多目标。\n- **局限（作者指出）：** 未将几何监督与同维通用稠密辅助目标隔离，归因存在混杂。\n\n### 3. 关键术语\n\n- **View-Invariant Representation Learning（视角不变表征学习）：** 学习对未标定相机视角变化不敏感的视觉特征；本文作用：本文核心目标，支撑单目RGB跨视角部署。\n- **Privileged 3D Geometric Supervision（特权3D几何监督）：** 训练时用仿真真值3D坐标作辅助监督；本文作用：锚定对比嵌入，防止全局池化空间坍塌。\n- **InfoNCE Contrastive Alignment（InfoNCE对比对齐）：** 拉近同一状态不同视角嵌入，推远不同时刻嵌入；本文作用：提供跨视角语义不变性基础。\n- **Global Average Pooling（全局平均池化）：** 把卷积特征图压缩成单个1D向量；本文作用：降低控制频率开销，但丢弃二维空间网格。\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 用仿真特权3D监督为单目RGB表征补几何，可迁移到视角泛化与sim-to-real策略学习。\n- **阅读建议：** 选择性阅读。重点看III-C特权几何正则、IV-F消融与IV-E真机零样本抓取。\n\n阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。\n\n[本次阅读资料](https://arxiv.org/html/2609.20107)\n\n## 4. Evo-DexBench：面向灵巧操作相关任务泛化的基准测试\n\nEvo-DexBench: Benchmarking Generalization across Related Tasks for Dexterous Manipulation\n\n工作模块：灵巧操作与策略学习、建模、辨识与仿真、感知与状态估计\n\n**作者**：Bing Cheng, Yiran Mao, Zewei Ye, Yifan Jin, Xinyi Chen, Ruifeng Tu, Shuhuai Wang, Tao Lin, Zhimu Zhou, Yuxin Du, Fangwei Zhong, Junchi Yan, Bo Zhao\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-15\n\n[论文原文](https://arxiv.org/abs/2610.21180)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 现有灵巧操作基准常给过多目标演示，且源-目标差异未受控，难以区分功能交互迁移与任务记忆。\n- **核心思路：** 提出Core-Gen原则：同功能交互相关任务为Core源，少量演示的新任务为Gen目标，并控制源相关性与目标曝光。\n- **实现方法：**\n  - 30个任务分6类功能族，每族4个Core和1个Gen；每任务在3个场景随机实例化。\n  - 用Quest 3 VR遥操作采集，映射到Panda臂与Shadow Hand，每Core 50条、每Gen 8条，共1,248条。\n  - 统一观测、动作与123维触觉接口，在15任务上评测π0\\.5、DP-C、DP-T、KineDex和SmolVLA。\n\n### 2. 实验结果与局限\n\n- **实验设置：** 3个功能族15任务，每任务100回合；Core每任务50条，Gen仅8条。\n- **关键结果：** 标准评测最佳任务平均成功率仅38\\.5%（DP-C），π0\\.5为37\\.9%、KineDex为37\\.5%，无策略全面领先。\n- **关键结果：** 少样本适配中，联合Core\\+Gen训练在两个Gen任务上达20%和46%成功率，优于Full Core→Gen的8%和8%。\n- **关键结果：** 在DishwasherKnob上，功能匹配的Rotational源在π0\\.5、DP-T、KineDex中总体迁移最强，错配源收益较小或不稳定。\n- **局限（作者指出）：** 作者指出评估主要基于特定机器人本体，未系统考察跨本体迁移。\n- **局限（基于证据分析）：** 基准为仿真构建，结论反映仿真环境与所选策略，不能直接外推到真实硬件。\n\n### 3. 关键术语\n\n- **Core-Gen principle（核心-泛化任务对原则）：** 用同功能交互源任务提供知识，用少量演示新任务检验迁移；本文作用：本文基准的组织与评价单元。\n- **Tactile taxel（触觉单元）：** 虚拟触觉点，输出非负法向接触力；本文作用：每手123个，提供接触观测并支撑触觉消融。\n- **VR teleoperation（VR遥操作）：** 通过VR手部追踪采集人类演示并重定向到机器人；本文作用：用于收集1,248条多模态演示。\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 可借鉴用功能交互族控制源-目标相关性，并用Core\\+Gen联合采样缓解少样本过拟合，适合策略泛化基准设计。\n- **阅读建议：** 重点精读。第3节Core-Gen设计与第4\\.3–4\\.4节少样本迁移实验，重点看图3与表4–5。\n\n阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。\n\n[本次阅读资料](https://arxiv.org/html/2610.21180)\n\n## 其他相关期刊论文\n\n以下仅列元数据，未进入本次五篇精选；供回查，未进行正文阅读。\n\n- [A Bioinspired Multimodal Soft Gripper With Intuitive Teleoperation and Distal Sensing for Constrained-Space Manipulation](https://doi.org/10.1109/lra.2026.3726374) · IEEE Robotics and Automation Letters · 2026-10\n- [FG-CLTP: Fine-Grained Contrastive Language Tactile Pretraining for Robotic Manipulation](https://doi.org/10.1109/lra.2026.3711368) · IEEE Robotics and Automation Letters · 2026-09\n",
+  "report": "# 灵巧手论文日报 · 2026-10-18\n\n来源：arXiv API 与近期数据库。期刊：Crossref 5/5 个来源刷新成功，回查最近 90 天元数据索引，获得 4472 条期刊记录；索引更新日期不作为发表日期。 最近 30 天发表日期补查 5/5 个来源成功，取得 181 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Transactions on Robotics、IEEE Robotics and Automation Letters、The International Journal of Robotics Research。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。额外期刊名额不足，补查最近90天期刊。期刊：Crossref 5/5 个来源刷新成功，回查最近 90 天元数据索引，获得 4739 条期刊记录；索引更新日期不作为发表日期。 最近 90 天发表日期补查 5/5 个来源成功，取得 483 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Transactions on Robotics、IEEE Robotics and Automation Letters、The International Journal of Robotics Research。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。优先最近7天；必要时从最近30天未发送论文补充。前四个名额按统一评分选取，另保留一个不同的期刊论文名额。额外期刊名额已扩大到最近90天检索。本次没有找到额外合格且未发送的期刊论文，期刊保留名额暂缺，不用预印本替代。筛选依据标题/摘要与元数据；入选后优先分析公开全文，实际阅读范围逐篇标注。本次有1篇未通过内容校验，未推送且未标记已发送，保留以后重试。本次有3篇近期补充，请结合发表日期阅读。本次通过内容校验并推送的论文有3篇。另有2篇相关期刊候选，标题与链接见当天归档。\n\n模型：deepseek-flash；分数是针对个人学习价值的推荐依据，非学术质量认证。\n\n## 1. ReDex：通过手指级柔顺交互修复仿真到真实的灵巧策略\n\nReDex: Repairing Sim-to-Real Dexterous Policies by Finger-Level Compliant Interaction\n\n工作模块：灵巧操作与策略学习、运动规划与控制、感知与状态估计\n\n**作者**：Jinzhou Li, Hadi Tabatabaee, Kelin Yu, Yuyin Sun, Cheng-Hao Kuo, Roberto Martín-Martín, Nima Fazeli, X\\. Alice Wu, Xianyi Cheng\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-05\n\n[论文原文](https://arxiv.org/abs/2610.07525)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 仿真训练的灵巧策略因接触时序与力调节误差难以迁移到真实手；现有末端或手臂级纠正难以修正单指接触，操作者也难直接感知接触力。\n- **核心思路：** 核心思想是失败通常是局部的：冻结基策略保留多指协同，只让操作者柔顺纠正失效手指，并用指尖力重建监督。\n- **实现方法：**\n  - 在Isaac Sim按RMA范式训练仅用本体感知的基策略：先训练PPO教师，再蒸馏适应模块。\n  - 真机执行时对选定手指降低位置增益并覆盖目标，基策略继续控制其余手指，记录关节位置、目标与指尖力。\n  - 离线用雅可比和虚拟刚度将力转为关节目标偏移，平滑拼接后以动作分块BC训练力条件策略。\n\n### 2. 实验结果与局限\n\n- **实验设置：** 真机XHAND1，翻转与旋转两任务五物体，每物体25次自主试验。\n- **关键结果：** Object Flipping总体成功率由14%升至86%（两物体）。\n- **关键结果：** Screwdriver Rotation平均进度由26\\.0%升至95\\.3%（三物体）。\n- **局限（作者指出）：** 仅两种手内技能与单一硬件平台；磁传感器漂移会削弱力标签，过度或时机不当干预会破坏手指协调。\n\n### 3. 关键术语\n\n- **Rapid Motor Adaptation \\(RMA\\)（快速运动适应）：** 从本体感知历史估计动力学潜变量；本文作用：作为仿真基策略训练范式\n- **Behavior Cloning \\(BC\\)（行为克隆）：** 监督拟合观测到动作块；本文作用：将纠正轨迹蒸馏为力条件策略\n- **Finger-Level Compliant Control（手指级柔顺控制）：** 降低选定关节刚度与力矩上限；本文作用：允许操作者只纠正失效手指\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 局部接触修复与力感知重标注能以少量真机数据弥补仿真缺口，可推广到接触丰富装配与工具操作。\n- **阅读建议：** 重点精读。重点看III-B至III-D的纠正、重标注与BC流程，以及表I、II、IV。\n\n阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。\n\n[本次阅读资料](https://arxiv.org/html/2610.07525)\n\n## 2. TacOT：通过触觉引导最优传输从人类演示学习富接触灵巧操作\n\nTacOT: Learning Contact-Rich Dexterous Manipulation from Human Demonstrations via Tactile-Guided Optimal Transport\n\n工作模块：灵巧操作与策略学习、感知与状态估计、机器人本体与硬件\n\n**作者**：Xingting Li, Yifan Han, Zijian Lin, Wei Hou, Chuqiao Lyu, Shoujie Li, Wenbo Ding\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-03\n\n[论文原文](https://arxiv.org/abs/2610.04363)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 现有从人类演示迁移灵巧操作的方法多依赖视觉外观或末端运动相似性，难以区分动作相近但接触状态与力分布不同的片段，导致人-机对应不可靠。\n- **核心思路：** TacOT把对应关系视为交互一致的行为匹配，用动作-触觉联合动态筛选示范对，并以其引导共享策略潜空间中的软最优传输对齐，而非逐帧配对。\n- **实现方法：**\n  - 匹配传感系统以30 Hz采集RGB、12维手部/末端运动及15维指尖力并统一表示。\\[E10\\]\\[E13\\]\\[E14\\]\n  - 流匹配策略编码多模态观测生成64步动作块，并与Sinkhorn软OT联合优化。\\[E14\\]\\[E19\\]\n  - 创新点：动作-触觉DTW选交互一致示范对并降低其OT传输代价；DTW/OT仅训练用。\\[E17\\]\\[E18\\]\\[E19\\]\\[E20\\]\n\n### 2. 实验结果与局限\n\n- **实验设置：** UR5-XHand四任务闭环成功率，30 Hz\n- **关键结果：** 分布内Tissue/Wiping/Egg/Block成功率为93%/83%/73%/80%，均为最佳或并列最佳。\n- **关键结果：** 相比动作引导OT，TacOT分布内最高提升17个百分点，OOD最高提升20个百分点。\n- **局限（作者指出）：** 作者指出当前仅固定机器人本体，且仅用RGB、缺乏显式三维几何。\n- **局限（基于证据分析）：** OOD每任务仅一种配置、15次机器人试验，统计覆盖有限。\n\n### 3. 关键术语\n\n- **Action–Tactile Dynamic Time Warping \\(DTW\\)（动作–触觉动态时间规整）：** 按时间对齐动作与触觉序列并度量差异；本文作用：用于筛选交互一致的人-机示范对\n- **Soft Optimal Transport \\(OT\\)（软最优传输）：** 以熵正则求多对多软匹配；本文作用：在策略潜空间对齐人-机表示\n- **Conditional Flow Matching \\(FM\\)（条件流匹配）：** 学习从噪声到动作块的连续速度场；本文作用：作为多模态策略的动作生成目标\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 触觉不仅作观测，还可作跨本体对应的监督信号；可迁移到多模态示范匹配与策略预训练。\n- **阅读建议：** 重点精读。III-D与图3的触觉引导OT流程，表I/II的ID与OOD对比。\n\n阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。\n\n[本次阅读资料](https://arxiv.org/html/2610.04363)\n\n## 3. OmniHOI：从单目人类视频生成灵巧手-物交互轨迹\n\nOmniHOI: Dexterous Hand-Object Interaction from Monocular Human Video\n\n工作模块：运动规划与控制、感知与状态估计、建模、辨识与仿真\n\n**作者**：Ting Mao, Yanming Shao, Ziheng Wang, Haoyu Liu, Yiqun Wang, Xuanye Wu, Yao Mu\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-07\n\n[论文原文](https://arxiv.org/abs/2610.10855)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 单目人-物交互视频蕴含大量灵巧示教，但现有方法要么需任务特定强化学习训练、难以扩展，要么假设干净动捕轨迹，无法直接处理视频；单目深度歧义易把遮挡误判为接触，早期几何误差经重定向放大为机器人手指穿透物体。\n- **核心思路：** 不做策略学习，而是在重建、重定向与物理在环细化三阶段，分别用图像、接触几何与动力学证据直接优化对应表示，在误差传播前就地纠正，而非留给策略吸收。\n- **实现方法：**\n  - 用SAM 3分割手、物体与桌面，MoGe-3估计深度与相机，WiLoR、SAM 3D与FoundationPose给出像素对齐的手物几何；按二阶运动累积量自适应抽取关键帧。\n  - 在关键帧上交替进行遮挡序损失与接触-穿透优化，并用奇偶性检测修复穿薄物体的手指，输出无穿透的MANO手。\n  - 以接触引导的重定向把MANO手映射到机器人手，PCHIP插值成60Hz轨迹，再在MuJoCo滚动时域中用CMA-ES优化关键帧偏移。\n\n### 2. 实验结果与局限\n\n- **实验设置：** 5种手（6–22 DoF）150条轨迹与60段视频，MuJoCo开环回放。\n- **关键结果：** 迁移150条动捕轨迹至五种灵巧手，成功率39–89%，此前迁移方法最高31%。\n- **关键结果：** 60段单目视频端到端成功率53%，VideoManip为28%、Do as I Do为25%。\n- **局限（作者指出）：** 作者指出受单目感知精度尤其是度量尺度估计限制，细化也受视频导出物体几何与物理属性误差影响，真机执行为开环。\n\n### 3. 关键术语\n\n- **Contact-aware Retargeting（接触感知重定向）：** 保留示教接触区域，把人手动作映射到不同自由度机器人手；本文作用：跨本体迁移的关键，并抑制形态差异导致的穿透。\n- **Physics-in-the-loop Refinement（物理在环细化）：** 在MuJoCo中滚动仿真轨迹，用CMA-ES优化关键帧偏移；本文作用：把插值轨迹变为可执行动作，提升抓取稳定与物体跟踪。\n- **Occlusion-order Loss（遮挡序损失）：** 按像素深度与可见性判断手物前后顺序并惩罚违规；本文作用：在重建阶段消解遮挡与接触的歧义。\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 分阶段用各阶段可得证据修正误差、不交给策略吸收，可迁移到跨本体示教迁移与仿真细化研究。\n- **阅读建议：** 重点精读。第3节的三级流水线设计，以及表2、表5的迁移与消融结果。\n\n阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。\n\n[本次阅读资料](https://arxiv.org/html/2610.10855)\n\n## 其他相关期刊论文\n\n以下仅列元数据，未进入本次五篇精选；供回查，未进行正文阅读。\n\n- [A Bioinspired Multimodal Soft Gripper With Intuitive Teleoperation and Distal Sensing for Constrained-Space Manipulation](https://doi.org/10.1109/lra.2026.3726374) · IEEE Robotics and Automation Letters · 2026-10\n- [FG-CLTP: Fine-Grained Contrastive Language Tactile Pretraining for Robotic Manipulation](https://doi.org/10.1109/lra.2026.3711368) · IEEE Robotics and Automation Letters · 2026-09\n",
   "usage": {
-    "input_tokens": 118026,
-    "output_tokens": 38032,
-    "cached_tokens": 41216,
+    "input_tokens": 97158,
+    "output_tokens": 28490,
+    "cached_tokens": 19968,
     "requests": 11
   }
 }
