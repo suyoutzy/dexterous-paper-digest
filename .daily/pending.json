@@ -2,7 +2,7 @@
   "version": 1,
   "batch_id": "04aeb8cd628ee29c963dd726",
   "date": "2026-10-18",
-  "status": "inflight",
+  "status": "complete",
   "manual_extra": false,
   "archive_run_id": "",
   "attempt_run_id": "39101507216-1",
@@ -11,7 +11,9 @@
     "arxiv:2610.04363",
     "arxiv:2610.10855"
   ],
-  "acknowledged_cards": [],
+  "acknowledged_cards": [
+    0
+  ],
   "cards": [
     {
       "msg_type": "interactive",
