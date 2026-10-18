@@ -10,7 +10,8 @@ import unittest
 from unittest.mock import Mock, patch
 
 from daily_digest.pipeline import PipelineError, input_groups, prepare
-from daily_digest.state import load_json, write_json
+from daily_digest.llm import LLMError
+from daily_digest.state import acknowledge_all, load_json, write_json
 from v4_fixtures import v4_row, evidence_text
 
 
@@ -74,7 +75,7 @@ def source_papers():
 
 
 class PrepareBatchIntegrationTests(unittest.TestCase):
-    def run_prepare(self, ranking_scores, summary_transform=None, sources=None, extended_sources=None, long_reading=False, manual_sample=False):
+    def run_prepare(self, ranking_scores, summary_transform=None, sources=None, extended_sources=None, long_reading=False, manual_sample=False, scheduled=False):
         config = {
             "timezone": "Asia/Shanghai", "target_count": 5, "recent_days": 7,
             "fallback_days": 30, "shortlist_limit": 30,
@@ -88,7 +89,7 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
             },
         }
         requests = {"rank": [], "summary": [], "journal_windows": [], "read": []}
-        if manual_sample:
+        if manual_sample or scheduled:
             config["llm"]["summary_batch_size"] = 1
         db = copy.deepcopy(source_papers() if sources is None else sources)
         source_lookup = dict(db, **(extended_sources or {}))
@@ -139,7 +140,7 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
                 patch.dict(os.environ, {
                     "LLM_API_KEY": "mock-key-not-real", "GITHUB_RUN_ID": "test-run",
                     "GITHUB_RUN_ATTEMPT": "1", "GITHUB_OUTPUT": "", "GITHUB_STEP_SUMMARY": "",
-                    "GITHUB_EVENT_NAME": "workflow_dispatch" if manual_sample else "",
+                    "GITHUB_EVENT_NAME": "workflow_dispatch" if manual_sample else "schedule" if scheduled else "",
                 }),
                 patch("daily_digest.pipeline.datetime") as clock,
                 patch("daily_digest.pipeline.ZoneInfo", return_value=timezone(timedelta(hours=8))),
@@ -147,12 +148,18 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
                 patch("daily_digest.pipeline.collect_journals", side_effect=collect_journal_metadata),
                 patch("daily_digest.pipeline.LLMClient", return_value=client),
                 patch("daily_digest.pipeline.read_paper", side_effect=read_selected),
+                patch("daily_digest.pipeline.ensure_off_peak"),
                 patch("daily_digest.pipeline.requests.get", side_effect=AssertionError(
                     "Offline integration must not issue external HTTP requests."
                 )) as external_get,
             ):
                 clock.now.return_value = datetime(2026, 9, 27, 12, tzinfo=timezone(timedelta(hours=8)))
-                prepare(root, config_path, output, preview=True, retry_uncertain=False, force_send=manual_sample)
+                try:
+                    prepare(root, config_path, output, preview=True, retry_uncertain=False, force_send=manual_sample)
+                except (PipelineError, LLMError):
+                    self.assertFalse((output / "pending.json").exists())
+                    self.assertFalse((root / ".daily/state.json").exists())
+                    raise
                 external_get.assert_not_called()
             result = load_json(output / "pending.json")
         rank_ids = [p["paper_id"] for request in requests["rank"] for p in request["candidates"]]
@@ -167,10 +174,65 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
                     for field in ("abstract", "authors", "affiliations", "journal_ref", "doi", "publish_date"):
                         self.assertEqual(item[field], source[field])
         self.assertIn("实际阅读范围逐篇标注", result["report"])
-        if not manual_sample:
+        if not manual_sample and not scheduled:
             self.assertEqual(requests["read"], result["paper_ids"])
         self.assertTrue(all("reading_text" not in p for request in requests["rank"] for p in request["candidates"]))
         return result, requests
+
+    def test_scheduled_evidence_failure_withholds_only_that_paper_and_continues_after_one_retry(self):
+        def unsupported_first(result):
+            if result["papers"][0]["paper_id"] == "arxiv:2609.00011":
+                result["papers"][0]["experiments"]["results"] = [
+                    {"text": "误差为0.01 mm。", "source_ids": ["E1"]}]
+            return result
+
+        result, requests = self.run_prepare({"arxiv:2609.00011": 90, "arxiv:2609.00001": 80},
+            summary_transform=unsupported_first, scheduled=True)
+        self.assertEqual(result["paper_ids"], ["arxiv:2609.00001"])
+        self.assertEqual([p["paper_id"] for request in requests["summary"] for p in request["candidates"]],
+            ["arxiv:2609.00011", "arxiv:2609.00011", "arxiv:2609.00001"])
+        self.assertEqual(len(requests["rank"]), 3)
+        self.assertIn("未通过内容校验", result["report"])
+        self.assertIn("未通过内容校验", json.dumps(result["cards"], ensure_ascii=False))
+        self.assertNotIn("本次手动批次", result["report"])
+        self.assertNotIn("0.01 mm", result["report"])
+        self.assertFalse(result["manual_extra"])
+        state = {"version": 1, "sent_ids": [], "last_sent_date": ""}
+        result["acknowledged_cards"] = list(range(len(result["cards"])))
+        acknowledge_all(state, result)
+        self.assertEqual(state["sent_ids"], ["arxiv:2609.00001"])
+
+    def test_scheduled_all_invalid_papers_fail_without_a_delivery_payload(self):
+        with self.assertRaisesRegex(PipelineError, "No selected paper passed content validation"):
+            self.run_prepare({"arxiv:2609.00001": 80},
+                summary_transform=lambda result: {"papers": []}, scheduled=True)
+
+    def test_failed_extra_journal_is_reported_as_a_missing_slot_and_not_an_unread_extra(self):
+        journal = self.journal_record("10.1109/withheld.1")
+        sources = dict(source_papers(), **{journal["paper_id"]: journal})
+        ranking = {f"arxiv:2609.{i:05d}": 100 - i for i in range(1, 5)}
+        ranking[journal["paper_id"]] = 70
+
+        def unsupported_journal(result):
+            if result["papers"][0]["paper_id"] == journal["paper_id"]:
+                result["papers"][0]["experiments"]["results"] = [
+                    {"text": "误差为0.01 mm。", "source_ids": ["E1"]}]
+            return result
+
+        result, requests = self.run_prepare(ranking, sources=sources,
+            summary_transform=unsupported_journal, scheduled=True)
+        self.assertEqual(result["paper_ids"], [f"arxiv:2609.{i:05d}" for i in range(1, 5)])
+        self.assertIn(journal["paper_id"], requests["read"])
+        self.assertIn("期刊保留名额暂缺", result["report"])
+        self.assertIn("额外期刊名额暂缺", json.dumps(result["cards"], ensure_ascii=False))
+        self.assertNotIn(journal["title"], result["report"])
+
+    def test_scheduled_provider_failure_still_stops_preparation(self):
+        def unavailable(_result):
+            raise LLMError("Provider unavailable")
+        with self.assertRaisesRegex(LLMError, "Provider unavailable"):
+            self.run_prepare({"arxiv:2609.00011": 90, "arxiv:2609.00001": 80},
+                summary_transform=unavailable, scheduled=True)
 
     def test_manual_sample_sends_only_verified_papers_and_leaves_bad_paper_unsent(self):
         def invalid_second(result):
@@ -184,7 +246,7 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
         self.assertIn("未通过内容校验", result["report"])
 
     def test_manual_sample_with_no_verified_papers_still_sends_nothing(self):
-        with self.assertRaisesRegex(PipelineError, "No manually selected"):
+        with self.assertRaisesRegex(PipelineError, "No selected paper passed content validation"):
             self.run_prepare({"arxiv:2609.00001": 80}, summary_transform=lambda result: {"papers": []}, manual_sample=True)
 
     def test_serialization_heavy_fulltext_is_excerpted_instead_of_aborting_the_digest(self):

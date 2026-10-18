@@ -9,6 +9,24 @@ from v4_fixtures import v4_row, evidence_text
 
 
 class ContentV4Tests(unittest.TestCase):
+    def test_number_rejection_identifies_the_result_missing_values_and_cited_blocks(self):
+        source = dict(self.source(), reading_text=(
+            "[E1] Object Flipping success rose from 14% to 86%.\n"
+            "[E2] Screwdriver Rotation progress rose from 26.0% to 95.3%."))
+        row = v4_row()
+        row["experiments"]["results"] = [
+            {"text": "翻转成功率从14%提高到86%。", "source_ids": ["E1"]},
+            {"text": "旋转进度达到95.3%，提高69.3个百分点。", "source_ids": ["E2"]},
+        ]
+        with self.assertRaises(PipelineError) as raised:
+            final_papers({"papers": [row]}, [source], CONFIG, require_v4=True)
+        message = str(raised.exception)
+        for detail in ("result 2", "69.3", "E2"):
+            self.assertIn(detail, message)
+        row["experiments"]["results"][1]["text"] = "旋转进度从26%提高到95.3%。"
+        selected = final_papers({"papers": [row]}, [source], CONFIG, require_v4=True)[0]
+        self.assertEqual(selected["experiments"]["results"][1]["text"], "旋转进度从26%提高到95.3%。")
+
     def test_source_segment_ids_ground_results_without_requiring_model_to_retype_the_pdf(self):
         source = fit_summary_input(dict(self.source(), reading_text=evidence_text()), {"required_count": 1}, 100_000)
         self.assertIn("[E1]", source["reading_text"])

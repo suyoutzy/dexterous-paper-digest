@@ -597,6 +597,7 @@ def _prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_u
                 groups = input_groups(inputs, summary_context, summary_budget, summary_count)
                 print(f"Summarizing {len(ranked)} selected papers with {llm_config['summary_model']} in {len(groups)} V4 batches; public fulltext preferred.", flush=True)
                 source_by_id = {p["paper_id"]: p for p in selected_sources}
+                allow_partial_summaries = force_send or os.environ.get("GITHUB_EVENT_NAME") == "schedule"
                 for index, group in enumerate(groups, 1):
                     print(f"Summary batch {index}/{len(groups)}: {len(group)} papers.", flush=True)
                     if llm_config["summary_model"] != client.model:
@@ -607,39 +608,42 @@ def _prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_u
                             json.dumps(dict(summary_context, required_count=len(group), candidates=group), ensure_ascii=False),
                             8192, lambda result: final_papers(result, evidence, config, require_v4=True)))
                     except (ModelValidationError, ModelOutputError) as error:
-                        if not force_send:
+                        if not allow_partial_summaries:
                             raise
                         skipped_summaries.extend(p["paper_id"] for p in evidence)
-                        print(f"Manual sample excludes invalid summary batch: {error}", flush=True)
-                if not selected and force_send:
-                    raise ModelValidationError("No manually selected paper passed content validation; nothing will be sent.")
+                        print(f"Excluding invalid summary batch after one retry: {error}", flush=True)
+                if not selected and skipped_summaries:
+                    raise ModelValidationError("No selected paper passed content validation; nothing will be sent.")
                 summary_by_id = {p["paper_id"]: p for p in selected}
                 selected = [summary_by_id[p["paper_id"]] for p in ranked if p["paper_id"] in summary_by_id]
+                journal_extra = journal_extra and ranked[-1]["paper_id"] in summary_by_id
             usage = client.usage
         if sources_unavailable and not evaluated_count and not journal_count:
             raise PipelineError("Paper sources unavailable and no recent unsent cache exists; no empty digest will be sent.")
         older = sum(not p["is_recent"] for p in selected)
         extended_selected = sum(is_journal(p) and date_span(p["publish_date"])[1] < today - timedelta(days=config["fallback_days"]) for p in selected)
         note = source_note + "优先最近7天；必要时从最近30天未发送论文补充。"
-        note += "前四篇按统一评分选取，另加一篇不同的期刊论文。"
+        note += "前四个名额按统一评分选取，另保留一个不同的期刊论文名额。"
         if expanded:
             note += f"额外期刊名额已扩大到最近{journal_window}天检索。"
         if not journal_extra:
             note += "本次没有找到额外合格且未发送的期刊论文，期刊保留名额暂缺，不用预印本替代。"
         note += "筛选依据标题/摘要与元数据；入选后优先分析公开全文，实际阅读范围逐篇标注。"
         if skipped_summaries:
-            note += f"本次手动批次有{len(skipped_summaries)}篇未通过内容校验，未推送且未标记已发送，保留以后重试。"
+            note += f"本次有{len(skipped_summaries)}篇未通过内容校验，未推送且未标记已发送，保留以后重试。"
         if older:
             note += f"本次有{older}篇近期补充，请结合发表日期阅读。"
         if len(selected) < config["target_count"]:
-            note += f"本次达到推荐门槛的论文有{len(selected)}篇。"
+            note += (f"本次通过内容校验并推送的论文有{len(selected)}篇。" if skipped_summaries
+                else f"本次达到推荐门槛的论文有{len(selected)}篇。")
         selected_ids = {p["paper_id"] for p in selected}
-        extras = [p for p in shortlist if p.get("source") == "crossref" and p["paper_id"] not in selected_ids]
+        extras = [p for p in shortlist if p.get("source") == "crossref"
+            and p["paper_id"] not in selected_ids and p["paper_id"] not in skipped_summaries]
         if extras:
             note += f"另有{len(extras)}篇相关期刊候选，标题与链接见当天归档。"
         card_note = "来源：arXiv 与五本期刊。按标题/摘要筛选；入选后优先阅读公开全文，实际资料范围逐篇标注。"
         if skipped_summaries:
-            card_note += f"本次手动批次有{len(skipped_summaries)}篇未通过内容校验，未推送，保留以后重试。"
+            card_note += f"本次有{len(skipped_summaries)}篇未通过内容校验，未推送，保留以后重试。"
         if older:
             card_note += f"有{older}篇未能确认为最近7天发表的补充论文。"
         if extended_selected:

@@ -69,8 +69,12 @@ def _source_evidence(item: dict, source: str, claim: str = "") -> None:
         r"(?ms)^\[(E\d+)\] (.*?)(?=^\[E\d+\] |\Z)", source)}
     if any(not isinstance(key, str) or key not in blocks for key in ids):
         raise ContentError("V4 has unknown source evidence IDs.")
-    if not _numbers(claim) <= _numbers("\n".join(blocks[key] for key in ids)):
-        raise ContentError("V4 result numbers are absent from the referenced evidence.")
+    missing = _numbers(claim) - _numbers("\n".join(blocks[key] for key in ids))
+    if missing:
+        values = ", ".join(sorted(missing)[:8])
+        raise ContentError("V4 result numbers are absent from the referenced evidence; "
+            f"missing numbers: {values}; source_ids: {', '.join(ids)}. "
+            "Use original values with matching source_ids, or omit this unsupported result.")
 
 
 def validate_v4(row: dict, source: dict) -> dict:
@@ -89,10 +93,13 @@ def validate_v4(row: dict, source: dict) -> dict:
     reading = _object(row.get("reading"), "reading")
     text = source.get("reading_text") or source.get("abstract", "")
     results = []
-    for item in _items(experiments.get("results"), "results", 0, 4):
+    for index, item in enumerate(_items(experiments.get("results"), "results", 0, 4), 1):
         item = _object(item, "result")
         claim = _text(item.get("text"), "result", 260)
-        _source_evidence(item, text, claim)
+        try:
+            _source_evidence(item, text, claim)
+        except ContentError as error:
+            raise ContentError(f"result {index}: {error}") from error
         results.append({"text": claim})  # Source quotations are checked, not published.
     limitations = []
     for item in _items(experiments.get("limitations"), "limitations", 1, 2):
@@ -186,6 +193,8 @@ implementation用1项或2–4个步骤写模型、算法、机构、输入输出
 没有可核实结果时返回空列表。保留基线、单位及实验条件，区分准确率、相对百分比与百分点，仿真不写成真机、单任务不推成通用能力。
 reading_text用[E1]、[E2]等标记原文段落。每条result给出text及source_ids，例如["E2","E3"]；
 引用1–6个真正支撑该结论的原文段落，text的全部数字必须出现在这些段落中，不自行计算新数字。无需复制原文引文。
+数字保留原文口径，不自行计算差值、相对提升、四舍五入或换算单位；结果中的型号和任务数量也需有对应段落依据。
+若某条结果找不到匹配证据，只删除该条result；没有可核实结果时results返回[]，仍返回该篇完整的其余四部分字段。
 limitations给1–2项；kind=author必须有支撑作者明确局限的source_ids；kind=analysis表示基于证据分析，不能将摘要没提及当作作者承认未验证。
 3 关键术语，约100–150字：选2–4个理解核心技术必需的术语，确有必要最多6个。english尽可能写完整英文名称与缩写，
 chinese写中文名称，meaning通俗解释，role说明在本文中具体承担的作用，不凑数、不只写百科定义。
