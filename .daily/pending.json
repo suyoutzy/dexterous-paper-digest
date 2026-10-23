@@ -1,19 +1,18 @@
 {
   "version": 1,
-  "batch_id": "6a4cf85c5890da417eb9136c",
-  "date": "2026-10-20",
-  "status": "complete",
+  "batch_id": "3165f535b776a5ecab34199c",
+  "date": "2026-10-23",
+  "status": "inflight",
   "manual_extra": false,
   "archive_run_id": "",
-  "attempt_run_id": "39372341049-1",
+  "attempt_run_id": "39903258931-1",
   "paper_ids": [
-    "arxiv:2610.23438",
-    "arxiv:2610.26759",
-    "arxiv:2610.26762"
+    "arxiv:2610.30438",
+    "arxiv:2610.31472",
+    "arxiv:2610.31334",
+    "arxiv:2610.25410"
   ],
-  "acknowledged_cards": [
-    0
-  ],
+  "acknowledged_cards": [],
   "cards": [
     {
       "msg_type": "interactive",
@@ -25,7 +24,7 @@
           "template": "blue",
           "title": {
             "tag": "plain_text",
-            "content": "灵巧手论文日报 · 2026-10-20"
+            "content": "灵巧手论文日报 · 2026-10-23"
           }
         },
         "elements": [
@@ -33,21 +32,21 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "今日精选 3 篇。"
+              "content": "今日精选 4 篇。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "1. 无眼亦可：触觉对盲式保定球操作的贡献\nNo Eyes, No Problem: What Does Touch Contribute to Blind Baoding Ball Manipulation?"
+              "content": "1. AnyTouch：跨多种视触传感器的统一静态-动态表征学习\nTactile-Based Robotic Manipulation: From Mechanics-Driven to Data-Driven Perspectives"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "工作模块：灵巧操作与策略学习、建模、辨识与仿真、机器人本体与硬件"
+              "content": "工作模块：感知与状态估计、灵巧操作与策略学习"
             }
           },
           {
@@ -61,7 +60,7 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "首次发布日期：2026-10-16；作者：Ayush Deshmukh, Nalin Agarwal, Elle Miller, Sethu Vijayakumar"
+              "content": "公告日期：2026-10-23；作者：Jingyi Xiang, Yixuan Wang, Wenzhen Yuan"
             }
           },
           {
@@ -70,7 +69,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2610.23438",
+                "url": "https://arxiv.org/abs/2610.30438",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
@@ -79,7 +78,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/pdf/2610.23438",
+                "url": "https://arxiv.org/pdf/2610.30438",
                 "text": {
                   "tag": "plain_text",
                   "content": "PDF"
@@ -91,28 +90,28 @@
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 现有灵巧手盲操作强化学习多在仿真成功，却因接触连续变化、运动诱发触觉漂移及仿真—实机动力学差异难以零样本上真机；已有硬件保定球结果多依赖视觉/物体状态或仅短时演示。\n- **核心思路：** 仅用本体感知与16路二值触觉，通过硬件对齐仿真、触觉标定和两种回合级随机化，实现Shadow Lite上零样本盲式保定球持续旋转。\n- **实现方法：**\n  - 仿真体对齐实物：13个可命令关节、PIP/DIP顺序耦合及FSR碰撞体；观测为四帧堆叠的52维本体加16维二值触觉，动作13维关节位置，60 Hz。\n  - 策略沿用PPO与RoTO奖励，在Isaac Lab训练10 s回合；作者新增每通道迟滞标定，将FSR二值化。\n  - 提出SlewDR随机缩放动作速率上限，STAT在回合重置时随机卡死部分FSR通道，以降低单通道依赖。"
+              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 视触传感器规格不一，同一触觉信息在不同传感器上成像差异大；单传感器采集与训练限制数据规模，已有对齐数据少，难以形成可跨传感器迁移的统一表征。\n- **核心思路：** 以对齐多传感器数据和静态-动态联合学习构建共享触觉空间，并用语义对齐与跨传感器匹配把同物同位置表征聚拢。\n- **实现方法：**\n  - 构建TacQuad：四类视触传感器对同一物体同位置对齐采集，配图像与触觉属性文本。\n  - 将静态触觉图复制成F帧，与动态视频统一为时空张量，送入共享编码器。\n  - 第一阶段沿用MAE式掩码重建触觉图像/视频并预测下一帧；第二阶段本文提出触-视-文对齐、跨传感器匹配与通用传感器词元替换。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**2. 实验结果与局限**\n- **实验设置：** Shadow Lite实机10次/配置，零样本；仿真768回合。\n- **关键结果：** C3实机达34\\.75±26\\.06整圈、94\\.8±68\\.0 s存活和0\\.360±0\\.061 rot/s，优于去触觉C3-TacOff的5\\.00圈、19\\.0 s。\n- **关键结果：** 单独长时部署完成112\\.5整圈，历时310 s。\n- **关键结果：** 仿真中去触觉后掉球率由STAT策略的2\\.2%升至32\\.2%。\n- **局限（作者指出）：** 作者指出未来需推广到不同球尺寸/质量、非球形物体及更密/连续触觉。"
+              "content": "**2. 实验结果与局限**\n- **实验设置：** 9个触觉数据集、5类传感器线性探测，加真机倒水。\n- **关键结果：** 在TAG材质分类上，AnyTouch得82\\.74，UniTouch为61\\.3。\n- **关键结果：** 在未见传感器OF 1\\.0材质分类上，AnyTouch得49\\.62，UniTouch†为47\\.25。\n- **关键结果：** 真机倒水平均误差AnyTouch为1\\.56 g，T3为2\\.33 g。\n- **局限（作者指出）：** 作者指出TacQuad规模与传感器类型仍有限（仅四类）。\n- **局限（作者指出）：** 动态感知仅在倒水单任务验证，任务范围有限。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**3. 关键术语**\n- **Binary Tactile Feedback（二值触觉反馈）：** FSR经阈值化仅给接触/未接触信号；本文作用：提供局部接触以修正球位\n- **Slew-rate Domain Randomisation \\(SlewDR\\)（斜率域随机化）：** 训练时随机缩放关节指令速率上限；本文作用：使动作更平滑、易被实机跟踪\n- **Stuck-AT Taxels \\(STAT\\)（触觉单元卡死随机化）：** 回合内随机固定部分FSR通道；本文作用：迫使策略不依赖单一触觉通道"
+              "content": "**3. 关键术语**\n- **Visuo-tactile sensor（视触传感器）：** 把接触形变转成图像/视频的触觉器件；本文作用：TacQuad与跨传感器表征的硬件基础。\n- **Masked Autoencoder（掩码自编码器）：** 随机遮住输入并重建的预训练方法；本文作用：第一阶段学习像素级触觉细节。\n- **Cross-sensor matching（跨传感器匹配）：** 判断两段触觉是否来自同物同位置；本文作用：把不同传感器表征聚到共享空间。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 触觉可主要承担纠偏而非持续驱动；节律性本体策略加稀疏接触修正值得用于盲操作 sim-to-real。\n- **阅读建议：** 重点精读。III-D～III-E的仿真对齐与随机化，表II消融和图8触觉分布"
+              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 对齐多传感器数据并用语义锚点对齐，可缓解硬件差异，为触觉基础模型和跨本体迁移提供数据与训练范式。\n- **阅读建议：** 重点精读。重点看第4节框架与表2、3、4的跨传感器结果。"
             }
           },
           {
@@ -129,14 +128,14 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "2. 触觉手内物体旋转：仿真与硬件中手部形态的比较研究\nTactile In-Hand Object Rotation: A Comparative Study of Hand Morphology in Simulation and Hardware"
+              "content": "2. VecTile：用于三维力感知的低成本柔性触觉阵列\nVecTile: A Low-Cost Flexible Tactile Array for 3-DoF Force Sensing"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "工作模块：灵巧操作与策略学习、机器人本体与硬件、感知与状态估计、建模、辨识与仿真"
+              "content": "工作模块：机器人本体与硬件、感知与状态估计、灵巧操作与策略学习"
             }
           },
           {
@@ -150,7 +149,7 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "首次发布日期：2026-10-19；作者：Wenhao He, Max Yang, Chenghua Lu, Yijiong Lin, David A. W. Barton, Nathan F. Lepora"
+              "content": "公告日期：2026-10-23；作者：Jian Hou, Xin Zhou, Adam J. Spiers"
             }
           },
           {
@@ -159,7 +158,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2610.26759",
+                "url": "https://arxiv.org/abs/2610.31472",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
@@ -168,7 +167,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/pdf/2610.26759",
+                "url": "https://arxiv.org/pdf/2610.31472",
                 "text": {
                   "tag": "plain_text",
                   "content": "PDF"
@@ -180,28 +179,28 @@
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 连续手内旋转需持续维持与更新接触，但手部布局、触觉信息量与指尖载荷如何共同影响任务表现仍缺少同协议比较，相同分数也可能来自不同接触组织。\n- **核心思路：** 以共享AnyRotate任务与教师—学生RL协议控制学习差异，对比拟人与对称LEAP Hand，并逐级消融三种触觉观测。\n- **实现方法：**\n  - 作者改造两版LEAP Hand：各16关节、4个TacTip，仅变手指布置与指尖朝向。\n  - 沿用AnyRotate任务、PPO教师—学生训练与域随机化；学生用30步观测历史估计特权潜变量。\n  - 仿真以CMA-ES辨识关节参数，在12个未见物体上比较三种观测；硬件评估全触觉策略。"
+              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 现有柔性低成本触觉阵列多只测法向力；视觉/磁多轴传感器刚硬，薄电容/压阻阵列虽易共形却缺剪切信息，源于多轴结构与低成本制造难兼顾。\n- **核心思路：** VecTile用压阻阵列加被动硅胶凸点，把法向与剪切转为四象限可区分压力模式，并以单层FPC和简易模具实现低成本三轴触觉。\n- **实现方法：**\n  - 4×4 taxel各含四压阻象限，硅胶凸点覆盖四象限：法向同增、剪切生对向差分。\n  - 8×8行列扫描加跨阻虚拟地读出64象限，343 Hz；这是作者对多凸点饱和的改进。\n  - 有限元验证后，用二次解码器由四象限读数回归三维力，并做短时手动标定。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**2. 实验结果与局限**\n- **实验设置：** Isaac Gym仿真12未见物体；硬件10物体多朝向。\n- **关键结果：** 仿真全触觉较仅本体感知，平均归一化旋转每回合提升94\\.8%（拟人）与66\\.9%（对称）。\n- **关键结果：** 硬件对称手平均旋转计数高32\\.0%、总旋转速率高25\\.8%，平均总指尖载荷低19\\.9%。\n- **局限（作者指出）：** 仿真任意旋转轴、硬件仅掌轴，柔顺/刚性指尖与残余关节差异或影响跨域比较。"
+              "content": "**2. 实验结果与局限**\n- **实验设置：** UR5e\\+ATI Mini40；插入实验\n- **关键结果：** 1–5 N法向、≤1\\.5 N剪切下，3\\.0 mm设计法向RMSE 0\\.39 N、剪切RMSE 0\\.16 N。\n- **关键结果：** 插入任务未见位置：仅视觉12/25，法向触觉16/25，3-DoF触觉22/25成功。\n- **局限（作者指出）：** 压阻层约5 N/taxel以上灵敏度下降，且尚未表征滞回、漂移和长期耐久性。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**3. 关键术语**\n- **TacTip optical tactile sensor（TacTip视觉触觉传感器）：** 柔性表皮标记位移成像以估计局部接触；本文作用：两版手各指尖集成，形成统一触觉接口。\n- **Teacher–student learning（教师—学生学习）：** 教师用特权信息，学生由可部署历史估计潜变量；本文作用：本文共享RL训练与仿真到硬件部署框架。\n- **Full tactile observation（全触觉观测）：** 含接触、接触位姿与力幅的指尖特征；本文作用：用于比较触觉信息量对旋转和载荷的影响。"
+              "content": "**3. 关键术语**\n- **Piezoresistive sensing layer（压阻传感层）：** 受压后电阻下降的敏感层；本文作用：把接触压力转为象限电信号\n- **Nub-lever mechanism（凸点杠杆机制）：** 硅胶凸点将剪切转为压力重分布；本文作用：让法向与剪切在四象限中可分\n- **Diffusion Policy（扩散策略）：** 用扩散模型生成动作序列的策略；本文作用：插入任务融合视觉与触觉输入"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 相同手指数下，布局改变接触分工与载荷分配；评估应联合任务进度、持续接触与指尖载荷。\n- **阅读建议：** 选择性阅读。重点看III-B两版手构型、III-D触觉接口，以及表I–V与图6的接触/载荷分析。"
+              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 可借鉴用被动结构将单轴传感扩展为多轴，并让触觉反馈进入策略闭环。\n- **阅读建议：** 选择性阅读。第III-B节凸点机制、图3与表III"
             }
           },
           {
@@ -218,14 +217,14 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "3. DexOAK：物体感知运动重定向\nDexOAK: Object-Aware Kinematic Retargeting"
+              "content": "3. GelSlim 5.0：用单个指尖相机统一视觉与触觉\nGelSlim 5.0: Unifying Vision and Touch with a Single Fingertip Camera"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "工作模块：运动规划与控制、灵巧操作与策略学习"
+              "content": "工作模块：机器人本体与硬件、感知与状态估计"
             }
           },
           {
@@ -239,7 +238,7 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "首次发布日期：2026-10-19；作者：Federica Spinola, Robert Katzschmann, Cordelia Schmid"
+              "content": "公告日期：2026-10-23；作者：Xiangdong Wang, I-Hsuan Huang, Xiaohao Xu, Xili Yi, Nima Fazeli, Xiaonan Huang"
             }
           },
           {
@@ -248,7 +247,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2610.26762",
+                "url": "https://arxiv.org/abs/2610.31334",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
@@ -257,7 +256,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/pdf/2610.26762",
+                "url": "https://arxiv.org/pdf/2610.31334",
                 "text": {
                   "tag": "plain_text",
                   "content": "PDF"
@@ -269,28 +268,117 @@
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 现有运动重定向多只匹配人手关键点向量，忽略物体，导致机器人参考与演示接触不一致；物理细化阶段需自行寻找接触，限制了灵巧操作数据生成。\n- **核心思路：** 提出物体感知运动重定向：用交互图拉普拉斯优化生成保留手–物相对几何的种子参考，再以可微网络摊销该优化，并用接触损失微调，使参考直接携带接触信息。\n- **实现方法：**\n  - 构建手–物联合交互图，以 SLSQP 逐帧最小化拉普拉斯坐标差、碰撞和时序正则，得到种子参考。\n  - 训练自回归网络，输入人手关键点、物体点云与上一帧预测，输出腕姿和关节角。\n  - 先用种子参考监督，再以表面接触、部位对应和接触方向损失微调，输出供残差 RL 使用的参考。"
+              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 接触处常被外部相机遮挡，视觉与触觉难以共享视点；现有多相机方案需外参标定，切换式界面又难连续共视，限制了位姿与局部接触几何的联合估计。\n- **核心思路：** 用单相机加连续UV响应膜，切换照明顺序获取共视点视觉/触觉；以非对称融合分路预测平面位姿与接触几何。\n- **实现方法：**\n  - 硬件沿用GelSlim 4\\.0机身，硅胶膜旋涂UV响应层；UV开关分别采透视视觉与触觉，准静态同视点顺序成像。\n  - VisTacFusion用冻结SITR/MAE编码，触觉查询经16 token视觉瓶颈预测位姿；中间触觉特征经视觉门控后由DPT解码深度/法向，模态dropout支持单/双模。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**2. 实验结果与局限**\n- **实验设置：** 两数据集与两型手，对比 ManipTrans、DexMachina、SPIDER。\n- **关键结果：** OakInk-v2 上 Inspire 手成功率从 39\\.5% 升至 48\\.4%。\n- **关键结果：** ARCTIC 上 ADD-AUC 从 62\\.7% 升至 77\\.9%。\n- **关键结果：** 硬件开环重放 46/56 成功。\n- **局限（作者指出）：** 作者承认在高动态任务中抓取会中途失效，因运动学参考缺乏序列动力学知识。"
+              "content": "**2. 实验结果与局限**\n- **实验设置：** 12个已知物体真实数据，KUKA臂每物约400次接触，同session验证。\n- **关键结果：** 配对输入深度MSE为0\\.0066 mm²，较纯视觉/纯触觉分别降低93\\.7%和61\\.2%。\n- **关键结果：** 角度误差由纯触觉2\\.350°降至0\\.652°，低于纯视觉0\\.694°。\n- **局限（作者指出）：** 仅在同session、已知物体上验证，未评估跨session泛化。\n- **局限（作者指出）：** 深度与法向参考由几何计算生成，非独立膜形测量。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**3. 关键术语**\n- **Interaction-graph Laplacian optimization（交互图拉普拉斯优化）：** 用图节点间拉普拉斯坐标匹配手–物相对几何；本文作用：生成保留演示接触几何的种子参考。\n- **Amortized retargeting network（摊销重定向网络）：** 前馈网络一次推理复现逐帧优化结果；本文作用：避免逐帧求解并支持跨数据迁移。\n- **Object-aware fine-tuning（物体感知微调）：** 用表面、部位和方向接触损失细化网络；本文作用：提升指尖接触精度与参考可用性。"
+              "content": "**3. 关键术语**\n- **UV-responsive contact layer（UV响应接触层）：** 紫外照明下成像状态改变的连续膜层；本文作用：让单相机顺序获得视觉与触觉图像\n- **VisTacFusion（视触融合网络）：** 分路预测位姿与接触几何的多模态Transformer；本文作用：融合共视点视觉上下文与触觉空间特征\n- **Modality dropout（模态丢弃）：** 训练时随机缺少某一模态；本文作用：支持双模或单模输入推理"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 把接触放到运动学阶段，可让动力学 RL 专注修正动力学而非寻找接触；该分解可迁移到其他演示到机器人流程。\n- **阅读建议：** 重点精读。III-A 交互图优化、III-B 网络与损失，及表 I、III、IV 的对比。"
+              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 共视点顺序采集与非对称融合可减少标定并保留触觉空间细节，可借鉴于多模态传感与位姿/几何联合估计。\n- **阅读建议：** 重点精读。III节传感器与IV-C/D融合结构，Table II"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。"
+            }
+          },
+          {
+            "tag": "hr"
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "4. T(R,O) Grasp++：大规模杂乱环境跨形态灵巧抓取\nT(R,O) Grasp++: Cross-Embodiment Dexterous Grasping in Cluttered Environments at Scale"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "工作模块：灵巧操作与策略学习、建模、辨识与仿真、运动规划与控制"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "来源：arXiv"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "首次发布日期：2026-10-18；作者：Xin Fei, Zhixuan Xu, Huaicong Fang, Fangjun Chen, Zhaoyu Mu, Rui Yang, Zhexi Luo, Lin Shao"
+            }
+          },
+          {
+            "tag": "action",
+            "actions": [
+              {
+                "tag": "button",
+                "type": "default",
+                "url": "https://arxiv.org/abs/2610.25410",
+                "text": {
+                  "tag": "plain_text",
+                  "content": "论文"
+                }
+              },
+              {
+                "tag": "button",
+                "type": "default",
+                "url": "https://arxiv.org/pdf/2610.25410",
+                "text": {
+                  "tag": "plain_text",
+                  "content": "PDF"
+                }
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "lark_md",
+              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 现有杂乱场景灵巧抓取依赖先生成大量候选再碰撞/评分筛选，手—物—环境关系编码不足致样本效率低；数据形态多样性有限；关节值或模板等表示跨手泛化差，物体中心表示还需昂贵优化。\n- **核心思路：** 构建约0\\.5B抓取、八种手、约5万物体的仿真基准，并提出T\\(R,O\\)Graph\\+\\+统一图表征与图扩散模型，直接合成跨形态无碰撞抓取。\n- **实现方法：**\n  - 用各手RL策略生成抓取，变换到稳定桌面位姿并滤除穿透，再在抓取凸包外放置障碍，构造三类杂乱场景与难度标注。\n  - 点云经VQ-VAE/PointNet\\+\\+编码，手链接用BPS几何与正运动学关节相对变换形成足迹，构建物体/环境/手链接节点及相对SE\\(3\\)边。\n  - 图扩散去噪链接6D位姿，DDIM采样加速；Pyroki多初值IK重定向为关节值。"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "lark_md",
+              "content": "**2. 实验结果与局限**\n- **实验设置：** Isaac Gym仿真，每手2万场景、5,938未见物体；基线AnyDexGrasp/DexGraspNet2。\n- **关键结果：** 跨多种灵巧手平均成功率为87\\.96%（仿真）。\n- **关键结果：** 推理延迟0\\.34 s，推理采样效率较基线提升超过10倍。\n- **关键结果：** 高杂乱Level-4下成功率仍为75\\.37%。\n- **局限（作者指出）：** 不支持RGB、力或触觉等多模态输入，也不能做功能性抓取合成。\n- **局限（基于证据分析）：** 真实失败分析中执行不稳定（物体滑移）约占近半失败。"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "lark_md",
+              "content": "**3. 关键术语**\n- **T\\(R,O\\) Graph\\+\\+（T\\(R,O\\)图表示\\+\\+）：** 物体、环境与手链接的统一图结构；本文作用：承载跨形态抓取扩散生成\n- **Cross-Embodiment Dexterous Grasping（跨形态灵巧抓取）：** 同一模型适配多种灵巧手；本文作用：本文核心任务与评测范围\n- **DDIM sampling（DDIM采样）：** 扩散模型确定性加速采样；本文作用：将推理降至0\\.34 s"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "lark_md",
+              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 统一图表示结合大规模RL标注与图扩散，可迁移到多指手抓取的数据生成和接触约束建模。\n- **阅读建议：** 重点精读。第4节Graph\\+\\+与扩散流程；表2、表3和表6的跨手、杂乱与消融结果。"
             }
           },
           {
@@ -306,7 +394,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://github.com/suyoutzy/dexterous-paper-digest/blob/main/docs/digests/2026-10-20.md",
+                "url": "https://github.com/suyoutzy/dexterous-paper-digest/blob/main/docs/digests/2026-10-23.md",
                 "text": {
                   "tag": "plain_text",
                   "content": "日报归档 / 其他期刊候选"
@@ -319,7 +407,7 @@
             "elements": [
               {
                 "tag": "plain_text",
-                "content": "按课题关联、摘要方法与学习价值推荐。\n来源：arXiv 与五本期刊。按标题/摘要筛选；入选后优先阅读公开全文，实际资料范围逐篇标注。本次有1篇未通过内容校验，未推送，保留以后重试。额外期刊名额暂缺，未用预印本替代。部分检索覆盖受限，详细情况见归档。归档另列2篇相关期刊候选。\n模型：deepseek-flash · 研究方向：灵巧末端设计与控制"
+                "content": "按课题关联、摘要方法与学习价值推荐。\n来源：arXiv 与五本期刊。按标题/摘要筛选；入选后优先阅读公开全文，实际资料范围逐篇标注。额外期刊名额暂缺，未用预印本替代。部分检索覆盖受限，详细情况见归档。归档另列2篇相关期刊候选。\n模型：deepseek-flash · 研究方向：灵巧末端设计与控制"
               }
             ]
           }
@@ -327,11 +415,11 @@
       }
     }
   ],
-  "report": "# 灵巧手论文日报 · 2026-10-20\n\n来源：arXiv API 与近期数据库。期刊：Crossref 5/5 个来源刷新成功，回查最近 7 天元数据索引，获得 2444 条期刊记录；索引更新日期不作为发表日期。 最近 30 天发表日期补查 5/5 个来源成功，取得 182 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Robotics and Automation Letters。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。额外期刊名额不足，补查最近90天期刊。期刊：Crossref 5/5 个来源刷新成功，回查最近 7 天元数据索引，获得 2740 条期刊记录；索引更新日期不作为发表日期。 最近 90 天发表日期补查 5/5 个来源成功，取得 485 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Robotics and Automation Letters。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。优先最近7天；必要时从最近30天未发送论文补充。前四个名额按统一评分选取，另保留一个不同的期刊论文名额。额外期刊名额已扩大到最近90天检索。本次没有找到额外合格且未发送的期刊论文，期刊保留名额暂缺，不用预印本替代。筛选依据标题/摘要与元数据；入选后优先分析公开全文，实际阅读范围逐篇标注。本次有1篇未通过内容校验，未推送且未标记已发送，保留以后重试。本次通过内容校验并推送的论文有3篇。另有2篇相关期刊候选，标题与链接见当天归档。\n\n模型：deepseek-flash；分数是针对个人学习价值的推荐依据，非学术质量认证。\n\n## 1. 无眼亦可：触觉对盲式保定球操作的贡献\n\nNo Eyes, No Problem: What Does Touch Contribute to Blind Baoding Ball Manipulation?\n\n工作模块：灵巧操作与策略学习、建模、辨识与仿真、机器人本体与硬件\n\n**作者**：Ayush Deshmukh, Nalin Agarwal, Elle Miller, Sethu Vijayakumar\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-16\n\n[论文原文](https://arxiv.org/abs/2610.23438)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 现有灵巧手盲操作强化学习多在仿真成功，却因接触连续变化、运动诱发触觉漂移及仿真—实机动力学差异难以零样本上真机；已有硬件保定球结果多依赖视觉/物体状态或仅短时演示。\n- **核心思路：** 仅用本体感知与16路二值触觉，通过硬件对齐仿真、触觉标定和两种回合级随机化，实现Shadow Lite上零样本盲式保定球持续旋转。\n- **实现方法：**\n  - 仿真体对齐实物：13个可命令关节、PIP/DIP顺序耦合及FSR碰撞体；观测为四帧堆叠的52维本体加16维二值触觉，动作13维关节位置，60 Hz。\n  - 策略沿用PPO与RoTO奖励，在Isaac Lab训练10 s回合；作者新增每通道迟滞标定，将FSR二值化。\n  - 提出SlewDR随机缩放动作速率上限，STAT在回合重置时随机卡死部分FSR通道，以降低单通道依赖。\n\n### 2. 实验结果与局限\n\n- **实验设置：** Shadow Lite实机10次/配置，零样本；仿真768回合。\n- **关键结果：** C3实机达34\\.75±26\\.06整圈、94\\.8±68\\.0 s存活和0\\.360±0\\.061 rot/s，优于去触觉C3-TacOff的5\\.00圈、19\\.0 s。\n- **关键结果：** 单独长时部署完成112\\.5整圈，历时310 s。\n- **关键结果：** 仿真中去触觉后掉球率由STAT策略的2\\.2%升至32\\.2%。\n- **局限（作者指出）：** 作者指出未来需推广到不同球尺寸/质量、非球形物体及更密/连续触觉。\n\n### 3. 关键术语\n\n- **Binary Tactile Feedback（二值触觉反馈）：** FSR经阈值化仅给接触/未接触信号；本文作用：提供局部接触以修正球位\n- **Slew-rate Domain Randomisation \\(SlewDR\\)（斜率域随机化）：** 训练时随机缩放关节指令速率上限；本文作用：使动作更平滑、易被实机跟踪\n- **Stuck-AT Taxels \\(STAT\\)（触觉单元卡死随机化）：** 回合内随机固定部分FSR通道；本文作用：迫使策略不依赖单一触觉通道\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 触觉可主要承担纠偏而非持续驱动；节律性本体策略加稀疏接触修正值得用于盲操作 sim-to-real。\n- **阅读建议：** 重点精读。III-D～III-E的仿真对齐与随机化，表II消融和图8触觉分布\n\n阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。\n\n[本次阅读资料](https://arxiv.org/html/2610.23438)\n\n## 2. 触觉手内物体旋转：仿真与硬件中手部形态的比较研究\n\nTactile In-Hand Object Rotation: A Comparative Study of Hand Morphology in Simulation and Hardware\n\n工作模块：灵巧操作与策略学习、机器人本体与硬件、感知与状态估计、建模、辨识与仿真\n\n**作者**：Wenhao He, Max Yang, Chenghua Lu, Yijiong Lin, David A\\. W\\. Barton, Nathan F\\. Lepora\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-19\n\n[论文原文](https://arxiv.org/abs/2610.26759)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 连续手内旋转需持续维持与更新接触，但手部布局、触觉信息量与指尖载荷如何共同影响任务表现仍缺少同协议比较，相同分数也可能来自不同接触组织。\n- **核心思路：** 以共享AnyRotate任务与教师—学生RL协议控制学习差异，对比拟人与对称LEAP Hand，并逐级消融三种触觉观测。\n- **实现方法：**\n  - 作者改造两版LEAP Hand：各16关节、4个TacTip，仅变手指布置与指尖朝向。\n  - 沿用AnyRotate任务、PPO教师—学生训练与域随机化；学生用30步观测历史估计特权潜变量。\n  - 仿真以CMA-ES辨识关节参数，在12个未见物体上比较三种观测；硬件评估全触觉策略。\n\n### 2. 实验结果与局限\n\n- **实验设置：** Isaac Gym仿真12未见物体；硬件10物体多朝向。\n- **关键结果：** 仿真全触觉较仅本体感知，平均归一化旋转每回合提升94\\.8%（拟人）与66\\.9%（对称）。\n- **关键结果：** 硬件对称手平均旋转计数高32\\.0%、总旋转速率高25\\.8%，平均总指尖载荷低19\\.9%。\n- **局限（作者指出）：** 仿真任意旋转轴、硬件仅掌轴，柔顺/刚性指尖与残余关节差异或影响跨域比较。\n\n### 3. 关键术语\n\n- **TacTip optical tactile sensor（TacTip视觉触觉传感器）：** 柔性表皮标记位移成像以估计局部接触；本文作用：两版手各指尖集成，形成统一触觉接口。\n- **Teacher–student learning（教师—学生学习）：** 教师用特权信息，学生由可部署历史估计潜变量；本文作用：本文共享RL训练与仿真到硬件部署框架。\n- **Full tactile observation（全触觉观测）：** 含接触、接触位姿与力幅的指尖特征；本文作用：用于比较触觉信息量对旋转和载荷的影响。\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 相同手指数下，布局改变接触分工与载荷分配；评估应联合任务进度、持续接触与指尖载荷。\n- **阅读建议：** 选择性阅读。重点看III-B两版手构型、III-D触觉接口，以及表I–V与图6的接触/载荷分析。\n\n阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。\n\n[本次阅读资料](https://arxiv.org/html/2610.26759)\n\n## 3. DexOAK：物体感知运动重定向\n\nDexOAK: Object-Aware Kinematic Retargeting\n\n工作模块：运动规划与控制、灵巧操作与策略学习\n\n**作者**：Federica Spinola, Robert Katzschmann, Cordelia Schmid\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-19\n\n[论文原文](https://arxiv.org/abs/2610.26762)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 现有运动重定向多只匹配人手关键点向量，忽略物体，导致机器人参考与演示接触不一致；物理细化阶段需自行寻找接触，限制了灵巧操作数据生成。\n- **核心思路：** 提出物体感知运动重定向：用交互图拉普拉斯优化生成保留手–物相对几何的种子参考，再以可微网络摊销该优化，并用接触损失微调，使参考直接携带接触信息。\n- **实现方法：**\n  - 构建手–物联合交互图，以 SLSQP 逐帧最小化拉普拉斯坐标差、碰撞和时序正则，得到种子参考。\n  - 训练自回归网络，输入人手关键点、物体点云与上一帧预测，输出腕姿和关节角。\n  - 先用种子参考监督，再以表面接触、部位对应和接触方向损失微调，输出供残差 RL 使用的参考。\n\n### 2. 实验结果与局限\n\n- **实验设置：** 两数据集与两型手，对比 ManipTrans、DexMachina、SPIDER。\n- **关键结果：** OakInk-v2 上 Inspire 手成功率从 39\\.5% 升至 48\\.4%。\n- **关键结果：** ARCTIC 上 ADD-AUC 从 62\\.7% 升至 77\\.9%。\n- **关键结果：** 硬件开环重放 46/56 成功。\n- **局限（作者指出）：** 作者承认在高动态任务中抓取会中途失效，因运动学参考缺乏序列动力学知识。\n\n### 3. 关键术语\n\n- **Interaction-graph Laplacian optimization（交互图拉普拉斯优化）：** 用图节点间拉普拉斯坐标匹配手–物相对几何；本文作用：生成保留演示接触几何的种子参考。\n- **Amortized retargeting network（摊销重定向网络）：** 前馈网络一次推理复现逐帧优化结果；本文作用：避免逐帧求解并支持跨数据迁移。\n- **Object-aware fine-tuning（物体感知微调）：** 用表面、部位和方向接触损失细化网络；本文作用：提升指尖接触精度与参考可用性。\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 把接触放到运动学阶段，可让动力学 RL 专注修正动力学而非寻找接触；该分解可迁移到其他演示到机器人流程。\n- **阅读建议：** 重点精读。III-A 交互图优化、III-B 网络与损失，及表 I、III、IV 的对比。\n\n阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。\n\n[本次阅读资料](https://arxiv.org/html/2610.26762)\n\n## 其他相关期刊论文\n\n以下仅列元数据，未进入本次五篇精选；供回查，未进行正文阅读。\n\n- [A Bioinspired Multimodal Soft Gripper With Intuitive Teleoperation and Distal Sensing for Constrained-Space Manipulation](https://doi.org/10.1109/lra.2026.3726374) · IEEE Robotics and Automation Letters · 2026-10\n- [FG-CLTP: Fine-Grained Contrastive Language Tactile Pretraining for Robotic Manipulation](https://doi.org/10.1109/lra.2026.3711368) · IEEE Robotics and Automation Letters · 2026-09\n",
+  "report": "# 灵巧手论文日报 · 2026-10-23\n\narXiv API 暂不可用；官方 RSS 本次含64条可合并公告，结合近期缓存筛选。期刊：Crossref 5/5 个来源刷新成功，回查最近 7 天元数据索引，获得 2340 条期刊记录；索引更新日期不作为发表日期。 最近 30 天发表日期补查 5/5 个来源成功，取得 185 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Robotics and Automation Letters。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。额外期刊名额不足，补查最近90天期刊。期刊：Crossref 5/5 个来源刷新成功，回查最近 7 天元数据索引，获得 2630 条期刊记录；索引更新日期不作为发表日期。 最近 90 天发表日期补查 5/5 个来源成功，取得 485 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Robotics and Automation Letters。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。优先最近7天；必要时从最近30天未发送论文补充。前四个名额按统一评分选取，另保留一个不同的期刊论文名额。额外期刊名额已扩大到最近90天检索。本次没有找到额外合格且未发送的期刊论文，期刊保留名额暂缺，不用预印本替代。筛选依据标题/摘要与元数据；入选后优先分析公开全文，实际阅读范围逐篇标注。本次达到推荐门槛的论文有4篇。另有2篇相关期刊候选，标题与链接见当天归档。\n\n模型：deepseek-flash；分数是针对个人学习价值的推荐依据，非学术质量认证。\n\n## 1. AnyTouch：跨多种视触传感器的统一静态-动态表征学习\n\nTactile-Based Robotic Manipulation: From Mechanics-Driven to Data-Driven Perspectives\n\n工作模块：感知与状态估计、灵巧操作与策略学习\n\n**作者**：Jingyi Xiang, Yixuan Wang, Wenzhen Yuan\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-23\n\n[论文原文](https://arxiv.org/abs/2610.30438)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 视触传感器规格不一，同一触觉信息在不同传感器上成像差异大；单传感器采集与训练限制数据规模，已有对齐数据少，难以形成可跨传感器迁移的统一表征。\n- **核心思路：** 以对齐多传感器数据和静态-动态联合学习构建共享触觉空间，并用语义对齐与跨传感器匹配把同物同位置表征聚拢。\n- **实现方法：**\n  - 构建TacQuad：四类视触传感器对同一物体同位置对齐采集，配图像与触觉属性文本。\n  - 将静态触觉图复制成F帧，与动态视频统一为时空张量，送入共享编码器。\n  - 第一阶段沿用MAE式掩码重建触觉图像/视频并预测下一帧；第二阶段本文提出触-视-文对齐、跨传感器匹配与通用传感器词元替换。\n\n### 2. 实验结果与局限\n\n- **实验设置：** 9个触觉数据集、5类传感器线性探测，加真机倒水。\n- **关键结果：** 在TAG材质分类上，AnyTouch得82\\.74，UniTouch为61\\.3。\n- **关键结果：** 在未见传感器OF 1\\.0材质分类上，AnyTouch得49\\.62，UniTouch†为47\\.25。\n- **关键结果：** 真机倒水平均误差AnyTouch为1\\.56 g，T3为2\\.33 g。\n- **局限（作者指出）：** 作者指出TacQuad规模与传感器类型仍有限（仅四类）。\n- **局限（作者指出）：** 动态感知仅在倒水单任务验证，任务范围有限。\n\n### 3. 关键术语\n\n- **Visuo-tactile sensor（视触传感器）：** 把接触形变转成图像/视频的触觉器件；本文作用：TacQuad与跨传感器表征的硬件基础。\n- **Masked Autoencoder（掩码自编码器）：** 随机遮住输入并重建的预训练方法；本文作用：第一阶段学习像素级触觉细节。\n- **Cross-sensor matching（跨传感器匹配）：** 判断两段触觉是否来自同物同位置；本文作用：把不同传感器表征聚到共享空间。\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 对齐多传感器数据并用语义锚点对齐，可缓解硬件差异，为触觉基础模型和跨本体迁移提供数据与训练范式。\n- **阅读建议：** 重点精读。重点看第4节框架与表2、3、4的跨传感器结果。\n\n阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。\n\n[本次阅读资料](https://proceedings.iclr.cc/paper_files/paper/2025/file/4d893f766ab60e5337659b9e71883af4-Paper-Conference.pdf)\n\n## 2. VecTile：用于三维力感知的低成本柔性触觉阵列\n\nVecTile: A Low-Cost Flexible Tactile Array for 3-DoF Force Sensing\n\n工作模块：机器人本体与硬件、感知与状态估计、灵巧操作与策略学习\n\n**作者**：Jian Hou, Xin Zhou, Adam J\\. Spiers\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-23\n\n[论文原文](https://arxiv.org/abs/2610.31472)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 现有柔性低成本触觉阵列多只测法向力；视觉/磁多轴传感器刚硬，薄电容/压阻阵列虽易共形却缺剪切信息，源于多轴结构与低成本制造难兼顾。\n- **核心思路：** VecTile用压阻阵列加被动硅胶凸点，把法向与剪切转为四象限可区分压力模式，并以单层FPC和简易模具实现低成本三轴触觉。\n- **实现方法：**\n  - 4×4 taxel各含四压阻象限，硅胶凸点覆盖四象限：法向同增、剪切生对向差分。\n  - 8×8行列扫描加跨阻虚拟地读出64象限，343 Hz；这是作者对多凸点饱和的改进。\n  - 有限元验证后，用二次解码器由四象限读数回归三维力，并做短时手动标定。\n\n### 2. 实验结果与局限\n\n- **实验设置：** UR5e\\+ATI Mini40；插入实验\n- **关键结果：** 1–5 N法向、≤1\\.5 N剪切下，3\\.0 mm设计法向RMSE 0\\.39 N、剪切RMSE 0\\.16 N。\n- **关键结果：** 插入任务未见位置：仅视觉12/25，法向触觉16/25，3-DoF触觉22/25成功。\n- **局限（作者指出）：** 压阻层约5 N/taxel以上灵敏度下降，且尚未表征滞回、漂移和长期耐久性。\n\n### 3. 关键术语\n\n- **Piezoresistive sensing layer（压阻传感层）：** 受压后电阻下降的敏感层；本文作用：把接触压力转为象限电信号\n- **Nub-lever mechanism（凸点杠杆机制）：** 硅胶凸点将剪切转为压力重分布；本文作用：让法向与剪切在四象限中可分\n- **Diffusion Policy（扩散策略）：** 用扩散模型生成动作序列的策略；本文作用：插入任务融合视觉与触觉输入\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 可借鉴用被动结构将单轴传感扩展为多轴，并让触觉反馈进入策略闭环。\n- **阅读建议：** 选择性阅读。第III-B节凸点机制、图3与表III\n\n阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。\n\n[本次阅读资料](https://arxiv.org/html/2610.31472)\n\n## 3. GelSlim 5\\.0：用单个指尖相机统一视觉与触觉\n\nGelSlim 5\\.0: Unifying Vision and Touch with a Single Fingertip Camera\n\n工作模块：机器人本体与硬件、感知与状态估计\n\n**作者**：Xiangdong Wang, I-Hsuan Huang, Xiaohao Xu, Xili Yi, Nima Fazeli, Xiaonan Huang\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-23\n\n[论文原文](https://arxiv.org/abs/2610.31334)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 接触处常被外部相机遮挡，视觉与触觉难以共享视点；现有多相机方案需外参标定，切换式界面又难连续共视，限制了位姿与局部接触几何的联合估计。\n- **核心思路：** 用单相机加连续UV响应膜，切换照明顺序获取共视点视觉/触觉；以非对称融合分路预测平面位姿与接触几何。\n- **实现方法：**\n  - 硬件沿用GelSlim 4\\.0机身，硅胶膜旋涂UV响应层；UV开关分别采透视视觉与触觉，准静态同视点顺序成像。\n  - VisTacFusion用冻结SITR/MAE编码，触觉查询经16 token视觉瓶颈预测位姿；中间触觉特征经视觉门控后由DPT解码深度/法向，模态dropout支持单/双模。\n\n### 2. 实验结果与局限\n\n- **实验设置：** 12个已知物体真实数据，KUKA臂每物约400次接触，同session验证。\n- **关键结果：** 配对输入深度MSE为0\\.0066 mm²，较纯视觉/纯触觉分别降低93\\.7%和61\\.2%。\n- **关键结果：** 角度误差由纯触觉2\\.350°降至0\\.652°，低于纯视觉0\\.694°。\n- **局限（作者指出）：** 仅在同session、已知物体上验证，未评估跨session泛化。\n- **局限（作者指出）：** 深度与法向参考由几何计算生成，非独立膜形测量。\n\n### 3. 关键术语\n\n- **UV-responsive contact layer（UV响应接触层）：** 紫外照明下成像状态改变的连续膜层；本文作用：让单相机顺序获得视觉与触觉图像\n- **VisTacFusion（视触融合网络）：** 分路预测位姿与接触几何的多模态Transformer；本文作用：融合共视点视觉上下文与触觉空间特征\n- **Modality dropout（模态丢弃）：** 训练时随机缺少某一模态；本文作用：支持双模或单模输入推理\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 共视点顺序采集与非对称融合可减少标定并保留触觉空间细节，可借鉴于多模态传感与位姿/几何联合估计。\n- **阅读建议：** 重点精读。III节传感器与IV-C/D融合结构，Table II\n\n阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。\n\n[本次阅读资料](https://arxiv.org/html/2610.31334)\n\n## 4. T\\(R,O\\) Grasp\\+\\+：大规模杂乱环境跨形态灵巧抓取\n\nT\\(R,O\\) Grasp\\+\\+: Cross-Embodiment Dexterous Grasping in Cluttered Environments at Scale\n\n工作模块：灵巧操作与策略学习、建模、辨识与仿真、运动规划与控制\n\n**作者**：Xin Fei, Zhixuan Xu, Huaicong Fang, Fangjun Chen, Zhaoyu Mu, Rui Yang, Zhexi Luo, Lin Shao\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-18\n\n[论文原文](https://arxiv.org/abs/2610.25410)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 现有杂乱场景灵巧抓取依赖先生成大量候选再碰撞/评分筛选，手—物—环境关系编码不足致样本效率低；数据形态多样性有限；关节值或模板等表示跨手泛化差，物体中心表示还需昂贵优化。\n- **核心思路：** 构建约0\\.5B抓取、八种手、约5万物体的仿真基准，并提出T\\(R,O\\)Graph\\+\\+统一图表征与图扩散模型，直接合成跨形态无碰撞抓取。\n- **实现方法：**\n  - 用各手RL策略生成抓取，变换到稳定桌面位姿并滤除穿透，再在抓取凸包外放置障碍，构造三类杂乱场景与难度标注。\n  - 点云经VQ-VAE/PointNet\\+\\+编码，手链接用BPS几何与正运动学关节相对变换形成足迹，构建物体/环境/手链接节点及相对SE\\(3\\)边。\n  - 图扩散去噪链接6D位姿，DDIM采样加速；Pyroki多初值IK重定向为关节值。\n\n### 2. 实验结果与局限\n\n- **实验设置：** Isaac Gym仿真，每手2万场景、5,938未见物体；基线AnyDexGrasp/DexGraspNet2。\n- **关键结果：** 跨多种灵巧手平均成功率为87\\.96%（仿真）。\n- **关键结果：** 推理延迟0\\.34 s，推理采样效率较基线提升超过10倍。\n- **关键结果：** 高杂乱Level-4下成功率仍为75\\.37%。\n- **局限（作者指出）：** 不支持RGB、力或触觉等多模态输入，也不能做功能性抓取合成。\n- **局限（基于证据分析）：** 真实失败分析中执行不稳定（物体滑移）约占近半失败。\n\n### 3. 关键术语\n\n- **T\\(R,O\\) Graph\\+\\+（T\\(R,O\\)图表示\\+\\+）：** 物体、环境与手链接的统一图结构；本文作用：承载跨形态抓取扩散生成\n- **Cross-Embodiment Dexterous Grasping（跨形态灵巧抓取）：** 同一模型适配多种灵巧手；本文作用：本文核心任务与评测范围\n- **DDIM sampling（DDIM采样）：** 扩散模型确定性加速采样；本文作用：将推理降至0\\.34 s\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 统一图表示结合大规模RL标注与图扩散，可迁移到多指手抓取的数据生成和接触约束建模。\n- **阅读建议：** 重点精读。第4节Graph\\+\\+与扩散流程；表2、表3和表6的跨手、杂乱与消融结果。\n\n阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。\n\n[本次阅读资料](https://arxiv.org/html/2610.25410)\n\n## 其他相关期刊论文\n\n以下仅列元数据，未进入本次五篇精选；供回查，未进行正文阅读。\n\n- [A Bioinspired Multimodal Soft Gripper With Intuitive Teleoperation and Distal Sensing for Constrained-Space Manipulation](https://doi.org/10.1109/lra.2026.3726374) · IEEE Robotics and Automation Letters · 2026-10\n- [FG-CLTP: Fine-Grained Contrastive Language Tactile Pretraining for Robotic Manipulation](https://doi.org/10.1109/lra.2026.3711368) · IEEE Robotics and Automation Letters · 2026-09\n",
   "usage": {
-    "input_tokens": 117277,
-    "output_tokens": 32852,
-    "cached_tokens": 10880,
+    "input_tokens": 130417,
+    "output_tokens": 34676,
+    "cached_tokens": 9728,
     "requests": 12
   }
 }
