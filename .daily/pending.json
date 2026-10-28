@@ -1,20 +1,17 @@
 {
   "version": 1,
-  "batch_id": "b1dc135f8caff29544b7bf9d",
-  "date": "2026-10-25",
-  "status": "complete",
+  "batch_id": "5a6836e18bf24543bf921951",
+  "date": "2026-10-28",
+  "status": "inflight",
   "manual_extra": false,
   "archive_run_id": "",
-  "attempt_run_id": "40163389539-1",
+  "attempt_run_id": "40640395498-1",
   "paper_ids": [
-    "arxiv:2610.29030",
-    "arxiv:2610.26962",
-    "arxiv:2610.28628",
-    "arxiv:2609.30959"
+    "arxiv:2610.37652",
+    "arxiv:2610.33486",
+    "doi:10.1177/21695172261499029"
   ],
-  "acknowledged_cards": [
-    0
-  ],
+  "acknowledged_cards": [],
   "cards": [
     {
       "msg_type": "interactive",
@@ -26,7 +23,7 @@
           "template": "blue",
           "title": {
             "tag": "plain_text",
-            "content": "灵巧手论文日报 · 2026-10-25"
+            "content": "灵巧手论文日报 · 2026-10-28"
           }
         },
         "elements": [
@@ -34,21 +31,21 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "今日精选 4 篇。"
+              "content": "今日精选 3 篇。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "1. PHD-Hand：可打印连杆驱动三驱动自由度手指的拟人灵巧手\nPHD-Hand: A Printable Humanoid Dexterous Hand with Linkage-Driven 3-DOA Digits"
+              "content": "1. 手中物体位姿到达的灵巧性与安全性\nPushing Dexterity and Safety for In-Hand Object Pose Reaching That Works Remarkably Well"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "工作模块：机器人本体与硬件、运动规划与控制"
+              "content": "工作模块：灵巧操作与策略学习、建模、辨识与仿真、感知与状态估计、运动规划与控制"
             }
           },
           {
@@ -62,7 +59,7 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "首次发布日期：2026-10-21；作者：Neel Adwani, Muhaiminul Islam Akash, Saffia Ouali, Ethan Liu, Cong Wang"
+              "content": "首次发布日期：2026-10-27；作者：Ian Chuang, Hiya Shah, Vamsi Chilamkur, Iman Soltani, Claire Tomlin"
             }
           },
           {
@@ -71,7 +68,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2610.29030",
+                "url": "https://arxiv.org/abs/2610.37652",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
@@ -80,7 +77,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/pdf/2610.29030",
+                "url": "https://arxiv.org/pdf/2610.37652",
                 "text": {
                   "tag": "plain_text",
                   "content": "PDF"
@@ -92,35 +89,35 @@
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 腱驱动灵巧手成本高、维护难、可靠性差、寿命短；连杆驱动虽可规避这些弱点，但在单指集成3个驱动自由度且把执行器置于指外时，常需大量微型零件，难以兼顾尺寸、耐久与低成本。\n- **核心思路：** 用单件柔性铰链根关节和弹簧钢弹性杆简化连杆传动，减少零件，使全手可由廉价3D打印制造并接近人手尺寸，且完全解耦根关节与上两关节运动学。\n- **实现方法：**\n  - 根关节为单件TPU柔性铰链，提供2个倾斜DOA并限制轴向旋转；两RC舵机经刚性杆和球关节构成5杆机构。\n  - 上两关节由十字四杆耦合，耦合比0\\.77；0\\.6 mm 304弹簧钢弹性杆穿过根关节，双向驱动。\n  - 根关节逆解解析，正解用仿射映射最小二乘拟合；Claude辅助生成GUI与轨迹。"
+              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 多指手手中操作常局限于简单抓取或绕轴旋转，多在单一掌心朝上腕姿评估；长序列全6D位姿到达与防掉落安全性缺少系统研究。高维接触丰富、误差容限小，安全常仅靠奖励塑造。\n- **核心思路：** 作者提出无人类数据的仿真训练配方：抓取数据集提供多样目标与重置，课程和系统辨识促进迁移，并在冻结策略上叠加可调残差安全滤波。\n- **实现方法：**\n  - 仿真中用PPO训练特权教师；目标与重置来自LightningGrasp/DexterityGen生成的抓取数据集，并加入自适应摩擦与目标课程。\n  - 经在线DAgger蒸馏与PPO微调得到状态策略，再蒸馏为仅用腕部深度相机的深度策略；执行器辨识与延迟标定支撑零样本迁移。\n  - 冻结任务策略后，按ResSafe训练残差安全滤波器，并把校正权重w作为网络输入，使部署时可调保守度。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**2. 实验结果与局限**\n- **实验设置：** 自制PHD-Hand原型，GRASP抓握、对掌与物体操作测试\n- **关键结果：** 根关节正运动学仿射近似回归R=0\\.981，运动范围多数误差&lt;1\\.8°，最大&lt;2\\.7°。\n- **关键结果：** 按GRASP分类测试33种抓握，并扩展至杯子、电钻等功能性抓握；部分抓握不完美。\n- **关键结果：** 同一原型累计约200小时测试，早期两次弹性驱动杆断裂，此后未见机械退化。\n- **局限（作者指出）：** 部分抓握不完美，因屈曲范围有限和缺少鱼际间隙；弹性杆疲劳寿命尚待定量研究。"
+              "content": "**2. 实验结果与局限**\n- **实验设置：** LEAP手\\+UR5，4物体、6腕姿、4800个未见目标、13\\.3小时真机。\n- **关键结果：** 状态策略在粗容差内到达95\\.2%目标；加入滤波器后掉落从16次降至4次，仍到达91\\.5%。\n- **关键结果：** 仅腕部深度相机策略粗容差到达71\\.8%，滤波器使掉落从88降至46。\n- **局限（作者指出）：** 作者指出策略与滤波器均按物体单独训练，深度策略在刀和酒杯上仍有视觉sim-to-real差距。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**3. 关键术语**\n- **Degrees of Actuation \\(DOA\\)（驱动自由度）：** 独立驱动关节的数量，不等同于被动自由度；本文作用：本文以每指3 DOA为设计指标\n- **Flexure hinge（柔性铰链）：** 单件各向异性柔性结构，可倾斜但限制轴向旋转；本文作用：构成2-DOF根关节并让弹性杆穿过\n- **Cross four-bar mechanism（十字四杆机构）：** 常用连杆机构，使两关节按固定比例联动；本文作用：以0\\.77耦合比驱动上两关节"
+              "content": "**3. 关键术语**\n- **In-hand object pose reaching（手中物体位姿到达）：** 把物体移动到指间可达的任意位置与姿态；本文作用：作为全文任务定义与评测目标\n- **Residual safety filter（残差安全滤波器）：** 在冻结策略动作上叠加小修正以保持安全；本文作用：降低掉落并可用权重w调节保守度\n- **Teacher–student distillation（教师–学生蒸馏）：** 用特权教师指导可部署学生策略；本文作用：把仿真状态策略迁移到深度相机策略"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 单件柔性结构加弹性杆可替代复杂腱/齿轮传动，降低灵巧手制造门槛，并简化运动学建模。\n- **阅读建议：** 选择性阅读。第II节柔性铰链设计与图2、表I对比，第III节根关节运动学。"
+              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 可借鉴将安全作为冻结策略上的模块化残差层，并用单一权重调性能-安全权衡；适用于高维接触操作与sim-to-real。\n- **阅读建议：** 重点精读。重点看V-A训练流程、V-B滤波设计及Table II真机结果。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。"
+              "content": "阅读依据：论文全文节选（受长度或文本提取覆盖限制）；未提供全部正文。"
             }
           },
           {
@@ -130,14 +127,14 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "2. DexGraspFlow：面向跨本体灵巧抓取的拓扑感知SE(3)流匹配\nDexGraspFlow: Topology-Aware SE(3) Flow Matching for Cross-Embodiment Dexterous Grasp Generation"
+              "content": "2. 学习灵巧操作：手、仿真器、训练与评估\nLearning Dexterous Manipulation: Hands, Simulators, Training, and Evaluation"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "工作模块：灵巧操作与策略学习、建模、辨识与仿真、运动规划与控制"
+              "content": "工作模块：灵巧操作与策略学习、建模、辨识与仿真、机器人本体与硬件"
             }
           },
           {
@@ -151,7 +148,7 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "首次发布日期：2026-10-18；作者：Bin Zhou, Boyu Ma, Xinyu Zhou, Jiahua Dong, Chuhao Zhou, Yizhou Liu, Hao Wan, Jianfei Yang"
+              "content": "首次发布日期：2026-10-24；作者：Luai Abuelsamen"
             }
           },
           {
@@ -160,7 +157,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2610.26962",
+                "url": "https://arxiv.org/abs/2610.33486",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
@@ -169,7 +166,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/pdf/2610.26962",
+                "url": "https://arxiv.org/pdf/2610.33486",
                 "text": {
                   "tag": "plain_text",
                   "content": "PDF"
@@ -181,35 +178,35 @@
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 跨本体灵巧抓取需共享知识，但现有方法多依赖连杆空间关系或接触/距离表示，忽略运动学拓扑；空间相邻连杆可能属不同拓扑分支，且优化或扩散生成开销大。\n- **核心思路：** 作者将抓取生成建模为连杆级SE\\(3\\)流匹配，联合学习平移与SO\\(3\\)旋转速度场，并以URDF运动学树距离作注意力偏置，显式注入拓扑。\n- **实现方法：**\n  - 输入物体/连杆点云与当前位姿，编码几何token，由URDF建连杆图及拓扑距离矩阵。\n  - 双流DiT以连杆—连杆和连杆—物体注意力联合预测平移/旋转速度，连杆流注入拓扑偏置。\n  - 积分速度场得连杆位姿；推理时修正掌心朝向，再用批量IK恢复关节角。"
+              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 灵巧操作研究已集中到少数范式，但各文的成功判据、试验次数、手与仿真器配置互不一致，论文奖励表也可能与开源代码不符，导致跨论文结果难以比较。\n- **核心思路：** 以113篇学习型方法为样本，按任务族、手、仿真器、训练范式和评估方式逐项编码计数，并旁读公开代码与厂商规格，核对论文的实际陈述。\n- **实现方法：**\n  - 合并六类主题书目去重得223条，逐条核对arXiv标题后纳入113篇方法论文，检索截至2026-09-17。\n  - 按任务族、33款手、15个仿真器、训练范式与评估方式建表计数，并声明所有覆盖数字为下界。\n  - 对63篇可读代码按文件与commit比对论文奖励与配置，将39篇不一致分为8处数值不符、组件未发布、版本漂移与解析限制。\n  - 据此提出评估协议：单率约100次真机rollout的Wilson区间、57对McNemar配对比较，并报告穿透深度与3个训练种子。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**2. 实验结果与局限**\n- **实验设置：** Isaac Gym三手30对象–手对；真机100次。\n- **关键结果：** 30个对象–手对平均仿真成功率95\\.33%，端到端生成0\\.126–0\\.136 s，较TRO-Grasp约低49%。\n- **关键结果：** 七个去指变体零样本平均成功率88\\.74%，高于DRO-Grasp的53\\.11%与TRO-Grasp的20\\.47%。\n- **关键结果：** Linker Hand L20Lite真机100次抓取成功91次。\n- **局限（作者指出）：** 作者指出，对形态根本不同的新本体泛化仍难；流场不显式约束关节限位与碰撞，可行性依赖IK。"
+              "content": "**2. 实验结果与局限**\n- **实验设置：** 综述113篇方法论文，编码统计与代码对照，无新实验。\n- **关键结果：** 113篇中54篇采用特权状态强化学习并蒸馏，其中35篇在Isaac Gym上训练。\n- **关键结果：** 89篇在真机评估，24篇仅做仿真。\n- **关键结果：** 63篇发布可读代码，39篇与自身代码存在某种不一致，8篇为数值或项不同。\n- **局限（作者指出）：** 不重跑任何实验，无法判定方法优劣；样本仅限学习时代，覆盖计数均为下界。\n- **局限（作者指出）：** 所提评估协议未实际运行，样本量来自功效与区间计算而非灵巧手实验。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**3. 关键术语**\n- **SE\\(3\\) Flow Matching（SE\\(3\\)流匹配）：** 在平移与旋转空间学习连续速度场，将噪声输运为位姿；本文作用：生成连杆位姿，避免多步扩散去噪。\n- **Kinematic-Tree Topology Bias（运动学树拓扑偏置）：** 用URDF连杆图最短路径距离构造注意力偏置；本文作用：让连杆注意力区分空间近邻与拓扑近邻。\n- **Batched Inverse Kinematics（批量逆运动学）：** 把目标连杆位姿优化为可执行关节角；本文作用：将生成位姿转为关节配置供执行。"
+              "content": "**3. 关键术语**\n- **Privileged State Distillation（特权状态蒸馏）：** 仿真中用不可观测的物体位姿、速度训练教师，再蒸馏为仅用相机与关节编码的学生；本文作用：本文统计的主流派训练范式。\n- **Penetration Depth（穿透深度）：** 手与物体互相嵌入的距离，取决于所选接触刚度与求解器设置；本文作用：作者指出几乎无人报告策略rollout中的该量。\n- **Actuated Degrees of Freedom（驱动自由度）：** 手实际驱动的关节数，区别于名义关节数；本文作用：用于比较通用策略与RL文献的手部规模。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 将拓扑距离作注意力偏置、用流匹配在SE\\(3\\)上生成连杆位姿，可迁移到多本体操作与抓取生成。\n- **阅读建议：** 选择性阅读。重点看第3节双流DiT与拓扑偏置，以及表1和表2的跨手与去指结果。"
+              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 可借鉴其“读代码核对论文奖励表”的审计思路，以及分级评分加序贯检验降低真机评估成本，属机器人学习评估与可复现性方向。\n- **阅读建议：** 选择性阅读。Sec V-F 论文与代码对照、Sec VII 与 Table II/III 的评估协议。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。"
+              "content": "阅读依据：论文全文节选（受长度或文本提取覆盖限制）；未提供全部正文。"
             }
           },
           {
@@ -219,28 +216,28 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "3. 通过混合灵巧模仿学习可适应灵巧技能\nLearning Adaptable Dexterous Skills via Hybrid Dexterous Mimicking"
+              "content": "3. 利用扭转绳执行器的拉伸与扭转载荷实现三维螺旋变形\nHarnessing Both Tensile and Torsional Forces of Twisted String Actuators for Three-Dimensional Helical Deformation"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "工作模块：灵巧操作与策略学习、建模、辨识与仿真、运动规划与控制"
+              "content": "工作模块：机器人本体与硬件、建模、辨识与仿真"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "来源：arXiv"
+              "content": "来源：Soft Robotics（Soft Robot.）"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "首次发布日期：2026-10-20；作者：Yuxuan Kuang, Jiashun Wang, Yixuan Sun, Yufei Ye, Sungjae Park, Umar Iqbal, Katerina Fragkiadaki, Shubham Tulsiani"
+              "content": "登记发表日期：2026-10-26；作者：Zeyu Long, Hidefumi Wakamatsu, Yoshiharu Iwata"
             }
           },
           {
@@ -249,19 +246,10 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2610.28628",
+                "url": "https://doi.org/10.1177/21695172261499029",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
-                }
-              },
-              {
-                "tag": "button",
-                "type": "default",
-                "url": "https://arxiv.org/pdf/2610.28628",
-                "text": {
-                  "tag": "plain_text",
-                  "content": "PDF"
                 }
               }
             ]
@@ -270,66 +258,35 @@
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 现有目标到达强化学习虽能泛化到任意物体位姿，但缺少人类先验，容易收敛到不自然、不可靠的手指策略；动作跟踪能复现人类抓取与手内操作，却只能回放单个参考，难以适应新目标。\n- **核心思路：** 将跟踪与目标到达统一为目标条件问题，用同一共享策略在两类并行环境中训练：跟踪环境注入人类先验，泛化环境用噪声目标迫使技能偏离参考。\n- **实现方法：**\n  - 从动捕或RGB\\(D\\)视频获得几秒人手-物体参考，并重定向到目标手。\n  - 跟踪环境按参考帧初始化，奖励物体位姿、腕位姿、MANO指节位置与接触。\n  - 泛化环境加大状态噪声并扰动SE\\(3\\)目标，仅用稀疏物体成功奖励加腕引导，无手指项。\n  - 共享actor用PPO在Isaac Gym训练，critic用特权信息；部署不需参考。"
+              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 传统扭转绳执行器系统通常只利用绳子扭转产生的拉伸力，忽略扭转载荷，导致单个执行器往往只能产生弯曲等平面变形，难以实现三维构型。\n- **核心思路：** 作者提出扭转绳螺旋软管TSHH，用单输入同时利用拉伸与扭转载荷，使软管产生三维螺旋变形；与仅用拉伸力的传统TSA方案不同。\n- **实现方法：**\n  - 设计TSHH机构：电机、绳与软管均为商用件；绳扭转时把拉伸和扭转载荷共同传给软管，形成三维螺旋变形，这是作者的核心机构创新。\n  - 建立运动学模型解释变形原理并支持参数优化，再用优化参数设计能轻柔抓取不同形状尺寸物体的软抓取器。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**2. 实验结果与局限**\n- **实验设置：** 22-DoF浮动手，GRAB 12物体，训1测2；对比ManipTrans、SimToolReal及消融。\n- **关键结果：** 已见动作跟踪进度：AdaDex 96\\.74%，仅跟踪消融97\\.47%，ManipTrans 35\\.20%，SimToolReal 9\\.72%。\n- **关键结果：** 未见但相似动作上，AdaDex跟踪进度80\\.02%，仅跟踪消融31\\.75%，去掉跟踪环境9\\.62%。\n- **关键结果：** 随机目标到达中，AdaDex进度51\\.80%、全目标成功率27\\.08%。\n- **局限（基于证据分析）：** 每物体/每参考单独训练策略，跨物体泛化与技能组合未验证；物体仅6-DoF位姿\\+BPS，复杂几何可能受限。"
+              "content": "**2. 实验结果与局限**\n- **实验设置：** 仅摘要，无实验平台或定量指标。\n- **关键结果：** 现有阅读材料未提供可核对的定量结果。\n- **局限（基于证据分析）：** 仅摘要可读，缺少运动学模型误差、抓取负载与成功率等定量验证，三维变形优势尚不能量化评估。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**3. 关键术语**\n- **Hybrid Dexterous Mimicking（混合灵巧模仿）：** 共享策略在跟踪与泛化两类环境联合训练；本文作用：核心训练框架，兼顾人类先验与目标泛化\n- **Tracking/Generalization Environments（跟踪/泛化环境）：** 前者按参考初始化并密集跟踪，后者加噪目标仅稀疏成功；本文作用：分别提供先验与覆盖\n- **Goal-conditioned RL（目标条件强化学习）：** 策略以状态和目标位姿为输入输出动作；本文作用：统一跟踪与到达的问题形式"
+              "content": "**3. 关键术语**\n- **Twisted String Actuator \\(TSA\\)（扭转绳执行器）：** 靠绳子扭转产生驱动的执行器；本文作用：作为对比基线，本文指出其通常只用拉伸力\n- **Twisted String Helical Hose \\(TSHH\\)（扭转绳螺旋软管）：** 由电机、绳与软管组成的螺旋变形机构；本文作用：本文核心机构，实现单输入三维螺旋变形\n- **Kinematic Model（运动学模型）：** 描述输入与螺旋变形关系的模型；本文作用：用于解释变形原理并优化机构参数"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 用共享策略混合密集参考跟踪与稀疏目标到达，可在保留人类先验的同时获得目标泛化；该思路可迁移到其他模仿学习与RL结合场景。\n- **阅读建议：** 重点精读。重点看§3\\.2的双环境设计与表1、表2的消融和泛化对比。"
+              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 把闲置的扭转载荷与拉伸耦合，可将一维驱动扩展为三维变形，对软体执行器和绳驱机构设计有参考价值。\n- **阅读建议：** 选择性阅读。优先看变形原理、运动学建模与参数优化；目前仅摘要，无图表信息。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。"
-            }
-          },
-          {
-            "tag": "hr"
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "4. VisTacAlign：基于视觉-触觉对齐的人机演示灵巧策略协同训练\nVisTacAlign: Co-Training Dexterous Policies on Tactile Human and Robot Demonstrations using Visual-Tactile Alignment"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "工作模块：灵巧操作与策略学习、机器人本体与硬件、感知与状态估计"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "来源：arXiv"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "首次发布日期：2026-09-25；作者：Julien Poffet, Matthew Strong, Ankush Dhawan, Baiyu Shi, Shalika Neelaveni, Yujia Yuan, Zhenan Bao, Monroe Kennedy"
+              "content": "阅读依据：摘要及来源公开页面，未获取全文。"
             }
           },
           {
@@ -338,65 +295,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2609.30959",
-                "text": {
-                  "tag": "plain_text",
-                  "content": "论文"
-                }
-              },
-              {
-                "tag": "button",
-                "type": "default",
-                "url": "https://arxiv.org/pdf/2609.30959",
-                "text": {
-                  "tag": "plain_text",
-                  "content": "PDF"
-                }
-              }
-            ]
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "lark_md",
-              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 人手演示成本低，但人机在运动学、视觉与触觉上存在本体差异；指尖重定向易偏、视觉上人手或干净网格残留、触觉传感器量纲不同，导致协同训练难以利用人手数据。\n- **核心思路：** 将逐模态对齐的人手演示映射到机器人观测、动作与力传感器空间，再联合训练3D视觉-触觉扩散策略；区别于仅做视觉掩码或潜空间触觉对齐。\n- **实现方法：**\n  - 重定向：Rokoko手套以Apple Vision Pro伪真值一次性校正指尖，再按DexPilot式向量优化求解17-DoF ORCA手，腕部标定到末端。\n  - 视觉对齐：SAM 3擦除人手，将机器人像素着色的摆姿手网格合成进双目并重跑Fast-FoundationStereo。\n  - 触觉对齐：两套传感器归约为五指法向力，用熵最优传输重心投影的静态映射T转为机器人taxel单位。\n  - 策略：ManiFlow式流匹配DiT融合点云、本体与每指触觉token，输出64步动作块。"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "lark_md",
-              "content": "**2. 实验结果与局限**\n- **实验设置：** 三个真实任务：电钻、草莓、乐高；每格20次，草莓每尺寸10次。\n- **关键结果：** 电钻点云策略抓取并保持触发成功率50%，加入26条对齐触觉人手演示后升至70%。\n- **关键结果：** 乐高最终成功率随机器人演示从10条增至30条由40%升至80%，30条机器人单独仅10%。\n- **关键结果：** 触觉对齐后，拇指KS距离由0\\.33降至0\\.08，食指由0\\.42降至0\\.08。\n- **局限（作者指出）：** 触觉映射按任务由无配对力样本拟合，仍需目标任务短机器人记录；每指仅保留单法向力，丢弃taxel布局与剪切。"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "lark_md",
-              "content": "**3. 关键术语**\n- **Fast-FoundationStereo \\(FFS\\)（快速基础立体匹配）：** 实时零样本双目深度基础模型；本文作用：把双目图提升为点云，并重跑合成图统一人机误差\n- **Entropic Optimal Transport \\(OT\\)（熵最优传输）：** 带熵正则的最小代价分布映射；本文作用：将人手五指力分布映射到机器人taxel力空间\n- **Diffusion Transformer \\(DiT\\)（扩散Transformer）：** 用Transformer作去噪骨干的生成策略；本文作用：融合点云、本体与触觉token生成动作块"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "lark_md",
-              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 多模态人机协同的关键是逐模态对齐到部署传感器空间，而非简单混合数据；可迁移到力控与跨本体示教。\n- **阅读建议：** 重点精读。重点看III-B、III-C及图5、图6的对齐细节与消融。"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。"
-            }
-          },
-          {
-            "tag": "action",
-            "actions": [
-              {
-                "tag": "button",
-                "type": "default",
-                "url": "https://github.com/suyoutzy/dexterous-paper-digest/blob/main/docs/digests/2026-10-25.md",
+                "url": "https://github.com/suyoutzy/dexterous-paper-digest/blob/main/docs/digests/2026-10-28.md",
                 "text": {
                   "tag": "plain_text",
                   "content": "日报归档 / 其他期刊候选"
@@ -409,7 +308,7 @@
             "elements": [
               {
                 "tag": "plain_text",
-                "content": "按课题关联、摘要方法与学习价值推荐。\n来源：arXiv 与五本期刊。按标题/摘要筛选；入选后优先阅读公开全文，实际资料范围逐篇标注。有1篇未能确认为最近7天发表的补充论文。额外期刊名额暂缺，未用预印本替代。部分检索覆盖受限，详细情况见归档。归档另列2篇相关期刊候选。\n模型：deepseek-flash · 研究方向：灵巧末端设计与控制"
+                "content": "按课题关联、摘要方法与学习价值推荐。\n来源：arXiv 与五本期刊。按标题/摘要筛选；入选后优先阅读公开全文，实际资料范围逐篇标注。本次有1篇未通过内容校验，未推送，保留以后重试。额外期刊名额暂缺，未用预印本替代。部分检索覆盖受限，详细情况见归档。归档另列2篇相关期刊候选。\n模型：deepseek-flash · 研究方向：灵巧末端设计与控制"
               }
             ]
           }
@@ -417,11 +316,11 @@
       }
     }
   ],
-  "report": "# 灵巧手论文日报 · 2026-10-25\n\n来源：arXiv API 与近期数据库。期刊：Crossref 5/5 个来源刷新成功，回查最近 90 天元数据索引，获得 4459 条期刊记录；索引更新日期不作为发表日期。 最近 30 天发表日期补查 5/5 个来源成功，取得 184 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Transactions on Robotics、IEEE Robotics and Automation Letters、The International Journal of Robotics Research。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。额外期刊名额不足，补查最近90天期刊。期刊：Crossref 5/5 个来源刷新成功，回查最近 90 天元数据索引，获得 4729 条期刊记录；索引更新日期不作为发表日期。 最近 90 天发表日期补查 5/5 个来源成功，取得 484 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Transactions on Robotics、IEEE Robotics and Automation Letters、The International Journal of Robotics Research。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。优先最近7天；必要时从最近30天未发送论文补充。前四个名额按统一评分选取，另保留一个不同的期刊论文名额。额外期刊名额已扩大到最近90天检索。本次没有找到额外合格且未发送的期刊论文，期刊保留名额暂缺，不用预印本替代。筛选依据标题/摘要与元数据；入选后优先分析公开全文，实际阅读范围逐篇标注。本次有1篇近期补充，请结合发表日期阅读。本次达到推荐门槛的论文有4篇。另有2篇相关期刊候选，标题与链接见当天归档。\n\n模型：deepseek-flash；分数是针对个人学习价值的推荐依据，非学术质量认证。\n\n## 1. PHD-Hand：可打印连杆驱动三驱动自由度手指的拟人灵巧手\n\nPHD-Hand: A Printable Humanoid Dexterous Hand with Linkage-Driven 3-DOA Digits\n\n工作模块：机器人本体与硬件、运动规划与控制\n\n**作者**：Neel Adwani, Muhaiminul Islam Akash, Saffia Ouali, Ethan Liu, Cong Wang\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-21\n\n[论文原文](https://arxiv.org/abs/2610.29030)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 腱驱动灵巧手成本高、维护难、可靠性差、寿命短；连杆驱动虽可规避这些弱点，但在单指集成3个驱动自由度且把执行器置于指外时，常需大量微型零件，难以兼顾尺寸、耐久与低成本。\n- **核心思路：** 用单件柔性铰链根关节和弹簧钢弹性杆简化连杆传动，减少零件，使全手可由廉价3D打印制造并接近人手尺寸，且完全解耦根关节与上两关节运动学。\n- **实现方法：**\n  - 根关节为单件TPU柔性铰链，提供2个倾斜DOA并限制轴向旋转；两RC舵机经刚性杆和球关节构成5杆机构。\n  - 上两关节由十字四杆耦合，耦合比0\\.77；0\\.6 mm 304弹簧钢弹性杆穿过根关节，双向驱动。\n  - 根关节逆解解析，正解用仿射映射最小二乘拟合；Claude辅助生成GUI与轨迹。\n\n### 2. 实验结果与局限\n\n- **实验设置：** 自制PHD-Hand原型，GRASP抓握、对掌与物体操作测试\n- **关键结果：** 根关节正运动学仿射近似回归R=0\\.981，运动范围多数误差&lt;1\\.8°，最大&lt;2\\.7°。\n- **关键结果：** 按GRASP分类测试33种抓握，并扩展至杯子、电钻等功能性抓握；部分抓握不完美。\n- **关键结果：** 同一原型累计约200小时测试，早期两次弹性驱动杆断裂，此后未见机械退化。\n- **局限（作者指出）：** 部分抓握不完美，因屈曲范围有限和缺少鱼际间隙；弹性杆疲劳寿命尚待定量研究。\n\n### 3. 关键术语\n\n- **Degrees of Actuation \\(DOA\\)（驱动自由度）：** 独立驱动关节的数量，不等同于被动自由度；本文作用：本文以每指3 DOA为设计指标\n- **Flexure hinge（柔性铰链）：** 单件各向异性柔性结构，可倾斜但限制轴向旋转；本文作用：构成2-DOF根关节并让弹性杆穿过\n- **Cross four-bar mechanism（十字四杆机构）：** 常用连杆机构，使两关节按固定比例联动；本文作用：以0\\.77耦合比驱动上两关节\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 单件柔性结构加弹性杆可替代复杂腱/齿轮传动，降低灵巧手制造门槛，并简化运动学建模。\n- **阅读建议：** 选择性阅读。第II节柔性铰链设计与图2、表I对比，第III节根关节运动学。\n\n阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。\n\n[本次阅读资料](https://arxiv.org/pdf/2610.29030)\n\n## 2. DexGraspFlow：面向跨本体灵巧抓取的拓扑感知SE\\(3\\)流匹配\n\nDexGraspFlow: Topology-Aware SE\\(3\\) Flow Matching for Cross-Embodiment Dexterous Grasp Generation\n\n工作模块：灵巧操作与策略学习、建模、辨识与仿真、运动规划与控制\n\n**作者**：Bin Zhou, Boyu Ma, Xinyu Zhou, Jiahua Dong, Chuhao Zhou, Yizhou Liu, Hao Wan, Jianfei Yang\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-18\n\n[论文原文](https://arxiv.org/abs/2610.26962)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 跨本体灵巧抓取需共享知识，但现有方法多依赖连杆空间关系或接触/距离表示，忽略运动学拓扑；空间相邻连杆可能属不同拓扑分支，且优化或扩散生成开销大。\n- **核心思路：** 作者将抓取生成建模为连杆级SE\\(3\\)流匹配，联合学习平移与SO\\(3\\)旋转速度场，并以URDF运动学树距离作注意力偏置，显式注入拓扑。\n- **实现方法：**\n  - 输入物体/连杆点云与当前位姿，编码几何token，由URDF建连杆图及拓扑距离矩阵。\n  - 双流DiT以连杆—连杆和连杆—物体注意力联合预测平移/旋转速度，连杆流注入拓扑偏置。\n  - 积分速度场得连杆位姿；推理时修正掌心朝向，再用批量IK恢复关节角。\n\n### 2. 实验结果与局限\n\n- **实验设置：** Isaac Gym三手30对象–手对；真机100次。\n- **关键结果：** 30个对象–手对平均仿真成功率95\\.33%，端到端生成0\\.126–0\\.136 s，较TRO-Grasp约低49%。\n- **关键结果：** 七个去指变体零样本平均成功率88\\.74%，高于DRO-Grasp的53\\.11%与TRO-Grasp的20\\.47%。\n- **关键结果：** Linker Hand L20Lite真机100次抓取成功91次。\n- **局限（作者指出）：** 作者指出，对形态根本不同的新本体泛化仍难；流场不显式约束关节限位与碰撞，可行性依赖IK。\n\n### 3. 关键术语\n\n- **SE\\(3\\) Flow Matching（SE\\(3\\)流匹配）：** 在平移与旋转空间学习连续速度场，将噪声输运为位姿；本文作用：生成连杆位姿，避免多步扩散去噪。\n- **Kinematic-Tree Topology Bias（运动学树拓扑偏置）：** 用URDF连杆图最短路径距离构造注意力偏置；本文作用：让连杆注意力区分空间近邻与拓扑近邻。\n- **Batched Inverse Kinematics（批量逆运动学）：** 把目标连杆位姿优化为可执行关节角；本文作用：将生成位姿转为关节配置供执行。\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 将拓扑距离作注意力偏置、用流匹配在SE\\(3\\)上生成连杆位姿，可迁移到多本体操作与抓取生成。\n- **阅读建议：** 选择性阅读。重点看第3节双流DiT与拓扑偏置，以及表1和表2的跨手与去指结果。\n\n阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。\n\n[本次阅读资料](https://arxiv.org/html/2610.26962)\n\n## 3. 通过混合灵巧模仿学习可适应灵巧技能\n\nLearning Adaptable Dexterous Skills via Hybrid Dexterous Mimicking\n\n工作模块：灵巧操作与策略学习、建模、辨识与仿真、运动规划与控制\n\n**作者**：Yuxuan Kuang, Jiashun Wang, Yixuan Sun, Yufei Ye, Sungjae Park, Umar Iqbal, Katerina Fragkiadaki, Shubham Tulsiani\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-20\n\n[论文原文](https://arxiv.org/abs/2610.28628)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 现有目标到达强化学习虽能泛化到任意物体位姿，但缺少人类先验，容易收敛到不自然、不可靠的手指策略；动作跟踪能复现人类抓取与手内操作，却只能回放单个参考，难以适应新目标。\n- **核心思路：** 将跟踪与目标到达统一为目标条件问题，用同一共享策略在两类并行环境中训练：跟踪环境注入人类先验，泛化环境用噪声目标迫使技能偏离参考。\n- **实现方法：**\n  - 从动捕或RGB\\(D\\)视频获得几秒人手-物体参考，并重定向到目标手。\n  - 跟踪环境按参考帧初始化，奖励物体位姿、腕位姿、MANO指节位置与接触。\n  - 泛化环境加大状态噪声并扰动SE\\(3\\)目标，仅用稀疏物体成功奖励加腕引导，无手指项。\n  - 共享actor用PPO在Isaac Gym训练，critic用特权信息；部署不需参考。\n\n### 2. 实验结果与局限\n\n- **实验设置：** 22-DoF浮动手，GRAB 12物体，训1测2；对比ManipTrans、SimToolReal及消融。\n- **关键结果：** 已见动作跟踪进度：AdaDex 96\\.74%，仅跟踪消融97\\.47%，ManipTrans 35\\.20%，SimToolReal 9\\.72%。\n- **关键结果：** 未见但相似动作上，AdaDex跟踪进度80\\.02%，仅跟踪消融31\\.75%，去掉跟踪环境9\\.62%。\n- **关键结果：** 随机目标到达中，AdaDex进度51\\.80%、全目标成功率27\\.08%。\n- **局限（基于证据分析）：** 每物体/每参考单独训练策略，跨物体泛化与技能组合未验证；物体仅6-DoF位姿\\+BPS，复杂几何可能受限。\n\n### 3. 关键术语\n\n- **Hybrid Dexterous Mimicking（混合灵巧模仿）：** 共享策略在跟踪与泛化两类环境联合训练；本文作用：核心训练框架，兼顾人类先验与目标泛化\n- **Tracking/Generalization Environments（跟踪/泛化环境）：** 前者按参考初始化并密集跟踪，后者加噪目标仅稀疏成功；本文作用：分别提供先验与覆盖\n- **Goal-conditioned RL（目标条件强化学习）：** 策略以状态和目标位姿为输入输出动作；本文作用：统一跟踪与到达的问题形式\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 用共享策略混合密集参考跟踪与稀疏目标到达，可在保留人类先验的同时获得目标泛化；该思路可迁移到其他模仿学习与RL结合场景。\n- **阅读建议：** 重点精读。重点看§3\\.2的双环境设计与表1、表2的消融和泛化对比。\n\n阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。\n\n[本次阅读资料](https://arxiv.org/html/2610.28628)\n\n## 4. VisTacAlign：基于视觉-触觉对齐的人机演示灵巧策略协同训练\n\nVisTacAlign: Co-Training Dexterous Policies on Tactile Human and Robot Demonstrations using Visual-Tactile Alignment\n\n工作模块：灵巧操作与策略学习、机器人本体与硬件、感知与状态估计\n\n**作者**：Julien Poffet, Matthew Strong, Ankush Dhawan, Baiyu Shi, Shalika Neelaveni, Yujia Yuan, Zhenan Bao, Monroe Kennedy\n\n**来源**：arXiv 预印本 · **发表日期**：2026-09-25\n\n[论文原文](https://arxiv.org/abs/2609.30959)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 人手演示成本低，但人机在运动学、视觉与触觉上存在本体差异；指尖重定向易偏、视觉上人手或干净网格残留、触觉传感器量纲不同，导致协同训练难以利用人手数据。\n- **核心思路：** 将逐模态对齐的人手演示映射到机器人观测、动作与力传感器空间，再联合训练3D视觉-触觉扩散策略；区别于仅做视觉掩码或潜空间触觉对齐。\n- **实现方法：**\n  - 重定向：Rokoko手套以Apple Vision Pro伪真值一次性校正指尖，再按DexPilot式向量优化求解17-DoF ORCA手，腕部标定到末端。\n  - 视觉对齐：SAM 3擦除人手，将机器人像素着色的摆姿手网格合成进双目并重跑Fast-FoundationStereo。\n  - 触觉对齐：两套传感器归约为五指法向力，用熵最优传输重心投影的静态映射T转为机器人taxel单位。\n  - 策略：ManiFlow式流匹配DiT融合点云、本体与每指触觉token，输出64步动作块。\n\n### 2. 实验结果与局限\n\n- **实验设置：** 三个真实任务：电钻、草莓、乐高；每格20次，草莓每尺寸10次。\n- **关键结果：** 电钻点云策略抓取并保持触发成功率50%，加入26条对齐触觉人手演示后升至70%。\n- **关键结果：** 乐高最终成功率随机器人演示从10条增至30条由40%升至80%，30条机器人单独仅10%。\n- **关键结果：** 触觉对齐后，拇指KS距离由0\\.33降至0\\.08，食指由0\\.42降至0\\.08。\n- **局限（作者指出）：** 触觉映射按任务由无配对力样本拟合，仍需目标任务短机器人记录；每指仅保留单法向力，丢弃taxel布局与剪切。\n\n### 3. 关键术语\n\n- **Fast-FoundationStereo \\(FFS\\)（快速基础立体匹配）：** 实时零样本双目深度基础模型；本文作用：把双目图提升为点云，并重跑合成图统一人机误差\n- **Entropic Optimal Transport \\(OT\\)（熵最优传输）：** 带熵正则的最小代价分布映射；本文作用：将人手五指力分布映射到机器人taxel力空间\n- **Diffusion Transformer \\(DiT\\)（扩散Transformer）：** 用Transformer作去噪骨干的生成策略；本文作用：融合点云、本体与触觉token生成动作块\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 多模态人机协同的关键是逐模态对齐到部署传感器空间，而非简单混合数据；可迁移到力控与跨本体示教。\n- **阅读建议：** 重点精读。重点看III-B、III-C及图5、图6的对齐细节与消融。\n\n阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。\n\n[本次阅读资料](https://arxiv.org/html/2609.30959)\n\n## 其他相关期刊论文\n\n以下仅列元数据，未进入本次五篇精选；供回查，未进行正文阅读。\n\n- [A Bioinspired Multimodal Soft Gripper With Intuitive Teleoperation and Distal Sensing for Constrained-Space Manipulation](https://doi.org/10.1109/lra.2026.3726374) · IEEE Robotics and Automation Letters · 2026-10\n- [FG-CLTP: Fine-Grained Contrastive Language Tactile Pretraining for Robotic Manipulation](https://doi.org/10.1109/lra.2026.3711368) · IEEE Robotics and Automation Letters · 2026-09\n",
+  "report": "# 灵巧手论文日报 · 2026-10-28\n\n来源：arXiv API 与近期数据库。期刊：Crossref 5/5 个来源刷新成功，回查最近 7 天元数据索引，获得 2791 条期刊记录；索引更新日期不作为发表日期。 最近 30 天发表日期补查 5/5 个来源成功，取得 189 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Robotics and Automation Letters。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。额外期刊名额不足，补查最近90天期刊。期刊：Crossref 5/5 个来源刷新成功，回查最近 7 天元数据索引，获得 3080 条期刊记录；索引更新日期不作为发表日期。 最近 90 天发表日期补查 5/5 个来源成功，取得 483 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Robotics and Automation Letters。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。优先最近7天；必要时从最近30天未发送论文补充。前四个名额按统一评分选取，另保留一个不同的期刊论文名额。额外期刊名额已扩大到最近90天检索。本次没有找到额外合格且未发送的期刊论文，期刊保留名额暂缺，不用预印本替代。筛选依据标题/摘要与元数据；入选后优先分析公开全文，实际阅读范围逐篇标注。本次有1篇未通过内容校验，未推送且未标记已发送，保留以后重试。本次通过内容校验并推送的论文有3篇。另有2篇相关期刊候选，标题与链接见当天归档。\n\n模型：deepseek-flash；分数是针对个人学习价值的推荐依据，非学术质量认证。\n\n## 1. 手中物体位姿到达的灵巧性与安全性\n\nPushing Dexterity and Safety for In-Hand Object Pose Reaching That Works Remarkably Well\n\n工作模块：灵巧操作与策略学习、建模、辨识与仿真、感知与状态估计、运动规划与控制\n\n**作者**：Ian Chuang, Hiya Shah, Vamsi Chilamkur, Iman Soltani, Claire Tomlin\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-27\n\n[论文原文](https://arxiv.org/abs/2610.37652)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 多指手手中操作常局限于简单抓取或绕轴旋转，多在单一掌心朝上腕姿评估；长序列全6D位姿到达与防掉落安全性缺少系统研究。高维接触丰富、误差容限小，安全常仅靠奖励塑造。\n- **核心思路：** 作者提出无人类数据的仿真训练配方：抓取数据集提供多样目标与重置，课程和系统辨识促进迁移，并在冻结策略上叠加可调残差安全滤波。\n- **实现方法：**\n  - 仿真中用PPO训练特权教师；目标与重置来自LightningGrasp/DexterityGen生成的抓取数据集，并加入自适应摩擦与目标课程。\n  - 经在线DAgger蒸馏与PPO微调得到状态策略，再蒸馏为仅用腕部深度相机的深度策略；执行器辨识与延迟标定支撑零样本迁移。\n  - 冻结任务策略后，按ResSafe训练残差安全滤波器，并把校正权重w作为网络输入，使部署时可调保守度。\n\n### 2. 实验结果与局限\n\n- **实验设置：** LEAP手\\+UR5，4物体、6腕姿、4800个未见目标、13\\.3小时真机。\n- **关键结果：** 状态策略在粗容差内到达95\\.2%目标；加入滤波器后掉落从16次降至4次，仍到达91\\.5%。\n- **关键结果：** 仅腕部深度相机策略粗容差到达71\\.8%，滤波器使掉落从88降至46。\n- **局限（作者指出）：** 作者指出策略与滤波器均按物体单独训练，深度策略在刀和酒杯上仍有视觉sim-to-real差距。\n\n### 3. 关键术语\n\n- **In-hand object pose reaching（手中物体位姿到达）：** 把物体移动到指间可达的任意位置与姿态；本文作用：作为全文任务定义与评测目标\n- **Residual safety filter（残差安全滤波器）：** 在冻结策略动作上叠加小修正以保持安全；本文作用：降低掉落并可用权重w调节保守度\n- **Teacher–student distillation（教师–学生蒸馏）：** 用特权教师指导可部署学生策略；本文作用：把仿真状态策略迁移到深度相机策略\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 可借鉴将安全作为冻结策略上的模块化残差层，并用单一权重调性能-安全权衡；适用于高维接触操作与sim-to-real。\n- **阅读建议：** 重点精读。重点看V-A训练流程、V-B滤波设计及Table II真机结果。\n\n阅读依据：论文全文节选（受长度或文本提取覆盖限制）；未提供全部正文。\n\n[本次阅读资料](https://arxiv.org/html/2610.37652)\n\n## 2. 学习灵巧操作：手、仿真器、训练与评估\n\nLearning Dexterous Manipulation: Hands, Simulators, Training, and Evaluation\n\n工作模块：灵巧操作与策略学习、建模、辨识与仿真、机器人本体与硬件\n\n**作者**：Luai Abuelsamen\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-24\n\n[论文原文](https://arxiv.org/abs/2610.33486)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 灵巧操作研究已集中到少数范式，但各文的成功判据、试验次数、手与仿真器配置互不一致，论文奖励表也可能与开源代码不符，导致跨论文结果难以比较。\n- **核心思路：** 以113篇学习型方法为样本，按任务族、手、仿真器、训练范式和评估方式逐项编码计数，并旁读公开代码与厂商规格，核对论文的实际陈述。\n- **实现方法：**\n  - 合并六类主题书目去重得223条，逐条核对arXiv标题后纳入113篇方法论文，检索截至2026-09-17。\n  - 按任务族、33款手、15个仿真器、训练范式与评估方式建表计数，并声明所有覆盖数字为下界。\n  - 对63篇可读代码按文件与commit比对论文奖励与配置，将39篇不一致分为8处数值不符、组件未发布、版本漂移与解析限制。\n  - 据此提出评估协议：单率约100次真机rollout的Wilson区间、57对McNemar配对比较，并报告穿透深度与3个训练种子。\n\n### 2. 实验结果与局限\n\n- **实验设置：** 综述113篇方法论文，编码统计与代码对照，无新实验。\n- **关键结果：** 113篇中54篇采用特权状态强化学习并蒸馏，其中35篇在Isaac Gym上训练。\n- **关键结果：** 89篇在真机评估，24篇仅做仿真。\n- **关键结果：** 63篇发布可读代码，39篇与自身代码存在某种不一致，8篇为数值或项不同。\n- **局限（作者指出）：** 不重跑任何实验，无法判定方法优劣；样本仅限学习时代，覆盖计数均为下界。\n- **局限（作者指出）：** 所提评估协议未实际运行，样本量来自功效与区间计算而非灵巧手实验。\n\n### 3. 关键术语\n\n- **Privileged State Distillation（特权状态蒸馏）：** 仿真中用不可观测的物体位姿、速度训练教师，再蒸馏为仅用相机与关节编码的学生；本文作用：本文统计的主流派训练范式。\n- **Penetration Depth（穿透深度）：** 手与物体互相嵌入的距离，取决于所选接触刚度与求解器设置；本文作用：作者指出几乎无人报告策略rollout中的该量。\n- **Actuated Degrees of Freedom（驱动自由度）：** 手实际驱动的关节数，区别于名义关节数；本文作用：用于比较通用策略与RL文献的手部规模。\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 可借鉴其“读代码核对论文奖励表”的审计思路，以及分级评分加序贯检验降低真机评估成本，属机器人学习评估与可复现性方向。\n- **阅读建议：** 选择性阅读。Sec V-F 论文与代码对照、Sec VII 与 Table II/III 的评估协议。\n\n阅读依据：论文全文节选（受长度或文本提取覆盖限制）；未提供全部正文。\n\n[本次阅读资料](https://arxiv.org/html/2610.33486)\n\n## 3. 利用扭转绳执行器的拉伸与扭转载荷实现三维螺旋变形\n\nHarnessing Both Tensile and Torsional Forces of Twisted String Actuators for Three-Dimensional Helical Deformation\n\n工作模块：机器人本体与硬件、建模、辨识与仿真\n\n**作者**：Zeyu Long, Hidefumi Wakamatsu, Yoshiharu Iwata\n\n**来源**：Soft Robotics · **发表日期**：2026-10-26\n\n[论文原文](https://doi.org/10.1177/21695172261499029)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 传统扭转绳执行器系统通常只利用绳子扭转产生的拉伸力，忽略扭转载荷，导致单个执行器往往只能产生弯曲等平面变形，难以实现三维构型。\n- **核心思路：** 作者提出扭转绳螺旋软管TSHH，用单输入同时利用拉伸与扭转载荷，使软管产生三维螺旋变形；与仅用拉伸力的传统TSA方案不同。\n- **实现方法：**\n  - 设计TSHH机构：电机、绳与软管均为商用件；绳扭转时把拉伸和扭转载荷共同传给软管，形成三维螺旋变形，这是作者的核心机构创新。\n  - 建立运动学模型解释变形原理并支持参数优化，再用优化参数设计能轻柔抓取不同形状尺寸物体的软抓取器。\n\n### 2. 实验结果与局限\n\n- **实验设置：** 仅摘要，无实验平台或定量指标。\n- **关键结果：** 现有阅读材料未提供可核对的定量结果。\n- **局限（基于证据分析）：** 仅摘要可读，缺少运动学模型误差、抓取负载与成功率等定量验证，三维变形优势尚不能量化评估。\n\n### 3. 关键术语\n\n- **Twisted String Actuator \\(TSA\\)（扭转绳执行器）：** 靠绳子扭转产生驱动的执行器；本文作用：作为对比基线，本文指出其通常只用拉伸力\n- **Twisted String Helical Hose \\(TSHH\\)（扭转绳螺旋软管）：** 由电机、绳与软管组成的螺旋变形机构；本文作用：本文核心机构，实现单输入三维螺旋变形\n- **Kinematic Model（运动学模型）：** 描述输入与螺旋变形关系的模型；本文作用：用于解释变形原理并优化机构参数\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 把闲置的扭转载荷与拉伸耦合，可将一维驱动扩展为三维变形，对软体执行器和绳驱机构设计有参考价值。\n- **阅读建议：** 选择性阅读。优先看变形原理、运动学建模与参数优化；目前仅摘要，无图表信息。\n\n阅读依据：摘要及来源公开页面，未获取全文。\n\n## 其他相关期刊论文\n\n以下仅列元数据，未进入本次五篇精选；供回查，未进行正文阅读。\n\n- [A Bioinspired Multimodal Soft Gripper With Intuitive Teleoperation and Distal Sensing for Constrained-Space Manipulation](https://doi.org/10.1109/lra.2026.3726374) · IEEE Robotics and Automation Letters · 2026-10\n- [FG-CLTP: Fine-Grained Contrastive Language Tactile Pretraining for Robotic Manipulation](https://doi.org/10.1109/lra.2026.3711368) · IEEE Robotics and Automation Letters · 2026-09\n",
   "usage": {
-    "input_tokens": 156853,
-    "output_tokens": 41043,
-    "cached_tokens": 38272,
-    "requests": 13
+    "input_tokens": 134609,
+    "output_tokens": 25524,
+    "cached_tokens": 9472,
+    "requests": 11
   }
 }
