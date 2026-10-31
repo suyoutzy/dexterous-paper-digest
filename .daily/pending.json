@@ -1,19 +1,16 @@
 {
   "version": 1,
-  "batch_id": "5a6836e18bf24543bf921951",
-  "date": "2026-10-28",
-  "status": "complete",
+  "batch_id": "5cee4b9ab997517cc90f5f19",
+  "date": "2026-10-31",
+  "status": "inflight",
   "manual_extra": false,
   "archive_run_id": "",
-  "attempt_run_id": "40640395498-1",
+  "attempt_run_id": "41174314503-1",
   "paper_ids": [
-    "arxiv:2610.37652",
-    "arxiv:2610.33486",
-    "doi:10.1177/21695172261499029"
+    "arxiv:2610.37799",
+    "arxiv:2610.12470"
   ],
-  "acknowledged_cards": [
-    0
-  ],
+  "acknowledged_cards": [],
   "cards": [
     {
       "msg_type": "interactive",
@@ -25,7 +22,7 @@
           "template": "blue",
           "title": {
             "tag": "plain_text",
-            "content": "灵巧手论文日报 · 2026-10-28"
+            "content": "灵巧手论文日报 · 2026-10-31"
           }
         },
         "elements": [
@@ -33,110 +30,21 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "今日精选 3 篇。"
+              "content": "今日精选 2 篇。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "1. 手中物体位姿到达的灵巧性与安全性\nPushing Dexterity and Safety for In-Hand Object Pose Reaching That Works Remarkably Well"
+              "content": "1. DexSuite：跨机械臂、手与任务的一体化灵巧操作框架\nDexSuite: An All-in-One Framework for Dexterous Manipulation Across Arms, Hands, and Tasks"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "工作模块：灵巧操作与策略学习、建模、辨识与仿真、感知与状态估计、运动规划与控制"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "来源：arXiv"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "首次发布日期：2026-10-27；作者：Ian Chuang, Hiya Shah, Vamsi Chilamkur, Iman Soltani, Claire Tomlin"
-            }
-          },
-          {
-            "tag": "action",
-            "actions": [
-              {
-                "tag": "button",
-                "type": "default",
-                "url": "https://arxiv.org/abs/2610.37652",
-                "text": {
-                  "tag": "plain_text",
-                  "content": "论文"
-                }
-              },
-              {
-                "tag": "button",
-                "type": "default",
-                "url": "https://arxiv.org/pdf/2610.37652",
-                "text": {
-                  "tag": "plain_text",
-                  "content": "PDF"
-                }
-              }
-            ]
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "lark_md",
-              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 多指手手中操作常局限于简单抓取或绕轴旋转，多在单一掌心朝上腕姿评估；长序列全6D位姿到达与防掉落安全性缺少系统研究。高维接触丰富、误差容限小，安全常仅靠奖励塑造。\n- **核心思路：** 作者提出无人类数据的仿真训练配方：抓取数据集提供多样目标与重置，课程和系统辨识促进迁移，并在冻结策略上叠加可调残差安全滤波。\n- **实现方法：**\n  - 仿真中用PPO训练特权教师；目标与重置来自LightningGrasp/DexterityGen生成的抓取数据集，并加入自适应摩擦与目标课程。\n  - 经在线DAgger蒸馏与PPO微调得到状态策略，再蒸馏为仅用腕部深度相机的深度策略；执行器辨识与延迟标定支撑零样本迁移。\n  - 冻结任务策略后，按ResSafe训练残差安全滤波器，并把校正权重w作为网络输入，使部署时可调保守度。"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "lark_md",
-              "content": "**2. 实验结果与局限**\n- **实验设置：** LEAP手\\+UR5，4物体、6腕姿、4800个未见目标、13\\.3小时真机。\n- **关键结果：** 状态策略在粗容差内到达95\\.2%目标；加入滤波器后掉落从16次降至4次，仍到达91\\.5%。\n- **关键结果：** 仅腕部深度相机策略粗容差到达71\\.8%，滤波器使掉落从88降至46。\n- **局限（作者指出）：** 作者指出策略与滤波器均按物体单独训练，深度策略在刀和酒杯上仍有视觉sim-to-real差距。"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "lark_md",
-              "content": "**3. 关键术语**\n- **In-hand object pose reaching（手中物体位姿到达）：** 把物体移动到指间可达的任意位置与姿态；本文作用：作为全文任务定义与评测目标\n- **Residual safety filter（残差安全滤波器）：** 在冻结策略动作上叠加小修正以保持安全；本文作用：降低掉落并可用权重w调节保守度\n- **Teacher–student distillation（教师–学生蒸馏）：** 用特权教师指导可部署学生策略；本文作用：把仿真状态策略迁移到深度相机策略"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "lark_md",
-              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 可借鉴将安全作为冻结策略上的模块化残差层，并用单一权重调性能-安全权衡；适用于高维接触操作与sim-to-real。\n- **阅读建议：** 重点精读。重点看V-A训练流程、V-B滤波设计及Table II真机结果。"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "阅读依据：论文全文节选（受长度或文本提取覆盖限制）；未提供全部正文。"
-            }
-          },
-          {
-            "tag": "hr"
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "2. 学习灵巧操作：手、仿真器、训练与评估\nLearning Dexterous Manipulation: Hands, Simulators, Training, and Evaluation"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "工作模块：灵巧操作与策略学习、建模、辨识与仿真、机器人本体与硬件"
+              "content": "工作模块：建模、辨识与仿真、灵巧操作与策略学习、感知与状态估计"
             }
           },
           {
@@ -150,7 +58,7 @@
             "tag": "div",
             "text": {
               "tag": "plain_text",
-              "content": "首次发布日期：2026-10-24；作者：Luai Abuelsamen"
+              "content": "首次发布日期：2026-10-27；作者：Anas Houssaini, Hugo He, Junming Shi, Amin Abyaneh, Ricardo Chahine, Shuo Wen, Mohamad H. Danesh, Charles-Étienne Fréchette, Mariana Sosa Guzman, Mathias Desrochers, Rayan Houssaini, Adam Landa, Theophile Soulie, Charlotte Morissette, Annie Tims, Martino Russi, Jonathan Lussier, Gregory Dudek, Doin…"
             }
           },
           {
@@ -159,7 +67,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/abs/2610.33486",
+                "url": "https://arxiv.org/abs/2610.37799",
                 "text": {
                   "tag": "plain_text",
                   "content": "论文"
@@ -168,7 +76,7 @@
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://arxiv.org/pdf/2610.33486",
+                "url": "https://arxiv.org/pdf/2610.37799",
                 "text": {
                   "tag": "plain_text",
                   "content": "PDF"
@@ -180,28 +88,117 @@
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 灵巧操作研究已集中到少数范式，但各文的成功判据、试验次数、手与仿真器配置互不一致，论文奖励表也可能与开源代码不符，导致跨论文结果难以比较。\n- **核心思路：** 以113篇学习型方法为样本，按任务族、手、仿真器、训练范式和评估方式逐项编码计数，并旁读公开代码与厂商规格，核对论文的实际陈述。\n- **实现方法：**\n  - 合并六类主题书目去重得223条，逐条核对arXiv标题后纳入113篇方法论文，检索截至2026-09-17。\n  - 按任务族、33款手、15个仿真器、训练范式与评估方式建表计数，并声明所有覆盖数字为下界。\n  - 对63篇可读代码按文件与commit比对论文奖励与配置，将39篇不一致分为8处数值不符、组件未发布、版本漂移与解析限制。\n  - 据此提出评估协议：单率约100次真机rollout的Wilson区间、57对McNemar配对比较，并报告穿透深度与3个训练种子。"
+              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 现有仿真基准多围绕平行夹爪，灵巧手高维驱动、间歇接触与建模误差使遥操作、训练和评测困难；不同末端执行器常在相同任务与指标下难以互换比较。\n- **核心思路：** 作者提出基于Genesis的一体化仿真框架，以任务定义与本体解耦、模块化臂/末端组合、统一API连接遥操作、触觉、基准和数据。\n- **实现方法：**\n  - 基于Genesis物理与并行仿真构建操作层，任务定义资产、重置、观测、动作和成功条件。\n  - 臂与末端运行时组合，统一TCP，臂用逆运动学、手用关节位置控制，按可达AABB初始化。\n  - 集成遥操作与FlexiTac触觉，发布16对基准和4,700条轨迹，用BC、Diffusion、ACT评测。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**2. 实验结果与局限**\n- **实验设置：** 综述113篇方法论文，编码统计与代码对照，无新实验。\n- **关键结果：** 113篇中54篇采用特权状态强化学习并蒸馏，其中35篇在Isaac Gym上训练。\n- **关键结果：** 89篇在真机评估，24篇仅做仿真。\n- **关键结果：** 63篇发布可读代码，39篇与自身代码存在某种不一致，8篇为数值或项不同。\n- **局限（作者指出）：** 不重跑任何实验，无法判定方法优劣；样本仅限学习时代，覆盖计数均为下界。\n- **局限（作者指出）：** 所提评估协议未实际运行，样本量来自功效与区间计算而非灵巧手实验。"
+              "content": "**2. 实验结果与局限**\n- **实验设置：** 仿真16个任务-本体对，50条人类演示，三随机种子。\n- **关键结果：** 基准含11项任务并组成16个任务-本体对，覆盖不同接触复杂度与时长。\n- **关键结果：** 数据集含4,700条成功轨迹：人类遥操作700、脚本1,200、策略2,800条。\n- **关键结果：** Spray Graffiti上无基线超过1%，Toast Bread上所有基线为0%。\n- **局限（作者指出）：** 作者指出精确工具使用和序列物体操作仍困难。"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**3. 关键术语**\n- **Privileged State Distillation（特权状态蒸馏）：** 仿真中用不可观测的物体位姿、速度训练教师，再蒸馏为仅用相机与关节编码的学生；本文作用：本文统计的主流派训练范式。\n- **Penetration Depth（穿透深度）：** 手与物体互相嵌入的距离，取决于所选接触刚度与求解器设置；本文作用：作者指出几乎无人报告策略rollout中的该量。\n- **Actuated Degrees of Freedom（驱动自由度）：** 手实际驱动的关节数，区别于名义关节数；本文作用：用于比较通用策略与RL文献的手部规模。"
+              "content": "**3. 关键术语**\n- **Embodiment Abstraction（本体抽象）：** 将臂与末端模块化组合并暴露统一控制接口；本文作用：使任务可跨本体复用与比较\n- **Workspace-Aware Sampling（工作空间感知采样）：** 按臂可达AABB初始化物体；本文作用：换本体时避免无效初始位姿\n- **FlexiTac tactile sensor（柔性触觉传感器）：** 将网格触点穿透转为法向与摩擦力的仿真触觉；本文作用：提供触觉观测与演示记录"
             }
           },
           {
             "tag": "div",
             "text": {
               "tag": "lark_md",
-              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 可借鉴其“读代码核对论文奖励表”的审计思路，以及分级评分加序贯检验降低真机评估成本，属机器人学习评估与可复现性方向。\n- **阅读建议：** 选择性阅读。Sec V-F 论文与代码对照、Sec VII 与 Table II/III 的评估协议。"
+              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 可借鉴其任务-本体解耦与统一评测协议，用于跨本体模仿学习与触觉策略研究。\n- **阅读建议：** 选择性阅读。重点看第III章本体抽象与第IV章基准设计，表II看基线差异。"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。"
+            }
+          },
+          {
+            "tag": "hr"
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "2. Dex-One2Many：从单个人类演示学习灵巧操作\nDex-One2Many: Learning Dexterous Manipulation from a Single Human Demonstration"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "工作模块：灵巧操作与策略学习、建模、辨识与仿真、运动规划与控制、感知与状态估计"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "来源：arXiv"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "plain_text",
+              "content": "首次发布日期：2026-10-08；作者：Jusuk Lee, Sungha Kim, Yeonsoo Park, Jonguk Cheon, Yoonkyo Jung, Yongjun You, H. Jin Kim, Jia-Bin Huang, Furong Huang, Youngseok Jang, Seungjae Lee"
+            }
+          },
+          {
+            "tag": "action",
+            "actions": [
+              {
+                "tag": "button",
+                "type": "default",
+                "url": "https://arxiv.org/abs/2610.12470",
+                "text": {
+                  "tag": "plain_text",
+                  "content": "论文"
+                }
+              },
+              {
+                "tag": "button",
+                "type": "default",
+                "url": "https://arxiv.org/pdf/2610.12470",
+                "text": {
+                  "tag": "plain_text",
+                  "content": "PDF"
+                }
+              }
+            ]
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "lark_md",
+              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 现有单视频方法多模仿演示轨迹、手部动作或接触线索，策略绑定演示配置，难泛化到新位姿与新抓取；纯RL又难在高维多阶段任务中探索。\n- **核心思路：** 作者将视频抽象为阶段式场景图，只保留手–物、物–物关系及其顺序，用图采样多样复位状态并给稠密奖励，让RL学习如何完成任务而非复现动作。\n- **实现方法：**\n  - 用VLM和预定义谓词表把单视频转成阶段式场景图，节点含手、物体及功能部件，边为grasp、inside等关系。\n  - 将各阶段图作为生成约束，结合Dexonomy抓取采样并筛选碰撞/稳定性合格状态，构造阶段复位状态与谓词奖励。\n  - 在Isaac Sim以PPO训练；真机策略输出手掌/指尖速度，由QP控制器执行并零样本迁移。"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "lark_md",
+              "content": "**2. 实验结果与局限**\n- **实验设置：** UR3\\+Wuji 1真机，5项任务，基线Do as I Do、CHORD。\n- **关键结果：** 未见配置平均真机成功率75%，范围60–85%；基线≤15%，高出71个百分点。\n- **关键结果：** 消融：移除阶段复位，2k PPO更新后成功率由&gt;90%降至约16%；移除稠密奖励则全程0%。\n- **关键结果：** 四类手形仿真平均成功率94\\.6%–96\\.8%。\n- **局限（作者指出）：** 仍存在sim-to-real gap：依赖估计的6D物体位姿，姿态噪声与几何差异会降低接触丰富任务表现。\n- **局限（作者指出）：** real-to-sim仅重建刚体，关节物体需手工资产。"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "lark_md",
+              "content": "**3. 关键术语**\n- **Stage-Wise Scene Graph Abstraction（阶段式场景图抽象）：** 把视频压缩为按阶段排列的关系图；本文作用：保留任务结构、丢弃执行动作\n- **Predicate（谓词）：** 描述手–物/物–物关系是否成立；本文作用：用于阶段划分、复位采样和稠密奖励\n- **Scene-Graph-Grounded RL（场景图约束强化学习）：** 用场景图构造MDP观测、奖励与初始状态；本文作用：让RL学任务而非复现轨迹"
+            }
+          },
+          {
+            "tag": "div",
+            "text": {
+              "tag": "lark_md",
+              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 可借鉴‘演示抽关系结构、RL补执行细节’的范式，用于单演示操作与sim-to-real。\n- **阅读建议：** 重点精读。重点看3\\.1–3\\.2场景图抽象、复位与奖励构造，及4\\.2泛化实验。"
             }
           },
           {
@@ -212,92 +209,12 @@
             }
           },
           {
-            "tag": "hr"
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "3. 利用扭转绳执行器的拉伸与扭转载荷实现三维螺旋变形\nHarnessing Both Tensile and Torsional Forces of Twisted String Actuators for Three-Dimensional Helical Deformation"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "工作模块：机器人本体与硬件、建模、辨识与仿真"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "来源：Soft Robotics（Soft Robot.）"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "登记发表日期：2026-10-26；作者：Zeyu Long, Hidefumi Wakamatsu, Yoshiharu Iwata"
-            }
-          },
-          {
             "tag": "action",
             "actions": [
               {
                 "tag": "button",
                 "type": "default",
-                "url": "https://doi.org/10.1177/21695172261499029",
-                "text": {
-                  "tag": "plain_text",
-                  "content": "论文"
-                }
-              }
-            ]
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "lark_md",
-              "content": "**1. 研究问题与核心方法**\n- **研究问题：** 传统扭转绳执行器系统通常只利用绳子扭转产生的拉伸力，忽略扭转载荷，导致单个执行器往往只能产生弯曲等平面变形，难以实现三维构型。\n- **核心思路：** 作者提出扭转绳螺旋软管TSHH，用单输入同时利用拉伸与扭转载荷，使软管产生三维螺旋变形；与仅用拉伸力的传统TSA方案不同。\n- **实现方法：**\n  - 设计TSHH机构：电机、绳与软管均为商用件；绳扭转时把拉伸和扭转载荷共同传给软管，形成三维螺旋变形，这是作者的核心机构创新。\n  - 建立运动学模型解释变形原理并支持参数优化，再用优化参数设计能轻柔抓取不同形状尺寸物体的软抓取器。"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "lark_md",
-              "content": "**2. 实验结果与局限**\n- **实验设置：** 仅摘要，无实验平台或定量指标。\n- **关键结果：** 现有阅读材料未提供可核对的定量结果。\n- **局限（基于证据分析）：** 仅摘要可读，缺少运动学模型误差、抓取负载与成功率等定量验证，三维变形优势尚不能量化评估。"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "lark_md",
-              "content": "**3. 关键术语**\n- **Twisted String Actuator \\(TSA\\)（扭转绳执行器）：** 靠绳子扭转产生驱动的执行器；本文作用：作为对比基线，本文指出其通常只用拉伸力\n- **Twisted String Helical Hose \\(TSHH\\)（扭转绳螺旋软管）：** 由电机、绳与软管组成的螺旋变形机构；本文作用：本文核心机构，实现单输入三维螺旋变形\n- **Kinematic Model（运动学模型）：** 描述输入与螺旋变形关系的模型；本文作用：用于解释变形原理并优化机构参数"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "lark_md",
-              "content": "**4. 科研启发与阅读建议**\n- **科研启发：** 把闲置的扭转载荷与拉伸耦合，可将一维驱动扩展为三维变形，对软体执行器和绳驱机构设计有参考价值。\n- **阅读建议：** 选择性阅读。优先看变形原理、运动学建模与参数优化；目前仅摘要，无图表信息。"
-            }
-          },
-          {
-            "tag": "div",
-            "text": {
-              "tag": "plain_text",
-              "content": "阅读依据：摘要及来源公开页面，未获取全文。"
-            }
-          },
-          {
-            "tag": "action",
-            "actions": [
-              {
-                "tag": "button",
-                "type": "default",
-                "url": "https://github.com/suyoutzy/dexterous-paper-digest/blob/main/docs/digests/2026-10-28.md",
+                "url": "https://github.com/suyoutzy/dexterous-paper-digest/blob/main/docs/digests/2026-10-31.md",
                 "text": {
                   "tag": "plain_text",
                   "content": "日报归档 / 其他期刊候选"
@@ -310,7 +227,7 @@
             "elements": [
               {
                 "tag": "plain_text",
-                "content": "按课题关联、摘要方法与学习价值推荐。\n来源：arXiv 与五本期刊。按标题/摘要筛选；入选后优先阅读公开全文，实际资料范围逐篇标注。本次有1篇未通过内容校验，未推送，保留以后重试。额外期刊名额暂缺，未用预印本替代。部分检索覆盖受限，详细情况见归档。归档另列2篇相关期刊候选。\n模型：deepseek-flash · 研究方向：灵巧末端设计与控制"
+                "content": "按课题关联、摘要方法与学习价值推荐。\n来源：arXiv 与五本期刊。按标题/摘要筛选；入选后优先阅读公开全文，实际资料范围逐篇标注。本次有2篇未通过内容校验，未推送，保留以后重试。有1篇未能确认为最近7天发表的补充论文。额外期刊名额暂缺，未用预印本替代。部分检索覆盖受限，详细情况见归档。归档另列2篇相关期刊候选。\n模型：deepseek-flash · 研究方向：灵巧末端设计与控制"
               }
             ]
           }
@@ -318,11 +235,11 @@
       }
     }
   ],
-  "report": "# 灵巧手论文日报 · 2026-10-28\n\n来源：arXiv API 与近期数据库。期刊：Crossref 5/5 个来源刷新成功，回查最近 7 天元数据索引，获得 2791 条期刊记录；索引更新日期不作为发表日期。 最近 30 天发表日期补查 5/5 个来源成功，取得 189 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Robotics and Automation Letters。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。额外期刊名额不足，补查最近90天期刊。期刊：Crossref 5/5 个来源刷新成功，回查最近 7 天元数据索引，获得 3080 条期刊记录；索引更新日期不作为发表日期。 最近 90 天发表日期补查 5/5 个来源成功，取得 483 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Robotics and Automation Letters。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。优先最近7天；必要时从最近30天未发送论文补充。前四个名额按统一评分选取，另保留一个不同的期刊论文名额。额外期刊名额已扩大到最近90天检索。本次没有找到额外合格且未发送的期刊论文，期刊保留名额暂缺，不用预印本替代。筛选依据标题/摘要与元数据；入选后优先分析公开全文，实际阅读范围逐篇标注。本次有1篇未通过内容校验，未推送且未标记已发送，保留以后重试。本次通过内容校验并推送的论文有3篇。另有2篇相关期刊候选，标题与链接见当天归档。\n\n模型：deepseek-flash；分数是针对个人学习价值的推荐依据，非学术质量认证。\n\n## 1. 手中物体位姿到达的灵巧性与安全性\n\nPushing Dexterity and Safety for In-Hand Object Pose Reaching That Works Remarkably Well\n\n工作模块：灵巧操作与策略学习、建模、辨识与仿真、感知与状态估计、运动规划与控制\n\n**作者**：Ian Chuang, Hiya Shah, Vamsi Chilamkur, Iman Soltani, Claire Tomlin\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-27\n\n[论文原文](https://arxiv.org/abs/2610.37652)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 多指手手中操作常局限于简单抓取或绕轴旋转，多在单一掌心朝上腕姿评估；长序列全6D位姿到达与防掉落安全性缺少系统研究。高维接触丰富、误差容限小，安全常仅靠奖励塑造。\n- **核心思路：** 作者提出无人类数据的仿真训练配方：抓取数据集提供多样目标与重置，课程和系统辨识促进迁移，并在冻结策略上叠加可调残差安全滤波。\n- **实现方法：**\n  - 仿真中用PPO训练特权教师；目标与重置来自LightningGrasp/DexterityGen生成的抓取数据集，并加入自适应摩擦与目标课程。\n  - 经在线DAgger蒸馏与PPO微调得到状态策略，再蒸馏为仅用腕部深度相机的深度策略；执行器辨识与延迟标定支撑零样本迁移。\n  - 冻结任务策略后，按ResSafe训练残差安全滤波器，并把校正权重w作为网络输入，使部署时可调保守度。\n\n### 2. 实验结果与局限\n\n- **实验设置：** LEAP手\\+UR5，4物体、6腕姿、4800个未见目标、13\\.3小时真机。\n- **关键结果：** 状态策略在粗容差内到达95\\.2%目标；加入滤波器后掉落从16次降至4次，仍到达91\\.5%。\n- **关键结果：** 仅腕部深度相机策略粗容差到达71\\.8%，滤波器使掉落从88降至46。\n- **局限（作者指出）：** 作者指出策略与滤波器均按物体单独训练，深度策略在刀和酒杯上仍有视觉sim-to-real差距。\n\n### 3. 关键术语\n\n- **In-hand object pose reaching（手中物体位姿到达）：** 把物体移动到指间可达的任意位置与姿态；本文作用：作为全文任务定义与评测目标\n- **Residual safety filter（残差安全滤波器）：** 在冻结策略动作上叠加小修正以保持安全；本文作用：降低掉落并可用权重w调节保守度\n- **Teacher–student distillation（教师–学生蒸馏）：** 用特权教师指导可部署学生策略；本文作用：把仿真状态策略迁移到深度相机策略\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 可借鉴将安全作为冻结策略上的模块化残差层，并用单一权重调性能-安全权衡；适用于高维接触操作与sim-to-real。\n- **阅读建议：** 重点精读。重点看V-A训练流程、V-B滤波设计及Table II真机结果。\n\n阅读依据：论文全文节选（受长度或文本提取覆盖限制）；未提供全部正文。\n\n[本次阅读资料](https://arxiv.org/html/2610.37652)\n\n## 2. 学习灵巧操作：手、仿真器、训练与评估\n\nLearning Dexterous Manipulation: Hands, Simulators, Training, and Evaluation\n\n工作模块：灵巧操作与策略学习、建模、辨识与仿真、机器人本体与硬件\n\n**作者**：Luai Abuelsamen\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-24\n\n[论文原文](https://arxiv.org/abs/2610.33486)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 灵巧操作研究已集中到少数范式，但各文的成功判据、试验次数、手与仿真器配置互不一致，论文奖励表也可能与开源代码不符，导致跨论文结果难以比较。\n- **核心思路：** 以113篇学习型方法为样本，按任务族、手、仿真器、训练范式和评估方式逐项编码计数，并旁读公开代码与厂商规格，核对论文的实际陈述。\n- **实现方法：**\n  - 合并六类主题书目去重得223条，逐条核对arXiv标题后纳入113篇方法论文，检索截至2026-09-17。\n  - 按任务族、33款手、15个仿真器、训练范式与评估方式建表计数，并声明所有覆盖数字为下界。\n  - 对63篇可读代码按文件与commit比对论文奖励与配置，将39篇不一致分为8处数值不符、组件未发布、版本漂移与解析限制。\n  - 据此提出评估协议：单率约100次真机rollout的Wilson区间、57对McNemar配对比较，并报告穿透深度与3个训练种子。\n\n### 2. 实验结果与局限\n\n- **实验设置：** 综述113篇方法论文，编码统计与代码对照，无新实验。\n- **关键结果：** 113篇中54篇采用特权状态强化学习并蒸馏，其中35篇在Isaac Gym上训练。\n- **关键结果：** 89篇在真机评估，24篇仅做仿真。\n- **关键结果：** 63篇发布可读代码，39篇与自身代码存在某种不一致，8篇为数值或项不同。\n- **局限（作者指出）：** 不重跑任何实验，无法判定方法优劣；样本仅限学习时代，覆盖计数均为下界。\n- **局限（作者指出）：** 所提评估协议未实际运行，样本量来自功效与区间计算而非灵巧手实验。\n\n### 3. 关键术语\n\n- **Privileged State Distillation（特权状态蒸馏）：** 仿真中用不可观测的物体位姿、速度训练教师，再蒸馏为仅用相机与关节编码的学生；本文作用：本文统计的主流派训练范式。\n- **Penetration Depth（穿透深度）：** 手与物体互相嵌入的距离，取决于所选接触刚度与求解器设置；本文作用：作者指出几乎无人报告策略rollout中的该量。\n- **Actuated Degrees of Freedom（驱动自由度）：** 手实际驱动的关节数，区别于名义关节数；本文作用：用于比较通用策略与RL文献的手部规模。\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 可借鉴其“读代码核对论文奖励表”的审计思路，以及分级评分加序贯检验降低真机评估成本，属机器人学习评估与可复现性方向。\n- **阅读建议：** 选择性阅读。Sec V-F 论文与代码对照、Sec VII 与 Table II/III 的评估协议。\n\n阅读依据：论文全文节选（受长度或文本提取覆盖限制）；未提供全部正文。\n\n[本次阅读资料](https://arxiv.org/html/2610.33486)\n\n## 3. 利用扭转绳执行器的拉伸与扭转载荷实现三维螺旋变形\n\nHarnessing Both Tensile and Torsional Forces of Twisted String Actuators for Three-Dimensional Helical Deformation\n\n工作模块：机器人本体与硬件、建模、辨识与仿真\n\n**作者**：Zeyu Long, Hidefumi Wakamatsu, Yoshiharu Iwata\n\n**来源**：Soft Robotics · **发表日期**：2026-10-26\n\n[论文原文](https://doi.org/10.1177/21695172261499029)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 传统扭转绳执行器系统通常只利用绳子扭转产生的拉伸力，忽略扭转载荷，导致单个执行器往往只能产生弯曲等平面变形，难以实现三维构型。\n- **核心思路：** 作者提出扭转绳螺旋软管TSHH，用单输入同时利用拉伸与扭转载荷，使软管产生三维螺旋变形；与仅用拉伸力的传统TSA方案不同。\n- **实现方法：**\n  - 设计TSHH机构：电机、绳与软管均为商用件；绳扭转时把拉伸和扭转载荷共同传给软管，形成三维螺旋变形，这是作者的核心机构创新。\n  - 建立运动学模型解释变形原理并支持参数优化，再用优化参数设计能轻柔抓取不同形状尺寸物体的软抓取器。\n\n### 2. 实验结果与局限\n\n- **实验设置：** 仅摘要，无实验平台或定量指标。\n- **关键结果：** 现有阅读材料未提供可核对的定量结果。\n- **局限（基于证据分析）：** 仅摘要可读，缺少运动学模型误差、抓取负载与成功率等定量验证，三维变形优势尚不能量化评估。\n\n### 3. 关键术语\n\n- **Twisted String Actuator \\(TSA\\)（扭转绳执行器）：** 靠绳子扭转产生驱动的执行器；本文作用：作为对比基线，本文指出其通常只用拉伸力\n- **Twisted String Helical Hose \\(TSHH\\)（扭转绳螺旋软管）：** 由电机、绳与软管组成的螺旋变形机构；本文作用：本文核心机构，实现单输入三维螺旋变形\n- **Kinematic Model（运动学模型）：** 描述输入与螺旋变形关系的模型；本文作用：用于解释变形原理并优化机构参数\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 把闲置的扭转载荷与拉伸耦合，可将一维驱动扩展为三维变形，对软体执行器和绳驱机构设计有参考价值。\n- **阅读建议：** 选择性阅读。优先看变形原理、运动学建模与参数优化；目前仅摘要，无图表信息。\n\n阅读依据：摘要及来源公开页面，未获取全文。\n\n## 其他相关期刊论文\n\n以下仅列元数据，未进入本次五篇精选；供回查，未进行正文阅读。\n\n- [A Bioinspired Multimodal Soft Gripper With Intuitive Teleoperation and Distal Sensing for Constrained-Space Manipulation](https://doi.org/10.1109/lra.2026.3726374) · IEEE Robotics and Automation Letters · 2026-10\n- [FG-CLTP: Fine-Grained Contrastive Language Tactile Pretraining for Robotic Manipulation](https://doi.org/10.1109/lra.2026.3711368) · IEEE Robotics and Automation Letters · 2026-09\n",
+  "report": "# 灵巧手论文日报 · 2026-10-31\n\n来源：arXiv API 与近期数据库。期刊：Crossref 5/5 个来源刷新成功，回查最近 7 天元数据索引，获得 2542 条期刊记录；索引更新日期不作为发表日期。 最近 30 天发表日期补查 5/5 个来源成功，取得 187 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Robotics and Automation Letters。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。额外期刊名额不足，补查最近90天期刊。期刊：Crossref 5/5 个来源刷新成功，回查最近 7 天元数据索引，获得 2702 条期刊记录；索引更新日期不作为发表日期。 最近 90 天发表日期补查 5/5 个来源成功，取得 350 条记录，与索引查询按 DOI 去重。 分页受限，可能不完整：IEEE Robotics and Automation Letters。 OpenAlex 补齐 0 篇摘要，10 篇未获得摘要。优先最近7天；必要时从最近30天未发送论文补充。前四个名额按统一评分选取，另保留一个不同的期刊论文名额。额外期刊名额已扩大到最近90天检索。本次没有找到额外合格且未发送的期刊论文，期刊保留名额暂缺，不用预印本替代。筛选依据标题/摘要与元数据；入选后优先分析公开全文，实际阅读范围逐篇标注。本次有2篇未通过内容校验，未推送且未标记已发送，保留以后重试。本次有1篇近期补充，请结合发表日期阅读。本次通过内容校验并推送的论文有2篇。另有2篇相关期刊候选，标题与链接见当天归档。\n\n模型：deepseek-flash；分数是针对个人学习价值的推荐依据，非学术质量认证。\n\n## 1. DexSuite：跨机械臂、手与任务的一体化灵巧操作框架\n\nDexSuite: An All-in-One Framework for Dexterous Manipulation Across Arms, Hands, and Tasks\n\n工作模块：建模、辨识与仿真、灵巧操作与策略学习、感知与状态估计\n\n**作者**：Anas Houssaini, Hugo He, Junming Shi, Amin Abyaneh, Ricardo Chahine, Shuo Wen, Mohamad H\\. Danesh, Charles-Étienne Fréchette, Mariana Sosa Guzman, Mathias Desrochers, Rayan Houssaini, Adam Landa, Theophile Soulie, Charlotte Morissette, Annie Tims, Martino Russi, Jonathan Lussier, Gregory Dudek, Doina Precup, Julen Urain, Hsiu-Chin Lin, David Meger\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-27\n\n[论文原文](https://arxiv.org/abs/2610.37799)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 现有仿真基准多围绕平行夹爪，灵巧手高维驱动、间歇接触与建模误差使遥操作、训练和评测困难；不同末端执行器常在相同任务与指标下难以互换比较。\n- **核心思路：** 作者提出基于Genesis的一体化仿真框架，以任务定义与本体解耦、模块化臂/末端组合、统一API连接遥操作、触觉、基准和数据。\n- **实现方法：**\n  - 基于Genesis物理与并行仿真构建操作层，任务定义资产、重置、观测、动作和成功条件。\n  - 臂与末端运行时组合，统一TCP，臂用逆运动学、手用关节位置控制，按可达AABB初始化。\n  - 集成遥操作与FlexiTac触觉，发布16对基准和4,700条轨迹，用BC、Diffusion、ACT评测。\n\n### 2. 实验结果与局限\n\n- **实验设置：** 仿真16个任务-本体对，50条人类演示，三随机种子。\n- **关键结果：** 基准含11项任务并组成16个任务-本体对，覆盖不同接触复杂度与时长。\n- **关键结果：** 数据集含4,700条成功轨迹：人类遥操作700、脚本1,200、策略2,800条。\n- **关键结果：** Spray Graffiti上无基线超过1%，Toast Bread上所有基线为0%。\n- **局限（作者指出）：** 作者指出精确工具使用和序列物体操作仍困难。\n\n### 3. 关键术语\n\n- **Embodiment Abstraction（本体抽象）：** 将臂与末端模块化组合并暴露统一控制接口；本文作用：使任务可跨本体复用与比较\n- **Workspace-Aware Sampling（工作空间感知采样）：** 按臂可达AABB初始化物体；本文作用：换本体时避免无效初始位姿\n- **FlexiTac tactile sensor（柔性触觉传感器）：** 将网格触点穿透转为法向与摩擦力的仿真触觉；本文作用：提供触觉观测与演示记录\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 可借鉴其任务-本体解耦与统一评测协议，用于跨本体模仿学习与触觉策略研究。\n- **阅读建议：** 选择性阅读。重点看第III章本体抽象与第IV章基准设计，表II看基线差异。\n\n阅读依据：论文全文（可提取文本；图像、公式及补充材料未独立核验）。\n\n[本次阅读资料](https://arxiv.org/html/2610.37799)\n\n## 2. Dex-One2Many：从单个人类演示学习灵巧操作\n\nDex-One2Many: Learning Dexterous Manipulation from a Single Human Demonstration\n\n工作模块：灵巧操作与策略学习、建模、辨识与仿真、运动规划与控制、感知与状态估计\n\n**作者**：Jusuk Lee, Sungha Kim, Yeonsoo Park, Jonguk Cheon, Yoonkyo Jung, Yongjun You, H\\. Jin Kim, Jia-Bin Huang, Furong Huang, Youngseok Jang, Seungjae Lee\n\n**来源**：arXiv 预印本 · **发表日期**：2026-10-08\n\n[论文原文](https://arxiv.org/abs/2610.12470)\n\n### 1. 研究问题与核心方法\n\n- **研究问题：** 现有单视频方法多模仿演示轨迹、手部动作或接触线索，策略绑定演示配置，难泛化到新位姿与新抓取；纯RL又难在高维多阶段任务中探索。\n- **核心思路：** 作者将视频抽象为阶段式场景图，只保留手–物、物–物关系及其顺序，用图采样多样复位状态并给稠密奖励，让RL学习如何完成任务而非复现动作。\n- **实现方法：**\n  - 用VLM和预定义谓词表把单视频转成阶段式场景图，节点含手、物体及功能部件，边为grasp、inside等关系。\n  - 将各阶段图作为生成约束，结合Dexonomy抓取采样并筛选碰撞/稳定性合格状态，构造阶段复位状态与谓词奖励。\n  - 在Isaac Sim以PPO训练；真机策略输出手掌/指尖速度，由QP控制器执行并零样本迁移。\n\n### 2. 实验结果与局限\n\n- **实验设置：** UR3\\+Wuji 1真机，5项任务，基线Do as I Do、CHORD。\n- **关键结果：** 未见配置平均真机成功率75%，范围60–85%；基线≤15%，高出71个百分点。\n- **关键结果：** 消融：移除阶段复位，2k PPO更新后成功率由&gt;90%降至约16%；移除稠密奖励则全程0%。\n- **关键结果：** 四类手形仿真平均成功率94\\.6%–96\\.8%。\n- **局限（作者指出）：** 仍存在sim-to-real gap：依赖估计的6D物体位姿，姿态噪声与几何差异会降低接触丰富任务表现。\n- **局限（作者指出）：** real-to-sim仅重建刚体，关节物体需手工资产。\n\n### 3. 关键术语\n\n- **Stage-Wise Scene Graph Abstraction（阶段式场景图抽象）：** 把视频压缩为按阶段排列的关系图；本文作用：保留任务结构、丢弃执行动作\n- **Predicate（谓词）：** 描述手–物/物–物关系是否成立；本文作用：用于阶段划分、复位采样和稠密奖励\n- **Scene-Graph-Grounded RL（场景图约束强化学习）：** 用场景图构造MDP观测、奖励与初始状态；本文作用：让RL学任务而非复现轨迹\n\n### 4. 科研启发与阅读建议\n\n- **科研启发：** 可借鉴‘演示抽关系结构、RL补执行细节’的范式，用于单演示操作与sim-to-real。\n- **阅读建议：** 重点精读。重点看3\\.1–3\\.2场景图抽象、复位与奖励构造，及4\\.2泛化实验。\n\n阅读依据：论文全文节选（受长度或文本提取覆盖限制）；未提供全部正文。\n\n[本次阅读资料](https://arxiv.org/html/2610.12470)\n\n## 其他相关期刊论文\n\n以下仅列元数据，未进入本次五篇精选；供回查，未进行正文阅读。\n\n- [A Bioinspired Multimodal Soft Gripper With Intuitive Teleoperation and Distal Sensing for Constrained-Space Manipulation](https://doi.org/10.1109/lra.2026.3726374) · IEEE Robotics and Automation Letters · 2026-10\n- [FG-CLTP: Fine-Grained Contrastive Language Tactile Pretraining for Robotic Manipulation](https://doi.org/10.1109/lra.2026.3711368) · IEEE Robotics and Automation Letters · 2026-09\n",
   "usage": {
-    "input_tokens": 134609,
-    "output_tokens": 25524,
-    "cached_tokens": 9472,
-    "requests": 11
+    "input_tokens": 164485,
+    "output_tokens": 36717,
+    "cached_tokens": 67840,
+    "requests": 14
   }
 }

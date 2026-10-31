@@ -678,7 +678,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3730297",
     "source": "crossref",
     "first_seen_date": "2026-09-27",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2026-10",
     "metadata_indexed_at": "2026-10-23T20:17:23Z",
     "abstract_source": "openalex"
@@ -723,7 +723,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3709629",
     "source": "crossref",
     "first_seen_date": "2026-09-27",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2026-09",
     "metadata_indexed_at": "2026-07-17T20:05:40Z"
   },
@@ -746,7 +746,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3711368",
     "source": "crossref",
     "first_seen_date": "2026-09-27",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2026-09",
     "metadata_indexed_at": "2026-07-24T20:03:06Z"
   },
@@ -769,7 +769,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3711377",
     "source": "crossref",
     "first_seen_date": "2026-09-27",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2026-09",
     "metadata_indexed_at": "2026-07-24T20:05:23Z"
   },
@@ -792,7 +792,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3713725",
     "source": "crossref",
     "first_seen_date": "2026-09-27",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2026-09",
     "metadata_indexed_at": "2026-08-12T19:34:04Z",
     "abstract_source": "openalex"
@@ -816,7 +816,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3717172",
     "source": "crossref",
     "first_seen_date": "2026-09-27",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2026-09",
     "metadata_indexed_at": "2026-08-04T19:44:57Z"
   },
@@ -838,7 +838,7 @@
     "paper_url": "https://doi.org/10.1177/21695172261485887",
     "source": "crossref",
     "first_seen_date": "2026-09-27",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2026-09-11",
     "metadata_indexed_at": "2026-09-13T19:05:10Z"
@@ -2001,7 +2001,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2008.917006",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2008-04",
     "metadata_indexed_at": "2026-10-26T16:44:46Z"
   },
@@ -2067,9 +2067,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2022.3186806",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-04",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2022-12",
-    "metadata_indexed_at": "2026-09-28T16:57:45Z"
+    "metadata_indexed_at": "2026-10-29T16:39:55Z"
   },
   "doi:10.1109/tro.2020.2971428": {
     "paper_id": "doi:10.1109/tro.2020.2971428",
@@ -2087,9 +2087,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2020.2971428",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-06",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2020-06",
-    "metadata_indexed_at": "2026-09-30T13:59:00Z"
+    "metadata_indexed_at": "2026-10-30T04:23:09Z"
   },
   "doi:10.1109/tro.2024.3428430": {
     "paper_id": "doi:10.1109/tro.2024.3428430",
@@ -2133,9 +2133,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2024.3502204",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-03",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2025",
-    "metadata_indexed_at": "2026-09-26T17:16:32Z"
+    "metadata_indexed_at": "2026-10-29T16:39:47Z"
   },
   "doi:10.1109/tro.2009.2032954": {
     "paper_id": "doi:10.1109/tro.2009.2032954",
@@ -2173,7 +2173,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2011.2162271",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2011-12",
     "metadata_indexed_at": "2026-10-27T19:36:42Z"
   },
@@ -2439,9 +2439,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2023.3280829",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-16",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2023-07",
-    "metadata_indexed_at": "2026-10-11T09:31:54Z"
+    "metadata_indexed_at": "2026-10-29T12:59:03Z"
   },
   "doi:10.1109/lra.2023.3346756": {
     "paper_id": "doi:10.1109/lra.2023.3346756",
@@ -2567,9 +2567,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2020.2977257",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2020-07",
-    "metadata_indexed_at": "2026-10-27T19:36:44Z"
+    "metadata_indexed_at": "2026-10-30T16:36:58Z"
   },
   "doi:10.1109/lra.2022.3146945": {
     "paper_id": "doi:10.1109/lra.2022.3146945",
@@ -2589,9 +2589,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2022.3146945",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-25",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2022-04",
-    "metadata_indexed_at": "2026-10-23T20:17:42Z"
+    "metadata_indexed_at": "2026-10-30T07:48:56Z"
   },
   "doi:10.1109/lra.2022.3190641": {
     "paper_id": "doi:10.1109/lra.2022.3190641",
@@ -2731,7 +2731,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2020.3007411",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2020-10",
     "metadata_indexed_at": "2026-10-27T20:22:29Z"
   },
@@ -2817,11 +2817,11 @@
     "paper_url": "https://doi.org/10.1177/0278364917710318",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2017-06-12",
     "print_publication_date": "2018-04",
-    "metadata_indexed_at": "2026-10-27T20:28:35Z"
+    "metadata_indexed_at": "2026-10-29T23:56:03Z"
   },
   "doi:10.1177/0278364919887447": {
     "paper_id": "doi:10.1177/0278364919887447",
@@ -2841,11 +2841,11 @@
     "paper_url": "https://doi.org/10.1177/0278364919887447",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2019-11-18",
     "print_publication_date": "2020-01",
-    "metadata_indexed_at": "2026-10-23T11:55:07Z"
+    "metadata_indexed_at": "2026-10-30T21:10:23Z"
   },
   "doi:10.1177/027836498400300210": {
     "paper_id": "doi:10.1177/027836498400300210",
@@ -2890,11 +2890,11 @@
     "paper_url": "https://doi.org/10.1177/0278364912459209",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-25",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2012-11-30",
     "print_publication_date": "2012-11",
-    "metadata_indexed_at": "2026-10-06T22:33:10Z"
+    "metadata_indexed_at": "2026-10-29T12:59:01Z"
   },
   "doi:10.1177/0278364915596450": {
     "paper_id": "doi:10.1177/0278364915596450",
@@ -3168,7 +3168,7 @@
     "paper_url": "https://doi.org/10.1177/0278364920946815",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2020-08-24",
     "print_publication_date": "2021-02",
@@ -3192,11 +3192,11 @@
     "paper_url": "https://doi.org/10.1177/0278364915592961",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2015-08-21",
     "print_publication_date": "2016-01",
-    "metadata_indexed_at": "2026-10-21T16:37:37Z"
+    "metadata_indexed_at": "2026-10-29T12:59:04Z"
   },
   "doi:10.1177/0278364913518998": {
     "paper_id": "doi:10.1177/0278364913518998",
@@ -3320,7 +3320,7 @@
     "paper_url": "https://doi.org/10.1177/027836499601500302",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "1996-06-01",
     "print_publication_date": "1996-06",
@@ -3850,7 +3850,7 @@
     "paper_url": "https://doi.org/10.1177/0278364911403178",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2011-07-07",
     "print_publication_date": "2011-09",
@@ -4082,10 +4082,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.ads5033",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "print_publication_date": "2025-08-20",
-    "metadata_indexed_at": "2026-10-25T13:43:29Z"
+    "metadata_indexed_at": "2026-10-30T18:51:09Z"
   },
   "doi:10.1126/scirobotics.adp7821": {
     "paper_id": "doi:10.1126/scirobotics.adp7821",
@@ -4109,10 +4109,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.adp7821",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "print_publication_date": "2025-03-19",
-    "metadata_indexed_at": "2026-10-24T21:16:55Z"
+    "metadata_indexed_at": "2026-10-30T16:36:58Z"
   },
   "doi:10.1126/scirobotics.adt5254": {
     "paper_id": "doi:10.1126/scirobotics.adt5254",
@@ -4137,10 +4137,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.adt5254",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "print_publication_date": "2025-07-09",
-    "metadata_indexed_at": "2026-10-26T13:17:18Z"
+    "metadata_indexed_at": "2026-10-31T00:33:08Z"
   },
   "doi:10.1126/scirobotics.abd7935": {
     "paper_id": "doi:10.1126/scirobotics.abd7935",
@@ -4163,10 +4163,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.abd7935",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-25",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "print_publication_date": "2021-05-12",
-    "metadata_indexed_at": "2026-10-13T18:01:34Z"
+    "metadata_indexed_at": "2026-10-28T22:43:03Z"
   },
   "doi:10.1126/scirobotics.aau9924": {
     "paper_id": "doi:10.1126/scirobotics.aau9924",
@@ -4193,10 +4193,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.aau9924",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "print_publication_date": "2019-02-20",
-    "metadata_indexed_at": "2026-10-22T12:53:38Z"
+    "metadata_indexed_at": "2026-10-30T05:44:56Z"
   },
   "doi:10.1126/scirobotics.adl0085": {
     "paper_id": "doi:10.1126/scirobotics.adl0085",
@@ -4293,10 +4293,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.abm7187",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "print_publication_date": "2022-06-29",
-    "metadata_indexed_at": "2026-10-27T08:41:16Z"
+    "metadata_indexed_at": "2026-10-29T16:39:51Z"
   },
   "doi:10.1126/scirobotics.abc8134": {
     "paper_id": "doi:10.1126/scirobotics.abc8134",
@@ -4316,7 +4316,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.abc8134",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "print_publication_date": "2020-12-16",
     "metadata_indexed_at": "2026-10-24T06:06:43Z"
@@ -4339,7 +4339,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.abi9773",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "print_publication_date": "2021-12-15",
     "metadata_indexed_at": "2026-10-28T04:09:51Z"
@@ -4366,7 +4366,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.aax2198",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "print_publication_date": "2019-07-17",
     "metadata_indexed_at": "2026-10-27T19:11:50Z"
@@ -4390,7 +4390,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.ads6437",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "print_publication_date": "2025-05-14",
     "metadata_indexed_at": "2026-10-27T12:39:31Z"
@@ -4468,10 +4468,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.adp3260",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-25",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "print_publication_date": "2024-09-25",
-    "metadata_indexed_at": "2026-09-24T06:21:39Z"
+    "metadata_indexed_at": "2026-10-29T20:55:26Z"
   },
   "doi:10.1126/scirobotics.adi2084": {
     "paper_id": "doi:10.1126/scirobotics.adi2084",
@@ -4576,10 +4576,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.ady2869",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-25",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "print_publication_date": "2026-01-28",
-    "metadata_indexed_at": "2026-09-23T05:25:47Z"
+    "metadata_indexed_at": "2026-10-30T18:51:09Z"
   },
   "doi:10.1177/21695172251401476": {
     "paper_id": "doi:10.1177/21695172251401476",
@@ -4752,7 +4752,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2018.0116",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2019-06-05",
     "print_publication_date": "2019-06-01",
@@ -4807,11 +4807,11 @@
     "paper_url": "https://doi.org/10.1089/soro.2020.0139",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-25",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2022-04-19",
     "print_publication_date": "2022-04-01",
-    "metadata_indexed_at": "2026-09-30T11:20:36Z"
+    "metadata_indexed_at": "2026-10-29T19:52:00Z"
   },
   "doi:10.1089/soro.2022.0215": {
     "paper_id": "doi:10.1089/soro.2022.0215",
@@ -4933,7 +4933,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2018.0005",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2019-02-13",
     "print_publication_date": "2019-02-01",
@@ -4984,7 +4984,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2017.0125",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2019-04-16",
     "print_publication_date": "2019-04-01",
@@ -5009,9 +5009,9 @@
     "paper_url": "https://doi.org/10.1089/soro.2016.0081",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-25",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2017-12",
-    "metadata_indexed_at": "2026-10-09T17:22:29Z"
+    "metadata_indexed_at": "2026-10-29T19:51:55Z"
   },
   "doi:10.1089/soro.2016.0037": {
     "paper_id": "doi:10.1089/soro.2016.0037",
@@ -5105,7 +5105,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2017.0052",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2018-01-03",
     "print_publication_date": "2018-04-01",
@@ -5207,7 +5207,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2017.0044",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2017-10-12",
     "print_publication_date": "2018-04-01",
@@ -5438,7 +5438,7 @@
     "paper_url": "https://doi.org/10.1177/21695172251388808",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2025-11-07",
     "print_publication_date": "2026-06-01",
@@ -5798,9 +5798,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2020.3009072",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2020-10",
-    "metadata_indexed_at": "2026-10-27T21:31:40Z"
+    "metadata_indexed_at": "2026-10-30T18:38:42Z"
   },
   "doi:10.1109/lra.2026.3734883": {
     "paper_id": "doi:10.1109/lra.2026.3734883",
@@ -6126,7 +6126,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3726374",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2026-10",
     "metadata_indexed_at": "2026-09-07T20:07:47Z"
   },
@@ -6148,7 +6148,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3728305",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2026-10",
     "metadata_indexed_at": "2026-09-08T05:12:03Z"
   },
@@ -6220,7 +6220,7 @@
     "paper_url": "https://doi.org/10.1177/027836490302210001",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2003-10-01",
     "print_publication_date": "2003-10",
@@ -6363,7 +6363,7 @@
     "paper_url": "https://doi.org/10.1177/0278364915571007",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2015-05-21",
     "print_publication_date": "2015-06",
@@ -6437,7 +6437,7 @@
     "paper_url": "https://doi.org/10.1177/0278364909105606",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2009-06-26",
     "print_publication_date": "2009-07",
@@ -6594,7 +6594,7 @@
     "paper_url": "https://doi.org/10.1177/0278364914561535",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2015-03-16",
     "print_publication_date": "2015-05",
@@ -6693,7 +6693,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2024.0040",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2025-02-14",
     "print_publication_date": "2025-02-01",
@@ -6748,7 +6748,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2022.0048",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2023-01-11",
     "print_publication_date": "2023-06-01",
@@ -6849,7 +6849,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2022.0232",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2024-02-13",
     "print_publication_date": "2024-02-01",
@@ -8132,9 +8132,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2025.3576951",
     "source": "crossref",
     "first_seen_date": "2026-10-03",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2025",
-    "metadata_indexed_at": "2026-10-23T20:21:58Z"
+    "metadata_indexed_at": "2026-10-30T16:36:58Z"
   },
   "doi:10.1109/tro.2024.3352969": {
     "paper_id": "doi:10.1109/tro.2024.3352969",
@@ -8178,9 +8178,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2025.3543324",
     "source": "crossref",
     "first_seen_date": "2026-10-03",
-    "last_seen_date": "2026-10-09",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2025",
-    "metadata_indexed_at": "2026-10-02T17:13:43Z"
+    "metadata_indexed_at": "2026-10-30T16:37:28Z"
   },
   "doi:10.1109/tro.2024.3454388": {
     "paper_id": "doi:10.1109/tro.2024.3454388",
@@ -8272,9 +8272,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2023.3339397",
     "source": "crossref",
     "first_seen_date": "2026-10-03",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2024-02",
-    "metadata_indexed_at": "2026-10-27T08:41:26Z"
+    "metadata_indexed_at": "2026-10-30T17:53:29Z"
   },
   "doi:10.1109/lra.2024.3357030": {
     "paper_id": "doi:10.1109/lra.2024.3357030",
@@ -8335,9 +8335,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2022.3142412",
     "source": "crossref",
     "first_seen_date": "2026-10-03",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2022-04",
-    "metadata_indexed_at": "2026-10-23T21:15:29Z"
+    "metadata_indexed_at": "2026-10-30T07:48:55Z"
   },
   "doi:10.1109/lra.2023.3237042": {
     "paper_id": "doi:10.1109/lra.2023.3237042",
@@ -8444,9 +8444,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2004.829456",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2004-10",
-    "metadata_indexed_at": "2026-10-23T21:15:53Z"
+    "metadata_indexed_at": "2026-10-29T19:29:30Z"
   },
   "doi:10.1109/lra.2023.3264759": {
     "paper_id": "doi:10.1109/lra.2023.3264759",
@@ -8493,7 +8493,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2024.3387111",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2024-06",
     "metadata_indexed_at": "2026-10-27T08:41:26Z"
   },
@@ -8563,7 +8563,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2023.3306670",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2023-10",
     "metadata_indexed_at": "2026-10-27T08:41:26Z"
   },
@@ -8830,7 +8830,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.adq1501",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "print_publication_date": "2024-06-26",
     "metadata_indexed_at": "2026-10-24T06:06:41Z"
@@ -8950,10 +8950,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.abm0608",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-25",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "print_publication_date": "2022-02-23",
-    "metadata_indexed_at": "2026-10-07T17:31:37Z"
+    "metadata_indexed_at": "2026-10-30T07:48:58Z"
   },
   "doi:10.1126/scirobotics.abn9086": {
     "paper_id": "doi:10.1126/scirobotics.abn9086",
@@ -8996,7 +8996,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.abd2666",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "print_publication_date": "2021-05-12",
     "metadata_indexed_at": "2026-10-27T19:42:18Z"
@@ -9552,7 +9552,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2022.0010",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2023-08-09",
     "print_publication_date": "2023-08-01",
@@ -9631,11 +9631,11 @@
     "paper_url": "https://doi.org/10.1089/soro.2020.0065",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-25",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2022-04-19",
     "print_publication_date": "2022-04-01",
-    "metadata_indexed_at": "2026-10-08T12:09:54Z"
+    "metadata_indexed_at": "2026-10-29T19:51:55Z"
   },
   "doi:10.1089/soro.2019.0009": {
     "paper_id": "doi:10.1089/soro.2019.0009",
@@ -9655,7 +9655,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2019.0009",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2020-02-06",
     "print_publication_date": "2020-02-01",
@@ -9706,7 +9706,7 @@
     "paper_url": "https://doi.org/10.1089/soro.2018.0037",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2019-02-13",
     "print_publication_date": "2019-02-01",
@@ -10343,11 +10343,11 @@
     "paper_url": "https://doi.org/10.1089/soro.2020.0213",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2021-11-25",
     "print_publication_date": "2022-10-01",
-    "metadata_indexed_at": "2026-10-27T08:40:51Z"
+    "metadata_indexed_at": "2026-10-30T07:48:57Z"
   },
   "doi:10.1089/soro.2022.0238": {
     "paper_id": "doi:10.1089/soro.2022.0238",
@@ -14644,9 +14644,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2022.3205510",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-10-18",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2023-04",
-    "metadata_indexed_at": "2026-10-07T17:50:45Z"
+    "metadata_indexed_at": "2026-10-30T16:38:19Z"
   },
   "doi:10.1109/tro.2018.2830364": {
     "paper_id": "doi:10.1109/tro.2018.2830364",
@@ -14684,7 +14684,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2016.2562122",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2016-06",
     "metadata_indexed_at": "2026-10-27T19:42:18Z"
   },
@@ -14854,9 +14854,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2024.3505783",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-10-08",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2025-01",
-    "metadata_indexed_at": "2026-10-06T22:45:24Z"
+    "metadata_indexed_at": "2026-10-29T07:56:50Z"
   },
   "doi:10.1109/lra.2022.3158440": {
     "paper_id": "doi:10.1109/lra.2022.3158440",
@@ -14896,11 +14896,11 @@
     "paper_url": "https://doi.org/10.1177/02783649241227559",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-10-25",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2024-01-22",
     "print_publication_date": "2024-04",
-    "metadata_indexed_at": "2026-10-07T17:48:22Z"
+    "metadata_indexed_at": "2026-10-30T16:39:22Z"
   },
   "doi:10.1177/02783649231196925": {
     "paper_id": "doi:10.1177/02783649231196925",
@@ -16607,9 +16607,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2021.3099310",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2022-04",
-    "metadata_indexed_at": "2026-10-27T12:39:31Z"
+    "metadata_indexed_at": "2026-10-30T00:54:41Z"
   },
   "doi:10.1109/tro.2024.3492375": {
     "paper_id": "doi:10.1109/tro.2024.3492375",
@@ -16691,8 +16691,8 @@
       "ETH Zurich"
     ],
     "doi": "10.1109/lra.2026.3741779",
-    "publish_date": "2026",
-    "date_precision": "year",
+    "publish_date": "2026-12",
+    "date_precision": "month",
     "date_basis": "print_publication",
     "journal_ref": "IEEE Robotics and Automation Letters",
     "journal_name": "IEEE Robotics and Automation Letters",
@@ -16700,9 +16700,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3741779",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-14",
-    "print_publication_date": "2026",
-    "metadata_indexed_at": "2026-10-09T15:53:18Z"
+    "last_seen_date": "2026-10-31",
+    "print_publication_date": "2026-12",
+    "metadata_indexed_at": "2026-10-30T19:32:44Z"
   },
   "doi:10.1109/lra.2018.2890199": {
     "paper_id": "doi:10.1109/lra.2018.2890199",
@@ -16764,9 +16764,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2023.3333701",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2024-01",
-    "metadata_indexed_at": "2026-10-08T18:30:03Z"
+    "metadata_indexed_at": "2026-10-30T17:53:51Z"
   },
   "doi:10.1109/lra.2024.3427557": {
     "paper_id": "doi:10.1109/lra.2024.3427557",
@@ -16946,7 +16946,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2022.3196141",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2022-10",
     "metadata_indexed_at": "2026-10-27T08:41:00Z"
   },
@@ -17010,9 +17010,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2023.3346750",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-20",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2024-02",
-    "metadata_indexed_at": "2026-10-17T16:19:49Z"
+    "metadata_indexed_at": "2026-10-30T16:37:28Z"
   },
   "doi:10.1109/lra.2023.3334971": {
     "paper_id": "doi:10.1109/lra.2023.3334971",
@@ -17265,7 +17265,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2018.2851360",
     "source": "crossref",
     "first_seen_date": "2026-10-11",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2018-10",
     "metadata_indexed_at": "2026-10-27T20:22:25Z"
   },
@@ -17310,7 +17310,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3742286",
     "source": "crossref",
     "first_seen_date": "2026-10-11",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2026-12",
     "metadata_indexed_at": "2026-10-27T08:35:32Z"
   },
@@ -17917,9 +17917,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2025.3562458",
     "source": "crossref",
     "first_seen_date": "2026-10-14",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2025",
-    "metadata_indexed_at": "2026-10-23T20:21:58Z"
+    "metadata_indexed_at": "2026-10-28T23:31:53Z"
   },
   "doi:10.1109/lra.2020.2972876": {
     "paper_id": "doi:10.1109/lra.2020.2972876",
@@ -18006,7 +18006,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2025.3629985",
     "source": "crossref",
     "first_seen_date": "2026-10-14",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2026-01",
     "metadata_indexed_at": "2026-10-27T20:23:24Z"
   },
@@ -18284,7 +18284,7 @@
     "paper_url": "https://doi.org/10.1177/21695172261496958",
     "source": "crossref",
     "first_seen_date": "2026-10-14",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2026-10-12",
     "metadata_indexed_at": "2026-10-23T20:37:01Z"
@@ -18628,9 +18628,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2013.2239554",
     "source": "crossref",
     "first_seen_date": "2026-10-16",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2013-06",
-    "metadata_indexed_at": "2026-10-24T17:13:29Z"
+    "metadata_indexed_at": "2026-10-30T21:20:18Z"
   },
   "doi:10.1109/lra.2022.3149037": {
     "paper_id": "doi:10.1109/lra.2022.3149037",
@@ -18733,9 +18733,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2025.3527306",
     "source": "crossref",
     "first_seen_date": "2026-10-16",
-    "last_seen_date": "2026-10-20",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2025-02",
-    "metadata_indexed_at": "2026-10-15T16:11:28Z"
+    "metadata_indexed_at": "2026-10-30T16:36:58Z"
   },
   "doi:10.1109/lra.2021.3062578": {
     "paper_id": "doi:10.1109/lra.2021.3062578",
@@ -18889,7 +18889,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2023.3320897",
     "source": "crossref",
     "first_seen_date": "2026-10-18",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2023-11",
     "metadata_indexed_at": "2026-10-27T19:42:13Z"
   },
@@ -18979,9 +18979,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2025.3526570",
     "source": "crossref",
     "first_seen_date": "2026-10-18",
-    "last_seen_date": "2026-10-25",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2025-02",
-    "metadata_indexed_at": "2026-10-23T20:17:45Z"
+    "metadata_indexed_at": "2026-10-29T16:01:32Z"
   },
   "doi:10.1109/lra.2023.3315204": {
     "paper_id": "doi:10.1109/lra.2023.3315204",
@@ -20381,8 +20381,8 @@
       "Southeast University"
     ],
     "doi": "10.1109/lra.2026.3746124",
-    "publish_date": "2026",
-    "date_precision": "year",
+    "publish_date": "2026-12",
+    "date_precision": "month",
     "date_basis": "print_publication",
     "journal_ref": "IEEE Robotics and Automation Letters",
     "journal_name": "IEEE Robotics and Automation Letters",
@@ -20390,9 +20390,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3746124",
     "source": "crossref",
     "first_seen_date": "2026-10-23",
-    "last_seen_date": "2026-10-23",
-    "print_publication_date": "2026",
-    "metadata_indexed_at": "2026-10-22T19:44:10Z"
+    "last_seen_date": "2026-10-31",
+    "print_publication_date": "2026-12",
+    "metadata_indexed_at": "2026-10-30T19:31:42Z"
   },
   "doi:10.1109/lra.2026.3746123": {
     "paper_id": "doi:10.1109/lra.2026.3746123",
@@ -20403,8 +20403,8 @@
       "Harbin Institute of Technology"
     ],
     "doi": "10.1109/lra.2026.3746123",
-    "publish_date": "2026",
-    "date_precision": "year",
+    "publish_date": "2026-12",
+    "date_precision": "month",
     "date_basis": "print_publication",
     "journal_ref": "IEEE Robotics and Automation Letters",
     "journal_name": "IEEE Robotics and Automation Letters",
@@ -20412,9 +20412,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3746123",
     "source": "crossref",
     "first_seen_date": "2026-10-23",
-    "last_seen_date": "2026-10-23",
-    "print_publication_date": "2026",
-    "metadata_indexed_at": "2026-10-22T19:42:08Z"
+    "last_seen_date": "2026-10-31",
+    "print_publication_date": "2026-12",
+    "metadata_indexed_at": "2026-10-30T19:31:59Z"
   },
   "doi:10.1109/lra.2022.3184447": {
     "paper_id": "doi:10.1109/lra.2022.3184447",
@@ -20494,9 +20494,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2019.2893434",
     "source": "crossref",
     "first_seen_date": "2026-10-23",
-    "last_seen_date": "2026-10-23",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2019-07",
-    "metadata_indexed_at": "2026-10-22T04:46:43Z"
+    "metadata_indexed_at": "2026-10-30T17:53:52Z"
   },
   "doi:10.1109/lra.2022.3233784": {
     "paper_id": "doi:10.1109/lra.2022.3233784",
@@ -20536,9 +20536,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2018.2856398",
     "source": "crossref",
     "first_seen_date": "2026-10-23",
-    "last_seen_date": "2026-10-23",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2018-10",
-    "metadata_indexed_at": "2026-10-21T23:01:44Z"
+    "metadata_indexed_at": "2026-10-30T16:37:22Z"
   },
   "doi:10.1109/lra.2024.3433205": {
     "paper_id": "doi:10.1109/lra.2024.3433205",
@@ -20959,9 +20959,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2024.3378178",
     "source": "crossref",
     "first_seen_date": "2026-10-25",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2024",
-    "metadata_indexed_at": "2026-10-24T19:50:49Z"
+    "metadata_indexed_at": "2026-10-29T16:39:51Z"
   },
   "doi:10.1109/tro.2024.3521967": {
     "paper_id": "doi:10.1109/tro.2024.3521967",
@@ -21180,11 +21180,11 @@
     "paper_url": "https://doi.org/10.1177/0278364915584645",
     "source": "crossref",
     "first_seen_date": "2026-10-25",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2015-06-29",
     "print_publication_date": "2016-07",
-    "metadata_indexed_at": "2026-10-24T06:06:05Z"
+    "metadata_indexed_at": "2026-10-30T01:02:13Z"
   },
   "arxiv:2610.37652": {
     "paper_id": "arxiv:2610.37652",
@@ -21477,7 +21477,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2026.3686277",
     "source": "crossref",
     "first_seen_date": "2026-10-28",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2026",
     "metadata_indexed_at": "2026-10-27T08:42:45Z"
   },
@@ -21500,7 +21500,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2024.3502197",
     "source": "crossref",
     "first_seen_date": "2026-10-28",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2025",
     "metadata_indexed_at": "2026-10-27T08:41:26Z"
   },
@@ -21520,7 +21520,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2020.3034067",
     "source": "crossref",
     "first_seen_date": "2026-10-28",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2021-04",
     "metadata_indexed_at": "2026-10-28T01:32:26Z"
   },
@@ -21542,7 +21542,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2023.3329764",
     "source": "crossref",
     "first_seen_date": "2026-10-28",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2023-12",
     "metadata_indexed_at": "2026-10-28T01:32:25Z"
   },
@@ -21565,7 +21565,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3685935",
     "source": "crossref",
     "first_seen_date": "2026-10-28",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2026-06",
     "metadata_indexed_at": "2026-10-27T20:23:04Z"
   },
@@ -21585,7 +21585,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2022.3149306",
     "source": "crossref",
     "first_seen_date": "2026-10-28",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2022-04",
     "metadata_indexed_at": "2026-10-27T20:20:47Z"
   },
@@ -21605,9 +21605,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3747646",
     "source": "crossref",
     "first_seen_date": "2026-10-28",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "print_publication_date": "2026",
-    "metadata_indexed_at": "2026-10-27T19:36:07Z"
+    "metadata_indexed_at": "2026-10-28T19:34:11Z"
   },
   "doi:10.1177/0278364913519148": {
     "paper_id": "doi:10.1177/0278364913519148",
@@ -21627,7 +21627,7 @@
     "paper_url": "https://doi.org/10.1177/0278364913519148",
     "source": "crossref",
     "first_seen_date": "2026-10-28",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2014-02-24",
     "print_publication_date": "2014-04",
@@ -21653,7 +21653,7 @@
     "paper_url": "https://doi.org/10.1177/027836499801700802",
     "source": "crossref",
     "first_seen_date": "2026-10-28",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "1998-08-01",
     "print_publication_date": "1998-08",
@@ -21677,9 +21677,372 @@
     "paper_url": "https://doi.org/10.1177/21695172261499029",
     "source": "crossref",
     "first_seen_date": "2026-10-28",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-10-31",
     "abstract_source": "crossref",
     "online_publication_date": "2026-10-26",
-    "metadata_indexed_at": "2026-10-27T05:35:43Z"
+    "metadata_indexed_at": "2026-10-28T20:36:09Z"
+  },
+  "arxiv:2610.40349": {
+    "paper_id": "arxiv:2610.40349",
+    "arxiv_id": "2610.40349",
+    "title": "TouchBridge: Tactile-Conditioned Human-to-Robot Transfer for Dexterous Manipulation",
+    "abstract": "Human demonstrations offer an efficient and scalable source of data for dexterous robot manipulation, but differences in sensing and hand morphology complicate the transfer of contact-rich interactions. We present TouchBridge, a hardware--software co-designed framework for human-to-robot data transformation. A wearable human demonstration interface and a corresponding robot interface establish cross-embodiment correspondence in visual and fingertip tactile sensing. We introduce Tac-Retarget, a tactile-conditioned retargeting method that uses measured contact to align fingertip contact patches and preserve their spatial relations within and across hands. Unlike object-aware or simulation-based transfer pipelines, Tac-Retarget requires no object mesh, object-pose estimate, or physics simulation for retargeting, enabling direct and scalable conversion of human demonstrations into robot-domain training data. Combined with visual synthesis and camera-anchored action conversion, TouchBridge produces robot-domain demonstrations for fine-tuning a pretrained vision-language-action (VLA) model. Across four real-world contact-rich tasks, policies fine-tuned solely on TouchBridge-converted human demonstrations achieve a 72.5% average success rate, compared with 77.5% using an equal number of teleoperated robot demonstrations, while human demonstration collection is 7.0x faster. Under the same policy and training setup, Tac-Retarget outperforms DexPilot and UniDex by 25.0 and 42.5 percentage points, respectively.",
+    "date_basis": "initial_publication",
+    "authors": "Haozhe Zhang, Gu Zhang, Zirui Zou, Yuzheng Chen, Jinlong Wu, Zixuan Hu, Jianke Zhang, Yucheng Hu, Zhecheng Yuan, Huazhe Xu",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-29",
+    "arxiv_url": "https://arxiv.org/abs/2610.40349",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.40285": {
+    "paper_id": "arxiv:2610.40285",
+    "arxiv_id": "2610.40285",
+    "title": "MUSBRIC: LEGO-Compatible Pneumatic Muscle Bricks for Reconfigurable Musculoskeletal Robots",
+    "abstract": "Musculoskeletal robots combine compliant actuators with articulated skeletons, but exploring alternative configurations often requires repeated fabrication. We present MUSBRIC, a modular hardware platform and accompanying MuJoCo-based simulator for reconfigurable musculoskeletal robots. LEGO-compatible endcaps turn fiber-reinforced extensile pneumatic artificial muscles into reusable, plug-and-play muscle bricks that connect directly to standard LEGO components. Experimentally identified actuator behavior supports corresponding musculoskeletal simulations. An elbow-joint prototype validates load-dependent flexion and extension, showing that pulley-guided routing enables reversible motion and a mechanical stop stabilizes the straight posture. A robotic hand demonstrates compliant grasping and multi-joint construction. Matched hardware and simulation sweeps across 15 leg configurations demonstrate systematic exploration of attachment geometry, while a quadruped assembled from four legs demonstrates walking. Together, these demonstrations span mechanism analysis, configuration exploration, and functional robot construction within a single reconfigurable system. The hardware designs and simulation code will be released as open source soon to facilitate reproduction and further development.",
+    "date_basis": "initial_publication",
+    "authors": "Qiyao Wang, Yinglei Zhu, Liang Zhou, Wenzhe Gong, Xin-Jun Liu, Huichan Zhao",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-29",
+    "arxiv_url": "https://arxiv.org/abs/2610.40285",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.40210": {
+    "paper_id": "arxiv:2610.40210",
+    "arxiv_id": "2610.40210",
+    "title": "AcrossDEX 1.0: From Human Motion Pretraining to Bimanual Dexterous Manipulation across Hand Embodiments",
+    "abstract": "Bimanual dexterous manipulation requires continuous coordination of wrist motion, finger contact, and object motion. Human videos provide rich manipulation experience. Using this experience for robot control requires aligning human poses with robot commands and accounting for embodiment-specific kinematics and contact dynamics. We present AcrossDEX 1.0, a learning system that connects human motion pretraining, simulation-based expert learning, robot demonstration collection, and visual closed-loop execution. Pretraining on HOT3D Aria predicts one second of bimanual motion from five images and thirty annotated hand states over the preceding second. Robot adaptation preserves the visual encoder, temporal backbone, and wrist parameters. Shared wrist representations, separate finger fields, and validity masks support both six-channel Inspire hands and sixteen-joint Allegro hands. The robot policy predicts sixty control targets from frontal images, command history, and task conditions. It executes a prefix and replans from updated observations. We compare direct regression, diffusion, and flow matching on lid opening and return and closed-lid object reorientation. Direct regression achieves success rates of 40.6\\% for opening and return, 100.0\\% for Inspire reorientation, and 93.3\\% for Allegro reorientation. Flow matching achieves 90.0\\% on Allegro reorientation. Paired comparisons further show that constraining replanning with the previous plan improves the continuous execution of generative policies. These results demonstrate a common adaptation pipeline for two hand embodiments and highlight the roles of contact coordination and action-chunk continuity.",
+    "date_basis": "initial_publication",
+    "authors": "Xiaoyu Yang, Nan Wu",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-29",
+    "arxiv_url": "https://arxiv.org/abs/2610.40210",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.40109": {
+    "paper_id": "arxiv:2610.40109",
+    "arxiv_id": "2610.40109",
+    "title": "Coupled Guidance for Flow Matching",
+    "abstract": "Guidance methods are essential tools for steering the generation process in diffusion models, improving the generalizability of stochastic robotic controllers and enabling high-quality controlled image synthesis. Despite strong parallels between flow-matching and diffusion, integrating guidance into flow-matching models remains quite challenging. Recent work has proposed general guidance frameworks for flow-matching, however, they are direct adaptations of diffusion guidance methods and can prove unstable. In this work, we conduct a theoretical analysis of guidance in flow-matching and show that a naive translation of diffusion-based guidance to flow-matching breaks the coupling distribution used during training, resulting in weaker control over sampling accuracy. Building on this insight, we propose Coupled Guidance, a flow-matching-specific guidance mechanism derived from a geometric perspective that leverages the coupling structure inherent to flow-matching training. To validate the effectiveness of our approach, we conduct extensive experimentation on a custom robotic collision avoidance task using ManiSkill3, four robotic dexterous manipulation tasks from the Adroit benchmark, and three image generation tasks, namely inpainting, super-resolution, and deblurring, using the ImageNet-128 and CelebA-HQ-256 datasets. Our findings show that our framework improves sample quality and guidance stability across all tasks, without imposing any additional overhead.",
+    "date_basis": "initial_publication",
+    "authors": "Mateo Clémente, Léo Maxime Brunswic, Rui Heng Yang, Amir Rasouli",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-29",
+    "arxiv_url": "https://arxiv.org/abs/2610.40109",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.39582": {
+    "paper_id": "arxiv:2610.39582",
+    "arxiv_id": "2610.39582",
+    "title": "Kinematic-Tactile Aligned Dexterous Retargeting with Contact Wrench Space Alignment",
+    "abstract": "Human demonstrations provide a natural and scalable source of data for learning dexterous manipulation policies. However, existing retargeting methods primarily transfer human kinematics, while the tactile information underlying physical interaction is rarely preserved across embodiments. To address this limitation, we present a hierarchical three-stage framework for kinematic-tactile aligned dexterous retargeting. We use object-centric contact wrench space as a physical representation for tactile alignment between human and robot hands. The framework first aligns hand kinematics and contact geometry, and then constructs a human wrench support profile from tactile forces and contact geometry. Robot fingertip force targets are subsequently optimized to cover the human wrench support and converted into joint position corrections, yielding directly replayable robot hand trajectories. We evaluate the framework in simulation and real robot experiments across three pouring conditions. In the real robot experiments, our method achieves a 96.7\\% replay success rate and higher wrench transfer fidelity than representative retargeting baselines. The framework enables physically grounded transfer of kinematic and tactile information from human demonstrations to robot hands, providing a path toward scalable learning of contact-rich dexterous manipulation.",
+    "date_basis": "initial_publication",
+    "authors": "Xinyuan He, Ziheng Xu, Yueyuan Chen, Yufan Ye, Yuanshuo Tan, Huiming Pan, Jianjun Meng, Shuo Jiang, Peter B. Shull",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-29",
+    "arxiv_url": "https://arxiv.org/abs/2610.39582",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.39076": {
+    "paper_id": "arxiv:2610.39076",
+    "arxiv_id": "2610.39076",
+    "title": "Tactus: Tactile & Pose Sensing Glove for Natural Dexterity Data Collection",
+    "abstract": "Collecting naturalistic human manipulation demonstrations with accurate contact force and hand pose is essential for robot dexterous manipulation policy and foundational world model learning - yet no existing wearable platform provides both calibrated fingertip force sensing and occlusion-resilient hand tracking in a form factor that preserves natural manipulation behavior. We present Tactus, a textile-integrated sensing glove that co-optimizes three design pillars: (1) a thin, conformal 3D-knit form factor (1.5 mm fingertip stackup) designed to minimize interference with natural manipulation, (2) strategically placed capacitive tactile sensors at manipulation-relevant regions informed by empirical contact studies, and (3) IMU-fused pose tracking that maintains accuracy through the hand-object occlusions where manipulation data is most valuable. Tactus includes a documented calibration pipeline for cross-glove consistency and per-session calibration for subject-dependent correction. To enable objective comparison, we introduce standardized benchmarking protocols for tactile force regression and hand pose estimation, and apply them to Tactus and two commercially available tactile gloves - to our knowledge the first quantitative cross-platform evaluation of this kind. Tactus resolves a minimum detectable force of 0.59 N at 95% confidence, 1.6 - 2.7x lower than the commercial baselines, and with 0.87 cross-participant consistency, while our pose tracking sustains 11.0 mm fingertip keypoint relative error during manipulation, when occlusion is heaviest. We show that these combined signals support object property estimation, slip detection, and representative recording of hand-object interaction - yielding demonstration data with the fidelity required for contact-aware manipulation policies and world models.",
+    "date_basis": "initial_publication",
+    "authors": "Li Guan, Rachael Granberry, Sahar Aseeri, Sahar Rostami, Taylor Niehues, Sai Dhanooshi Marri, Mia Huang, Dingtian Zhang, Ziyi Kou, Jason Pursel, Eric Whitmire, Vatsal Mehta, Ashish Deshpande, Tristan Trutna, Reed Belcher, Emelia Black, Julian Blake, Roger Boldu, Sean Bonaventure, Einar Boyovich, Jordan Brennan, Elizabeth Casillas, David Christensen, Tyler Christensen, Nicholas Colonnese, Stuart Dealey, Gaige DeHaven, Katie Doran, Chris Doughty, Robert Drury, Silvia Espino, Gabriel Geyne, Beth Goodrich, Kyra Gould, Joe Grisso, Susana Guerrero, Andrew Gwozdziowski, Monica Ha, Ehsan Hajiesmaili, Kate Healy, Rose Hope, Michael Hurst, Claire Ikemiya, Daisy Isibor, Rick James, Yashasvi Joginapally, Samuel Johnson, Tyler Jorgensen, Kristy Jost, Ben Kamath, Slava Karulin, Alexander Keener, Woo Kim, Alison Krauskopf, Ankit Kumar, Joshua Lang, Lizzy Li, Cameron Lynch, Daniel Ma, Hector Martinon, Christina Matos, Keagan McCurdy, Lee Mincey, Stuart Nezlek, Tiffany Nguyen, James O'Hara, Jason Osborne, Jacky Pai, Roham Pardakhtim, David Perek, Alexandre Poulin, Nick Raines, Salwa Rasheed, Leah Resneck, Kevin Rhodes, Ergys Ristani, Douglas Roberts, Anik Sarker, Harrison Scarborough, Jonas Schmidtler, Brian Shieh, Benjamin Shuman, Garrett Simard, Forrest Smith, Udara Somarathna, Eliot Sosin, Jonathan Stewart, Kristine Strom, Adam Swett, Hal Talbot-Mantooth, Julia Tanner, Sai Sharan Thirunagari, Curtis Torrey, Simge Uzun, Eileen Wachs, Rylan Wasson, Henry Wei, Jesse White, Beau Woodbyrne, Antonio Woods, Noah Young, Chandler Yount, Joseph Zhang, Sean Keller",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-29",
+    "arxiv_url": "https://arxiv.org/abs/2610.39076",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.39044": {
+    "paper_id": "arxiv:2610.39044",
+    "arxiv_id": "2610.39044",
+    "title": "Catch It All!: Generalizable Dynamic Catching with a Dexterous Hand",
+    "abstract": "Catching arbitrary objects requires generalization to novel projectiles and real-time adaptation to unpredictable contact dynamics under noisy visual observations. This paper presents Catch It All!, a sim-to-real catching framework for humanoid robots that generalizes and adapts to unseen objects with variable physical properties for underhand and overhand catches, using only one egocentric camera. We learn policies which generalize to unseen objects with varying geometry, deformability, elasticity, and physical properties. Effective grasps which adapt real-time to object poses and shapes are learned through careful grasp reward design. We provide safety-aware curricula which enable safe, high-frequency action execution near hardware limits, including wrist torque limits as low as 5 Nm. We validate our system by deploying zero-shot on a Unitree G1. With only one egocentric camera, Catch It All! successfully performs underhand and overhand catches on 9 unseen objects not seen during training, including low-rebound plushes, semi-deformable toys and chip bags, and rigid-elastic objects with high rebound on contact.",
+    "date_basis": "initial_publication",
+    "authors": "Arth Shukla, Kehlani Fay, Huaze Liu, Darin Djapri, Alexiy Buynitsky, Nicklas Hansen",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-28",
+    "arxiv_url": "https://arxiv.org/abs/2610.39044",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.37865": {
+    "paper_id": "arxiv:2610.37865",
+    "arxiv_id": "2610.37865",
+    "title": "Echo: Scaling Visual Reinforcement Learning with Off-policy Experience",
+    "abstract": "Scaling visual reinforcement learning (RL) with GPU-accelerated simulation is computationally expensive due to rendering and visual-policy inference costs. Consequently, two-stage teacher--student distillation is commonly used to train visual policies, but introduces an imitation gap. In this preliminary study, we introduce \\echomethod{}, \\textbf{a single-stage off-policy RL framework that scales experience collection without proportionally increasing visual computation}. Through \\textbf{inverse distillation}, a state-based auxiliary policy imitates the evolving visual policy and collects inexpensive, unrendered experience. Echo leverages this experience for off-policy value learning, directly improving the visual policy through a shared privileged critic. We instantiate \\echomethod{} with FastTD3 and evaluate it on three visual control tasks and two dexterous manipulation tasks in Genesis. Relative to \\sdpgmethod{} under the evaluated configurations, Echo reduces time to reference returns by an average of \\textbf{60\\% across the three locomotion tasks} and \\textbf{56\\% across both hand tasks}, while improving peak mean returns by \\textbf{62\\% and 12\\%}, respectively. Both hand tasks also achieve higher mean returns at matched simulator-transition budgets. These initial results suggest that scaling off-policy experience is a promising approach to efficient direct visual RL.",
+    "date_basis": "initial_publication",
+    "authors": "Gagan Khandate",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-27",
+    "arxiv_url": "https://arxiv.org/abs/2610.37865",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2610.37799": {
+    "paper_id": "arxiv:2610.37799",
+    "arxiv_id": "2610.37799",
+    "title": "DexSuite: An All-in-One Framework for Dexterous Manipulation Across Arms, Hands, and Tasks",
+    "abstract": "Human-level dexterity remains a central open problem in robotics, yet few simulation frameworks cover the full workflow of dexterous manipulation, from setting up a robot to collecting dexterous demonstrations and evaluating policies. We present DexSuite, an all-in-one simulation framework for dexterous manipulation built on the Genesis simulator. DexSuite provides 30 tasks and assembles its 10 arms and 12 end-effectors, from parallel-jaw grippers to dexterous hands, into more than 100 single-arm robots and thousands of bimanual pairs. It also ships a standardized environment API, integrated teleoperation, and simulated tactile sensing. Moreover, we define a benchmark of 16 task-embodiment pairs spanning diverse contact complexities and horizons, and release a dataset of 4,700 successful episodes in simulation from human teleoperation, scripted experts, and learned policies. We release DexSuite as open source and hope others will build on it. Videos and datasets are available at https://dexsuiteorg.github.io",
+    "date_basis": "initial_publication",
+    "authors": "Anas Houssaini, Hugo He, Junming Shi, Amin Abyaneh, Ricardo Chahine, Shuo Wen, Mohamad H. Danesh, Charles-Étienne Fréchette, Mariana Sosa Guzman, Mathias Desrochers, Rayan Houssaini, Adam Landa, Theophile Soulie, Charlotte Morissette, Annie Tims, Martino Russi, Jonathan Lussier, Gregory Dudek, Doina Precup, Julen Urain, Hsiu-Chin Lin, David Meger",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-10-27",
+    "arxiv_url": "https://arxiv.org/abs/2610.37799",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "doi:10.1109/tro.2023.3280595": {
+    "paper_id": "doi:10.1109/tro.2023.3280595",
+    "title": "A Restorable, Variable Stiffness Pneumatic Soft Gripper Based on Jamming of Strings of Beads",
+    "abstract": "",
+    "authors": "Fenglin Han, Lei Fei, Run Zou, Weijian Li, Jinghao Zhou, Haiming Zhao",
+    "affiliations": [
+      "State Key Laboratory of Precision Manufacturing for Extreme Service Performance, Central South University, Changsha, China",
+      "College of Mechanical and Electrical Engineering, Central South University, Changsha, China"
+    ],
+    "doi": "10.1109/tro.2023.3280595",
+    "publish_date": "2023-10",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Transactions on Robotics",
+    "journal_name": "IEEE Transactions on Robotics",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/tro.2023.3280595",
+    "source": "crossref",
+    "first_seen_date": "2026-10-31",
+    "last_seen_date": "2026-10-31",
+    "print_publication_date": "2023-10",
+    "metadata_indexed_at": "2026-10-30T12:26:05Z"
+  },
+  "doi:10.1109/lra.2021.3113626": {
+    "paper_id": "doi:10.1109/lra.2021.3113626",
+    "title": "A Flexible Robotic Assembly System Combining CAD Based Localization, Compliance Control, and a Multi-Modal Gripper",
+    "abstract": "",
+    "authors": "Gal Gorjup, Geng Gao, Anany Dwivedi, Minas Liarokapis",
+    "affiliations": [],
+    "doi": "10.1109/lra.2021.3113626",
+    "publish_date": "2021-10",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2021.3113626",
+    "source": "crossref",
+    "first_seen_date": "2026-10-31",
+    "last_seen_date": "2026-10-31",
+    "print_publication_date": "2021-10",
+    "metadata_indexed_at": "2026-10-30T15:14:20Z"
+  },
+  "doi:10.1109/lra.2018.2810544": {
+    "paper_id": "doi:10.1109/lra.2018.2810544",
+    "title": "Learning Object Grasping for Soft Robot Hands",
+    "abstract": "",
+    "authors": "Changhyun Choi, Wilko Schwarting, Joseph DelPreto, Daniela Rus",
+    "affiliations": [],
+    "doi": "10.1109/lra.2018.2810544",
+    "publish_date": "2018-07",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2018.2810544",
+    "source": "crossref",
+    "first_seen_date": "2026-10-31",
+    "last_seen_date": "2026-10-31",
+    "print_publication_date": "2018-07",
+    "metadata_indexed_at": "2026-10-29T12:59:10Z"
+  },
+  "doi:10.1109/lra.2020.2974419": {
+    "paper_id": "doi:10.1109/lra.2020.2974419",
+    "title": "Modeling, Optimization, and Experimentation of the ParaGripper for In-Hand Manipulation Without Parasitic Rotation",
+    "abstract": "",
+    "authors": "Huan Liu, Longhai Zhao, Bruno Siciliano, Fanny Ficuciello",
+    "affiliations": [],
+    "doi": "10.1109/lra.2020.2974419",
+    "publish_date": "2020-04",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2020.2974419",
+    "source": "crossref",
+    "first_seen_date": "2026-10-31",
+    "last_seen_date": "2026-10-31",
+    "print_publication_date": "2020-04",
+    "metadata_indexed_at": "2026-10-29T12:59:05Z"
+  },
+  "doi:10.1109/lra.2022.3187876": {
+    "paper_id": "doi:10.1109/lra.2022.3187876",
+    "title": "BRL/Pisa/IIT SoftHand: A Low-Cost, 3D-Printed, Underactuated, Tendon-Driven Hand With Soft and Adaptive Synergies",
+    "abstract": "",
+    "authors": "Haoran Li, Christopher J. Ford, Matteo Bianchi, Manuel G. Catalano, Efi Psomopoulou, Nathan F. Lepora",
+    "affiliations": [
+      "Department of Engineering Mathematics and Bristol Robotics Laboratory, University of Bristol, Bristol, U.K.",
+      "Department of Information Engineering and the Research Center “E.Piaggio,”, University of Pisa, Pisa, Italy",
+      "Soft Robotics for Human Cooperation and Rehabilitation, Istituto Italiano di Tecnologia, Genova, Italy"
+    ],
+    "doi": "10.1109/lra.2022.3187876",
+    "publish_date": "2022-10",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2022.3187876",
+    "source": "crossref",
+    "first_seen_date": "2026-10-31",
+    "last_seen_date": "2026-10-31",
+    "print_publication_date": "2022-10",
+    "metadata_indexed_at": "2026-10-29T12:59:03Z"
+  },
+  "doi:10.1109/lra.2022.3197886": {
+    "paper_id": "doi:10.1109/lra.2022.3197886",
+    "title": "Deep Learning-Based 3D Pose Reconstruction of an Underwater Soft Robotic Hand and Its Biomimetic Evaluation",
+    "abstract": "",
+    "authors": "Haihang Wang, He Xu, Yihan Meng, Xinlei Ge, Aijing Lin, Xiao-Zhi Gao",
+    "affiliations": [
+      "College of Mechanical and Electrical Engineering, Harbin Engineering University, Harbin, China",
+      "School of Mathematics and Statistics, Beijing Jiaotong University, Beijing, China",
+      "School of Computing, University of Eastern Finland, Kuopio, Finland"
+    ],
+    "doi": "10.1109/lra.2022.3197886",
+    "publish_date": "2022-10",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2022.3197886",
+    "source": "crossref",
+    "first_seen_date": "2026-10-31",
+    "last_seen_date": "2026-10-31",
+    "print_publication_date": "2022-10",
+    "metadata_indexed_at": "2026-10-28T23:32:01Z"
+  },
+  "doi:10.1177/0278364913518357": {
+    "paper_id": "doi:10.1177/0278364913518357",
+    "title": "Development of a tendon-driven robotic finger for an anthropomorphic robotic hand",
+    "abstract": "Our paper proposes a tendon-driven robotic finger based on an anatomical model of a human finger and a suitable method for its analysis. Our study aims to realize an anthropomorphic robotic hand that has the same characteristics and dexterity as that of a human hand, and it also aims to identify the advantages of the human musculoskeletal structure for application to the design and control of robot manipulators. When designing an anthropomorphic robotic hand, several devices are required to apply the human finger structure to a tendon-driven robotic finger. Reasons for this include that one of the human finger muscles, namely, the lumbrical muscle, is situated between tendons, which is an unfavorable configuration for the tendon-driven mechanism. Second, unlike a standard pulley used in a tendon-driven mechanism, some moment arms of the human finger change nonlinearly according to the joint angle. In our robotic finger design, we address these difficulties by rearranging its tendons and develop a mechanism to change the moment arm. We also propose a method to analyze and control this robotic fingers coordinating joints using non-stretch branching tendons based on the human extensor mechanism with a virtual tendon Jacobian matrix and the advantage is that this constraint virtually reduces the degrees-of-freedom (DOF) of the mechanism. Further, we build a prototype to confirm its motion using this method. In addition, we show that the state with the reduced DOF can be lost by external forces acting on the mechanism, and this condition can be changed manually by adjusting the tendon forces. This makes it possible to control the virtual DOFs to satisfy the requirements of the task. Finally, we discuss the benefits from anthropomorphic structures including the tendon arrangement, which mimic the human lumbrical muscle, and the above mentioned mechanism with non-linear moment arms from the perspective that there are two states of DOFs. These insights may provide new perspectives in the design of robotic hands.",
+    "authors": "Shouhei Shirafuji, Shuhei Ikemoto, Koh Hosoda",
+    "affiliations": [
+      "Department of Multimedia Engineering, Graduate School of Information Science and Technology, Osaka University, Japan"
+    ],
+    "doi": "10.1177/0278364913518357",
+    "publish_date": "2014-02-19",
+    "date_precision": "day",
+    "date_basis": "online_publication",
+    "journal_ref": "The International Journal of Robotics Research",
+    "journal_name": "The International Journal of Robotics Research",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1177/0278364913518357",
+    "source": "crossref",
+    "first_seen_date": "2026-10-31",
+    "last_seen_date": "2026-10-31",
+    "abstract_source": "crossref",
+    "online_publication_date": "2014-02-19",
+    "print_publication_date": "2014-04",
+    "metadata_indexed_at": "2026-10-30T04:23:42Z"
+  },
+  "doi:10.1126/scirobotics.aed8734": {
+    "paper_id": "doi:10.1126/scirobotics.aed8734",
+    "title": "Adaptive humanlike grasping",
+    "abstract": "Rich tactile embodiment enables robotic hands to perform grasping tasks with humanlike adaptability.",
+    "authors": "Amos Matsiko",
+    "affiliations": [
+      "Science Robotics, AAAS, Washington, DC 20005, USA."
+    ],
+    "doi": "10.1126/scirobotics.aed8734",
+    "publish_date": "2025-11-26",
+    "date_precision": "day",
+    "date_basis": "print_publication",
+    "journal_ref": "Science Robotics",
+    "journal_name": "Science Robotics",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1126/scirobotics.aed8734",
+    "source": "crossref",
+    "first_seen_date": "2026-10-31",
+    "last_seen_date": "2026-10-31",
+    "abstract_source": "crossref",
+    "print_publication_date": "2025-11-26",
+    "metadata_indexed_at": "2026-10-30T18:51:09Z"
+  },
+  "doi:10.1177/21695172261451702": {
+    "paper_id": "doi:10.1177/21695172261451702",
+    "title": "Bioinspired Swallowing Soft Gripper with Toroidal Optical Waveguides for Multimodal Interactive Perception",
+    "abstract": "Multimodal soft grippers can adapt grasping strategies to diverse environments, yet integrating sensors under large, coupled deformations remains challenging. Inspired by the mechanosensation of sea anemones and their ability to swallow, this article presents a soft gripper that integrates eight toroidal optical waveguides to realize three modes—contacting, expansion, and swallowing—with continuous proprioceptive feedback. Deformation-induced optical attenuation, processed by machine-learning pipelines, enables perception of object shape, hardness, and surface texture. Experiments show a 0.04 N detection limit, a 0.006 N resolution, a 55 ms response time, and sensitivity >1.4 dB/N, with machine-learning classification achieving >89% accuracy. Mode-specific experiments demonstrate sensing across the entire soft gripper with integrated optical waveguides. The outer surface localizes contact after inflation, the inner surface provides circumferential contact sensing of irregular objects during swallowing; and the pedal interface at the base distinguishes surface hardness and texture, achieving perception on the outer, inner, and bottom interfaces. We also demonstrate multi-object swallowing that grasps and counts 1–4 transparent bottles in real-time and a breakfast task that switches grasping modes to grasp a bowl and cup, swallowing fragile items without damage. These results show that our design enables mode-switching interactive perception and expands opportunities for soft robotics in fragile product handling and laboratory automation.",
+    "authors": "Sheng Xiang, Muye Niu, Wenjie Fang, Xin Xu, Zhong Wei, Chengcheng Hua, Yang Yang",
+    "affiliations": [
+      "School of Automation, CICAEET, Nanjing University of Information Science and Technology, Nanjing, China."
+    ],
+    "doi": "10.1177/21695172261451702",
+    "publish_date": "2026-05-29",
+    "date_precision": "day",
+    "date_basis": "online_publication",
+    "journal_ref": "Soft Robotics",
+    "journal_name": "Soft Robotics",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1177/21695172261451702",
+    "source": "crossref",
+    "first_seen_date": "2026-10-31",
+    "last_seen_date": "2026-10-31",
+    "abstract_source": "crossref",
+    "online_publication_date": "2026-05-29",
+    "metadata_indexed_at": "2026-10-30T12:26:09Z"
   }
 }
