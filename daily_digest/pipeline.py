@@ -26,6 +26,7 @@ from .journals import collect_journals, normalize_doi
 from .work_modules import work_module_name
 from .content import SUMMARY_PROMPT_V4, escape_markdown, module_names, number_source_text, sections, validate_v4
 from .reading import read_paper, _excerpt
+from .publications import collect_conferences, is_journal_record, publication_url
 
 ARXIV_ID = re.compile(r"\d{4}\.\d{4,5}\Z", re.ASCII)
 HAND_TERMS = (
@@ -91,12 +92,22 @@ def candidates(db: dict, state: dict, today: date, config: dict, *, journal_days
     eligible = []
     sent_dois = {normalize_doi(db[key].get("doi", "")) for key in sent if key in db}
     sent_titles = {_identity(db[key]) for key in sent if key in db} - {""}
+    sent_arxiv = {db[key].get("arxiv_id", "") for key in sent if key in db} - {""}
+    sent_arxiv.update(key[6:] for key in sent if key.startswith("arxiv:"))
     for identifier, paper in db.items():
         arxiv_id = paper.get("arxiv_id", "")
         doi = normalize_doi(paper.get("doi", ""))
-        journal = paper.get("source") == "crossref" and doi and identifier == f"doi:{doi}"
+        journal = is_journal_record(paper)
+        published_url = publication_url(paper) if paper.get("paper_id") == identifier else ""
+        if published_url:
+            settings = config.get("journals" if journal else "conferences", {})
+            if "watchlist" in settings:
+                names = {v.get("name") for v in settings["watchlist"] if isinstance(v, dict)}
+                name = paper.get("journal_name") if journal else paper.get("conference_name")
+                if name not in names:
+                    continue
         arxiv = isinstance(arxiv_id, str) and ARXIV_ID.fullmatch(arxiv_id) and identifier == f"arxiv:{arxiv_id}"
-        if identifier in sent or identifier in excluded or not (journal or arxiv) or (doi and doi in sent_dois) or _identity(paper) in sent_titles:
+        if identifier in sent or identifier in excluded or not (published_url or arxiv) or (doi and doi in sent_dois) or (arxiv_id and arxiv_id in sent_arxiv) or _identity(paper) in sent_titles:
             continue
         try:
             published, latest = date_span(paper.get("publish_date", ""))
@@ -107,12 +118,11 @@ def candidates(db: dict, state: dict, today: date, config: dict, *, journal_days
             continue
         item = dict(paper, paper_id=identifier, rule_score=score, is_recent=published >= recent)
         # Canonical links come from validated IDs, never model prose.
-        if journal:
-            from urllib.parse import quote
-            item["paper_url"] = "https://doi.org/" + quote(doi, safe="/:;()._-~")
-            item["arxiv_url"] = ""
-            item["pdf_url"] = ""
-            if not item.get("abstract"):
+        if published_url:
+            item["paper_url"] = published_url
+            item["arxiv_url"] = f"https://arxiv.org/abs/{arxiv_id}" if isinstance(arxiv_id, str) and ARXIV_ID.fullmatch(arxiv_id) else ""
+            item["pdf_url"] = item.get("pdf_url", "") if paper.get("source") != "crossref" else ""
+            if doi and not item.get("abstract"):
                 companion = next((p for p in db.values() if p.get("arxiv_id") and p.get("abstract")
                     and normalize_doi(p.get("doi", "")) == doi), None)
                 if companion:
@@ -125,21 +135,24 @@ def candidates(db: dict, state: dict, today: date, config: dict, *, journal_days
         eligible.append(item)
     # Prefer the journal version of the same work; retain only one version in
     # the paid shortlist. Title+first-author matching is deliberately exact.
-    eligible.sort(key=lambda p: (p.get("source") == "crossref", bool(p.get("abstract"))), reverse=True)
-    unique, dois, identities = [], set(), set()
+    eligible.sort(key=lambda p: (is_journal_record(p), bool(publication_url(p)), bool(p.get("abstract"))), reverse=True)
+    unique, dois, identities, arxiv_ids = [], set(), set(), set()
     for item in eligible:
         doi, identity = normalize_doi(item.get("doi", "")), _identity(item)
-        if (doi and doi in dois) or (identity and identity in identities):
+        arxiv_id = item.get("arxiv_id", "")
+        if (doi and doi in dois) or (identity and identity in identities) or (arxiv_id and arxiv_id in arxiv_ids):
             continue
         unique.append(item)
         if doi:
             dois.add(doi)
         if identity:
             identities.add(identity)
+        if arxiv_id:
+            arxiv_ids.add(arxiv_id)
     unique.sort(key=lambda p: (p["is_recent"], p["rule_score"], p.get("source") == "crossref", p["publish_date"]), reverse=True)
     limit = config["shortlist_limit"]
     journal_slots = min(limit, max(0, int(config.get("journals", {}).get("shortlist_slots", 10))))
-    journal_pool = [p for p in unique if p.get("source") == "crossref"][:journal_slots]
+    journal_pool = [p for p in unique if is_journal_record(p)][:journal_slots]
     reserved = {p["paper_id"] for p in journal_pool}
     shortlist = journal_pool + [p for p in unique if p["paper_id"] not in reserved][:limit - len(journal_pool)]
     shortlist.sort(key=lambda p: (p["is_recent"], p["rule_score"], p.get("source") == "crossref", p["publish_date"]), reverse=True)
@@ -254,8 +267,7 @@ def ranked_papers(result: dict, papers: list[dict], minimum: int) -> list[dict]:
 
 
 def is_journal(paper: dict) -> bool:
-    doi = normalize_doi(paper.get("doi", ""))
-    return bool(paper.get("source") == "crossref" and doi and paper.get("paper_id") == f"doi:{doi}")
+    return is_journal_record(paper)
 
 
 def select_recommendations(ranked: list[dict], target_count: int) -> tuple[list[dict], bool]:
@@ -287,7 +299,7 @@ def final_papers(result: dict, evidence: list[dict], config: dict, *, require_v4
         priority = _score(source.get("ranking_score"))
         if priority < config["minimum_score"]:
             continue
-        selected = {key: source.get(key, "") for key in ("paper_id", "arxiv_id", "title", "arxiv_url", "paper_url", "pdf_url", "code_url", "publish_date", "date_basis", "date_precision", "authors", "affiliations", "journal_ref", "journal_name", "publication_status", "source", "doi")}
+        selected = {key: source.get(key, "") for key in ("paper_id", "arxiv_id", "title", "arxiv_url", "paper_url", "pdf_url", "code_url", "publish_date", "date_basis", "date_precision", "authors", "affiliations", "journal_ref", "journal_name", "publication_status", "source", "doi", "venue_type", "venue_name", "venue_abbreviation", "conference_name", "openalex_id", "openalex_source_id")}
         if require_v4 or row.get("content_version") == 4:
             try:
                 selected.update(validate_v4(row, source))
@@ -329,6 +341,8 @@ RANK_PROMPT = """你是面向灵巧末端设计与控制初学研究者的论文
 只根据标题、摘要、日期和提供的作者/发表元数据判断阅读价值，不把摘要声称的实验视为已核实。
 作者背景只能作辅助信号；作者署名或机构名称不能证明权威性，不凭记忆编造引用数、头衔或同领域成果。
 没有可核实背景资料时标记未核实，不因缺少作者信息扣分；Crossref白名单期刊元数据可作为正式发表登记，不能由此推断实验真实或论文必然优秀。
+PMLR是正式论文集元数据，OpenReview只提供已录用主会场条目，OpenAlex按指定期刊或会议来源检索；均不能代替独立录用或实验核验。
+venue_type区分期刊和会议；会议名称、来源知名度及个人偏好不替代论文对灵巧手课题的实际贡献。
 arXiv的机构/期刊/DOI字段是来源登记，未独立核实。摘要缺失时只评标题的关联与阅读线索，不编造方法或结果，并降低信息充分性分项。
 日期只精确到月份时不能声称今天刚发表；first_seen/indexed日期不能当发表日期。
 abstract_source=arxiv_same_doi时提供的是同一DOI对应预印本的摘要，可能与期刊最终版本不同，不能声称读过期刊正文。
@@ -376,7 +390,7 @@ def fit_summary_input(paper: dict, context: dict, max_chars: int) -> dict:
 
 
 METADATA_FIELDS = ("paper_id", "title", "abstract", "abstract_source", "authors", "affiliations", "journal_ref",
-    "journal_name", "source", "publication_status", "doi", "publish_date", "date_basis", "date_precision", "code_url", "is_recent")
+    "journal_name", "conference_name", "venue_type", "venue_name", "venue_abbreviation", "source", "publication_status", "doi", "publish_date", "date_basis", "date_precision", "code_url", "is_recent")
 
 
 def rank_metadata(client: LLMClient, papers: list[dict], config: dict) -> list[dict]:
@@ -406,7 +420,7 @@ def report(digest: dict) -> str:
         if p.get("content_version") == 4:
             lines.extend([f"## {index}. {escape_markdown(p['title_zh'])}", "", escape_markdown(p["title"]), "",
                 f"工作模块：{module_names(p)}", "", f"**作者**：{escape_markdown(p.get('authors') or '来源未提供')}", "",
-                f"**来源**：{escape_markdown(p.get('journal_name') or 'arXiv 预印本')} · **发表日期**：{escape_markdown(p.get('publish_date') or '来源未提供')}"
+                f"**来源**：{escape_markdown(p.get('conference_name') or p.get('journal_name') or 'arXiv 预印本')} · **{'来源登记录用日期' if p.get('date_basis') == 'openreview_acceptance' else '发表日期'}**：{escape_markdown(p.get('publish_date') or '来源未提供')}"
                 + ("（仅精确到月）" if p.get("date_precision") == "month" else ""), "",
                 f"[论文原文]({p.get('paper_url') or p.get('arxiv_url', '')})", ""])
             for heading, body in sections(p):
@@ -420,7 +434,7 @@ def report(digest: dict) -> str:
         lines.extend([f"## {index}. {p['title_zh']}", "", p["title"], "",
             f"工作模块：{module_names(p)}", "",
             f"**作者**：{p.get('authors') or '来源未提供'}（背景权威性未独立核实）", "",
-            f"**来源**：{p.get('journal_name') or 'arXiv 预印本'} · {'公告日期' if p.get('date_basis') == 'rss_announcement' else '发表日期'}：{p['publish_date']} · 阅读范围：{p['reading_depth']}", "",
+            f"**来源**：{p.get('conference_name') or p.get('journal_name') or 'arXiv 预印本'} · {'公告日期' if p.get('date_basis') == 'rss_announcement' else '来源登记录用日期' if p.get('date_basis') == 'openreview_acceptance' else '发表日期'}：{p['publish_date']} · 阅读范围：{p['reading_depth']}", "",
             f"**核心方法**：{p['summary']}", "", f"**为什么适合你**：{p['why_for_you']}", "",
             f"**可积累的实验经验**：{p['learning_action']}", "", f"**依据**：{p['evidence']}", "",
             f"[论文]({p.get('paper_url') or p['arxiv_url']})", ""])
@@ -538,12 +552,14 @@ def _prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_u
                 source_note = "arXiv API/RSS 本次刷新失败；arXiv 部分使用已保存的最近30天缓存，未确认今日 arXiv 更新。"
         before_journals = set(db)
         db, journal_count, journal_note = collect_journals(db, today, config)
+        db, conference_count, conference_note = collect_conferences(db, today, config)
         # Keep existing metadata and all newly discovered relevant papers;
         # unrelated journal metadata does not accumulate in the public digest.
         db = {key: p for key, p in db.items() if key in before_journals or relevance(p) > 0}
         source_note += journal_note
+        source_note += conference_note
         shortlist = candidates(db, state, today, config)
-        print(f"Source refresh: arXiv {fetched}, journal metadata {journal_count}; {len(shortlist)} relevant, unsent candidates.", flush=True)
+        print(f"Source refresh: arXiv {fetched}, journal metadata {journal_count}, conference metadata {conference_count}; {len(shortlist)} relevant, unsent candidates.", flush=True)
         selected, usage = [], {}
         skipped_summaries = []
         journal_settings = config.get("journals", {})
@@ -618,7 +634,7 @@ def _prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_u
                 selected = [summary_by_id[p["paper_id"]] for p in ranked if p["paper_id"] in summary_by_id]
                 journal_extra = journal_extra and ranked[-1]["paper_id"] in summary_by_id
             usage = client.usage
-        if sources_unavailable and not evaluated_count and not journal_count:
+        if sources_unavailable and not evaluated_count and not journal_count and not conference_count:
             raise PipelineError("Paper sources unavailable and no recent unsent cache exists; no empty digest will be sent.")
         older = sum(not p["is_recent"] for p in selected)
         extended_selected = sum(is_journal(p) and date_span(p["publish_date"])[1] < today - timedelta(days=config["fallback_days"]) for p in selected)
@@ -637,11 +653,11 @@ def _prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_u
             note += (f"本次通过内容校验并推送的论文有{len(selected)}篇。" if skipped_summaries
                 else f"本次达到推荐门槛的论文有{len(selected)}篇。")
         selected_ids = {p["paper_id"] for p in selected}
-        extras = [p for p in shortlist if p.get("source") == "crossref"
+        extras = [p for p in shortlist if is_journal(p)
             and p["paper_id"] not in selected_ids and p["paper_id"] not in skipped_summaries]
         if extras:
             note += f"另有{len(extras)}篇相关期刊候选，标题与链接见当天归档。"
-        card_note = "来源：arXiv 与五本期刊。按标题/摘要筛选；入选后优先阅读公开全文，实际资料范围逐篇标注。"
+        card_note = "来源：arXiv、配置的期刊与会议。按标题/摘要筛选；入选后优先阅读公开全文，实际资料范围逐篇标注。"
         if skipped_summaries:
             card_note += f"本次有{len(skipped_summaries)}篇未通过内容校验，未推送，保留以后重试。"
         if older:
@@ -650,7 +666,7 @@ def _prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_u
             card_note += f"其中{extended_selected}篇为近{journal_window}天的期刊补充，发表日期超过30天。"
         if not journal_extra:
             card_note += "额外期刊名额暂缺，未用预印本替代。"
-        if sources_unavailable or "来源失败" in journal_note or "分页受限" in journal_note:
+        if sources_unavailable or any(term in journal_note + conference_note for term in ("来源失败", "分页受限")):
             card_note += "部分检索覆盖受限，详细情况见归档。"
         if extras:
             card_note += f"归档另列{len(extras)}篇相关期刊候选。"

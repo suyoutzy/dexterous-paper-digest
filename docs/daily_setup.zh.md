@@ -19,10 +19,10 @@ GitHub 在云端运行，无需个人电脑开机或开启代理。09:07 和 08:
 
 ## 到期后的筛选流程
 
-1. **检索与去重**：查询 arXiv 和期刊公开元数据，保存相关论文，不只保存当天入选名单。按 DOI、arXiv ID 和能识别的版本关系去重，跳过已确认发送的论文。
+1. **检索与去重**：查询 arXiv、期刊和会议公开元数据，保存相关论文，不只保存当天入选名单。按 DOI、arXiv ID 和能识别的版本关系去重，跳过已确认发送的论文；移出监测清单的期刊和会议不再从缓存进入推荐。
 2. **分批评分**：最近 30 天内最多 30 篇候选按每批最多 5 篇评分。作者背景只能辅助判断，不能凭姓名推测机构、引用数或学术权威。
-3. **确定前四篇**：从所有达到 65 分门槛的候选中，按评分选择最多四篇，来源可以是 arXiv 或期刊。
-4. **增加期刊论文**：从未入选的合格期刊候选（Crossref 监测清单）中，再选择评分最高的一篇。前四篇已有期刊论文时，仍额外选择一篇不同论文；不要求来自不同期刊。近 30 天没有额外合格期刊时，保持前四篇不变，只为期刊名额扩大到近 90 天补查；只评分尚未评过的最多 10 篇期刊候选，再选评分不低于 65 分且未发送的一篇。近 90 天仍没有合格论文时保留缺额并明确说明，不用 arXiv 论文补充这个名额。常规运行不总是扩大到 90 天。
+3. **确定前四篇**：从所有达到 65 分门槛的候选中，按评分选择最多四篇，来源可以是 arXiv、期刊或会议。
+4. **增加期刊论文**：从未入选的合格期刊候选中，再选择评分最高的一篇。前四篇已有期刊论文时，仍额外选择一篇不同论文；不要求来自不同期刊。近 30 天没有额外合格期刊时，保持前四篇不变，只为期刊名额扩大到近 90 天补查；只评分尚未评过的最多 10 篇期刊候选，再选评分不低于 65 分且未发送的一篇。近 90 天仍没有合格论文时保留缺额并明确说明，不用 arXiv 或会议论文补充这个名额。常规运行不总是扩大到 90 天。
 5. **V4 科研速览**：只对入选论文读取公开 HTML/PDF，按研究问题与方法、实验与局限、关键术语、科研启发与阅读建议四部分生成内容，不改变评分和名单。全文不可得时用摘要及来源页面，明确阅读范围；缺摘要时不编造方法、结果或性能。模块可多选，只显示名称。[完整规则与字段兼容](digest_content_v4.zh.md)
 6. **投递与记录**：先保存待发送批次，再推送飞书；只有全部卡片收到成功确认后，才更新已发送记录和日报归档。
 
@@ -30,7 +30,7 @@ GitHub 在云端运行，无需个人电脑开机或开启代理。09:07 和 08:
 
 ## 论文来源
 
-arXiv API 暂不可用时尝试官方 RSS 与近期缓存。期刊通过 Crossref 按 ISSN 监测：
+arXiv API 暂不可用时尝试官方 RSS 与近期缓存。期刊名单如下；前六本使用 Crossref ISSN 查询，JMLR 读取官网 `jmlr.xml`（其 Crossref 入口未提供记录，已查到的 OpenAlex 期刊来源停留在旧年份）：
 
 | 期刊 | ISSN |
 | --- | --- |
@@ -38,11 +38,27 @@ arXiv API 暂不可用时尝试官方 RSS 与近期缓存。期刊通过 Crossre
 | IEEE Robotics and Automation Letters（RA-L） | `2377-3766` |
 | The International Journal of Robotics Research（IJRR） | `0278-3649`、`1741-3176` |
 | Science Robotics | `2470-9476` |
-| Soft Robotics | `2169-5172`、`2169-5180` |
+| Nature Machine Intelligence | `2522-5839` |
+| Journal of Field Robotics（JFR） | `1556-4959`、`1556-4967` |
+| Journal of Machine Learning Research（JMLR） | `1533-7928`、`1532-4435` |
+
+| 会议 | 检索来源 |
+| --- | --- |
+| Robotics: Science and Systems（RSS） | OpenAlex 精确会议来源 |
+| Conference on Robot Learning（CoRL） | PMLR 正式论文集 RSS 与作者目录 |
+| IEEE International Conference on Robotics and Automation（ICRA） | OpenAlex 精确会议来源 |
+| IEEE/RSJ International Conference on Intelligent Robots and Systems（IROS） | OpenAlex 精确会议来源 |
+| Conference on Neural Information Processing Systems（NeurIPS） | OpenAlex 精确会议来源 |
+| International Conference on Machine Learning（ICML） | PMLR 正式论文集 RSS 与作者目录 |
+| International Conference on Learning Representations（ICLR） | OpenReview 已录用主会场 `venueid` |
+
+所有来源继续按灵巧手设计与控制方向筛选。会议来源保留独立身份，无 DOI 的论文也可进入前四篇综合排名。PMLR 只读正式主会论文集，排除同名 Workshop；OpenReview 不收投稿中、拒稿或撤稿记录。OpenReview 的 `pdate` 表示来源登记录用日期，卡片与归档按此标注，不混同首次公开日期；来源可设置该字段，未独立核验录用时间。缺少可用日期的条目不假造日期。JMLR 官网仅提供年份时保留年份，不用首次发现日期代替发表日期，因此无法确认近期的记录只入库、不自动推荐。论文集按年集中发布，最近30天没有条目并不表示没有监测。
+
+OpenAlex 来源 ID 和 OpenReview 会场配置在 `conferences.watchlist`，默认每个来源最多两页、每页100条，OpenAlex 先按相关关键词缩小范围；PMLR 每个会议最多读取最近两届正式论文集的公开元数据。不新增模型评分名额。索引不保证全量或即时，匿名 API 也可能限流；拒绝访问、分页上限和部分论文集失败会在归档中说明。现有三项 Secrets 无需更改。
 
 Crossref 缺摘要时，有限尝试 OpenAlex 补充；没有摘要仍保留缺失标记。期刊登记依赖出版方提交元数据，可能延迟或缺失，不保证即时、全量覆盖。
 
-出版日期保留实际的年、月或日精度，在线发表与索引更新分别说明，索引今日更新不代表今日发表。每篇卡片显示 `arXiv` 或期刊全名与缩写，例如 IEEE Robotics and Automation Letters（RA-L）；整体来源与补查说明位于最后一张卡片末尾。来源提供的作者、机构和发表信息未经独立核实。
+出版日期保留实际的年、月或日精度，在线发表与索引更新分别说明，索引今日更新不代表今日发表。每篇卡片显示 `arXiv`、期刊或会议全名与缩写；整体来源与补查说明位于最后一张卡片末尾。来源提供的作者、机构和发表信息未经独立核实。
 
 ## 凭据与权限
 

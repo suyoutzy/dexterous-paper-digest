@@ -1,6 +1,6 @@
 # 灵巧手论文日报
 
-面向灵巧末端设计与控制学习，每两天检索 arXiv 和五本期刊的公开元数据，用 DeepSeek 根据标题、摘要和日期筛选论文，推送到飞书群。
+面向灵巧末端设计与控制学习，每两天检索 arXiv、七本期刊和七个会议的公开元数据，用 DeepSeek 根据标题、摘要和日期筛选论文，推送到飞书群。
 
 **每两天推送一次；每天北京时间 09:07 主检查，08:17 备用检查。** 从上次成功确认的北京时间日期起，至少间隔两个日期才生成下一批；未到日期时直接跳过，不检索或调用模型。失败后保留补发机会，不采用每月重置的隔日 cron。主检查根据历史约四小时启动延迟试设为 09:07，目标是实际启动落在 12:00–14:00，需观察新时段表现。08:17 曾在 9 月 30 日和 10 月 2 日主任务被峰时保护拦截后成功补发，因此保留原时间。2026-10-09 的[运行记录](https://github.com/suyoutzy/dexterous-paper-digest/actions/runs/37883169589)已确认飞书投递成功；计划时间与实际送达时间可能相差数小时，GitHub 调度可能延迟或丢弃。
 
@@ -12,8 +12,8 @@
 
 常规从近三十天论文中建立最多三十篇候选，按每批最多五篇评分，推荐门槛为 65 分。每次最多推荐五篇：
 
-1. 从全部合格候选中按评分选择前四篇，来源可以是 arXiv 或期刊。
-2. 再从剩余合格期刊候选（Crossref 监测清单）中选择评分最高的一篇，与前四篇不重复。
+1. 从全部合格候选中按评分选择前四篇，来源可以是 arXiv、期刊或会议。
+2. 再从剩余合格期刊候选中选择评分最高的一篇，与前四篇不重复；会议不占这个期刊名额。
 
 前四篇已经有期刊论文时，仍额外选择另一篇期刊论文；两篇可以来自同一本期刊。近三十天没有额外合格期刊时，只为这个名额扩大到近九十天补查，再评分最多十篇尚未评过的期刊候选，保持前四篇不变。补查后仍没有合格且未发送的期刊论文时少发，并明确说明缺额，不用 arXiv 论文替代期刊名额。
 
@@ -36,7 +36,17 @@
 
 ## 来源与运行
 
-来源为 arXiv API（官方 RSS 和近期缓存备用），以及 Crossref 按 ISSN 监测的 T-RO、RA-L、IJRR、Science Robotics、Soft Robotics；缺摘要时有限尝试 OpenAlex 补充。期刊元数据可能延迟或缺失，不能保证全量覆盖。
+来源清单如下；全部仍按灵巧手设计、感知与控制方向筛选，不因会议或期刊知名度推荐无关论文。
+
+| 类别 | 监测名单 |
+| --- | --- |
+| 期刊 | Science Robotics、Nature Machine Intelligence、IEEE Transactions on Robotics（T-RO）、The International Journal of Robotics Research（IJRR）、IEEE Robotics and Automation Letters（RA-L）、Journal of Field Robotics（JFR）、Journal of Machine Learning Research（JMLR） |
+| 机器人会议 | Robotics: Science and Systems（RSS）、Conference on Robot Learning（CoRL）、IEEE International Conference on Robotics and Automation（ICRA）、IEEE/RSJ International Conference on Intelligent Robots and Systems（IROS） |
+| 机器学习会议 | Conference on Neural Information Processing Systems（NeurIPS）、International Conference on Machine Learning（ICML）、International Conference on Learning Representations（ICLR） |
+
+arXiv 使用官方 API、RSS 和近期缓存。六本期刊使用 Crossref ISSN 清单，JMLR 读取官网 RSS；缺摘要时有限尝试 OpenAlex 补充。RSS、ICRA、IROS、NeurIPS 使用 OpenAlex 精确会议来源，CoRL、ICML 读取 PMLR 正式论文集，ICLR 读取 OpenReview 已录用主会场记录。会议记录独立检索，不能把 arXiv 自报会议信息当作已核验录用。
+
+会议论文集中发布，最近30天可能没有新条目。来源索引可能延迟、缺失或限制访问，不能保证全量覆盖；来源失败、分页上限和资料日期依据会在归档中说明。OpenReview 使用来源登记录用日期，未独立核验；JMLR 仅提供发表年份的记录会保留元数据，不能确认近期时不自动推荐。不会使用索引更新或 RSS 构建时间把旧论文变成新论文。
 
 摘要评分与总结均使用官方 DeepSeek `deepseek-flash`，思考强度 `low`，配置见 `digest_config.yaml`。GitHub 云端执行，无需电脑开机或开启代理；定时任务在检索前检查峰时，进入峰时记为正常跳过，每次模型请求前仍复查。模型 JSON、论文数量、ID 或必填内容不合格时，仅重试当前批次一次；再次不合格则停止，不发送。
 

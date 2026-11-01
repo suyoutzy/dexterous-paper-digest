@@ -23,7 +23,10 @@ DEFAULT_WATCHLIST = [
     {"name": "IEEE Robotics and Automation Letters", "issns": ["2377-3766"]},
     {"name": "The International Journal of Robotics Research", "issns": ["0278-3649", "1741-3176"]},
     {"name": "Science Robotics", "issns": ["2470-9476"]},
-    {"name": "Soft Robotics", "issns": ["2169-5172", "2169-5180"]},
+    {"name": "Nature Machine Intelligence", "issns": ["2522-5839"]},
+    {"name": "Journal of Field Robotics", "issns": ["1556-4959", "1556-4967"]},
+    {"name": "Journal of Machine Learning Research", "issns": ["1533-7928", "1532-4435"],
+        "provider": "jmlr", "abbreviation": "JMLR"},
 ]
 
 _HAND_TERMS = (
@@ -297,6 +300,7 @@ def collect_journals(db: dict, today: date, config: dict) -> tuple[dict, int, st
     seen_keys: set[str] = set()
     success, attempted, failures, incomplete = 0, 0, [], []
     supplemental_success, supplemental_attempts, supplemental_keys = 0, 0, set()
+    other_count, other_notes = 0, []
     supplement = bool(settings.get("fresh_publication_supplement", False))
     publication_days = min(365, max(1, int(config.get("fallback_days", 30))))
     publication_since = today - timedelta(days=publication_days)
@@ -305,6 +309,19 @@ def collect_journals(db: dict, today: date, config: dict) -> tuple[dict, int, st
             failures.append("watchlist_invalid")
             continue
         name = _text(journal.get("name"), 200)
+        if journal.get("provider") in {"openalex", "jmlr"}:
+            from .publications import collect_jmlr, collect_openalex
+            try:
+                extra_settings = dict(settings, fallback_days=config.get("fallback_days", 30), max_pages=2)
+                if journal.get("provider") == "jmlr":
+                    merged, found, extra_note = collect_jmlr(merged, today, journal, extra_settings)
+                else:
+                    merged, found, extra_note = collect_openalex(merged, today, journal, extra_settings, venue_type="journal")
+                other_count += found
+                other_notes.append(extra_note)
+            except JournalSourceError as error:
+                failures.append(f"{name}({error})")
+            continue
         values = journal.get("issns", [])
         allowed = [_issn(value) for value in values] if isinstance(values, list) else []
         if not name or not allowed or any(value is None for value in allowed):
@@ -377,4 +394,4 @@ def collect_journals(db: dict, today: date, config: dict) -> tuple[dict, int, st
         note += " 分页受限，可能不完整：" + "、".join(incomplete) + "。"
     if limit:
         note += f" OpenAlex 补齐 {enriched} 篇摘要，{unavailable} 篇未获得摘要。"
-    return merged, len(seen_keys), note
+    return merged, len(seen_keys) + other_count, note + "".join(other_notes)

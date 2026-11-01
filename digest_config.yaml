@@ -54,8 +54,46 @@ journals:
       issns: ["0278-3649", "1741-3176"]
     - name: Science Robotics
       issns: ["2470-9476"]
-    - name: Soft Robotics
-      issns: ["2169-5172", "2169-5180"]
+    - name: Nature Machine Intelligence
+      issns: ["2522-5839"]
+    - name: Journal of Field Robotics
+      issns: ["1556-4959", "1556-4967"]
+    - name: Journal of Machine Learning Research
+      issns: ["1533-7928", "1532-4435"]
+      provider: jmlr
+      abbreviation: JMLR
+conferences:
+  enabled: true
+  request_timeout: 15
+  max_pages: 2
+  page_size: 100
+  watchlist:
+    - name: "Robotics: Science and Systems"
+      abbreviation: RSS
+      provider: openalex
+      source_id: S4306420803
+    - name: Conference on Robot Learning
+      abbreviation: CoRL
+      provider: pmlr
+    - name: IEEE International Conference on Robotics and Automation
+      abbreviation: ICRA
+      provider: openalex
+      source_id: S4210217939
+    - name: IEEE/RSJ International Conference on Intelligent Robots and Systems
+      abbreviation: IROS
+      provider: openalex
+      source_id: S4393918188
+    - name: Conference on Neural Information Processing Systems
+      abbreviation: NeurIPS
+      provider: openalex
+      source_id: S4363606243
+    - name: International Conference on Machine Learning
+      abbreviation: ICML
+      provider: pmlr
+    - name: International Conference on Learning Representations
+      abbreviation: ICLR
+      provider: openreview
+      venue_prefix: ICLR.cc
 profile: >-
   检测技术与自动化装置专业的直博新生，研究灵巧末端设计与控制。
   具备单片机和嵌入式基础，已经组装开源 Aero Hand。

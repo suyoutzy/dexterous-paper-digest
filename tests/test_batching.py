@@ -75,7 +75,7 @@ def source_papers():
 
 
 class PrepareBatchIntegrationTests(unittest.TestCase):
-    def run_prepare(self, ranking_scores, summary_transform=None, sources=None, extended_sources=None, long_reading=False, manual_sample=False, scheduled=False):
+    def run_prepare(self, ranking_scores, summary_transform=None, sources=None, extended_sources=None, long_reading=False, manual_sample=False, scheduled=False, conference_sources=None):
         config = {
             "timezone": "Asia/Shanghai", "target_count": 5, "recent_days": 7,
             "fallback_days": 30, "shortlist_limit": 30,
@@ -92,7 +92,8 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
         if manual_sample or scheduled:
             config["llm"]["summary_batch_size"] = 1
         db = copy.deepcopy(source_papers() if sources is None else sources)
-        source_lookup = dict(db, **(extended_sources or {}))
+        source_lookup = dict(db, **(extended_sources or {}), **(conference_sources or {}))
+        config["conferences"] = {"enabled": conference_sources is not None}
         config["journals"] = {"enabled": extended_sources is not None or any(p.get("source") == "crossref" for p in db.values()),
             "fallback_days": 90, "fallback_candidate_limit": 10}
 
@@ -146,6 +147,8 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
                 patch("daily_digest.pipeline.ZoneInfo", return_value=timezone(timedelta(hours=8))),
                 patch("daily_digest.pipeline.collect", return_value=(db, len(db))),
                 patch("daily_digest.pipeline.collect_journals", side_effect=collect_journal_metadata),
+                patch("daily_digest.pipeline.collect_conferences", side_effect=lambda current, _today, _config:
+                    (dict(current, **(conference_sources or {})), len(conference_sources or {}), "模拟会议检索。")),
                 patch("daily_digest.pipeline.LLMClient", return_value=client),
                 patch("daily_digest.pipeline.read_paper", side_effect=read_selected),
                 patch("daily_digest.pipeline.ensure_off_peak"),
@@ -164,7 +167,7 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
             result = load_json(output / "pending.json")
         rank_ids = [p["paper_id"] for request in requests["rank"] for p in request["candidates"]]
         self.assertEqual(len(rank_ids), len(set(rank_ids)), "No candidate may be scored twice during journal fallback.")
-        if sources is None and extended_sources is None:
+        if sources is None and extended_sources is None and conference_sources is None:
             self.assertEqual(rank_ids, list(db))
             self.assertEqual([len(request["candidates"]) for request in requests["rank"]], [5, 5, 1])
         for stage in ("rank", "summary"):
@@ -425,6 +428,34 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
         source = source_papers()[candidate["paper_id"]]
         for field in ("authors", "affiliations", "journal_ref", "doi"):
             self.assertEqual(candidate[field], source[field])
+
+    def test_newly_collected_no_doi_conference_reaches_ranking_summary_card_and_archive(self):
+        source = dict(source_papers()["arxiv:2609.00001"], paper_id="pmlr:v305/hand26", arxiv_id="",
+            doi="", source="pmlr", venue_type="conference", venue_name="Conference on Robot Learning",
+            conference_name="Conference on Robot Learning", venue_abbreviation="CoRL", journal_ref="",
+            paper_url="https://proceedings.mlr.press/v305/hand26.html")
+        result, requests = self.run_prepare({source["paper_id"]: 88}, sources={},
+            conference_sources={source["paper_id"]: source})
+        self.assertEqual(result["paper_ids"], ["pmlr:v305/hand26"])
+        self.assertEqual(requests["read"], ["pmlr:v305/hand26"])
+        self.assertIn("Conference on Robot Learning", result["report"])
+        self.assertIn("来源：Conference on Robot Learning（CoRL）", json.dumps(result["cards"], ensure_ascii=False))
+        self.assertIn("期刊保留名额暂缺", result["report"])
+        self.assertNotIn("reading_text", json.dumps(result))
+
+    def test_official_jmlr_without_doi_can_fill_the_extra_journal_slot(self):
+        source = dict(source_papers()["arxiv:2609.00001"], paper_id="jmlr:v27/hand26", arxiv_id="",
+            doi="", source="jmlr", venue_type="journal", journal_name="Journal of Machine Learning Research",
+            title="A distinct dexterous hand journal design", authors="Journal Author, Second Author",
+            venue_name="Journal of Machine Learning Research", venue_abbreviation="JMLR", journal_ref="",
+            paper_url="https://www.jmlr.org/papers/v27/hand26.html")
+        sources = dict(source_papers(), **{source["paper_id"]: source})
+        scores = {f"arxiv:2609.{i:05d}": 100-i for i in range(1, 5)}
+        scores[source["paper_id"]] = 80
+        result, _ = self.run_prepare(scores, sources=sources)
+        self.assertEqual(len(result["paper_ids"]), 5)
+        self.assertEqual(result["paper_ids"][-1], "jmlr:v27/hand26")
+        self.assertIn("来源：Journal of Machine Learning Research（JMLR）", json.dumps(result["cards"], ensure_ascii=False))
 
 
 if __name__ == "__main__":

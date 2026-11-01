@@ -32,6 +32,9 @@ _JOURNAL_ABBREVIATIONS = {
     "The International Journal of Robotics Research": "IJRR",
     "Science Robotics": "Sci. Robot.",
     "Soft Robotics": "Soft Robot.",
+    "Nature Machine Intelligence": "Nat. Mach. Intell.",
+    "Journal of Field Robotics": "JFR",
+    "Journal of Machine Learning Research": "JMLR",
 }
 
 
@@ -108,10 +111,14 @@ def _source_label(paper: dict) -> str:
     """Display recorded provenance without guessing a journal or its abbreviation."""
     if paper.get("source") == "arxiv":
         return "arXiv"
+    if paper.get("venue_type") == "conference" and paper.get("source") in {"openalex", "pmlr", "openreview"}:
+        venue = _text(paper.get("conference_name"), 220, "会议（来源未提供名称）")
+        abbreviation = _text(paper.get("venue_abbreviation"), 40)
+        return f"{venue}（{abbreviation}）" if abbreviation else venue
     journal = _text(paper.get("journal_name"), 220)
-    if paper.get("source") == "crossref":
+    if paper.get("source") == "crossref" or paper.get("source") in {"openalex", "jmlr"} and paper.get("venue_type") == "journal":
         if not journal:
-            return "期刊（Crossref 登记，未提供刊名）"
+            return "期刊（Crossref 登记，未提供刊名）" if paper.get("source") == "crossref" else "期刊（OpenAlex 登记，未提供刊名）"
         abbreviation = _JOURNAL_ABBREVIATIONS.get(journal)
         return f"{journal}（{abbreviation}）" if abbreviation else journal
     return f"{journal}（来源未核实）" if journal else "来源未提供"
@@ -131,9 +138,10 @@ def _paper_elements(paper: dict, number: int) -> list[dict]:
         _plain(heading),
         _plain(f"工作模块：{module_name}"),
         _plain("来源：" + _source_label(paper)),
-        _plain(("公告日期：" if paper.get("date_basis") == "rss_announcement" else ("登记发表日期：" if paper.get("source") == "crossref" else "首次发布日期："))
+        _plain(("公告日期：" if paper.get("date_basis") == "rss_announcement" else "来源登记录用日期：" if paper.get("date_basis") == "openreview_acceptance" else ("登记发表日期：" if paper.get("source") in {"crossref", "openalex", "jmlr"} else "首次发布日期："))
             + _text(paper.get("publish_date"), 32, "来源未提供")
             + ("（仅精确到月）" if paper.get("date_precision") == "month" else "")
+            + ("（仅精确到年）" if paper.get("date_precision") == "year" else "")
             + "；作者：" + _text(paper.get("authors"), 300, "来源未提供")),
         _plain("核心方法：" + _text(paper.get("summary"), 800, "未提供摘要。")),
         _plain("为什么适合你：" + _text(paper.get("why_for_you"), 550, "待核对课题关联。")),

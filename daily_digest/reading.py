@@ -217,4 +217,6 @@ def read_paper(paper: dict, *, max_chars: int = 90_000) -> dict:
                         return result
         except (ReadingUnavailable, ValueError, TypeError, AttributeError):
             pass
+    if paper.get("source") in {"pmlr", "openreview", "openalex", "jmlr"}:
+        document(paper.get("paper_url", "")) or document(paper.get("pdf_url", ""))
     return result
