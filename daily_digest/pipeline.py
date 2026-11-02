@@ -65,7 +65,7 @@ def validated_model_batch(client: LLMClient, system: str, user: str, max_output_
                 raise
             print(f"Model output failed validation ({str(error)[:350]}); retrying this batch once.", flush=True)
             system += ("\n上次当前批次未通过程序校验：" + str(error)[:350]
-                + "\n请修正该问题，只重做本批。若正文超长，请按字段预算压缩到500–650个汉字，"
+                + "\n请修正该问题，只重做本批。若正文超长，请按字段预算压缩到约1000个汉字（通常900–1100，硬上限1500），"
                 "优先压缩泛化启发、重复文字和次要数据，不能省略论文或降低事实依据要求。")
     raise AssertionError("Unreachable model validation retry state.")
 

@@ -26,12 +26,12 @@ class ScheduleTests(unittest.TestCase):
         client.generate_json.side_effect = [{"long": True}, {"ok": True}]
         def validate(result):
             if result.get("long"):
-                raise ModelValidationError("V4 body has 1200 Chinese characters; target 500–650.")
+                raise ModelValidationError("V4 body has 1600 Chinese characters; maximum 1500, target 900–1100.")
             return result
         result = validated_model_batch(client, "system", '{"candidates":[]}', 8192, validate)
         self.assertEqual(result, {"ok": True})
         retry_input = json.loads(client.generate_json.call_args_list[1].args[1])
-        self.assertIn("1200", client.generate_json.call_args_list[1].args[0])
+        self.assertIn("1600", client.generate_json.call_args_list[1].args[0])
         self.assertEqual(retry_input["candidates"], [])
 
     def setUp(self):

@@ -3,6 +3,7 @@ import json
 import unittest
 
 from daily_digest.delivery import build_cards, MAX_CARD_BYTES
+from daily_digest.content import body_hanzi
 from daily_digest.pipeline import final_papers, PipelineError, report, fit_summary_input
 from test_pipeline import paper, CONFIG
 from v4_fixtures import v4_row, evidence_text
@@ -48,6 +49,27 @@ class ContentV4Tests(unittest.TestCase):
 
     def selected(self, row=None):
         return final_papers({"papers": [row or v4_row()]}, [self.source()], CONFIG)[0]
+
+    def row_with_body_length(self, count):
+        row = v4_row()
+        remaining = count - body_hanzi(row)
+        for field in ("problem", "idea"):
+            width = min(remaining, 500 - len(row["research"][field]))
+            row["research"][field] += "研" * width
+            remaining -= width
+        self.assertTrue(0 < remaining <= 400)
+        row["research"]["implementation"].append("步" * remaining)
+        return row
+
+    def test_body_at_1500_hanzi_is_accepted_without_truncating_the_method(self):
+        row = self.row_with_body_length(1500)
+        selected = self.selected(row)
+        self.assertEqual(selected["research"], row["research"])
+        self.assertEqual(body_hanzi(selected), 1500)
+
+    def test_body_above_1500_hanzi_is_rejected(self):
+        with self.assertRaisesRegex(PipelineError, "1501"):
+            self.selected(self.row_with_body_length(1501))
 
     def test_new_structure_survives_and_uses_server_supplied_reading_basis(self):
         row = v4_row()
@@ -143,8 +165,7 @@ class ContentV4Tests(unittest.TestCase):
         self.assertIn("未提供可核对的定量结果", archive)
 
     def test_large_v4_digest_splits_at_paper_boundaries_without_losing_sections(self):
-        selected = self.selected()
-        selected["research"]["problem"] = "机构设计需要考虑控制映射。" * 35
+        selected = self.selected(self.row_with_body_length(1500))
         papers = [dict(copy.deepcopy(selected), title_zh=f"论文{number}") for number in range(5)]
         cards = build_cards({"date": "2026-10-16", "papers": papers})
         self.assertGreater(len(cards), 1)
