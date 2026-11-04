@@ -1,13 +1,13 @@
 name: Dexterous Hand Daily Digest
 
 on:
-  # 01:07 UTC = 09:07 Asia/Shanghai. Trial for a midday start after observed delays.
+  # 10:17 UTC = 18:17 Asia/Shanghai. Allow a long overnight window for delays.
   # Check daily; prepare enforces two calendar days between confirmed deliveries.
   schedule:
-    - cron: '7 1 * * *'
-    # 00:17 UTC = 08:17 Asia/Shanghai. Retain the fallback's original time.
-    # The fallback has recovered missed/blocked main runs; cooldown skips model calls.
-    - cron: '17 0 * * *'
+    - cron: '17 10 * * *'
+    # 14:17 UTC = 22:17 Asia/Shanghai. Retry later in the same overnight window.
+    # Cooldown skips source/model calls after an already confirmed delivery.
+    - cron: '17 14 * * *'
   workflow_dispatch:
     inputs:
       mode:
@@ -68,7 +68,10 @@ jobs:
           DIGEST_MODE: ${{ inputs.mode || 'send' }}
           RETRY_UNCERTAIN: ${{ inputs.retry_uncertain }}
           FORCE_SEND: ${{ inputs.force_send || 'false' }}
+          SCHEDULE_CRON: ${{ github.event.schedule }}
         run: |
+          printf 'Scheduled UTC cron: %s\n' "${SCHEDULE_CRON:-manual}"
+          date -u '+Generation step started at %Y-%m-%dT%H:%M:%SZ'
           args=()
           if [ "$GITHUB_EVENT_NAME" != schedule ] && [ "$DIGEST_MODE" = preview ]; then
             args+=(--preview)
