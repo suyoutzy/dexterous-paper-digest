@@ -54,9 +54,19 @@ def _evidence(quote: object, source: str, claim: str = "") -> None:
 
 
 def number_source_text(text: str) -> str:
-    """Give the model stable references instead of asking it to retype PDF prose."""
-    parts = textwrap.wrap(text, width=1100, replace_whitespace=False, drop_whitespace=False,
-        break_long_words=False, break_on_hyphens=False)
+    """Keep ordinary result sentences together when assigning source references."""
+    parts, current = [], ""
+    for sentence in re.split(r"(?<=[.!?。！？])(?=\s)", text):
+        pieces = [sentence] if len(sentence) <= 1100 else textwrap.wrap(
+            sentence, width=1100, replace_whitespace=False, drop_whitespace=False,
+            break_long_words=False, break_on_hyphens=False)
+        for piece in pieces:
+            if current and len(current) + len(piece) > 1100:
+                parts.append(current)
+                current = ""
+            current += piece
+    if current:
+        parts.append(current)
     return "\n".join(f"[E{index}] {part}" for index, part in enumerate(parts, 1))
 
 
@@ -193,7 +203,8 @@ implementation用1项或2–4个步骤写模型、算法、机构、输入、中
 2 实验结果与局限，约200–250字：setup仅写必要的平台/任务/基线；results选2–4个关键定量指标，必要时可少于2个，
 没有可核实结果时返回空列表。保留基线、单位及实验条件，区分准确率、相对百分比与百分点，仿真不写成真机、单任务不推成通用能力。
 reading_text用[E1]、[E2]等标记原文段落。每条result给出text及source_ids，例如["E2","E3"]；
-引用1–6个真正支撑该结论的原文段落，text的全部数字必须出现在这些段落中，不自行计算新数字。无需复制原文引文。
+引用1–6个真正支撑该结论的原文段落，覆盖完整实验结果句及其条件；若一句跨段，须同时引用相关段落。
+text的全部数字必须出现在这些段落中，不自行计算新数字。无需复制原文引文。
 数字保留原文口径，不自行计算差值、相对提升、四舍五入或换算单位；结果中的型号和任务数量也需有对应段落依据。
 若某条结果找不到匹配证据，只删除该条result；没有可核实结果时results返回[]，仍返回该篇完整的其余四部分字段。
 limitations给1–2项；kind=author必须有支撑作者明确局限的source_ids；kind=analysis表示基于证据分析，不能将摘要没提及当作作者承认未验证。

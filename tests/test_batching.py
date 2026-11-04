@@ -75,7 +75,7 @@ def source_papers():
 
 
 class PrepareBatchIntegrationTests(unittest.TestCase):
-    def run_prepare(self, ranking_scores, summary_transform=None, sources=None, extended_sources=None, long_reading=False, manual_sample=False, scheduled=False, conference_sources=None):
+    def run_prepare(self, ranking_scores, summary_transform=None, sources=None, extended_sources=None, long_reading=False, manual_sample=False, scheduled=False, conference_sources=None, manual_send=False):
         config = {
             "timezone": "Asia/Shanghai", "target_count": 5, "recent_days": 7,
             "fallback_days": 30, "shortlist_limit": 30,
@@ -89,7 +89,7 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
             },
         }
         requests = {"rank": [], "summary": [], "journal_windows": [], "read": []}
-        if manual_sample or scheduled:
+        if manual_sample or scheduled or manual_send:
             config["llm"]["summary_batch_size"] = 1
         db = copy.deepcopy(source_papers() if sources is None else sources)
         source_lookup = dict(db, **(extended_sources or {}), **(conference_sources or {}))
@@ -141,7 +141,7 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
                 patch.dict(os.environ, {
                     "LLM_API_KEY": "mock-key-not-real", "GITHUB_RUN_ID": "test-run",
                     "GITHUB_RUN_ATTEMPT": "1", "GITHUB_OUTPUT": "", "GITHUB_STEP_SUMMARY": "",
-                    "GITHUB_EVENT_NAME": "workflow_dispatch" if manual_sample else "schedule" if scheduled else "",
+                    "GITHUB_EVENT_NAME": "workflow_dispatch" if manual_sample or manual_send else "schedule" if scheduled else "",
                 }),
                 patch("daily_digest.pipeline.datetime") as clock,
                 patch("daily_digest.pipeline.ZoneInfo", return_value=timezone(timedelta(hours=8))),
@@ -158,7 +158,7 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
             ):
                 clock.now.return_value = datetime(2026, 9, 27, 12, tzinfo=timezone(timedelta(hours=8)))
                 try:
-                    prepare(root, config_path, output, preview=True, retry_uncertain=False, force_send=manual_sample)
+                    prepare(root, config_path, output, preview=not manual_send, retry_uncertain=False, force_send=manual_sample)
                 except (PipelineError, LLMError):
                     self.assertFalse((output / "pending.json").exists())
                     self.assertFalse((root / ".daily/state.json").exists())
@@ -177,7 +177,7 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
                     for field in ("abstract", "authors", "affiliations", "journal_ref", "doi", "publish_date"):
                         self.assertEqual(item[field], source[field])
         self.assertIn("实际阅读范围逐篇标注", result["report"])
-        if not manual_sample and not scheduled:
+        if not manual_sample and not scheduled and not manual_send:
             self.assertEqual(requests["read"], result["paper_ids"])
         self.assertTrue(all("reading_text" not in p for request in requests["rank"] for p in request["candidates"]))
         return result, requests
@@ -236,6 +236,33 @@ class PrepareBatchIntegrationTests(unittest.TestCase):
         with self.assertRaisesRegex(LLMError, "Provider unavailable"):
             self.run_prepare({"arxiv:2609.00011": 90, "arxiv:2609.00001": 80},
                 summary_transform=unavailable, scheduled=True)
+
+    def test_normal_manual_send_withholds_bad_first_paper_and_continues_without_force(self):
+        def unsupported_first(result):
+            if result["papers"][0]["paper_id"] == "arxiv:2609.00011":
+                result["papers"][0]["experiments"]["results"] = [
+                    {"text": "误差为0.0111 mm。", "source_ids": ["E1"]}]
+            return result
+
+        result, requests = self.run_prepare(
+            {"arxiv:2609.00011": 90, "arxiv:2609.00001": 80},
+            summary_transform=unsupported_first, manual_send=True)
+        self.assertEqual(result["paper_ids"], ["arxiv:2609.00001"])
+        self.assertEqual(len(requests["summary"]), 3)
+        self.assertFalse(result["manual_extra"])
+        self.assertIn("未通过内容校验", result["report"])
+
+    def test_normal_manual_send_with_no_verified_papers_still_sends_nothing(self):
+        with self.assertRaisesRegex(PipelineError, "No selected paper passed content validation"):
+            self.run_prepare({"arxiv:2609.00001": 80},
+                summary_transform=lambda result: {"papers": []}, manual_send=True)
+
+    def test_normal_manual_send_provider_failure_still_stops_preparation(self):
+        def unavailable(_result):
+            raise LLMError("Provider unavailable")
+        with self.assertRaisesRegex(LLMError, "Provider unavailable"):
+            self.run_prepare({"arxiv:2609.00001": 80},
+                summary_transform=unavailable, manual_send=True)
 
     def test_manual_sample_sends_only_verified_papers_and_leaves_bad_paper_unsent(self):
         def invalid_second(result):

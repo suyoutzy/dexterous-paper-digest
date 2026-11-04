@@ -1,5 +1,6 @@
 import copy
 import json
+import re
 import unittest
 
 from daily_digest.delivery import build_cards, MAX_CARD_BYTES
@@ -42,6 +43,32 @@ class ContentV4Tests(unittest.TestCase):
         row["experiments"]["results"][0].update(source_ids=["E1"], text="误差0.01 mm。")
         with self.assertRaisesRegex(PipelineError, "evidence"):
             final_papers({"papers": [row]}, [source], CONFIG, require_v4=True)
+
+    def test_positioning_result_stays_in_one_evidence_block_at_a_length_boundary(self):
+        source = fit_summary_input(dict(self.source(), reading_text=(
+            "Background. " * 87
+            + "Four fingers have mean error 0.0111 mm with bounds 0.026 mm; "
+              "the thumb has mean error 0.0115 mm with bounds 0.031 mm. "
+              "The force measurement is a separate experiment.")), {"required_count": 1}, 100_000)
+        blocks = {m[1]: m[2] for m in re.finditer(
+            r"(?ms)^\[(E\d+)\] (.*?)(?=^\[E\d+\] |\Z)", source["reading_text"])}
+        cited = next(key for key, value in blocks.items() if "0.0115" in value)
+        row = v4_row()
+        row["experiments"]["results"] = [{
+            "text": "四指重复定位平均误差0.0111 mm，拇指0.0115 mm。", "source_ids": [cited]}]
+        selected = final_papers({"papers": [row]}, [source], CONFIG, require_v4=True)[0]
+        self.assertEqual(selected["experiments"]["results"][0]["text"], row["experiments"]["results"][0]["text"])
+
+    def test_excerpt_is_numbered_after_fitting_the_serialized_input_budget(self):
+        source = fit_summary_input(dict(self.source(), reading_text=(
+            "One measurement was 0.0111 mm with an unchanged baseline.\\\n" * 600)),
+            {"required_count": 1}, 6000)
+        ids = [int(value) for value in re.findall(r"(?m)^\[E(\d+)\] ", source["reading_text"])]
+        self.assertGreater(len(ids), 1)
+        self.assertEqual(ids, list(range(1, len(ids) + 1)))
+        self.assertLessEqual(len(json.dumps({"required_count": 1, "candidates": [source]}, ensure_ascii=False)), 6000)
+        self.assertEqual(source["reading_depth"], "full_text_excerpt")
+
     def source(self, full=True):
         return dict(paper(), reading_text=evidence_text(), reading_depth="full_text" if full else "abstract_only",
             enrichment_note="论文全文（可提取文本；图像与公式未独立核验）。" if full else "摘要及公开页面，未获取全文。",

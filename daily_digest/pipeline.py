@@ -378,15 +378,16 @@ def input_groups(items: list[dict], context: dict, max_chars: int, max_items: in
 def fit_summary_input(paper: dict, context: dict, max_chars: int) -> dict:
     """Bound the actual JSON representation; only fulltext may be excerpted."""
     paper = dict(paper)
-    paper["reading_text"] = number_source_text(paper.get("reading_text", ""))
-    while len(json.dumps(dict(context, required_count=1, candidates=[paper]), ensure_ascii=False)) > max_chars:
-        text = paper.get("reading_text", "")
+    text = paper.get("reading_text", "")
+    while True:
+        paper["reading_text"] = number_source_text(text)
+        if len(json.dumps(dict(context, required_count=1, candidates=[paper]), ensure_ascii=False)) <= max_chars:
+            return paper
         if len(text) < 500 or paper.get("reading_depth") not in {"full_text", "full_text_excerpt"}:
             raise PipelineError("One paper's metadata exceeds the summary input budget.")
-        paper["reading_text"] = _excerpt(text, int(len(text) * 0.8))
+        text = _excerpt(text, int(len(text) * 0.8))
         paper["reading_depth"] = "full_text_excerpt"
         paper["enrichment_note"] = "论文全文节选（序列化后的输入预算限制）；未提供全部正文。"
-    return paper
 
 
 METADATA_FIELDS = ("paper_id", "title", "abstract", "abstract_source", "authors", "affiliations", "journal_ref",
@@ -613,7 +614,7 @@ def _prepare(root: Path, config_path: Path, output: Path, preview: bool, retry_u
                 groups = input_groups(inputs, summary_context, summary_budget, summary_count)
                 print(f"Summarizing {len(ranked)} selected papers with {llm_config['summary_model']} in {len(groups)} V4 batches; public fulltext preferred.", flush=True)
                 source_by_id = {p["paper_id"]: p for p in selected_sources}
-                allow_partial_summaries = force_send or os.environ.get("GITHUB_EVENT_NAME") == "schedule"
+                allow_partial_summaries = not preview or force_send or os.environ.get("GITHUB_EVENT_NAME") == "schedule"
                 for index, group in enumerate(groups, 1):
                     print(f"Summary batch {index}/{len(groups)}: {len(group)} papers.", flush=True)
                     if llm_config["summary_model"] != client.model:
