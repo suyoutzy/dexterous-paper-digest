@@ -2,7 +2,7 @@
   "version": 1,
   "batch_id": "5b30f7cfeafe643eaa4e3620",
   "date": "2026-11-06",
-  "status": "inflight",
+  "status": "complete",
   "manual_extra": false,
   "archive_run_id": "",
   "attempt_run_id": "42079945849-1",
@@ -13,7 +13,10 @@
     "arxiv:2610.39076",
     "doi:10.1109/lra.2026.3739024"
   ],
-  "acknowledged_cards": [],
+  "acknowledged_cards": [
+    0,
+    1
+  ],
   "cards": [
     {
       "msg_type": "interactive",
