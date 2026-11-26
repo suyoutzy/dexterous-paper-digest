@@ -678,7 +678,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3730297",
     "source": "crossref",
     "first_seen_date": "2026-09-27",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2026-10",
     "metadata_indexed_at": "2026-10-23T20:17:23Z",
     "abstract_source": "openalex"
@@ -701,7 +701,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3732837",
     "source": "crossref",
     "first_seen_date": "2026-09-27",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2026-11",
     "metadata_indexed_at": "2026-10-23T20:17:52Z"
   },
@@ -723,7 +723,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3709629",
     "source": "crossref",
     "first_seen_date": "2026-09-27",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2026-09",
     "metadata_indexed_at": "2026-07-17T20:05:40Z"
   },
@@ -746,7 +746,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3711368",
     "source": "crossref",
     "first_seen_date": "2026-09-27",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2026-09",
     "metadata_indexed_at": "2026-11-09T20:28:17Z"
   },
@@ -769,7 +769,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3711377",
     "source": "crossref",
     "first_seen_date": "2026-09-27",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2026-09",
     "metadata_indexed_at": "2026-07-24T20:05:23Z"
   },
@@ -792,7 +792,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3713725",
     "source": "crossref",
     "first_seen_date": "2026-09-27",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2026-09",
     "metadata_indexed_at": "2026-08-12T19:34:04Z",
     "abstract_source": "openalex"
@@ -816,7 +816,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3717172",
     "source": "crossref",
     "first_seen_date": "2026-09-27",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2026-09",
     "metadata_indexed_at": "2026-08-04T19:44:57Z"
   },
@@ -1859,7 +1859,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2019.2924386",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2019-10",
     "metadata_indexed_at": "2026-11-24T19:38:09Z"
   },
@@ -1901,7 +1901,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2022.3156806",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2022-12",
     "metadata_indexed_at": "2026-11-24T19:47:16Z"
   },
@@ -1921,7 +1921,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2018.2830407",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2018-10",
     "metadata_indexed_at": "2026-11-24T19:51:26Z"
   },
@@ -1981,7 +1981,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2011.2132930",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2011-06",
     "metadata_indexed_at": "2026-11-20T19:16:18Z"
   },
@@ -2021,7 +2021,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2019.2956870",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2020-04",
     "metadata_indexed_at": "2026-11-24T19:38:08Z"
   },
@@ -2045,7 +2045,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2024.3508932",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2025",
     "metadata_indexed_at": "2026-11-24T18:28:54Z"
   },
@@ -2110,9 +2110,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2024.3428430",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2024",
-    "metadata_indexed_at": "2026-11-24T18:36:21Z"
+    "metadata_indexed_at": "2026-11-26T16:07:25Z"
   },
   "doi:10.1109/tro.2024.3502204": {
     "paper_id": "doi:10.1109/tro.2024.3502204",
@@ -2173,7 +2173,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2011.2162271",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2011-12",
     "metadata_indexed_at": "2026-11-24T19:48:09Z"
   },
@@ -2196,7 +2196,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2013.2252251",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2013-08",
     "metadata_indexed_at": "2026-11-24T19:44:45Z"
   },
@@ -2239,9 +2239,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2024.3521864",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2025",
-    "metadata_indexed_at": "2026-11-20T03:34:16Z"
+    "metadata_indexed_at": "2026-11-26T17:58:53Z"
   },
   "doi:10.1109/tro.2026.3721670": {
     "paper_id": "doi:10.1109/tro.2026.3721670",
@@ -2262,9 +2262,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2026.3721670",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2026",
-    "metadata_indexed_at": "2026-11-20T19:51:08Z"
+    "metadata_indexed_at": "2026-11-24T22:45:56Z"
   },
   "doi:10.1109/tro.2016.2588879": {
     "paper_id": "doi:10.1109/tro.2016.2588879",
@@ -2329,9 +2329,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2023.3240556",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-15",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2023-06",
-    "metadata_indexed_at": "2026-11-04T18:10:22Z"
+    "metadata_indexed_at": "2026-11-25T13:34:57Z"
   },
   "doi:10.1109/lra.2020.2983668": {
     "paper_id": "doi:10.1109/lra.2020.2983668",
@@ -2439,9 +2439,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2023.3280829",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-31",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2023-07",
-    "metadata_indexed_at": "2026-10-29T12:59:03Z"
+    "metadata_indexed_at": "2026-11-24T21:41:58Z"
   },
   "doi:10.1109/lra.2023.3346756": {
     "paper_id": "doi:10.1109/lra.2023.3346756",
@@ -2567,9 +2567,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2020.2977257",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2020-07",
-    "metadata_indexed_at": "2026-11-24T19:48:12Z"
+    "metadata_indexed_at": "2026-11-26T17:57:10Z"
   },
   "doi:10.1109/lra.2022.3146945": {
     "paper_id": "doi:10.1109/lra.2022.3146945",
@@ -2589,9 +2589,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2022.3146945",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2022-04",
-    "metadata_indexed_at": "2026-11-24T19:45:18Z"
+    "metadata_indexed_at": "2026-11-26T02:53:48Z"
   },
   "doi:10.1109/lra.2022.3190641": {
     "paper_id": "doi:10.1109/lra.2022.3190641",
@@ -2711,7 +2711,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2017.2734965",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2018-01",
     "metadata_indexed_at": "2026-11-24T19:46:33Z"
   },
@@ -2751,9 +2751,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2018.2799743",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-06",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2018-07",
-    "metadata_indexed_at": "2026-11-02T07:33:46Z"
+    "metadata_indexed_at": "2026-11-26T17:47:52Z"
   },
   "doi:10.1109/lra.2020.2969953": {
     "paper_id": "doi:10.1109/lra.2020.2969953",
@@ -2794,7 +2794,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2022.3187497",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2022-10",
     "metadata_indexed_at": "2026-11-24T19:44:20Z"
   },
@@ -2817,11 +2817,11 @@
     "paper_url": "https://doi.org/10.1177/0278364917710318",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2017-06-12",
     "print_publication_date": "2018-04",
-    "metadata_indexed_at": "2026-11-20T18:07:01Z"
+    "metadata_indexed_at": "2026-11-25T08:18:57Z"
   },
   "doi:10.1177/0278364919887447": {
     "paper_id": "doi:10.1177/0278364919887447",
@@ -2841,11 +2841,11 @@
     "paper_url": "https://doi.org/10.1177/0278364919887447",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2019-11-18",
     "print_publication_date": "2020-01",
-    "metadata_indexed_at": "2026-11-24T01:16:19Z"
+    "metadata_indexed_at": "2026-11-26T13:37:55Z"
   },
   "doi:10.1177/027836498400300210": {
     "paper_id": "doi:10.1177/027836498400300210",
@@ -2890,7 +2890,7 @@
     "paper_url": "https://doi.org/10.1177/0278364912459209",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2012-11-30",
     "print_publication_date": "2012-11",
@@ -2941,7 +2941,7 @@
     "paper_url": "https://doi.org/10.1177/0278364920910465",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2020-03-13",
     "print_publication_date": "2020-12",
@@ -3039,11 +3039,11 @@
     "paper_url": "https://doi.org/10.1177/0278364909360852",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2010-02-02",
     "print_publication_date": "2010-04",
-    "metadata_indexed_at": "2026-11-24T19:48:34Z"
+    "metadata_indexed_at": "2026-11-26T16:59:10Z"
   },
   "doi:10.1177/0278364913514466": {
     "paper_id": "doi:10.1177/0278364913514466",
@@ -3065,11 +3065,11 @@
     "paper_url": "https://doi.org/10.1177/0278364913514466",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2014-02-17",
     "print_publication_date": "2014-04",
-    "metadata_indexed_at": "2026-11-24T20:12:54Z"
+    "metadata_indexed_at": "2026-11-26T17:54:37Z"
   },
   "doi:10.1177/02783649211027233": {
     "paper_id": "doi:10.1177/02783649211027233",
@@ -3091,7 +3091,7 @@
     "paper_url": "https://doi.org/10.1177/02783649211027233",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2021-08-06",
     "print_publication_date": "2021-12",
@@ -3115,7 +3115,7 @@
     "paper_url": "https://doi.org/10.1177/027836498800700301",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "1988-06-01",
     "print_publication_date": "1988-06",
@@ -3142,7 +3142,7 @@
     "paper_url": "https://doi.org/10.1177/0278364917700714",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2017-04-01",
     "print_publication_date": "2017-03",
@@ -3168,7 +3168,7 @@
     "paper_url": "https://doi.org/10.1177/0278364920946815",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2020-08-24",
     "print_publication_date": "2021-02",
@@ -3192,7 +3192,7 @@
     "paper_url": "https://doi.org/10.1177/0278364915592961",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2015-08-21",
     "print_publication_date": "2016-01",
@@ -3217,11 +3217,11 @@
     "paper_url": "https://doi.org/10.1177/0278364913518998",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2014-04-30",
     "print_publication_date": "2014-04",
-    "metadata_indexed_at": "2026-11-24T19:51:21Z"
+    "metadata_indexed_at": "2026-11-26T16:59:15Z"
   },
   "doi:10.1177/0278364913511677": {
     "paper_id": "doi:10.1177/0278364913511677",
@@ -3296,7 +3296,7 @@
     "paper_url": "https://doi.org/10.1177/0278364920947818",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2020-08-24",
     "print_publication_date": "2021-01",
@@ -3416,11 +3416,11 @@
     "paper_url": "https://doi.org/10.1177/027836498200100102",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-19",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "1982-03-01",
     "print_publication_date": "1982-03",
-    "metadata_indexed_at": "2026-11-12T12:31:20Z"
+    "metadata_indexed_at": "2026-11-24T21:42:02Z"
   },
   "doi:10.1177/027836499501400301": {
     "paper_id": "doi:10.1177/027836499501400301",
@@ -3440,11 +3440,11 @@
     "paper_url": "https://doi.org/10.1177/027836499501400301",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "1995-06-01",
     "print_publication_date": "1995-06",
-    "metadata_indexed_at": "2026-11-24T18:56:56Z"
+    "metadata_indexed_at": "2026-11-25T15:38:06Z"
   },
   "doi:10.1177/0278364917694723": {
     "paper_id": "doi:10.1177/0278364917694723",
@@ -3465,11 +3465,11 @@
     "paper_url": "https://doi.org/10.1177/0278364917694723",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-10-04",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2017-03-01",
     "print_publication_date": "2017-02",
-    "metadata_indexed_at": "2026-09-28T18:25:41Z"
+    "metadata_indexed_at": "2026-11-25T17:50:48Z"
   },
   "doi:10.1177/02783640022067201": {
     "paper_id": "doi:10.1177/02783640022067201",
@@ -3489,7 +3489,7 @@
     "paper_url": "https://doi.org/10.1177/02783640022067201",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2000-09-01",
     "print_publication_date": "2000-09",
@@ -3618,7 +3618,7 @@
     "paper_url": "https://doi.org/10.1177/02783640122067372",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2001-03-01",
     "print_publication_date": "2001-03",
@@ -3695,7 +3695,7 @@
     "paper_url": "https://doi.org/10.1177/027836402321261968",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2002-05-01",
     "print_publication_date": "2002-05",
@@ -3719,11 +3719,11 @@
     "paper_url": "https://doi.org/10.1177/027836498800700302",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "1988-06-01",
     "print_publication_date": "1988-06",
-    "metadata_indexed_at": "2026-11-24T19:00:10Z"
+    "metadata_indexed_at": "2026-11-26T02:53:55Z"
   },
   "doi:10.1177/0278364913519897": {
     "paper_id": "doi:10.1177/0278364913519897",
@@ -3748,11 +3748,11 @@
     "paper_url": "https://doi.org/10.1177/0278364913519897",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-15",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2014-04-30",
     "print_publication_date": "2014-04",
-    "metadata_indexed_at": "2026-10-09T17:30:37Z"
+    "metadata_indexed_at": "2026-11-26T16:59:37Z"
   },
   "doi:10.1177/0278364920918918": {
     "paper_id": "doi:10.1177/0278364920918918",
@@ -3875,7 +3875,7 @@
     "paper_url": "https://doi.org/10.1177/02783640122067273",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2001-01-01",
     "print_publication_date": "2001-01",
@@ -3999,7 +3999,7 @@
     "paper_url": "https://doi.org/10.1177/02783649251339680",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2025-05-24",
     "print_publication_date": "2025-11",
@@ -4023,7 +4023,7 @@
     "paper_url": "https://doi.org/10.1177/027836499701600302",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "1997-06-01",
     "print_publication_date": "1997-06",
@@ -4082,10 +4082,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.ads5033",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2025-08-20",
-    "metadata_indexed_at": "2026-11-24T19:43:34Z"
+    "metadata_indexed_at": "2026-11-26T17:20:35Z"
   },
   "doi:10.1126/scirobotics.adp7821": {
     "paper_id": "doi:10.1126/scirobotics.adp7821",
@@ -4109,10 +4109,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.adp7821",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2025-03-19",
-    "metadata_indexed_at": "2026-11-24T19:31:31Z"
+    "metadata_indexed_at": "2026-11-26T18:07:26Z"
   },
   "doi:10.1126/scirobotics.adt5254": {
     "paper_id": "doi:10.1126/scirobotics.adt5254",
@@ -4137,10 +4137,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.adt5254",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2025-07-09",
-    "metadata_indexed_at": "2026-11-24T20:39:10Z"
+    "metadata_indexed_at": "2026-11-26T18:02:18Z"
   },
   "doi:10.1126/scirobotics.abd7935": {
     "paper_id": "doi:10.1126/scirobotics.abd7935",
@@ -4163,10 +4163,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.abd7935",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2021-05-12",
-    "metadata_indexed_at": "2026-11-24T19:05:04Z"
+    "metadata_indexed_at": "2026-11-26T17:54:11Z"
   },
   "doi:10.1126/scirobotics.aau9924": {
     "paper_id": "doi:10.1126/scirobotics.aau9924",
@@ -4242,10 +4242,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.ads6790",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2025-08-20",
-    "metadata_indexed_at": "2026-11-19T23:29:12Z"
+    "metadata_indexed_at": "2026-11-25T18:37:16Z"
   },
   "doi:10.1126/scirobotics.aat0429": {
     "paper_id": "doi:10.1126/scirobotics.aat0429",
@@ -4293,7 +4293,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.abm7187",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2022-06-29",
     "metadata_indexed_at": "2026-11-24T19:28:17Z"
@@ -4366,7 +4366,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.aax2198",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2019-07-17",
     "metadata_indexed_at": "2026-11-24T18:36:17Z"
@@ -4390,10 +4390,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.ads6437",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2025-05-14",
-    "metadata_indexed_at": "2026-11-24T18:29:08Z"
+    "metadata_indexed_at": "2026-11-26T02:53:51Z"
   },
   "doi:10.1126/scirobotics.aat1853": {
     "paper_id": "doi:10.1126/scirobotics.aat1853",
@@ -4414,10 +4414,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.aat1853",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-15",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2018-09-19",
-    "metadata_indexed_at": "2026-11-04T07:15:39Z"
+    "metadata_indexed_at": "2026-11-25T16:08:55Z"
   },
   "doi:10.1126/scirobotics.adc9244": {
     "paper_id": "doi:10.1126/scirobotics.adc9244",
@@ -4441,10 +4441,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.adc9244",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2023-11-22",
-    "metadata_indexed_at": "2026-11-24T18:48:52Z"
+    "metadata_indexed_at": "2026-11-26T13:37:44Z"
   },
   "doi:10.1126/scirobotics.adp3260": {
     "paper_id": "doi:10.1126/scirobotics.adp3260",
@@ -4527,10 +4527,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.adl0628",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2024-11-13",
-    "metadata_indexed_at": "2026-11-24T18:45:35Z"
+    "metadata_indexed_at": "2026-11-26T02:54:24Z"
   },
   "doi:10.1126/scirobotics.aao4900": {
     "paper_id": "doi:10.1126/scirobotics.aao4900",
@@ -4552,10 +4552,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.aao4900",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-15",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2019-01-30",
-    "metadata_indexed_at": "2026-09-23T08:12:12Z"
+    "metadata_indexed_at": "2026-11-24T21:16:30Z"
   },
   "doi:10.1126/scirobotics.ady2869": {
     "paper_id": "doi:10.1126/scirobotics.ady2869",
@@ -4576,10 +4576,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.ady2869",
     "source": "crossref",
     "first_seen_date": "2026-09-30",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2026-01-28",
-    "metadata_indexed_at": "2026-11-24T19:50:23Z"
+    "metadata_indexed_at": "2026-11-26T02:54:24Z"
   },
   "doi:10.1177/21695172251401476": {
     "paper_id": "doi:10.1177/21695172251401476",
@@ -5626,9 +5626,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2025.3547267",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2025",
-    "metadata_indexed_at": "2026-11-24T19:45:18Z"
+    "metadata_indexed_at": "2026-11-26T02:53:50Z"
   },
   "doi:10.1109/tro.2024.3410130": {
     "paper_id": "doi:10.1109/tro.2024.3410130",
@@ -5693,7 +5693,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2018.2791591",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2018-04",
     "metadata_indexed_at": "2026-11-24T18:49:32Z"
   },
@@ -5713,7 +5713,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2020.3031245",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2021-04",
     "metadata_indexed_at": "2026-11-22T15:48:01Z"
   },
@@ -5820,7 +5820,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3734883",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2026-11",
     "metadata_indexed_at": "2026-10-23T20:17:52Z",
     "abstract_source": "openalex"
@@ -5846,7 +5846,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3739025",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2026-11",
     "metadata_indexed_at": "2026-10-13T06:48:56Z",
     "abstract_source": "openalex"
@@ -5867,9 +5867,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2020.2969946",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-28",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2020-04",
-    "metadata_indexed_at": "2026-10-25T00:02:50Z"
+    "metadata_indexed_at": "2026-11-24T22:45:55Z"
   },
   "doi:10.1109/lra.2022.3200207": {
     "paper_id": "doi:10.1109/lra.2022.3200207",
@@ -5972,9 +5972,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2022.3142417",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2022-04",
-    "metadata_indexed_at": "2026-11-24T19:46:31Z"
+    "metadata_indexed_at": "2026-11-25T18:19:40Z"
   },
   "doi:10.1109/lra.2022.3196104": {
     "paper_id": "doi:10.1109/lra.2022.3196104",
@@ -5994,9 +5994,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2022.3196104",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-11-23",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2022-10",
-    "metadata_indexed_at": "2026-11-19T23:16:40Z"
+    "metadata_indexed_at": "2026-11-24T22:45:57Z"
   },
   "doi:10.1109/lra.2022.3194690": {
     "paper_id": "doi:10.1109/lra.2022.3194690",
@@ -6039,7 +6039,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2020.3005131",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2020-10",
     "metadata_indexed_at": "2026-11-24T19:48:30Z"
   },
@@ -6128,7 +6128,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3726374",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2026-10",
     "metadata_indexed_at": "2026-09-07T20:07:47Z"
   },
@@ -6150,7 +6150,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3728305",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2026-10",
     "metadata_indexed_at": "2026-09-08T05:12:03Z"
   },
@@ -6172,7 +6172,7 @@
     "paper_url": "https://doi.org/10.1177/027836498400300301",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "1984-09-01",
     "print_publication_date": "1984-09",
@@ -6197,7 +6197,7 @@
     "paper_url": "https://doi.org/10.1177/0278364914559753",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2015-04-27",
     "print_publication_date": "2015-06",
@@ -6270,11 +6270,11 @@
     "paper_url": "https://doi.org/10.1177/0278364904042201",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-10-11",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2004-04-01",
     "print_publication_date": "2004-04",
-    "metadata_indexed_at": "2026-10-01T11:44:11Z"
+    "metadata_indexed_at": "2026-11-26T17:20:44Z"
   },
   "doi:10.1177/0278364911425836": {
     "paper_id": "doi:10.1177/0278364911425836",
@@ -6318,7 +6318,7 @@
     "paper_url": "https://doi.org/10.1177/027836498900800301",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "1989-06-01",
     "print_publication_date": "1989-06",
@@ -6342,7 +6342,7 @@
     "paper_url": "https://doi.org/10.1177/02783649261421615",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2026-02-18",
     "metadata_indexed_at": "2026-11-20T19:12:48Z"
@@ -6439,11 +6439,11 @@
     "paper_url": "https://doi.org/10.1177/0278364909105606",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2009-06-26",
     "print_publication_date": "2009-07",
-    "metadata_indexed_at": "2026-11-24T19:37:12Z"
+    "metadata_indexed_at": "2026-11-26T02:53:48Z"
   },
   "doi:10.1177/027836499501400304": {
     "paper_id": "doi:10.1177/027836499501400304",
@@ -6564,7 +6564,7 @@
     "paper_url": "https://doi.org/10.1177/0278364904044402",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2004-06",
     "print_publication_date": "2004-06",
@@ -6620,7 +6620,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.abl7286",
     "source": "crossref",
     "first_seen_date": "2026-10-02",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2022-06-29",
     "metadata_indexed_at": "2026-11-24T18:24:21Z"
@@ -8134,7 +8134,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2025.3576951",
     "source": "crossref",
     "first_seen_date": "2026-10-03",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2025",
     "metadata_indexed_at": "2026-11-24T19:15:41Z"
   },
@@ -8180,7 +8180,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2025.3543324",
     "source": "crossref",
     "first_seen_date": "2026-10-03",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2025",
     "metadata_indexed_at": "2026-11-24T18:48:41Z"
   },
@@ -8249,9 +8249,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2022.3145961",
     "source": "crossref",
     "first_seen_date": "2026-10-03",
-    "last_seen_date": "2026-10-20",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2022-04",
-    "metadata_indexed_at": "2026-10-13T18:38:50Z"
+    "metadata_indexed_at": "2026-11-26T02:53:50Z"
   },
   "doi:10.1109/lra.2023.3339397": {
     "paper_id": "doi:10.1109/lra.2023.3339397",
@@ -8274,9 +8274,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2023.3339397",
     "source": "crossref",
     "first_seen_date": "2026-10-03",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2024-02",
-    "metadata_indexed_at": "2026-11-24T19:45:23Z"
+    "metadata_indexed_at": "2026-11-25T06:12:19Z"
   },
   "doi:10.1109/lra.2024.3357030": {
     "paper_id": "doi:10.1109/lra.2024.3357030",
@@ -8297,7 +8297,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2024.3357030",
     "source": "crossref",
     "first_seen_date": "2026-10-03",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2024-03",
     "metadata_indexed_at": "2026-11-24T19:45:19Z"
   },
@@ -8337,7 +8337,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2022.3142412",
     "source": "crossref",
     "first_seen_date": "2026-10-03",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2022-04",
     "metadata_indexed_at": "2026-11-24T19:45:20Z"
   },
@@ -8384,11 +8384,11 @@
     "paper_url": "https://doi.org/10.1177/027836498600400401",
     "source": "crossref",
     "first_seen_date": "2026-10-03",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "1986-01-01",
     "print_publication_date": "1986-01",
-    "metadata_indexed_at": "2026-11-24T19:00:10Z"
+    "metadata_indexed_at": "2026-11-25T08:19:41Z"
   },
   "doi:10.1109/tro.2006.886274": {
     "paper_id": "doi:10.1109/tro.2006.886274",
@@ -8472,9 +8472,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2023.3264759",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-11-23",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2023-06",
-    "metadata_indexed_at": "2026-11-21T17:41:30Z"
+    "metadata_indexed_at": "2026-11-25T18:19:37Z"
   },
   "doi:10.1109/lra.2024.3387111": {
     "paper_id": "doi:10.1109/lra.2024.3387111",
@@ -8495,9 +8495,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2024.3387111",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2024-06",
-    "metadata_indexed_at": "2026-11-24T19:38:23Z"
+    "metadata_indexed_at": "2026-11-26T02:53:55Z"
   },
   "doi:10.1109/lra.2023.3304560": {
     "paper_id": "doi:10.1109/lra.2023.3304560",
@@ -8655,11 +8655,11 @@
     "paper_url": "https://doi.org/10.1177/02783649251379516",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2025-10-08",
     "print_publication_date": "2026-06",
-    "metadata_indexed_at": "2026-11-20T20:31:21Z"
+    "metadata_indexed_at": "2026-11-26T02:54:26Z"
   },
   "doi:10.1177/02783649261432253": {
     "paper_id": "doi:10.1177/02783649261432253",
@@ -8756,10 +8756,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.aea6201",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2026-04-15",
-    "metadata_indexed_at": "2026-11-24T18:31:24Z"
+    "metadata_indexed_at": "2026-11-26T17:20:53Z"
   },
   "doi:10.1126/scirobotics.adi8808": {
     "paper_id": "doi:10.1126/scirobotics.adi8808",
@@ -8780,7 +8780,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.adi8808",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2024-06-26",
     "metadata_indexed_at": "2026-11-24T19:00:05Z"
@@ -8808,7 +8808,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.adq1949",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2025-03-19",
     "metadata_indexed_at": "2026-11-24T18:46:11Z"
@@ -8883,10 +8883,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.adq5046",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-11-15",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2025-06-25",
-    "metadata_indexed_at": "2026-10-08T18:12:07Z"
+    "metadata_indexed_at": "2026-11-26T02:53:49Z"
   },
   "doi:10.1126/scirobotics.aei2046": {
     "paper_id": "doi:10.1126/scirobotics.aei2046",
@@ -8929,7 +8929,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.abg2133",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2021-05-12",
     "metadata_indexed_at": "2026-11-24T18:29:10Z"
@@ -8952,7 +8952,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.abm0608",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2022-02-23",
     "metadata_indexed_at": "2026-11-24T19:28:28Z"
@@ -8998,10 +8998,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.abd2666",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-11-15",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2021-05-12",
-    "metadata_indexed_at": "2026-10-27T19:42:18Z"
+    "metadata_indexed_at": "2026-11-26T02:54:26Z"
   },
   "doi:10.1126/scirobotics.abd9120": {
     "paper_id": "doi:10.1126/scirobotics.abd9120",
@@ -9076,7 +9076,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.ado3939",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2024-12-11",
     "metadata_indexed_at": "2026-11-24T19:44:13Z"
@@ -9100,7 +9100,7 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.adn3802",
     "source": "crossref",
     "first_seen_date": "2026-10-04",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2025-01-15",
     "metadata_indexed_at": "2026-11-24T19:05:05Z"
@@ -13047,7 +13047,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2023.3313941",
     "source": "crossref",
     "first_seen_date": "2026-10-06",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2023-11",
     "metadata_indexed_at": "2026-11-24T19:44:24Z"
   },
@@ -14646,7 +14646,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2022.3205510",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2023-04",
     "metadata_indexed_at": "2026-11-24T18:31:41Z"
   },
@@ -14666,7 +14666,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2018.2830364",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2018-08",
     "metadata_indexed_at": "2026-11-24T18:36:27Z"
   },
@@ -14706,7 +14706,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2020.3043981",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2021-08",
     "metadata_indexed_at": "2026-11-20T18:02:16Z"
   },
@@ -14769,9 +14769,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2019.2930493",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-10-09",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2019-10",
-    "metadata_indexed_at": "2026-10-07T17:41:33Z"
+    "metadata_indexed_at": "2026-11-26T16:05:33Z"
   },
   "doi:10.1109/lra.2022.3143289": {
     "paper_id": "doi:10.1109/lra.2022.3143289",
@@ -14812,7 +14812,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2024.3505815",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2025-01",
     "metadata_indexed_at": "2026-11-24T19:44:26Z"
   },
@@ -14876,7 +14876,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2022.3158440",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2022-04",
     "metadata_indexed_at": "2026-11-24T19:41:06Z"
   },
@@ -14898,7 +14898,7 @@
     "paper_url": "https://doi.org/10.1177/02783649241227559",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2024-01-22",
     "print_publication_date": "2024-04",
@@ -14922,7 +14922,7 @@
     "paper_url": "https://doi.org/10.1177/02783649231196925",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2023-09-11",
     "print_publication_date": "2023-11",
@@ -14971,7 +14971,7 @@
     "paper_url": "https://doi.org/10.1177/027836499101000202",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "1991-04-01",
     "print_publication_date": "1991-04",
@@ -15044,11 +15044,11 @@
     "paper_url": "https://doi.org/10.1177/02783649251398875",
     "source": "crossref",
     "first_seen_date": "2026-10-08",
-    "last_seen_date": "2026-11-15",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2026-01-05",
     "print_publication_date": "2026-08",
-    "metadata_indexed_at": "2026-10-20T01:37:41Z"
+    "metadata_indexed_at": "2026-11-26T02:53:49Z"
   },
   "doi:10.1089/soro.2017.0058": {
     "paper_id": "doi:10.1089/soro.2017.0058",
@@ -16541,7 +16541,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2024.3462931",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2024",
     "metadata_indexed_at": "2026-11-24T19:45:20Z"
   },
@@ -16563,7 +16563,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2024.3508315",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2025",
     "metadata_indexed_at": "2026-11-24T19:28:27Z"
   },
@@ -16586,7 +16586,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2025.3576970",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2025",
     "metadata_indexed_at": "2026-11-24T18:29:35Z"
   },
@@ -16609,7 +16609,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2021.3099310",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2022-04",
     "metadata_indexed_at": "2026-11-24T01:04:21Z"
   },
@@ -16634,7 +16634,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2024.3492375",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2025",
     "metadata_indexed_at": "2026-11-24T18:45:22Z"
   },
@@ -16658,7 +16658,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3737042",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2026-11",
     "metadata_indexed_at": "2026-10-23T20:17:52Z",
     "abstract_source": "openalex"
@@ -16681,7 +16681,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3735899",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2026-11",
     "metadata_indexed_at": "2026-10-23T20:17:45Z",
     "abstract_source": "openalex"
@@ -16793,9 +16793,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2024.3427557",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-10-16",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2024-09",
-    "metadata_indexed_at": "2026-10-11T13:35:49Z"
+    "metadata_indexed_at": "2026-11-26T17:40:07Z"
   },
   "doi:10.1109/lra.2020.3003257": {
     "paper_id": "doi:10.1109/lra.2020.3003257",
@@ -16900,7 +16900,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2018.2852797",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2018-10",
     "metadata_indexed_at": "2026-11-24T19:48:08Z"
   },
@@ -16992,9 +16992,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2025.3548503",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2025-05",
-    "metadata_indexed_at": "2026-11-24T18:56:01Z"
+    "metadata_indexed_at": "2026-11-26T02:53:51Z"
   },
   "doi:10.1109/lra.2023.3346750": {
     "paper_id": "doi:10.1109/lra.2023.3346750",
@@ -17082,11 +17082,11 @@
     "paper_url": "https://doi.org/10.1177/02783649211048929",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-11-15",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2021-10-22",
     "print_publication_date": "2021-12",
-    "metadata_indexed_at": "2026-10-16T17:38:22Z"
+    "metadata_indexed_at": "2026-11-26T17:38:12Z"
   },
   "doi:10.1177/0278364915608250": {
     "paper_id": "doi:10.1177/0278364915608250",
@@ -17106,7 +17106,7 @@
     "paper_url": "https://doi.org/10.1177/0278364915608250",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2015-11-03",
     "print_publication_date": "2015-12",
@@ -17131,7 +17131,7 @@
     "paper_url": "https://doi.org/10.1177/02783649231225811",
     "source": "crossref",
     "first_seen_date": "2026-10-09",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2024-01-30",
     "print_publication_date": "2024-06",
@@ -17207,7 +17207,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2021.3132532",
     "source": "crossref",
     "first_seen_date": "2026-10-11",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2022-08",
     "metadata_indexed_at": "2026-11-24T18:13:57Z"
   },
@@ -17227,9 +17227,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2022.3143578",
     "source": "crossref",
     "first_seen_date": "2026-10-11",
-    "last_seen_date": "2026-10-14",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2022-04",
-    "metadata_indexed_at": "2026-10-10T07:12:56Z"
+    "metadata_indexed_at": "2026-11-26T02:53:51Z"
   },
   "doi:10.1109/lra.2023.3320906": {
     "paper_id": "doi:10.1109/lra.2023.3320906",
@@ -17361,7 +17361,7 @@
     "paper_url": "https://doi.org/10.1177/02783649241272120",
     "source": "crossref",
     "first_seen_date": "2026-10-11",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2024-09-23",
     "print_publication_date": "2025-09",
@@ -17853,9 +17853,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2024.3522149",
     "source": "crossref",
     "first_seen_date": "2026-10-14",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2025",
-    "metadata_indexed_at": "2026-11-24T19:38:25Z"
+    "metadata_indexed_at": "2026-11-25T18:35:42Z"
   },
   "doi:10.1109/tro.2025.3530319": {
     "paper_id": "doi:10.1109/tro.2025.3530319",
@@ -17875,7 +17875,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2025.3530319",
     "source": "crossref",
     "first_seen_date": "2026-10-14",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2025",
     "metadata_indexed_at": "2026-11-20T18:20:43Z"
   },
@@ -17897,7 +17897,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2026.3672523",
     "source": "crossref",
     "first_seen_date": "2026-10-14",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2026",
     "metadata_indexed_at": "2026-11-24T19:37:14Z"
   },
@@ -17921,7 +17921,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2025.3562458",
     "source": "crossref",
     "first_seen_date": "2026-10-14",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2025",
     "metadata_indexed_at": "2026-11-24T19:27:37Z"
   },
@@ -18149,9 +18149,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2024.3497721",
     "source": "crossref",
     "first_seen_date": "2026-10-14",
-    "last_seen_date": "2026-11-19",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2024-12",
-    "metadata_indexed_at": "2026-11-13T17:41:58Z"
+    "metadata_indexed_at": "2026-11-25T13:29:54Z"
   },
   "doi:10.1109/lra.2025.3597486": {
     "paper_id": "doi:10.1109/lra.2025.3597486",
@@ -18780,7 +18780,7 @@
     "paper_url": "https://doi.org/10.1177/02783649251378195",
     "source": "crossref",
     "first_seen_date": "2026-10-16",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2025-12-27",
     "print_publication_date": "2026-06",
@@ -18828,7 +18828,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2025.3613541",
     "source": "crossref",
     "first_seen_date": "2026-10-18",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2025",
     "metadata_indexed_at": "2026-11-24T18:36:20Z"
   },
@@ -18984,9 +18984,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2025.3526570",
     "source": "crossref",
     "first_seen_date": "2026-10-18",
-    "last_seen_date": "2026-10-31",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2025-02",
-    "metadata_indexed_at": "2026-10-29T16:01:32Z"
+    "metadata_indexed_at": "2026-11-25T06:12:13Z"
   },
   "doi:10.1109/lra.2023.3315204": {
     "paper_id": "doi:10.1109/lra.2023.3315204",
@@ -19315,10 +19315,10 @@
     "paper_url": "https://doi.org/10.1126/scirobotics.abi6774",
     "source": "crossref",
     "first_seen_date": "2026-10-20",
-    "last_seen_date": "2026-11-15",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "print_publication_date": "2021-10-13",
-    "metadata_indexed_at": "2026-10-18T11:46:15Z"
+    "metadata_indexed_at": "2026-11-26T08:11:08Z"
   },
   "arxiv:2610.30197": {
     "paper_id": "arxiv:2610.30197",
@@ -20284,9 +20284,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2016.2558193",
     "source": "crossref",
     "first_seen_date": "2026-10-23",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2016-06",
-    "metadata_indexed_at": "2026-11-20T17:25:11Z"
+    "metadata_indexed_at": "2026-11-26T16:59:11Z"
   },
   "doi:10.1109/tro.2022.3224774": {
     "paper_id": "doi:10.1109/tro.2022.3224774",
@@ -20986,7 +20986,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2024.3521967",
     "source": "crossref",
     "first_seen_date": "2026-10-25",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2025",
     "metadata_indexed_at": "2026-11-24T18:26:39Z"
   },
@@ -21482,7 +21482,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2026.3686277",
     "source": "crossref",
     "first_seen_date": "2026-10-28",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2026",
     "metadata_indexed_at": "2026-11-24T18:35:21Z"
   },
@@ -21505,7 +21505,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2024.3502197",
     "source": "crossref",
     "first_seen_date": "2026-10-28",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2025",
     "metadata_indexed_at": "2026-11-20T18:20:14Z"
   },
@@ -21634,7 +21634,7 @@
     "paper_url": "https://doi.org/10.1177/0278364913519148",
     "source": "crossref",
     "first_seen_date": "2026-10-28",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2014-02-24",
     "print_publication_date": "2014-04",
@@ -22268,7 +22268,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2012.2212633",
     "source": "crossref",
     "first_seen_date": "2026-11-04",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2013-02",
     "metadata_indexed_at": "2026-11-20T20:05:59Z"
   },
@@ -22387,7 +22387,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3730389",
     "source": "crossref",
     "first_seen_date": "2026-11-04",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2026-11",
     "metadata_indexed_at": "2026-09-24T16:08:58Z"
   },
@@ -22410,7 +22410,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3739024",
     "source": "crossref",
     "first_seen_date": "2026-11-04",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2026-11",
     "metadata_indexed_at": "2026-11-24T19:45:20Z",
     "abstract_source": "openalex"
@@ -22476,9 +22476,9 @@
     "paper_url": "https://doi.org/10.1038/s42256-025-01053-3",
     "source": "crossref",
     "first_seen_date": "2026-11-04",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "online_publication_date": "2025-06-09",
-    "metadata_indexed_at": "2026-11-24T19:49:48Z"
+    "metadata_indexed_at": "2026-11-26T00:11:20Z"
   },
   "arxiv:2611.06724": {
     "paper_id": "arxiv:2611.06724",
@@ -22841,10 +22841,10 @@
     "paper_url": "https://doi.org/10.1038/s42256-025-01045-3",
     "source": "crossref",
     "first_seen_date": "2026-11-08",
-    "last_seen_date": "2026-11-15",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2025-06-23",
-    "metadata_indexed_at": "2026-10-01T17:57:12Z"
+    "metadata_indexed_at": "2026-11-26T17:55:38Z"
   },
   "doi:10.1038/s42256-025-01039-1": {
     "paper_id": "doi:10.1038/s42256-025-01039-1",
@@ -22862,9 +22862,9 @@
     "paper_url": "https://doi.org/10.1038/s42256-025-01039-1",
     "source": "crossref",
     "first_seen_date": "2026-11-08",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "online_publication_date": "2025-07-21",
-    "metadata_indexed_at": "2026-11-24T01:00:32Z"
+    "metadata_indexed_at": "2026-11-26T02:54:26Z"
   },
   "doi:10.1002/rob.22207": {
     "paper_id": "doi:10.1002/rob.22207",
@@ -22940,7 +22940,7 @@
     "paper_url": "https://doi.org/10.1002/rob.70021",
     "source": "crossref",
     "first_seen_date": "2026-11-08",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2025-07-20",
     "print_publication_date": "2025-12",
@@ -22995,7 +22995,7 @@
     "paper_url": "https://doi.org/10.1002/rob.70013",
     "source": "crossref",
     "first_seen_date": "2026-11-08",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2025-07-04",
     "print_publication_date": "2025-12",
@@ -23102,7 +23102,7 @@
     "paper_url": "https://doi.org/10.1002/rob.21895",
     "source": "crossref",
     "first_seen_date": "2026-11-08",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2019-07-21",
     "print_publication_date": "2020-08",
@@ -23379,9 +23379,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2024.3359531",
     "source": "crossref",
     "first_seen_date": "2026-11-11",
-    "last_seen_date": "2026-11-15",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2024",
-    "metadata_indexed_at": "2026-11-09T16:19:03Z"
+    "metadata_indexed_at": "2026-11-26T02:53:51Z"
   },
   "doi:10.1109/lra.2023.3261745": {
     "paper_id": "doi:10.1109/lra.2023.3261745",
@@ -23475,7 +23475,7 @@
     "paper_url": "https://doi.org/10.1002/rob.70315",
     "source": "crossref",
     "first_seen_date": "2026-11-11",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2026-08-31",
     "metadata_indexed_at": "2026-08-31T11:15:42Z"
@@ -23534,9 +23534,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2024.3463470",
     "source": "crossref",
     "first_seen_date": "2026-11-13",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2024",
-    "metadata_indexed_at": "2026-11-24T19:29:32Z"
+    "metadata_indexed_at": "2026-11-26T02:53:55Z"
   },
   "doi:10.1109/lra.2024.3487516": {
     "paper_id": "doi:10.1109/lra.2024.3487516",
@@ -23651,7 +23651,7 @@
     "paper_url": "https://doi.org/10.1177/0278364919846358",
     "source": "crossref",
     "first_seen_date": "2026-11-13",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2019-05-02",
     "print_publication_date": "2021-01",
@@ -24003,7 +24003,7 @@
     "paper_url": "https://doi.org/10.1002/rob.70277",
     "source": "crossref",
     "first_seen_date": "2026-11-19",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2026-07-15",
     "print_publication_date": "2026-12",
@@ -24151,7 +24151,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2020.3045648",
     "source": "crossref",
     "first_seen_date": "2026-11-21",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2021-08",
     "metadata_indexed_at": "2026-11-24T19:47:16Z"
   },
@@ -24173,7 +24173,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2022.3144949",
     "source": "crossref",
     "first_seen_date": "2026-11-21",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2022-08",
     "metadata_indexed_at": "2026-11-24T12:34:52Z"
   },
@@ -24259,9 +24259,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2020.3010720",
     "source": "crossref",
     "first_seen_date": "2026-11-21",
-    "last_seen_date": "2026-11-23",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2020-10",
-    "metadata_indexed_at": "2026-11-20T11:54:27Z"
+    "metadata_indexed_at": "2026-11-26T17:55:04Z"
   },
   "doi:10.1109/lra.2021.3092770": {
     "paper_id": "doi:10.1109/lra.2021.3092770",
@@ -24279,7 +24279,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2021.3092770",
     "source": "crossref",
     "first_seen_date": "2026-11-21",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2021-10",
     "metadata_indexed_at": "2026-11-24T19:49:48Z"
   },
@@ -24302,9 +24302,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2023.3302191",
     "source": "crossref",
     "first_seen_date": "2026-11-21",
-    "last_seen_date": "2026-11-23",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2023-09",
-    "metadata_indexed_at": "2026-11-20T19:15:29Z"
+    "metadata_indexed_at": "2026-11-26T17:57:11Z"
   },
   "doi:10.1109/lra.2021.3138545": {
     "paper_id": "doi:10.1109/lra.2021.3138545",
@@ -24362,7 +24362,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2017.2718099",
     "source": "crossref",
     "first_seen_date": "2026-11-21",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2017-10",
     "metadata_indexed_at": "2026-11-24T20:01:23Z"
   },
@@ -24409,9 +24409,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2024.3363532",
     "source": "crossref",
     "first_seen_date": "2026-11-21",
-    "last_seen_date": "2026-11-21",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2024-04",
-    "metadata_indexed_at": "2026-11-19T22:10:48Z"
+    "metadata_indexed_at": "2026-11-26T02:53:52Z"
   },
   "doi:10.1109/lra.2024.3497714": {
     "paper_id": "doi:10.1109/lra.2024.3497714",
@@ -24432,7 +24432,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2024.3497714",
     "source": "crossref",
     "first_seen_date": "2026-11-21",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2025-01",
     "metadata_indexed_at": "2026-11-24T19:48:35Z"
   },
@@ -24500,7 +24500,7 @@
     "paper_url": "https://doi.org/10.1177/027836490001900703",
     "source": "crossref",
     "first_seen_date": "2026-11-21",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2000-07-01",
     "print_publication_date": "2000-07",
@@ -24553,7 +24553,7 @@
     "paper_url": "https://doi.org/10.1177/02783649261504460",
     "source": "crossref",
     "first_seen_date": "2026-11-21",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2026-11-19",
     "metadata_indexed_at": "2026-11-24T13:11:18Z"
@@ -24605,7 +24605,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2026.3706568",
     "source": "crossref",
     "first_seen_date": "2026-11-23",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2026",
     "metadata_indexed_at": "2026-11-20T19:15:26Z"
   },
@@ -24688,7 +24688,7 @@
     "paper_url": "https://doi.org/10.1177/027836498600500402",
     "source": "crossref",
     "first_seen_date": "2026-11-23",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "1986-12-01",
     "print_publication_date": "1986-12",
@@ -24710,7 +24710,7 @@
     "paper_url": "https://doi.org/10.1038/s42256-025-01062-2",
     "source": "crossref",
     "first_seen_date": "2026-11-23",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2025-07-22",
     "metadata_indexed_at": "2026-11-24T19:46:36Z"
@@ -25002,7 +25002,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2020.3021427",
     "source": "crossref",
     "first_seen_date": "2026-11-25",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2021-04",
     "metadata_indexed_at": "2026-11-24T20:11:54Z"
   },
@@ -25026,9 +25026,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2025.3563046",
     "source": "crossref",
     "first_seen_date": "2026-11-25",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2025",
-    "metadata_indexed_at": "2026-11-24T19:38:30Z"
+    "metadata_indexed_at": "2026-11-25T18:05:29Z"
   },
   "doi:10.1109/tro.2024.3420722": {
     "paper_id": "doi:10.1109/tro.2024.3420722",
@@ -25049,7 +25049,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2024.3420722",
     "source": "crossref",
     "first_seen_date": "2026-11-25",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2024",
     "metadata_indexed_at": "2026-11-24T18:31:13Z"
   },
@@ -25069,9 +25069,9 @@
     "paper_url": "https://doi.org/10.1109/tro.2018.2880121",
     "source": "crossref",
     "first_seen_date": "2026-11-25",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2019-04",
-    "metadata_indexed_at": "2026-11-24T18:26:01Z"
+    "metadata_indexed_at": "2026-11-25T18:15:33Z"
   },
   "doi:10.1109/tro.2023.3262115": {
     "paper_id": "doi:10.1109/tro.2023.3262115",
@@ -25092,7 +25092,7 @@
     "paper_url": "https://doi.org/10.1109/tro.2023.3262115",
     "source": "crossref",
     "first_seen_date": "2026-11-25",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2023-08",
     "metadata_indexed_at": "2026-11-24T17:29:35Z"
   },
@@ -25115,7 +25115,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2025.3585714",
     "source": "crossref",
     "first_seen_date": "2026-11-25",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2025-08",
     "metadata_indexed_at": "2026-11-24T19:49:48Z"
   },
@@ -25135,7 +25135,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2017.2662086",
     "source": "crossref",
     "first_seen_date": "2026-11-25",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2017-04",
     "metadata_indexed_at": "2026-11-24T19:47:16Z"
   },
@@ -25158,7 +25158,7 @@
     "paper_url": "https://doi.org/10.1109/lra.2022.3191186",
     "source": "crossref",
     "first_seen_date": "2026-11-25",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2022-10",
     "metadata_indexed_at": "2026-11-24T19:41:06Z"
   },
@@ -25224,9 +25224,9 @@
     "paper_url": "https://doi.org/10.1109/lra.2026.3653324",
     "source": "crossref",
     "first_seen_date": "2026-11-25",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "print_publication_date": "2026-03",
-    "metadata_indexed_at": "2026-11-24T19:31:38Z"
+    "metadata_indexed_at": "2026-11-26T02:53:50Z"
   },
   "doi:10.1109/lra.2017.2717082": {
     "paper_id": "doi:10.1109/lra.2017.2717082",
@@ -25310,7 +25310,7 @@
     "paper_url": "https://doi.org/10.1177/02783649231220674",
     "source": "crossref",
     "first_seen_date": "2026-11-25",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2023-12-14",
     "print_publication_date": "2024-05",
@@ -25335,7 +25335,7 @@
     "paper_url": "https://doi.org/10.1177/0278364911401441",
     "source": "crossref",
     "first_seen_date": "2026-11-25",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2011-06-13",
     "print_publication_date": "2011-08",
@@ -25361,7 +25361,7 @@
     "paper_url": "https://doi.org/10.1177/02783649241302840",
     "source": "crossref",
     "first_seen_date": "2026-11-25",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2024-12-15",
     "print_publication_date": "2025-06",
@@ -25385,11 +25385,11 @@
     "paper_url": "https://doi.org/10.1177/0278364919880257",
     "source": "crossref",
     "first_seen_date": "2026-11-25",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2019-10-17",
     "print_publication_date": "2020-03",
-    "metadata_indexed_at": "2026-11-24T19:12:03Z"
+    "metadata_indexed_at": "2026-11-26T02:54:24Z"
   },
   "doi:10.1177/027836402321261959": {
     "paper_id": "doi:10.1177/027836402321261959",
@@ -25410,7 +25410,7 @@
     "paper_url": "https://doi.org/10.1177/027836402321261959",
     "source": "crossref",
     "first_seen_date": "2026-11-25",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2002-05-01",
     "print_publication_date": "2002-05",
@@ -25435,7 +25435,7 @@
     "paper_url": "https://doi.org/10.1177/02783649922066222",
     "source": "crossref",
     "first_seen_date": "2026-11-25",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "1999-03-01",
     "print_publication_date": "1999-03",
@@ -25459,7 +25459,7 @@
     "paper_url": "https://doi.org/10.1177/027836499901800504",
     "source": "crossref",
     "first_seen_date": "2026-11-25",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "1999-05-01",
     "print_publication_date": "1999-05",
@@ -25484,7 +25484,7 @@
     "paper_url": "https://doi.org/10.1177/02783649251364392",
     "source": "crossref",
     "first_seen_date": "2026-11-25",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2025-08-21",
     "metadata_indexed_at": "2026-11-24T18:33:22Z"
@@ -25509,7 +25509,7 @@
     "paper_url": "https://doi.org/10.1177/02783649241310885",
     "source": "crossref",
     "first_seen_date": "2026-11-25",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2025-01-11",
     "print_publication_date": "2025-07",
@@ -25533,7 +25533,7 @@
     "paper_url": "https://doi.org/10.1177/02783649922066268",
     "source": "crossref",
     "first_seen_date": "2026-11-25",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "1999-04-01",
     "print_publication_date": "1999-04",
@@ -25557,10 +25557,396 @@
     "paper_url": "https://doi.org/10.1177/0278364920962205",
     "source": "crossref",
     "first_seen_date": "2026-11-25",
-    "last_seen_date": "2026-11-25",
+    "last_seen_date": "2026-11-27",
     "abstract_source": "crossref",
     "online_publication_date": "2020-10-19",
     "print_publication_date": "2021-02",
     "metadata_indexed_at": "2026-11-24T18:21:58Z"
+  },
+  "arxiv:2611.34936": {
+    "paper_id": "arxiv:2611.34936",
+    "arxiv_id": "2611.34936",
+    "title": "DexLink: Synthesizing Dexterous Behaviors from Chained Hand-object Poses",
+    "abstract": "Synthesizing diverse dexterous manipulation policies is challenging: existing simulation-based approaches rely on human demonstrations which are difficult to scale, or use generic reward functions, which provide limited control over the hand-object interactions. We propose DexLink, which addresses these limitations by synthesizing diverse dexterous behaviors from sparse, reusable hand-object interaction templates. Given key task waypoints, DexLink retargets static interaction templates to target objects using an optimization that preserves spatial hand-object relationships. It then links the retargeted poses into an approximate reference trajectory and uses residual reinforcement learning to refine this reference into a closed-loop policy in simulation. Experiments spanning single-hand, bimanual, articulated, and dynamic tasks demonstrate that DexLink provides fine-grained control over task timing, grasp types, and high-level execution. The modular interaction templates transfer reliably across object scales, instances, and categories; without object-specific human demonstrations, the framework also matches the performance of dense reference-tracking methods. Finally, zero-shot deployment of policies trained purely in simulation shows promise for the simulation-based framework.",
+    "date_basis": "initial_publication",
+    "authors": "Meenal Parakh, Deep Patel, Beining Han, Jia Deng",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-11-25",
+    "arxiv_url": "https://arxiv.org/abs/2611.34936",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2611.34884": {
+    "paper_id": "arxiv:2611.34884",
+    "arxiv_id": "2611.34884",
+    "title": "FineDex: Bridging Fine-Grained Human-Object Interaction Generation to Dexterous Humanoid Manipulation",
+    "abstract": "Dexterity is, at its core, finger-level control, yet existing dexterous manipulation and human-object interaction (HOI) generation methods rarely let one specify how an interaction is performed: five-fingered hands are often reduced to grippers, or finger usage is copied from individual human demonstrations. We present FineDex, a framework that makes finger-level intent both expressible and executable. FineDex learns coordinated human body, hand, and object motions that follow fine-grained instructions on hand selection, individual fingers, and contacts with articulated objects. To bridge generation and execution, FineDex leverages generated interactions as actionable priors for an agent that discovers physically feasible contact strategies through practice in a physics-based digital twin. By adapting at test time without per-instance retraining, FineDex generalizes across fine-grained instructions and object configurations. Experiments demonstrate state-of-the-art HOI generation quality and fine-grained controllability, substantial improvements in dexterous manipulation success, and successful deployment on a real dexterous humanoid robot.",
+    "date_basis": "initial_publication",
+    "authors": "Yujia Zeng, Yuxin Chen, Yuzhen Song, Runhan Huang, Chensheng Peng, Yiyang Shao, Koushil Sreenath, Masayoshi Tomizuka, Yilun Du",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-11-25",
+    "arxiv_url": "https://arxiv.org/abs/2611.34884",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2611.34655": {
+    "paper_id": "arxiv:2611.34655",
+    "arxiv_id": "2611.34655",
+    "title": "Nav4Manip: From Navigation to Dexterous Mobile Manipulation through Co-Evolution",
+    "abstract": "Dexterous mobile manipulation is essential for robots to perform useful tasks in complex, unstructured environments. However, existing systems face two challenges. First, navigation remains too coarse for downstream manipulation, which often requires a precise base position and approach orientation rather than merely reaching a meter-scale goal region. Second, navigation and manipulation are commonly trained in isolation, lacking a feedback loop that enables the two capabilities to co-evolve. These limitations prevent current systems from reliably executing long-horizon dexterous mobile-manipulation tasks in real-world environments. To address them, we introduce Nav4Manip, a bidirectionally coupled co-evolution system for long-horizon dexterous mobile manipulation. It comprises two complementary architectures: Nav4Manip-N learns long-horizon navigation and refines its policy through manipulation feedback, while Nav4Manip-M trains a world-action model (WAM) for downstream dexterous manipulation. We train Nav4Manip-N in three stages: multi-task co-tuning learns navigation behavior and manipulation-aware affordance prediction; rejection sampling fine-tuning (RFT) rejects low-quality policy-generated paths and fine-tunes the model on retained trajectories; and reinforcement learning from AI feedback (RLAIF) uses counterfactual preferences to further improve navigation decisions. To support this framework, we establish the Nav-N-Manip benchmark and construct Nav4Manip-Pairs from benchmark rollouts, providing large-scale paired navigation--manipulation trajectories and affordance supervision. Extensive experiments on public vision-language navigation (VLN) benchmarks and Nav-N-Manip demonstrate state-of-the-art performance, while real-world evaluations show that Nav4Manip completes diverse dexterous mobile-manipulation tasks. Project website: https://nav4manip.github.io/.",
+    "date_basis": "initial_publication",
+    "authors": "Yusen Feng, Zixi Kang, Zhijun Yin, Changxiao Liu, Tianhong Gao, Jiazhao Zhang, Jiahang Liu, Libin Liu, Zhizheng Zhang, He Wang",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-11-25",
+    "arxiv_url": "https://arxiv.org/abs/2611.34655",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2611.33579": {
+    "paper_id": "arxiv:2611.33579",
+    "arxiv_id": "2611.33579",
+    "title": "DexEngine: Scaling Human Demonstrations into Physically Executable Whole-Robot Data",
+    "abstract": "A growing body of recent work addresses the retargeting of human hand-object demonstrations to robotic hands. To train whole-robot policies, however, the retargeted motions must be kinematically feasible and physically executable, and be produced efficiently at scale. We present DexEngine, a simulation pipeline that turns human manipulation data into train-ready, physically executable arm-hand trajectories. DexEngine first places each clip's hand-object motion where the arms can reach it, finds an arm motion that follows the human hands, and then corrects the motion in physics simulation with residual reinforcement learning. From nine human hand-object datasets, we generate about 5,200 clips for each of four dexterous hands, augmented into 65,000 trajectories (116 h) and 325,000 episodes (578 h) in total. Even with arms attached, DexEngine tracks objects more accurately than prior floating-hand methods and runs over 10x faster than RL-based ones. Policies trained on our data far outperform those trained on the same clips without physics correction or with the arms attached after a floating-hand correction, showing that fine-tuning data need physics correction. Mid-training on our data further improves them at equal fine-tuning budget, in simulation and on a real robot.",
+    "date_basis": "initial_publication",
+    "authors": "Wongyun Yu, Honggeun Kim, Donguk Lee, Minchan Kim, Kyoung Whan Choe, Minsu Cho",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-11-25",
+    "arxiv_url": "https://arxiv.org/abs/2611.33579",
+    "source": "arxiv",
+    "code_url": "https://github.com/wongyun-yu/DexEngine",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2611.33144": {
+    "paper_id": "arxiv:2611.33144",
+    "arxiv_id": "2611.33144",
+    "title": "PyRUA-Dex: Learning Programmatic Policies for Dexterous Bimanual Manipulation with Coding Agents",
+    "abstract": "Learning for dexterous manipulation is limited by the scarcity of high-quality demonstrations: retargeting from human video is imprecise, teleoperation gives no force feedback to the operator, and exoskeleton-based collection is hard to scale up. We present PyRUA-Dex, a framework that enables coding agents to develop dexterous manipulation through programmatic policy, without the need of demonstrations. The programmatic policy is developed in two stages: during exploration, multiple agents explore in parallel for task skills and ways to compose them, and a distilling agent condenses the successful attempts into a task library and one program. During refinement, this program is improved through randomized layouts for enhanced robustness and execution efficiency. In simulated environments, PyRUA-Dex achieves SOTA on Bench2Dex with a score of 72.9 and reaches 81.0% success on DexJoCo under full randomization, ahead of every trained policy on both benchmarks. In real world experiments on a bimanual platform with two 22-DoF hands, PyRUA-Dex learns to play piano, write calligraphy, and other tasks efficiently: learning a new piece from sheet music takes as little as 30 minutes. These results suggest that PyRUA-Dex is an effective framework for developing dexterous manipulation policies with coding agents in the absence of high quality dexterous manipulation demonstrations.",
+    "date_basis": "initial_publication",
+    "authors": "Feixiang Ruan, Guodong Lv, Kewei Zhang, Wenbo Huang, Yintianrun Zhang, Qiang Wang, Ruiyang Si, Shunyu Yang, Shulong Jiang, Weicheng Duan, Rui Ni, Jianxin Bi, Lekai Wang, Yuze Fan, Haobo Li, Zeliang Fu, Jiankun Zhang, Duomin Wang, Enze Xie, Daquan Zhou",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-11-24",
+    "arxiv_url": "https://arxiv.org/abs/2611.33144",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2611.32937": {
+    "paper_id": "arxiv:2611.32937",
+    "arxiv_id": "2611.32937",
+    "title": "Self-Sensing Compliant Anthropomorphic Hand for Speed-Dictated Shared Force Control in Teleoperation",
+    "abstract": "In vision-based teleoperation of robotic hands, the operator receives no haptic feedback and therefore struggles to regulate the grasp force, while adding tactile sensors to the fingers increases wiring, cost and integration complexity. Compliant hands offer an alternative, as their mechanical compliance, usually treated only as a passive property for safe and adaptive grasping, can also serve as a source of information. Here, we show that the elastic transmission of a compliant, tendon-driven anthropomorphic hand can itself act as the sensor for shared-control telemanipulation. Series springs in the tendon routing are read by potentiometers in a forearm-mounted motor box, from which the hand estimates its joint states and finger forces without any external sensors. Building on this self-sensing, we develop a contact-aware shared-control framework for VR-based teleoperation. The robot hand is controlled through a mapping from the operator's hand kinematics until a contact is detected proprioceptively. Control then switches to a finger-level force controller whose set point is determined by the operator's grasping speed, and control authority can be allocated to individual fingers. Experiments validate the system's force estimation and increased grasp success rate compared with direct teleoperation for fragile and heavy objects. These results show that compliance can serve not only for passive adaptation but also as an intrinsic sensing resource for physical human-robot collaboration.",
+    "date_basis": "initial_publication",
+    "authors": "Huijiang Wang, Yu Zhang, Rui Chen, Tristan Bonato, Jaemin Eom, Kai Junge, Cheng Pan, Benhui Dai, Yue Xie, Josie Hughes",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-11-24",
+    "arxiv_url": "https://arxiv.org/abs/2611.32937",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2611.32582": {
+    "paper_id": "arxiv:2611.32582",
+    "arxiv_id": "2611.32582",
+    "title": "Design, Control, and Teleoperation of a Dexterous Robotic Hand with Soft-Rigid Hybrid Fingers",
+    "abstract": "Adding compliance to robot hands results in higher grasp quality and robust contact with the environment. Soft hands are inherently compliant, but are typically more complex to control and model than rigid equivalents. We extend prior work on soft-rigid hybrid robot fingers into a five-fingered dexterous gripper --- an integrated tendon-driven hand that is highly compliant and controllable. Structural compliance combined with a rigid skeleton, when realized in a five-fingered hand, allow us to use linear control to achieve soft-grasping generality. We evaluate the use of this hand in a variety of teleoperated manipulation tasks, demonstrating the effectiveness of the overall mechanical design and control strategy. Our contributions include: (1) Mechanical design of the a five-fingered Soft-Rigid Hybrid Hand, composed of 12 active degrees of freedom, demonstrating a high degree on generalization enabled by the soft-rigid architecture, with our gripper, able to complete 28 of the 33 (84.8\\%) grasp postures in the human range. (2) Precise, high bandwidth (up to 1432deg/s extension speed, compared with 700deg/s for the equivalent human joint). (3) Position and task space controllers for the soft-rigid hybrid finger and whole hand. (4) A teleoperation framework for control of this hand, as well as demonstrations of its efficacy in a variety of grasping and manipulation tasks Further tests illustrate the hand's advantages in completing non-rigid manipulation tasks, such as picking up thin deformable objects (such as a dollar bill or folding cloth) as well as in interfacing with soft or delicate targets.",
+    "date_basis": "initial_publication",
+    "authors": "Chao Liu, Wil J. Norton, Branden Romero, Daniela Rus",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-11-24",
+    "arxiv_url": "https://arxiv.org/abs/2611.32582",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2611.32476": {
+    "paper_id": "arxiv:2611.32476",
+    "arxiv_id": "2611.32476",
+    "title": "ViTacLab: Physically Consistent Visuo-Tactile Simulation, Benchmarking, and Representation Learning for Robotic Manipulation",
+    "abstract": "Tactile sensing is essential for contact-rich robotic manipulation, but existing visuo-tactile simulators trade physical fidelity for scalability, and benchmarks largely focus on two-finger grippers. We present ViTacLab, a framework comprising ViTacSim, ViTacBench, and ViTacPolicy. ViTacSim uses a tri-modal tactile primitive: a global sparse contact-force lattice, a local dense force array, and tactile images. Anchored to PhysX contact-solver outputs, it corrects normal inconsistency through local stiffness alignment and reconstructs tangential forces under decoupled slip-stick regimes while preserving GPU parallelism. A joint projection preserves the sparse wrench and enforces local friction cones. ViTacBench spans parallel grippers, dexterous hands, and bimanual systems, with tasks ranging from vision-dominant to tactile-dominant regimes. ViTacPolicy aggregates variable numbers of heterogeneous tactile inputs using spatial-pose embeddings and a Transformer, and aligns force-array and tactile-image modalities through a two-stream VQ-VAE with a shared codebook. Controlled Hertzian-reference indentation and real-sensor sliding tests reduce normal and tangential force RMSE from 2.31 and 1.85 N to 0.42 and 0.53 N, respectively. Throughput reaches 2,482.9 tactile-pipeline FPS at 256 parallel environments. Simulation and real-world experiments show gains on several contact-rich tasks, while low absolute success on tactile-dominant tasks highlights the remaining difficulty of purely tactile control.",
+    "date_basis": "initial_publication",
+    "authors": "Linjing You, Zeming Yang, Zhenhao Shen, Shengqiang Xu, Guanda Li, Wenxuan Li, Jiyu Guo, Jasper Lu, Kyle Xu, Shawn Xie, Junjie Zhu, Siyu Wu, Jian Liu, Changhao Zhang, Rongchong Li, Zeyi Li, Hengshuang Zhao, Ruihai Wu",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-11-24",
+    "arxiv_url": "https://arxiv.org/abs/2611.32476",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2611.32101": {
+    "paper_id": "arxiv:2611.32101",
+    "arxiv_id": "2611.32101",
+    "title": "Ego2Real: Learning Bimanual Dexterous Manipulation from Egocentric Visuo-Tactile Demonstrations",
+    "abstract": "Learning dexterous manipulation from egocentric human demonstrations offers a scalable path toward robot skill acquisition. Vision alone, however, provides limited information about physical contacts and the demonstrator's force intent, leading to ambiguities in interpreting hand-object interactions. Capturing human touch via tactile sensing is therefore crucial for reliable human-to-robot dexterous skill transfer. We present Ego2Real, a framework that leverages egocentric demonstrations and tactile gloves to transfer bimanual dexterous manipulation skills to robotic hands. Ego2Real incorporates tactile supervision at two complementary stages: (1) tactile-guided hand-object interaction reconstruction, which uses measured tactile signals to refine hand poses and contact geometry; and (2) contact-informed reinforcement learning, which translates human contact patterns into robotic contact rewards. By combining refined motion references with physical contact rewards during training, Ego2Real guides anthropomorphic robotic hands to emulate demonstrated contact behaviors while adapting to their own morphology and actuation. Experiments show that incorporating tactile supervision into both reconstruction and policy learning yields higher manipulation success rates, underscoring the importance of enriching egocentric demonstrations with tactile observations to improve their quality and transferability.",
+    "date_basis": "initial_publication",
+    "authors": "Ange Bao, Haishan Zhang, Lingzi Xie, Shuang Li, Pei Zhao, Ling Shi, Bidan Huang",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-11-24",
+    "arxiv_url": "https://arxiv.org/abs/2611.32101",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2611.31782": {
+    "paper_id": "arxiv:2611.31782",
+    "arxiv_id": "2611.31782",
+    "title": "Many Senses, One World: Learning Hierarchical Multimodal World Representations for Bimanual Dexterous Manipulation",
+    "abstract": "Bimanual dexterous manipulation relies on multimodal inputs that capture visual context and non-visual physical interaction cues for precise and coordinated control. To address the challenge of effectively integrating these modalities for policy learning, we propose HiMoDex, a two-stage framework centered on hierarchical multimodal world-state representations. In Stage 1, we pretrain a hierarchical representation network on the collected dataset of 1.19 million synchronized multimodal time steps. The network integrates visual context with tactile, force-torque, and audio cues into unified world-state embeddings. In Stage 2, we freeze the pretrained network and use its embeddings to condition a shared world-action transformer. The transformer jointly learns action generation and action-conditioned future-state prediction. Experiments across five real-world tasks show that HiMoDex achieves an average success rate of 78.7\\%, representing an absolute improvement of 32.0\\% over the strongest evaluated baseline. Extensive ablations validate the benefits of hierarchical representation learning and two-stage training. Failure analysis helps explain performance differences across variants. Code, data, and demos will be released at https://anonymous.4open.science/w/research-website-BAB4/.",
+    "date_basis": "initial_publication",
+    "authors": "Jin Yang, Youlin Wang, Ping Wei",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-11-24",
+    "arxiv_url": "https://arxiv.org/abs/2611.31782",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "arxiv:2611.31535": {
+    "paper_id": "arxiv:2611.31535",
+    "arxiv_id": "2611.31535",
+    "title": "Hi3R-VLA: Grounding Semantics and Actions in 3D",
+    "abstract": "While recent vision-language-action (VLA) models increasingly incorporate 3D geometry, how to effectively exploit it for precise and generalizable action prediction remains a central challenge. We introduce Hi3R-VLA, a 3D policy that grounds heterogeneous modalities - vision, language, and action - in explicit 3D geometry for robotic manipulation. Our model integrates spatially-aligned visual features and language conditioning into point cloud representations, enriching scene geometry with fine-grained, task-relevant semantics. It then anchors low-level control commands in the same 3D coordinate frame and uses 3D-RoPE enhanced action-to-point attention over coarse-to-fine point features to model geometric relationships between action targets and observed points. Our analysis demonstrates the importance of semantic fusion within 3D and spatial alignment between observations and actions. With fewer than 250M trainable parameters, Hi3R-VLA achieves state-of-the-art performance on RoboCasa, RLBench, RoboTwin2, DexJoCo and DexSuite across diverse manipulation tasks and embodiments, from single-arm and dual-arm grippers to dexterous hands. Real-robot evaluations further demonstrate its effectiveness in the physical world. The model, code and dataset are publicly released at https://cshizhe.github.io/projects/hi3r_vla.html.",
+    "date_basis": "initial_publication",
+    "authors": "Shizhe Chen, Paul Pacaud, Cordelia Schmid",
+    "affiliations": [],
+    "journal_ref": "",
+    "doi": "",
+    "publish_date": "2026-11-23",
+    "arxiv_url": "https://arxiv.org/abs/2611.31535",
+    "source": "arxiv",
+    "matched_categories": [
+      "Dexterous-Hand"
+    ],
+    "matched_keywords": []
+  },
+  "doi:10.1109/lra.2024.3448218": {
+    "paper_id": "doi:10.1109/lra.2024.3448218",
+    "title": "Viiat-Hand: A Reach-and-Grasp Restoration System Integrating Voice Interaction, Computer Vision, Auditory and Tactile Feedback for Non-Sighted Amputees",
+    "abstract": "",
+    "authors": "Chunhao Peng, Dapeng Yang, Deyu Zhao, Ming Cheng, Jinghui Dai, Li Jiang",
+    "affiliations": [
+      "State Key Laboratory of Robotics and System, Harbin Institute of Technology, Harbin, China"
+    ],
+    "doi": "10.1109/lra.2024.3448218",
+    "publish_date": "2024-10",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2024.3448218",
+    "source": "crossref",
+    "first_seen_date": "2026-11-27",
+    "last_seen_date": "2026-11-27",
+    "print_publication_date": "2024-10",
+    "metadata_indexed_at": "2026-11-26T17:20:10Z"
+  },
+  "doi:10.1109/lra.2025.3572422": {
+    "paper_id": "doi:10.1109/lra.2025.3572422",
+    "title": "Tactile Object Recognition With Recurrent Neural Networks Through a Perceptive Soft Gripper",
+    "abstract": "",
+    "authors": "Enrico Donato, David Pelliccia, Matin Hosseinzadeh, Mahmood Amiri, Egidio Falotico",
+    "affiliations": [
+      "BRAin-Inspired Robotics (BRAIR) Lab, The BioRobotics Institute, Pontedera (PI), Italy",
+      "Department of Computer Science, University of Pisa, Pisa, Italy",
+      "Medical Technology Research Center, Institute of Health Technology, Kermanshah University of Medical Sciences, Kermanshah, Iran"
+    ],
+    "doi": "10.1109/lra.2025.3572422",
+    "publish_date": "2025-07",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2025.3572422",
+    "source": "crossref",
+    "first_seen_date": "2026-11-27",
+    "last_seen_date": "2026-11-27",
+    "print_publication_date": "2025-07",
+    "metadata_indexed_at": "2026-11-26T16:05:29Z"
+  },
+  "doi:10.1109/lra.2026.3675953": {
+    "paper_id": "doi:10.1109/lra.2026.3675953",
+    "title": "Grasp, Reason, Act: Tactile-Language Model for Zeroshot Sim2real Grasp Stability Prediction and Re-Grasping",
+    "abstract": "",
+    "authors": "Gang Yan, Jiaxian Guo, Khrapchenkov Petr, Zhongchao Zhou, Yaonan Zhu, Iwasawa Yusuke, Yutaka Matsuo",
+    "affiliations": [
+      "Matsuo-Iwasawa Laboratory, Department of Technology Management for Innovation, The University of Tokyo, Tokyo, Japan"
+    ],
+    "doi": "10.1109/lra.2026.3675953",
+    "publish_date": "2026-05",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2026.3675953",
+    "source": "crossref",
+    "first_seen_date": "2026-11-27",
+    "last_seen_date": "2026-11-27",
+    "print_publication_date": "2026-05",
+    "metadata_indexed_at": "2026-11-25T18:19:39Z"
+  },
+  "doi:10.1109/lra.2026.3692331": {
+    "paper_id": "doi:10.1109/lra.2026.3692331",
+    "title": "FlickerTac: Flickering LED Driven Photometric Stereo for Event Vision-Based Tactile Sensors",
+    "abstract": "",
+    "authors": "Mohamad Halwani, Akram Khairi, Hussain Sajwani, Eslam Sherif, Laith AbuAssi, Sajid Javed, Abdelqader Abusafieh, Abdulla Ayyad, Yahya Zweiri",
+    "affiliations": [
+      "Advanced Research and Innovation Center (ARIC), Abu Dhabi, UAE",
+      "Department of Computer Science, Khalifa University, Abu Dhabi, UAE"
+    ],
+    "doi": "10.1109/lra.2026.3692331",
+    "publish_date": "2026-07",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2026.3692331",
+    "source": "crossref",
+    "first_seen_date": "2026-11-27",
+    "last_seen_date": "2026-11-27",
+    "print_publication_date": "2026-07",
+    "metadata_indexed_at": "2026-11-25T18:01:32Z"
+  },
+  "doi:10.1109/lra.2022.3224309": {
+    "paper_id": "doi:10.1109/lra.2022.3224309",
+    "title": "Simplified Configuration Design of Anthropomorphic Hand Imitating Specific Human Hand Grasps",
+    "abstract": "",
+    "authors": "Xinyang Tian, Qiang Zhan, Yin Zhang, Junyi Zou, Lingxiao Jiang, Qinhuan Xu",
+    "affiliations": [
+      "Robotics Institute of Beihang University, Beijing, China",
+      "Beijing Electro-Mechanical Engineering Institute, Beijing, China"
+    ],
+    "doi": "10.1109/lra.2022.3224309",
+    "publish_date": "2023-01",
+    "date_precision": "month",
+    "date_basis": "print_publication",
+    "journal_ref": "IEEE Robotics and Automation Letters",
+    "journal_name": "IEEE Robotics and Automation Letters",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1109/lra.2022.3224309",
+    "source": "crossref",
+    "first_seen_date": "2026-11-27",
+    "last_seen_date": "2026-11-27",
+    "print_publication_date": "2023-01",
+    "metadata_indexed_at": "2026-11-24T21:41:58Z"
+  },
+  "doi:10.1177/0278364919883343": {
+    "paper_id": "doi:10.1177/0278364919883343",
+    "title": "Hand–object configuration estimation using particle filters for dexterous in-hand manipulation",
+    "abstract": "We consider the problem of in-hand dexterous manipulation with a focus on unknown or uncertain hand–object parameters, such as hand configuration, object pose within hand, and contact positions. In particular, in this work we formulate a generic framework for hand–object configuration estimation using underactuated hands as an example. Owing to the passive reconfigurability and the lack of encoders in the hand’s joints, it is challenging to estimate, plan, and actively control underactuated manipulation. By modeling the grasp constraints, we present a particle filter-based framework to estimate the hand configuration. Specifically, given an arbitrary grasp, we start by sampling a set of hand configuration hypotheses and then randomly manipulate the object within the hand. While observing the object’s movements as evidence using an external camera, which is not necessarily calibrated with the hand frame, our estimator calculates the likelihood of each hypothesis to iteratively estimate the hand configuration. Once converged, the estimator is used to track the hand configuration in real time for future manipulations. Thereafter, we develop an algorithm to precisely plan and control the underactuated manipulation to move the grasped object to desired poses. In contrast to most other dexterous manipulation approaches, our framework does not require any tactile sensing or joint encoders, and can directly operate on any novel objects, without requiring a model of the object a priori. We implemented our framework on both the Yale Model O hand and the Yale T42 hand. The results show that the estimation is accurate for different objects, and that the framework can be easily adapted across different underactuated hand models. In the end, we evaluated our planning and control algorithm with handwriting tasks, and demonstrated the effectiveness of the proposed framework.",
+    "authors": "Kaiyu Hang, Walter G. Bircher, Andrew S. Morgan, Aaron M. Dollar",
+    "affiliations": [
+      "Department of Mechanical Engineering and Material Science, Yale University, New Haven, CT, USA"
+    ],
+    "doi": "10.1177/0278364919883343",
+    "publish_date": "2019-10-17",
+    "date_precision": "day",
+    "date_basis": "online_publication",
+    "journal_ref": "The International Journal of Robotics Research",
+    "journal_name": "The International Journal of Robotics Research",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1177/0278364919883343",
+    "source": "crossref",
+    "first_seen_date": "2026-11-27",
+    "last_seen_date": "2026-11-27",
+    "abstract_source": "crossref",
+    "online_publication_date": "2019-10-17",
+    "print_publication_date": "2020-12",
+    "metadata_indexed_at": "2026-11-26T02:54:24Z"
+  },
+  "doi:10.1177/027836499000900302": {
+    "paper_id": "doi:10.1177/027836499000900302",
+    "title": "Planning for Dexterous Manipulation with Sliding Contacts",
+    "abstract": "Dexterous manipulation refers to the skillful execution of object reorienting and repositioning maneuvers, especially when performed within the grasp of an articulated mechani cal hand. In this paper we study the problem of gaining a secure and enveloping grasp of a two-dimensional object by exploiting sliding at the contacts between the object and the hand. This is done in two steps:first, choosing an initial grasp with which the object can be manipulated away from the support, and second, continuously altering the grasp so that envelopment is achieved. The plans generated by our technique could be executed with only position control. How ever, it would be prudent to incorporate contact force sensing to prevent damage during unexpected events. The main contributions of this paper are the derivation of liftability regions of a planar object for use in manipulation planning; the use of the lifting phase plane in manipulation planning; and the derivation of the quasi-static forward object motion problem, which provides a basis for general three- dimensional manipulation planning with rolling and/or sliding contacts.",
+    "authors": "J.C. Trinkle, R.P. Paul",
+    "affiliations": [
+      "Department of Systems and Industrial Engineering University of Arizona Tucson, Arizona 85721",
+      "Department of Computer and Information Science GRASP Laboratory University of Pennsylvania Philadelphia, Pennsylvania 19104"
+    ],
+    "doi": "10.1177/027836499000900302",
+    "publish_date": "1990-06-01",
+    "date_precision": "day",
+    "date_basis": "online_publication",
+    "journal_ref": "The International Journal of Robotics Research",
+    "journal_name": "The International Journal of Robotics Research",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1177/027836499000900302",
+    "source": "crossref",
+    "first_seen_date": "2026-11-27",
+    "last_seen_date": "2026-11-27",
+    "abstract_source": "crossref",
+    "online_publication_date": "1990-06-01",
+    "print_publication_date": "1990-06",
+    "metadata_indexed_at": "2026-11-26T02:53:49Z"
+  },
+  "doi:10.1177/027836499501400608": {
+    "paper_id": "doi:10.1177/027836499501400608",
+    "title": "Matching and Clustering: Two Steps Toward Automatic Object Modeling in Computer Vision",
+    "abstract": "In this article, we present a general frame for a system of au tomatic modeling and recognition of 3D polyhedral objects. Such a system has many applications for robotics: e.g., recog nition, localization, and grasping. Here we focus on one main aspect of the system: when many images of one 3D object are taken from different unknown viewpoints, how to recognize those that represent the same aspect of the object? Briefly, is it possible to determine automatically if two images are similar or not? The two stages detailed in the article are the matching of two images and the clustering of a set of images. Matching consists of finding the common features of two images while no information is known about the image contents, the motion, or the calibration of the camera. Clustering consists of regrouping into sets the images representing a same aspect of the modeled objects. For both stages, experimental results on real images are shown.",
+    "authors": "Patrick Gros",
+    "affiliations": [
+      "LIFIA-IMAC INRIA Rhône-Alpes 38031 Grenoble Cedex 1, France"
+    ],
+    "doi": "10.1177/027836499501400608",
+    "publish_date": "1995-12-01",
+    "date_precision": "day",
+    "date_basis": "online_publication",
+    "journal_ref": "The International Journal of Robotics Research",
+    "journal_name": "The International Journal of Robotics Research",
+    "publication_status": "journal_article",
+    "paper_url": "https://doi.org/10.1177/027836499501400608",
+    "source": "crossref",
+    "first_seen_date": "2026-11-27",
+    "last_seen_date": "2026-11-27",
+    "abstract_source": "crossref",
+    "online_publication_date": "1995-12-01",
+    "print_publication_date": "1995-12",
+    "metadata_indexed_at": "2026-11-25T12:50:16Z"
   }
 }
